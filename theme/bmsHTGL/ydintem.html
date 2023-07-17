@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浙江移动电渠运营管理系统</title>
+    <link rel="stylesheet" href="../../css/alert_shoucang.css?v=123">
+    <link rel="stylesheet" href="../../css/base1.css?v=331123123777"/>
+    <link rel="stylesheet" href="../../css/public1.css?v=331123777"/>
+    <link rel="stylesheet" href="../../css/ydintem.css?v=33112377"/>
+    <script src="../../js/jquery-1.7.2.min.js?v=33112377" type="text/javascript"></script>
+    <script src="../../js/index.js?v=33112377" type="text/javascript"></script>
+    <script src="../../js/alert_shoucang.js?v=123" type="text/javascript"></script>
+    <!-- 兼容  ie8 -->
+    <!--[if lte IE 8]>
+    <script src="./js/PIE.js"></script>
+    <![endif]-->
+    <style>
+    *{
+    	font-family: "Microsoft YaHei";
+    }
+    .alert_shoucang_box {
+   	margin-top:110px;
+   }
+    .big_li ul li:first-child img {
+    width: 17px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.per_col_mid {
+	margin-top:40px;
+}
+    </style>
+    
+</head>
+<body>
+	<!-- 蒙层 -->
+	<div class="all_box_mengceng"></div>
+    <div class="box_warp ">
+        <div class="box_header">
+            <div class="headers fn-clear">
+                <div class="header_left fn-left">
+                    <img src="../../images/ydlogo.png" alt="中国移动logo" /> 
+                    <div style="cursor:pointer">浙江移动电渠运营管理系统</div>
+                </div>
+                <div class="header_right fn-right">
+                 	<div class=" icon"><img class="new_collect" style="cursor:pointer"  src="../../images/shoucang.png" alt=""><span>|</span></div>
+                 	<div class=" icon"><img style="cursor:pointer" onclick="notice_click(1)" src="../../images/news_icon.png" alt=""><span>|</span></div>
+                    <div class=" icon"><img style="cursor:pointer" onclick="notice_click(2)"src="../../images/knowledge_icon.png" alt=""><span>|</span></div>
+                    <div class=" icon"><img style="cursor:pointer" src="../../images/return_index.png" alt=""><span>|</span></div>
+                    <div class="user_wrap">
+                        <div class="user_name" id="ydintemUsername"></div>
+                        <div class="triangle"  style="cursor:pointer">
+                            <div class="content"><img src="../../images/down_img.png"/></div>
+                            <div class="content1 fn-hide"><img src="../../images/up_img.png"/></div>
+                        </div>
+                    </div>
+                    <div class="login_state fn-hide">
+                        <div class="content2"></div>
+                        <div class="content3 ">
+                            <div id="div_grzx" style="cursor:pointer" onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">个人中心</div>
+                            <div id="div_tc" style="cursor:pointer" onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">退出</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="news">
+                <div class="news_left">
+                    <div>
+                        <span>最新公告</span><img src="../../images/Hot.png" alt="">
+                    </div>
+
+                </div>
+                <div class="news_list">
+                    <ul >
+                        <!-- <li> <span class="news_date">[2019-3-27] </span> <span
+                                class="news_title">1111关于2019年第二季度考核工作安排通知</span> </li>
+                        <li> <span class="news_date">[2019-3-27] </span> <span
+                                class="news_title">222关于2019年第二季度考核工作安排通知</span> </li>
+                        <li> <span class="news_date">[2019-3-27] </span> <span
+                                class="news_title">333关于2019年第二季度考核工作安排通知</span> </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+<!-- 收藏编辑页 -->
+			<div class="alert_shoucang_box">
+                <ul class="alert_title_box">
+                </ul>
+                <div class="content_box_alert">
+                    <ul class="yiji">
+                    </ul>
+                </div>
+                <div class="j-shouqi_img shouqi_img">
+					<img src="../../images/shouqi_btn.png" alt="">
+				</div>
+            </div>
+           <!--  收藏alert end -->
+           <div class="big_mid_content">
+	           <div class="content_wrap fn-clear">
+	                           
+	            </div>
+           </div>
+            
+        </div>
+        <div class="footer_nav">
+            <div class="nav_title">
+                网站导航
+            </div>
+            <div class="nav_list fn-clear">
+                <ul id="ul">
+                </ul>
+            </div>
+        </div>
+        <!-- 收藏中间页 -->
+    <div class="j-click_none all_per_mid" onclick="clickDiv()">
+        <div class="per_col_mid" onclick="clickP(event)">
+                <div class="hed_title">
+                    <span>个人收藏</span>
+                    <img class="j-setup" src="../../images/set_up.png" alt="">
+                </div>
+                <ul id='collected_list'>
+                </ul>
+            </div>
+      </div>
+     <script>
+        $(function () {
+            var content_height = $(document).height() - 200;
+            $(".big_mid_content").height(content_height);
+            var top_height = (content_height - 334) / 2 - 20 ;
+            var left_width = ($(document).width() - 875 )/2 -25;
+            $(".content_wrap").css("top",top_height);
+            $(".content_wrap").css("left",left_width);
+        })
+    </script>
+</body>
+
+</html>

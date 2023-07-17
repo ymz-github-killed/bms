@@ -1,0 +1,302 @@
+<!--#include virtual="/include/header.html"-->
+
+
+
+<div class="content">
+     <div class="space-50"></div>
+     <div class="UserManageLine" style="margin:0 auto">
+          <span style="width:auto">管理结构树</span>
+     </div>
+     
+     <div class="newUser">
+     		
+          
+          <div class="submitBtn" style=" padding-left:56px; text-align:right">
+          <div class="space-30"></div>
+          <input type="button" value="绑定结构树"  id="isread-text2"  style="margin-right:10px;"  />
+          <input type="button" value="新增结构树"  id="isread-text"  style="margin-right:10px;"  />
+          <input type="button" value="返回" style="margin-right:50px; background-color:#dfdfdf; color:#4c4c4c"  onclick="location.href='/systemManage/mouldManage.html'" />
+          <div class="space-25"></div>
+     </div>
+         <div class="mx_list" style="width:880px">
+          <table class="mx_list_table edit_table" border="0" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                    <th style="width:30%">逻辑树图</th>
+                    <th>一级类目</th>
+                    <th width="50%">二级类目</th>
+                    <th width="10%">操作</th>
+                                      
+                </tr>
+                <tr>
+                	<td><span>套餐品牌类</span><input class="dis_input" type="text" value="套餐品牌类"/></td>
+                    <td><span>套餐包</span><input class="dis_input" type="text" value="套餐包" /></td>
+                    <td><span>流量半年包</span><input class="dis_input" type="text" value="流量半年包" /> | <span>流量全年包</span><input class="dis_input" type="text" value="流量全年包" /></td>
+                    <td><a href="javascript:;" class="edit_btn">确定</a></td>
+               	 </tr>
+                
+                <tr>
+                	<td><span>营销</span><input class="dis_input" type="text" value="营销" /></td>
+                    <td><span>产品</span><input class="dis_input" type="text" value="产品" /></td>
+                    <td><span>业务</span><input class="dis_input" type="text" value="业务" /></td>
+                    <td><a href="javascript:;" class="edit_btn">确定</a></td>
+                </tr>
+                
+                 <tr>
+                	<td><span>活动促销类</span><input class="dis_input" type="text" value="活动促销类" /></td>
+                    <td><span>手机</span><input class="dis_input" type="text" value="手机" /></td>
+                    <td><span>苹果</span><input class="dis_input" type="text" value="苹果" /> | <span>三星</span><input class="dis_input" type="text" value="三星" /> | <span>小米</span><input class="dis_input" type="text" value="小米" /></td>
+                    <td><a href="javascript:;" class="edit_btn">确定</a></td>
+                </tr>
+                
+                 <tr>
+                	<td><span>基础产品</span><input class="dis_input" type="text" value="基础产品" /></td>
+                    <td><span>产品</span><input class="dis_input" type="text" value="产品" /></td>
+                    
+                    <td><span>基础业务</span><input class="dis_input" type="text" value="基础业务"/> | <span>增值业务</span><input class="dis_input" type="text" value="增值业务" /></td>
+                    <td><a href="javascript:;" class="edit_btn">确定</a></td>
+                </tr>
+               
+                        
+            </tbody></table>
+     </div>
+          <div class="clr"></div>
+          <div class="space-50"></div>
+     </div>
+    
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+
+<!--弹层-->
+<div class="transact_tc_box"  id="arry">
+     <div class="transact_tc_t">
+          <dl class="close_t">
+              <dt>增加结构树</dt>
+              <dd><a href="javascript:;"  title="关闭" class="closeTransact"></a></dd>
+          </dl>
+     </div>
+     <div class="transact_tc_c">
+          <div class="space-30"></div>
+       <div class="newUserC" style="text-align:center">
+           <dl class="myNewDl">
+                   <dt>模版名称：</dt>
+                   <dd>
+                        <select>
+                        	<option selected="selected" value="1">逻辑树</option>
+                            <option value="2">一级类目</option>
+                            <option value="3">二级类目</option>
+                        </select>
+                   </dd>
+            </dl>
+             <dl class="myNewDl" id="lj_tree" style="display:none">
+                   <dt>逻辑树：</dt>
+                   <dd>
+                        <ul class="noBg" style="height:150px; width:330px; overflow-y:scroll;">
+                            <li class="hover"><label><input type="checkbox">套餐11品牌类</label></li>
+                            <li><label><input  type="checkbox">营销</label></li>
+                            <li><label><input  type="checkbox">基础产品</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                             <li><label><input  type="checkbox">营销</label></li>
+                            <li><label><input  type="checkbox">基础产品</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                             <li><label><input  type="checkbox">营销</label></li>
+                            <li><label><input  type="checkbox">基础产品</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                             <li><label><input  type="checkbox">营销</label></li>
+                            <li><label><input  type="checkbox">基础产品</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                            <li><label><input  type="checkbox">活动促销类</label></li>
+                            <li><label><input  type="checkbox">活动促销2类</label></li>
+                        </ul>
+                   </dd>
+            </dl>
+            
+            <dl class="myNewDl" id="yjlm" style="display:none">
+                   <dt>一级类目：</dt>
+                   <dd>
+                        <select>
+                        	<option selected="selected">套餐包</option>
+                            <option>产品</option>
+                            <option>手机</option>
+                        </select>
+                   </dd>
+            </dl>
+            
+             <dl class="myNewDl">
+                   <dt>类目名称：</dt>
+                   <dd>
+                       <input type="text" value="" class="ManageInput" />
+                   </dd>
+            </dl>
+       </div>
+         
+          <div class="button_group" style="width:498px">
+            <ul>
+                <li class="closeTransact"> 提交</li>
+                <li style="margin-right:0" class="closeTransact btn_other"> 返回</li>
+            </ul>
+     	  </div>
+     </div>
+</div>
+
+
+<div class="transact_tc_box"  id="arry2">
+     <div class="transact_tc_t">
+          <dl class="close_t">
+              <dt>绑定结构树</dt>
+              <dd><a href="javascript:;"  title="关闭" class="closeTransact"></a></dd>
+          </dl>
+     </div>
+     <div class="transact_tc_c">
+          <div class="space-30"></div>
+       <div class="newUserC" style="text-align:center">
+           <dl class="myNewDl">
+                   <dt>逻辑树名称：</dt>
+                   <dd>
+                        <select>
+                        	<option selected="selected" value="1">逻辑树</option>
+                            <option value="2">一级类目</option>
+                            <option value="3">二级类目</option>
+                        </select>
+                   </dd>
+            </dl>
+             <dl class="myNewDl" id="lj_tree" >
+                   <dt>一级类目：</dt>
+                   <dd>
+                        <ul class="noBg">
+                            <li class="hover"><input type="checkbox">套餐品牌类</li>
+                            <li><input  type="checkbox">营销</li>
+                            <li><input  type="checkbox">基础产品</li>
+                            <li><input  type="checkbox">活动促销类</li>
+                            <li><input  type="checkbox">活动促销类</li>
+                            <li><input  type="checkbox">活动促销类</li>
+                            
+                        </ul>
+                   </dd>
+            </dl>
+            
+            <dl class="myNewDl" id="yjlm" style="display:none">
+                   <dt>一级类目：</dt>
+                   <dd>
+                        <select>
+                        	<option selected="selected">套餐包</option>
+                            <option>产品</option>
+                            <option>手机</option>
+                        </select>
+                   </dd>
+            </dl>
+            
+             <dl class="myNewDl" style="display:none">
+                   <dt>类目名称：</dt>
+                   <dd>
+                       <input type="text" value="" class="ManageInput" />
+                   </dd>
+            </dl>
+       </div>
+         
+          <div class="button_group" style="width:498px">
+            <ul>
+                <li class="closeTransact"> 提交</li>
+                <li style="margin-right:0" class="closeTransact btn_other"> 返回</li>
+            </ul>
+     	  </div>
+     </div>
+</div>
+
+
+
+<script>
+/*var id = 1;
+var html ;
+$("#showIdBtn").on("click",function(){
+	a = id++;
+    html = '<dl class="UserManageDl closeS">';
+    html += '<dt>自定义字段'+a+'：</dt><dd><input class="ManageInput" type="text" value="类型" />'
+    html += '<select class="select2"><option>新增多选</option><option>总部系统管理员</option><option>省份系统管理员</option>'
+    html += '<option><option>总部客服</option><option>省份客服</option></select><a href="javascript:;" class="del">删除</a></dd></dl>'
+	$("#showText").append(html)
+});
+
+$(".del").live("click",function(){
+	$(this).parents(".closeS").remove();
+});*/
+
+$(function(){
+	$("dl.myNewDl").eq(0).change(function(){
+		//alert(0)
+		var _select = $(this).find("select");
+		if(_select.val()== 1)
+		{
+			$("#lj_tree").hide();
+			$("#yjlm").hide();
+			
+		}
+		else if(_select.val()== 2)
+		{
+			$("#lj_tree").show();
+			$("#yjlm").hide();
+		}
+		else if(_select.val()== 3)
+		{
+			$("#lj_tree").hide();
+			$("#yjlm").show();
+		}
+	})
+})
+$(".edit_table td span").dblclick(function(){
+	$(this).hide();
+	$(this).next(".dis_input").show().focus();
+	
+})
+/*$(".dis_input").blur(function(){
+	var text = $(this).prev("span").text();
+	if(this.value == "")
+	{
+		$(this).hide();
+		$(this).prev("span").show();
+	}
+	
+})*/
+
+var i_value;
+$(".edit_btn").click(function(){
+	
+	if(confirm("确定修改数据吗？"))
+	{
+		$(this).parent("td").siblings("td").find("input").each(function(index, element) {
+        //console.info(this.value)
+		$(this).hide();
+		i_value = $(this).val();
+		
+		$(this).prev("span").text(this.value).show();
+        });
+	}
+	else
+	{
+		console.info(i_value)
+		$(this).parent("td").siblings("td").find("input").each(function(index, element) {
+        var value = i_value;
+		
+		$(this).hide();
+		$(this).prev("span").text(value).show();
+        });
+		
+		//return false
+	}
+	
+})
+
+</script>
+
+</body>
+</html>
+

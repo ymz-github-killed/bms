@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>数据配置</span>&nbsp;&gt;&nbsp;<span>数据权限</span></div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox mt20 bord_gray">
+      <tr>
+        <td align="right">字典编码：&nbsp;</td>
+        <td><input class="input_normal w160"/></td>
+        <td align="right">状态：&nbsp;</td>
+        <td>
+			<dl class="selectbox" style="z-index: 1;">
+				<dt ><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+				<dd>
+				<p class="sel">树形</p>
+				<p>列表</p>
+				</dd>
+			</dl>
+        </td>
+        <td colspan="2" align="right"><p class="mr20"><a href="javascript:;" class="bt_blue"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20"><span>重置</span></a></p></td>
+      </tr>
+    </table>
+    <p class="overflow text_r mt10"><a href="newSjqx.html" class="bt_blue ml10"><span>新增数据权限</span></a><a href="javascript:;" class="bt_blue ml10" onclick="show('cover','delete')"><span>批量删除</span></a></p>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt15 tb_content1">
+      <tr>
+        <th width="30"><input class="checkedAll" type="checkbox"  name="items" /></th>
+        <th>权限编码</th>
+        <th>权限名称</th>
+        <th>所属字典</th>
+        <th>所属功能</th>
+        <th>启用状态</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td><input  type="checkbox"  name="items" /></td>
+        <td>a123456</td>
+        <td>aaaa</td>
+        <td>pay_dic_appcode</td>
+        <td>weblogic3.2.4</td>
+        <td>启用</td>
+        <td><a href="newSjqx.html" class="ml10">编辑</a><a href="javascript:;" class="ml10" onclick="show('cover','delete')">删除</a><a href="sjqxck.html" class="ml10">查看</a></td>
+      </tr>
+    </table>
+    <div class="page middle">
+    	<div class="fl"><label>找到</label><label>3</label><label>条记录, 显示</label><label>1</label><label>到</label><label>3</label></div>
+        <div class="fr"><label>首页</label><label>上一页</label><label>下一页</label><label>末页</label><input type="text" class="text_8" /><a href="javascript:;" class="bt_blue"><span>GO</span></a></div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--用户配置 开始-->
+<div class="pop" id="yhpz">
+	<!--弹出层 头部定位 开始-->
+	<div class="popPR">
+        <div class="popTitle"><span class="close fr" onclick="hide('cover','yhpz')"></span><strong class="font14 fl">用户配置</strong><div class="clear"></div></div>
+        <div class="clear"></div>
+        <div class="popTOP bg_cff">
+            <div class="bg_ea mt10 mb10">
+                <p class="blue lineh30 pl10">当前角色对应的用户列表：</p>
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox bord_gray">
+              <tr>
+                <td align="right">登录名：&nbsp;</td>
+                <td><input class="input_normal w160"/></td>
+                <td align="right">真实姓名：&nbsp;</td>
+                <td><input class="input_normal w160"/></td>
+                <td align="right">性别：&nbsp;</td>
+                <td>
+                	<dl class="selectbox" style="z-index: 1;">
+						<dt ><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+						<dd>
+						<p class="sel">男</p>
+						<p>女</p>
+						</dd>
+					</dl>
+                </td>
+			  </tr>
+              <tr>
+              	<td align="right">状态：&nbsp;</td>
+                <td>
+                	<dl class="selectbox" style="z-index: 100003;">
+						<dt ><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+						<dd>
+						<p class="sel">正常</p>
+						<p>停用</p>
+						</dd>
+					</dl>
+                </td>
+                <td colspan="5"><a href="javascript:;" class="bt_blue ml20"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20"><span>重置</span></a><a href="javascript:;" class="bt_blue ml20" onclick="hide('cover','yhpz');showTB('cover','addJsUser');popTable('addJsUser')"><span>添加用户</span></a></td>
+              </tr>
+            </table>
+            <p class="overflow text_r mt10"><a href="javascript:;" class="bt_blue ml10" onclick="show('cover','delete')"><span>批量删除</span></a></p>
+        </div>
+    </div>
+    <!--弹出层 头部定位 结束-->
+    <!--弹出层 表格 开始--> 
+	<div class="popInfoBox">
+    	<div class="glbmTable mb10 w271">
+            <!--最多发5条数据-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_content1 bg_cff">
+                <tbody>
+                    <tr>
+                        <th width="5%"><input class="checkedAll" type="checkbox"  name="items" /></th>
+                        <th>登录名</th>
+                        <th>真实姓名</th>
+                        <th>性别</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                        <td><a href="javascript:;" class="bt_blue" onclick="show('cover','delete')"><span>删除</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                        <td><a href="javascript:;" class="bt_blue" onclick="show('cover','delete')"><span>删除</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                        <td><a href="javascript:;" class="bt_blue" onclick="show('cover','delete')"><span>删除</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                        <td><a href="javascript:;" class="bt_blue" onclick="show('cover','delete')"><span>删除</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                        <td><a href="javascript:;" class="bt_blue" onclick="show('cover','delete')"><span>删除</span></a></td>
+                    </tr>
+                </tbody>
+			</table>
+        </div>
+	</div>
+    <!--弹出层 表格 结束-->
+	<div class="page middle">
+		<div class="fl"><label>找到</label><label>3</label><label>条记录, 显示</label><label>1</label><label>到</label><label>3</label></div>
+		<div class="fr"><label>首页</label><label>上一页</label><label>下一页</label><label>末页</label><input type="text" class="text_8" /><a href="javascript:;" class="bt_blue"><span>GO</span></a></div>
+		<div class="clear"></div>
+	</div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue" onclick="hide('cover','yhpz')"><span>授权</span></a><a href="javascript:;" class="mr10 bt_blue" onclick="hide('cover','yhpz')"><span>返回</span></a></div>
+    
+</div>
+<!--用户配置 结束-->
+
+<!--用户配置 添加用户 开始-->
+<div class="pop" id="addJsUser">
+	<!--弹出层 头部定位 开始-->
+	<div class="popPR">
+        <div class="popTitle"><span class="close fr" onclick="hide('cover','addJsUser')"></span><strong class="font14 fl">用户配置&nbsp;&gt;&nbsp;添加用户</strong><div class="clear"></div></div>
+        <div class="clear"></div>
+		<div class="popTOP bg_cff">
+            <div class="bg_ea mt10 mb10">
+                <p class="blue lineh30 pl10">添加用户列表：</p>
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox mt10 bord_gray">
+            	<tr>
+                    <td align="right">登录名：&nbsp;</td>
+                    <td><input class="input_normal w160"/></td>
+                    <td align="right">真实姓名：&nbsp;</td>
+                    <td><input class="input_normal w160"/></td>
+                    <td align="right">性别：&nbsp;</td>
+                    <td>
+                        <dl class="selectbox" style="z-index: 1;">
+                            <dt ><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+                            <dd>
+                            <p class="sel">男</p>
+                            <p>女</p>
+                            </dd>
+                        </dl>
+                    </td>
+				</tr>
+				<tr>
+                    <td align="right">状态：&nbsp;</td>
+                    <td>
+                        <dl class="selectbox" style="z-index: 100003;">
+                            <dt ><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+                            <dd>
+                            <p class="sel">正常</p>
+                            <p>停用</p>
+                            </dd>
+                        </dl>
+                    </td>
+                    <td colspan="5"><a href="javascript:;" class="bt_blue ml20"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20"><span>重置</span></a></td>
+            	</tr>
+            </table>
+            <p class="overflow text_r mt10"><a href="javascript:;" class="bt_blue ml10" onclick="hide('cover','addJsUser');show('cover','yhpz')"><span>授权</span></a></p>
+		</div>
+    </div>
+    <!--弹出层 头部定位 结束-->
+    <!--弹出层 表格 开始-->
+	<div class="popInfoBox">
+		<div class="glbmTable mb10 w271">
+		<!--最多发5条数据-->
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_content1 bg_cff">
+                <tbody>
+                    <tr>
+                        <th width="5%"><input class="checkedAll" type="checkbox"  name="items" /></th>
+                        <th>登录名</th>
+                        <th>真实姓名</th>
+                        <th>性别</th>
+                        <th>状态</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                        <td>女</td>
+                        <td>正常</td>
+                    </tr>
+                </tbody>
+			</table>
+		</div>
+    </div>
+    <!--弹出层 表格 结束-->
+    <div class="page middle">
+		<div class="fl"><label>找到</label><label>3</label><label>条记录, 显示</label><label>1</label><label>到</label><label>3</label></div>
+		<div class="fr"><label>首页</label><label>上一页</label><label>下一页</label><label>末页</label><input type="text" class="text_8" /><a href="javascript:;" class="bt_blue"><span>GO</span></a></div>
+		<div class="clear"></div>
+	</div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="bt_blue" onclick="hide('cover','addJsUser');show('cover','yhpz')"><span>返回</span></a></div>
+</div>
+<!--用户配置 添加用户 结束-->
+
+<!--权限配置 开始-->
+<div class="pop" id="qxpz">
+	<div class="popTitle"><span class="close fr" onclick="hide('cover','qxpz')"></span><strong class="font14 fl">权限配置</strong><div class="clear"></div></div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+	<div class="" style=" padding:0 10px; height:300px;">
+        <div style=" margin:10px auto">
+        <!--tab 开始-->
+            <div style=" overflow:hidden">
+                <p id="tab1" class="fl hover"><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">功能权限</span><span class="titleRight fl"></span></p><p id="tab2" class="fl" ><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">功能权限</span><span class="titleRight fl"></span></p>
+                
+            </div>
+            <div class="clear"></div>
+            <div class="borblr pl10 pr10 pb10" style=" width:814px;">
+            	<div id="tab_1">
+                <p class="middle borb_xu mb10 pt5 pb5"><span>请勾选下列权限名称，对</span><strong class="blue">研发经理超级管理</strong><span>角色进行授权：</span></p>
+            		<div>
+                    	<div class="shuBox bord_gray" style=" height:180px;"><img src="../../images/shu.png" /></div>
+                    </div>
+                </div>
+                <div id="tab_2" class="undis">
+                <p class="middle borb_xu mb10 pt5 pb5"><span>请勾选下列数据字典名称，再选择对应的数据,对</span><strong class="blue">研发经理超级管理</strong><span>角色进行数据授权：</span></p>
+            		<div class="fl">
+                    	<p class="lineh20"><strong>数据字典选择：</strong></p>
+                        <div class="shuBox bord_gray" style=" height:160px;"><img src="../../images/shu.png" /></div>
+                    </div>
+                    <div class="fl ml10">
+                    	<p class="lineh20"><strong>数据选择：</strong></p>
+                        <div class="shuBox bord_gray" style=" height:160px;">
+                            <ul>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能1</span></li>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能2</span></li>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能3</span></li>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能4</span></li>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能5</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <!--tab 开始-->
+        </div>
+    </div>
+    <div class="text_c mt10 mb10"><a href="javascript:;" class="bt_blue ml10"><span>提交授权</span></a><a href="javascript:;" class="bt_blue ml10"><span>全部选择</span></a><a href="javascript:;" class="bt_blue ml10"><span>全部取消</span></a><a href="javascript:;" class="bt_blue ml10" onclick="hide('cover','qxpz')"><span>返回</span></a></div>
+</div>
+<!--权限配置 结束-->
+
+<!--确定要删除 开始-->
+<div class="pop" id="delete" style=" width:300px;">
+	<div class="popTitle"><span class="close fr" onclick="hide('cover','delete')"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c">确定要删除吗？</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue" onclick="hide('cover','delete');show('cover','deleteCg')"><span>确定</span></a><a href="javascript:;" class="mr10 bt_blue" onclick="hide('cover','delete')"><span>取消</span></a></div>
+</div>
+<!--确定要删除 结束-->
+<!--删除成功 开始-->
+<div class="pop" id="deleteCg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr" onclick="hide('cover','deleteCg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c">删除成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue" onclick="hide('cover','deleteCg')"><span>确定</span></a></div>
+</div>
+<!--删除成功 结束-->
+</body>
+<script type="text/javascript">
+	$(function(){
+		//权限配置 弹出切换 开始
+		$("#tab1").click(function(){
+			$("#tab_1").show();
+			$("#tab_2").hide();
+			$(this).addClass("hover");
+			$(this).next().removeClass("hover");
+		})
+		$("#tab2").click(function(){
+			$("#tab_2").show();
+			$("#tab_1").hide();
+			$(this).addClass("hover");
+			$(this).prev().removeClass("hover");
+		})
+		//权限配置 弹出切换 开始
+	})
+</script>
+
+</html>

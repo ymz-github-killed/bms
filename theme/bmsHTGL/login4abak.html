@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+<meta content="" name="description">
+<meta content="" name="keywords">
+<title>吉林移动终端电子交易平台</title>
+<!-- Bootstrap -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/public2.css" rel="stylesheet">
+    <style>
+  .login_box .form-group input {
+    height: 14px;
+    line-height: 14px;
+    padding: 14px 3px;
+    width: 100%;
+    box-sizing: inherit;
+    outline: none;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+    </style>
+</head>
+<body style="background: #fff;">
+<div id="error_mess" class="error_mess" style="display:none">您的密码输入有误！</div>
+<div id="error_mess1" class="error_mess" style="display:none">验证码发送成功,请注意查收！</div>
+
+<!--top开始-->
+<div class="top"> 
+  <h4><span class="title">登录</span></h4>
+</div>
+<!--top结束--> 
+<!--登录开始-->
+
+<!-- <ul class="logintab" id="login">
+  <li class="active" onClick="nTabs(this,0,'active','normal')" id="mai1">买家登录</li>
+  <li class="normal" onClick="nTabs(this,1,'active','normal')" id="mai4">卖家登录</li>
+</ul> -->
+<div class="login">
+  <div class="login_box">
+    <div id="login_Content0" style="display:block" class="buy_box">
+      <form id="buy_login_form" method="post" action="">
+        <div class="form-group form-group1">
+          <label><img src="theme/bmsHTGL/images/logoico1.png"></label>
+          <p class="phone">
+            <input type="text" value="" placeholder="请输入您的账户名" />
+            <i></i> </p>
+          <div class="clear"></div>
+        </div>
+        <div class="form-group form-group1">
+          <label><img src="theme/bmsHTGL/images/logoico2.png"></label>
+          <p class="phone">
+            <input type="text" value="" placeholder="请输入您的登录密码" />
+            <i></i> </p>
+          <div class="clear"></div>
+        </div>
+     
+        <div class="form-group">
+          <p style="margin-left:0;padding:0"> <span class="p_left form-group1" style="line-height: 40px;">
+            <input type="text" value="" placeholder="请输入验证码"/>
+            <i></i> </span> <span class="p_right"> <input type="button" value="获取验证码" style="border: 1px solid #ddd;background: #ddd;outline: none;height: 44px;" onclick="time(this);"/></span> </p>
+          <div class="clear"></div>
+        </div>
+        <!-- <a href="wjmm.html">忘记密码？</a> -->
+        <p class="btn btn-primary mt10 login_btn zypd">登录</p>
+        
+        <div class="txtcenter mt10"><a href="dlxy.html">登录协议</a></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--登录结束--> 
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="../../js/jquery-1.7.2.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="../../js/TouchSlide.1.1.js"></script> 
+<script src="../../js/jquery.flexslider-min.js"></script> 
+<script src="../../js/public2.js"></script> 
+</body>
+<script>
+	var wait=60;
+	
+	function time(o) {
+		$.post(basePath+"login4a/yzmCheck.controller",
+			   jQuery("#buy_login_form").serializeArray(),
+			   function(data){
+				alert(data+"ss");
+			
+		});
+	}
+	
+	$(".yznebtn").click(function() {
+		$('.login_btn').click(function() {
+			if ($('#login_Content0').is(':visible')) {
+				$('#mai1').css({
+					'width' : '100%'
+				});
+				$('#mai4').css({
+					'display' : 'none'
+				});
+			} else {
+				$('#mai4').css({
+					'width' : '100%'
+				});
+				$('#mai1').css({
+					'display' : 'none'
+				});
+			}
+			$(this).parent().children().hide();
+			$(this).parent().children().eq(2).show();
+			$(this).parent().children().eq(5).show();
+			$(this).show();
+
+			$(this).unbind('click');
+			if ($(this).hasClass('zypd')) {
+				$(this).on('click', function() {
+
+					window.location.href = 'index.html'
+				});
+
+			} else {
+				$(this).on('click', function() {
+
+					window.location = 'index_seller.html'
+				});
+
+			}
+		});
+	});
+</script>
+</html>

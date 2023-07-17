@@ -1,0 +1,308 @@
+<!--#include virtual="/include/header.html"-->
+
+
+<div class="content_1">
+     <div class="space-50">
+     	<!--<div class="return_btn" onclick="location.href='/insideEditorial/manager.html'"><img src="../images/return.gif" width="75" height="40" /></div>-->
+  </div>
+     <div class="bar">
+     	<ul class="ulbar" style="height:auto">
+        	<li class="on"><i>1</i><b>采编</b></li>
+            <li class="on"><i>2</i><b>审核</b></li>
+            <li><i>3</i><b>发布</b></li>
+            <li><i>4</i><b>下线</b></li>
+            
+        </ul>
+        
+      
+     </div>	
+     <div class="title_wb">
+     	<h2>基本信息</h2>
+     </div>
+     <div class="mx_list" style="width:880px">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tr>
+                    <th>任务ID</th>
+                    <td>ABC100101001010</td>
+                    <th>所属任务</th>
+                    <td>什么是T值？什么是M值？</td>
+                    
+                </tr>
+                <tr>
+                	<th>采编账号</th>
+                    <td>工号9527</td>
+                    <th>采编地市</th>
+                    <td>广州</td>
+                </tr>
+                <tr>
+                	<th>任务类型</th>
+                    <td>采编任务/审核任务</td>
+                    <th>采编范围</th>
+                    <td>总部采编</td>
+                </tr>
+                <tr>
+                	<th>知识数量</th>
+                    <td>10条（5条已通过）</td>
+                    <th>任务时限</th>
+                    <td>48小时</td>
+                </tr>
+                 <tr>
+                	<th>下发地市</th>
+                    <td>省中心</td>
+                    <th>审核时限</th>
+                    <td>2小时</td>
+                </tr>
+                 <tr>
+                	<th>任务等级</th>
+                    <td>紧急</td>
+                    <th>采编时限</th>
+                    <td>2小时</td>
+                </tr>
+                <tr>
+                	<th>当前状态</th>
+                    <td><span style="color:#ff0000">审核中</span></td>
+                    <th>有效期限</th>
+                    <td>2014-11-15 10;30 至 2014-11-15 10：30</td>
+                </tr>
+               
+            </table>
+     </div>
+    
+	 <div class="title_wb">
+     	<h2>附件信息</h2>
+     </div>
+     
+      <div class="mx_list" style="width:880px">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tr>
+                    <th>附件名称</th>
+                    <th>操作</th>
+                                      
+                </tr>
+                <tr>
+                	<td>某某某下发业务文件.doc</td>
+                    <td><a href="#">下载</a></td>
+                   
+                </tr>
+                <tr>
+                	<td>某某某下发业务文件.doc</td>
+                    <td><a href="#">下载</a></td>
+                  
+                </tr>
+                <tr>
+                	<td>某某某下发业务文件.doc</td>
+                    <td><a href="#">下载</a></td>
+                </tr>          
+            </table>
+     </div>
+     <div class="title_wb">
+     	<h2>知识列表</h2>
+     </div>
+     
+      <div class="mx_list" style="width:880px">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tr>
+                    <th></th>
+                    <th>序号</th>
+                    <th>知识名称</th>
+                    <th>状态</th>
+                    <th>操作</th>                  
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="checkbox03"/></td>
+                    <td>1</td>
+                    <td onclick="location.href='/insideEditorial/viewStruct.html'">某某某下发业务文件</td>
+                    <td>已通过</td>
+                    <td>
+                    	<a href="/insideEditorial/viewStruct.html" class="blue_a">查看</a>
+                       
+                    </td>
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="checkbox03"/></td>
+                    <td>2</td>
+                    <td onclick="location.href='/insideEditorial/viewStruct.html'">某某某下发业务文件</td>
+                    <td>未通过</td>
+                    <td>
+                    	<a href="/insideEditorial/viewStruct1.html" class="blue_a">查看</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="checkbox03" /></td>
+                    <td>3</td>
+                    <td onclick="location.href='/insideEditorial/viewStruct.html'">某某某下发业务文件</td>
+                    <td>已通过</td>
+                    <td>
+                    	<a href="/insideEditorial/viewStruct.html" class="blue_a">查看</a>
+                      
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th><input type="checkbox" id="check_all2" /></th>
+                    <th colspan="4" style="text-align:left">
+                    	<div class="btn_check" id="isread-text">批量审核</div>
+                    </th>
+                                  
+                </tr>        
+            </table>
+     </div>
+    
+     <div class="button_group">
+     	<ul>
+        	<li onclick="location.href='/insideEditorial/structEditing.html'">采编</li>
+            <li onclick="location.href='/insideEditorial/viewStruct.html'">审核</li>
+            <li id="upLine">上线</li>
+            <li  onclick="location.href='/insideEditorial/editingTask.html'">编辑任务</li>
+            <li onclick="location.href='/insideEditorial/EditOperationRecord.html'">任务操作记录</li>
+            <li class="btn_other" style=" margin-right:0;" onclick="location.href='/insideEditorial/editingTask.html'">撤回</li>
+        </ul>
+     </div>
+     <div class="clr"></div>
+     <div class="space-30"></div>
+     <div style="text-align:center; margin-top:50px;">
+     	
+        
+        <a id="isread-text2" href="javascript:;" style="color:blue;margin-right:100px; text-decoration:underline">审核通过</a>
+        
+        <a id="isread-text3" href="javascript:;" style="color:blue; text-decoration:underline">审核不通过</a>
+     </div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+
+<!--弹层-->
+<div class="transact_tc_box"  id="arry">
+     <div class="transact_tc_t">
+          <dl class="close_t">
+              <dt>审核信息</dt>
+              <dd><a href="javascript:;"  title="关闭" class="closeTransact"></a></dd>
+          </dl>
+     </div>
+     <div class="transact_tc_c">
+          <div class="space-30"></div>
+          <div class="newUserC">
+               <dl class="UserManageDl UserTcDl" style="height:60px;">
+                   <dt> 审核结果：</dt>
+                   <dd>
+                        <ul class="callWait_list">
+                            <li class="on">通过<i></i></li>
+                            <li>不通过<i></i></li>
+                       </ul>
+                   </dd>
+               </dl>
+               <dl class="UserManageDl UserTcDl">
+                   <dt> 审核说明：</dt>
+                   <dd>
+                        
+                        <textarea class="ManageInput">输入审核的一些说明，及不通过的原因
+                        </textarea>
+                   </dd>
+               </dl>
+          </div>
+          <div class="space-30"></div>
+          <div class="submit_btn">
+               <input class="btn_save closeTransact" type="button" value="提&nbsp;交"  />
+          </div>
+     </div>
+</div>
+
+<!--弹层2-->
+<div class="transact_tc_box"  id="arry2">
+     <div class="transact_tc_t">
+          <dl class="close_t">
+              <dt>审核信息</dt>
+              <dd><a href="javascript:;"  title="关闭" class="closeTransact"></a></dd>
+          </dl>
+     </div>
+     <div class="transact_tc_c">
+          <div class="space-30"></div>
+       <div class="newUserC" style="text-align:center">
+               <div class="tc_tip">
+       		   	<img src="../images/gou.png" width="85" height="66"> 
+                	审核成功！
+               </div>
+               <p class="tc_p">知识已全部审核通过，请确认这些知识的上线方式。谢谢！</p>
+       </div>
+          <div class="space-30"></div>
+          <!--<div class="submit_btn">
+               <input class="btn_save closeTransact" type="button" value="继续审核"  />
+               <input class="btn_save closeTransact" type="button" value="稍后再审"  />
+          </div>-->
+          <div class="submit_btn">
+               <input class="btn_save closeTransact" type="button" value="成&nbsp;功"  />
+          </div>
+     </div>
+</div>
+
+<!--弹层2-->
+<div class="transact_tc_box"  id="arry3">
+     <div class="transact_tc_t">
+          <dl class="close_t">
+              <dt>审核信息</dt>
+              <dd><a href="javascript:;"  title="关闭" class="closeTransact"></a></dd>
+          </dl>
+     </div>
+     <div class="transact_tc_c">
+          <div class="space-30"></div>
+       <div class="newUserC" style="text-align:center">
+               <div class="tc_tip">
+       		   	<img src="../images/gou2.jpg" width="85" height="66"> 
+                	审核不通过！
+               </div>
+               <p class="tc_p">知识全部审核不通过！</p>
+       </div>
+          <div class="space-30"></div>
+          <!--<div class="submit_btn">
+               <input class="btn_save closeTransact" type="button" value="继续审核"  />
+               <input class="btn_save closeTransact" type="button" value="稍后再审"  />
+          </div>-->
+         <div class="button_group" style="width:498px">
+            <ul>
+                <li class="closeTransact"> 确定</li>
+                <li style="margin-right:0" class="btn_other" onclick="location.href='/insideEditorial/editingTask.html'"> 回退任务</li>
+            </ul>
+     	  </div>
+     </div>
+</div>
+
+<script>
+	$(function(){
+		$(".mx_list .table01 tr").each(function(index, element) {
+            $(this).children("td").eq(0).css("text-align","right")
+			$(this).children("td").eq(1).css("padding-left","30px")
+        });
+		
+		$("#upLine").click(function(){
+			if(confirm("是否确定上线？"))
+			{
+				
+			}
+			else
+			{
+				return false;
+			}
+		})
+	})
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

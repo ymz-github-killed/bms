@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{height:100%}
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,address,big,cite,code,del,em,font,img,ins,small,strong,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,input{margin:0;padding:0;}
+ol,ul{list-style:none;}
+:focus{outline:0;}
+a img{border:0;}
+img{vertical-align:middle;}
+table{empty-cells:show;}
+em{font-style:normal;}
+button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,input[type="file"]>input[type="button"]::-moz-focus-inner{border:none;padding:0;}
+a { text-decoration:none;}
+
+*{ margin:0; padding:0; list-style-type:none;}
+
+
+body { font-family:"微软雅黑"; background-image:url(../images/browser_bg.jpg); background-repeat:no-repeat; background-position:center top; background-size:100% 100%; position:relative;}
+
+.clear{clear: both;}
+
+.browser_box { width:70%; padding-top:8%; text-align:center; margin:0 auto; overflow:hidden;}
+.browser_box h1 { font:40px/90px "微软雅黑"; letter-spacing:5px; color:#fcff00; font-weight:normal;}
+.browser_box .ts_txt { font-size:18px; letter-spacing:3px; color:#fff;}
+.browser_list { padding:0 8%; margin-top:100px; overflow:hidden;}
+.browser_list li { width:33.3%; text-align:center; float:left;}
+.browser_list li p { font-size:16px; line-height:40px; color:#fff; letter-spacing:1px; }
+
+
+
+
+

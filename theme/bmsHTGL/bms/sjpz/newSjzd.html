@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>数据配置</span>&nbsp;&gt;&nbsp;<span>数据字典</span>&nbsp;&gt;&nbsp;<span>新增数据字典</span></div>
+    <div class="mt10 mb10"><a href="sjzd.html" class="mr10 bt_blue"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue" onclick="show('cover','bccg')"><span>保存</span></a></div>
+    <div class="bord_gray padd_10 pb30">
+        <!--字典编码 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>字典编码：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value="研发中心"/><span class="red ml10">由字母、数字和下划线组成。</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--字典编码 结束-->
+        <!--字典名称 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>字典名称：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value=""/></div>
+            <div class="clear"></div>
+        </div>
+        <!--字典名称 结束-->
+        <!--字典类型 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>字典类型：</span></p>
+            <div class="fl rightInfo middle"><span class="lineh20">列表</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--字典类型 结束-->
+        <!--是否内部字典 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>是否内部字典：</span></p>
+            <div class="fl rightInfo middle"><input type="radio" name="nbzd"/><span class="mr20">是</span><input type="radio" name="nbzd"/><span class="mr20">否</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--是否内部字典 结束-->
+        <!--字典表 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>字典表：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value=""/></div>
+            <div class="clear"></div>
+        </div>
+        <!--字典表 结束-->
+        <!--值字段 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>值字段：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value=""/></div>
+            <div class="clear"></div>
+        </div>
+        <!--值字段 结束-->
+        <!--名称字段 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>名称字段：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value=""/></div>
+            <div class="clear"></div>
+        </div>
+        <!--名称字段 结束-->
+        <!--过滤条件 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>过滤条件：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value="研发中心"/><span class="red ml10">请正确填写。</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--过滤条件 结束-->
+        <!--排序规则 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>排序规则：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value=""/></div>
+            <div class="clear"></div>
+        </div>
+        <!--排序规则 结束-->
+        <!--描述 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>描述：</span></p>
+            <div class="fl rightInfo midTop"><textarea class="textarea_1" maxlength="200"></textarea><span class="red ml10">可以为空，如果不为空，最大长度为200字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--描述 结束-->
+    </div>
+    <div class="mt10 mb10"><a href="sjzd.html" class="mr10 bt_blue"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue" onclick="show('cover','bccg')"><span>保存</span></a></div>
+</div>
+
+
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="sjzd.html" class="close fr" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="sjzd.html" class="mr10 bt_blue" onclick="hide('cover','bccg')"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+<script type="text/javascript">
+	$(function(){
+		$(".checkBtn").click(function(){
+			$(this).next("div").show();
+		});
+		$(".addSure").click(function(){
+			$(this).parent().parent().parent().hide();							 
+		});	
+		$(".xzClose").click(function(){
+			$(this).parent().hide();								 
+		});
+	})
+</script>
+</html>

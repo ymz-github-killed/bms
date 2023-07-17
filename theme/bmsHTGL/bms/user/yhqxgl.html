@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="../../css/files/sjqx/styles.css?v=123" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123" />
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123" />
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123" />
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+<script src="../../js/roleauth.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+	<div class="mainBox">
+		<div class="route">
+			<span>用户管理</span>&nbsp;&gt;&nbsp;<span>用户权限管理</span>
+		</div>
+		<form id="search">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				class="mt20 bord_gray">
+				<tr>
+					<td align="right">登录名：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="userLoginName" name="userLoginName" />
+					</td>
+					<td align="right">真实姓名：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="userRealName" name="userRealName" />
+					</td>
+					<td align="right">职位：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="userStation" name="userStation" />
+					</td>
+				</tr>
+				<tr>
+					<td align="right">员工工号：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="applyid" name="applyid" />
+					</td>
+					<td align="right">所属部门：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="bmsLocationName" name="bmsLocationName" />
+					</td>
+					<td align="right">状态：&nbsp;</td>
+					<td>
+						<dl class="selectbox" style="z-index: 1;" id="userStatus" name="userStatus">
+							<dt id="userStatusSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span>
+							</dt>
+							<dd id="userStatusSelect">
+								<p class="sel">正常</p>
+								<p>停用</p>
+							</dd>
+						</dl>
+						</td>
+				</tr>
+				<tr>
+					<td align="right">性别：&nbsp;</td>
+					<td>
+						<dl class="selectbox" style="z-index: 1;">
+							<dt id="userSexSelected">
+								<span class="fleft">请选择</span><span class="fright" id="userSex"
+									name="userSex">&nbsp;</span>
+							</dt>
+							<dd id="userSexSelect">
+								<p class="sel">男</p>
+								<p>女</p>
+							</dd>
+						</dl></td>
+					<td><br />
+					</td>
+					<td colspan="4" align="right"><p class="mr20">
+							<a href="javascript:;" id="btnsearch"
+								class="bt_blue"><span>查询</span> </a><a href="javascript:;"
+								id="reset" class="bt_blue ml20"><span>重置</span>
+							</a>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="mt15 tb_content1 tb_searchbox ">
+			<tr>
+				<th width="10%">登录名</th>
+				<th width="10%">真实姓名</th>
+				<th width="5%">性别</th>
+				<th width="10%">员工工号</th>
+				<th width="10%">角色信息</th>
+				<th width="10%">职位</th>
+				<th width="15%">所属部门</th>
+				<th width="8%">状态</th>
+				<th width="22%">操作</th>
+			</tr>
+			<tbody id="userFunc_tbody" style="visibility:hidden">
+				<tr id="userFunc" clazz='odd$'>
+					<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userLoginName}">{userLoginName}</td>
+					<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userLoginName}">{userRealName}</td>
+					<td width="5%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userSexTxt}">{userSexTxt}</td>
+					<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{applyid}">{applyid}</td>
+					<td width="10%"><a href="###"
+						onclick="show_roleInfo('{id}');showTB('cover','ckjs')">查看角色信息</a></td>
+					<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userStation}">{userStation}</td>
+					<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{bmsLocationName}">{bmsLocationName}</td>
+					<td width="8%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userStatusTxt}">{userStatusTxt}</td>
+					<td width="22%"><a href="###" class="ml10"
+						onclick="location_config('{id}','true');showTB('cover','glbmsz')">管理部门设置</a>
+						<a href="###" class="ml10"
+						onclick="role_config('{id}','true');showTB('cover','jssz')">角色设置</a>
+					<!-- 	<a href="###" class="ml10"
+						onclick="showFuncByUid('{id}');show('cover','sjqx')">数据权限</a> -->
+						<a href="###" class="ml10"
+						onclick="show_userFunc('{id}')">查看</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- <div class="page middle">
+			<div class="fl" id="search_f">
+			<label>找到</label><label id="totalNum">3</label><label>条记录,显示</label>
+			<label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+			</div>
+			<div class="fr" id="search_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id="gotoUsers"  onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+				<a href="javascript:;" class="bt_blue" id="go"><span>GO</span> </a>
+				</div>
+			<div class="clear"></div>
+		</div> -->
+		<div class="page middle mb10">
+			<div class="fl" id="search_f">
+			<label>找到</label><label id="totalNum">3</label><label>条记录,显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+			</div>
+			<div class="fr" id="search_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id="gotoUsers"  onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+				<a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div align="center"><img id="load_id" style="position:fixed;top:50%;left:50%;"  alt="加载中"/></div>
+	<!--弹出层 开始-->
+	<div class="cover" id="cover"></div>
+	<!--管理部门设置 开始-->
+	<div class="pop" id="glbmsz">
+		<!--弹出层 头部定位 开始-->
+		<div class="popPR">
+			<div class="popTitle">
+				<a class="close fr" onclick="hide('cover','glbmsz')"></a><strong
+					class="font14 fl">管理部门设置<font color="red" size='2'>[*只对当前页授权]</font></strong>
+					<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+			<!--<div class="popTOP bg_cff">
+				<div class="bg_ea mt10 mb10">
+					<p id="location_position" class="blue lineh30 pl10" style="height:30px;overflow:hidden;text-overflow : ellipsis; white-space : nowrap; ">当前管理的部门：&nbsp;研发中心、质量保证部</p>
+					<div style="display:none" class="blue lineh30 pl10 " id="location_position_show"></div>
+				</div>
+				<!-- <form id="locationForm">
+					<div id="id_position"></div>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0"
+						class="bord_gray">
+						<tr>
+							<td align="right">部门名称：&nbsp;</td>
+							<td><input class="input_normal w160" name="locationName" />
+							</td>
+							<td><a href="javascript:;" class="bt_blue cancel_href" id="btnsearch"><span>查询</span>
+							</a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span> </a>
+							</td>
+						</tr>
+					</table>
+				</form> 
+			</div>-->
+		</div>
+		<!--弹出层 头部定位 结束-->
+		<!--弹出层 表格 开始-->
+		<div class="popInfoBox">
+			<div class="mb10">
+				<!--最多发7条数据-->
+				<!--<table width="100%" border="0" cellspacing="0" cellpadding="0"
+					class="tb_content1 bg_cff mb10 tb_searchbox ">
+					<tbody>
+						<tr>
+							<th width="5%"><input class="checkedAll" type="checkbox"
+								name="items" id="locationitem" />
+							</th>
+							<th width="15%">部门名称</th>
+							<th width="30%">层次结构</th>
+							<th width="55%">备注</th>
+						</tr>
+						<tbody id="locations_tbody">
+							<tr id="locations" clazz='odd$'>
+								<td><input type="checkbox" name="locationitem"
+									value="{lid}" {checked}/>
+								</td>
+								<td  width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{locationName}">{locationName}</td>
+								<td  width="30%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{stepInfo}">{stepInfo}</td>
+								<td  width="55%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{remark}">{remark}</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+						</tbody>
+					</tbody>
+				</table> -->
+			
+			<!-- <p class="middle borb_xu mb10 pt5 pb5"><span>请勾选下列权限名称，对</span><strong class="blue roleName_">研发经理超级管理</strong><span>角色进行授权：</span></p> -->
+                <p class="lineh20"><strong>功能树：</strong></p>
+           		<form id="form1">
+           		<p id="par"></p>
+				<div>
+                   	<div class="shuBox bord_gray" style=" height:160px;" id="func">
+                   	<img src="../../images/shu.png">
+                   	</div>
+                 </div>
+                 </form>
+			</div>
+		</div>
+		<!--弹出层 表格 结束-->
+		<!-- <div class="page middle">
+			<div class="fl" id="locationForm_f">
+				<label>找到</label><label id="totalNum">3</label>
+				<label>条记录,显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+				</div>
+				<div class="fr" id="locationForm_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id='gotoLocations' onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+				<a href="javascript:;" class="bt_blue" id="go"><span>GO</span> </a>
+				</div>
+			<div class="clear"></div>
+		</div> -->
+		<div class="text_c mt10 mb10">
+			<a href="javascript:;" class="mr10 bt_blue"
+				onclick="hide('cover','glbmsz')" id="lgrantFunc"><span>授权</span> </a><a
+				href="javascript:;" class="mr10 bt_blue"
+				onclick="hide('cover','glbmsz')"><span>返回</span><!-- id="lback" -->
+			</a>
+			</div>
+			</div>
+	<!--管理部门设置 结束-->
+	<!--角色设置 开始-->
+	<div class="pop" id="jssz">
+		<!--弹出层 头部定位 开始-->
+		<div class="popPR">
+			<div class="popTitle">
+				<a class="close fr" onclick="hide('cover','jssz')"></a><strong
+					class="font14 fl">角色设置<font color="red" size='2'>[*只对当前页授权]</font></strong>
+					<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+			<div class="popTOP bg_cff" style="width:94%">
+				<div class="bg_ea mt10 mb10">
+					<p id="role_position" class="blue lineh30 pl10" style="height:30px;overflow:hidden;text-overflow : ellipsis; white-space : nowrap; ">当前角色：&nbsp;超级管理员</p>
+					<div style="display:none;border:1px solid #ccc" class="blue lineh30 pl10" id="role_position_show"></div>
+				</div>
+				<form id="roleForm">
+					<div id="id_position"></div>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0"
+						class="bord_gray">
+						<tr>
+							<td align="right">部门名称：&nbsp;</td>
+							<td><input class="input_normal w160" name="locationName" />
+							</td>
+							<td align="right">角色名称：&nbsp;</td>
+							<td><input class="input_normal w160" name="roleName" />
+							</td>
+							<td><a href="javascript:;" class="bt_blue" id="btnsearch"><span>查询</span> </a><a
+								href="javascript:;" class="bt_blue ml20"
+								id="reset"><span>重置</span> </a>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<!--弹出层 头部定位 结束-->
+		<!--弹出层 表格 开始-->
+		<div class="popInfoBox">
+			<div class="mb10">
+				<!--最多发7条数据-->
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+					class="tb_content1 bg_cff tb_searchbox ">
+					<tbody>
+						<tr>
+							<th width="5%"><input class="checkedAll" type="checkbox"
+								name="items" id="roleitem"/>
+							</th>
+							<th width="15%">角色名称</th>
+							<th width="20%">所属部门</th>
+							<th width="60%">备注</th>
+						</tr>
+						<tbody id="roles_tbody">
+							<tr id="roles" clazz='odd$'>
+								<td width="5%"><input type="checkbox" name="roleitem" value="{rid}" {checked}/>
+								</td>
+								<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{roleName}">{roleName}</td>
+								<td  width="20%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{locationName}">{locationName}</td>
+								<td  width="60%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{remark}">{remark}</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+						</tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--弹出层 表格 结束-->
+		<div class="page middle">
+			<div class="fl" id="roleForm_f">
+				<label>找到</label><label id="totalNum">3</label><label>条记录,
+					显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+			</div>
+			<div class="fr" id="roleForm_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id="gotoRoles" onkeyup="value=value.replace(/[^\d]/g,'')" 
+						onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+					<a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="text_c mt10 mb10">
+			<a href="javascript:;" class="mr10 bt_blue cancel_href"
+			 id="rgrantFunc" onclick="hide('cover','jssz')"><span>授权</span>
+			</a><a href="javascript:;" class="mr10 bt_blue cancel_href"
+				id="rback" onclick="hide('cover','jssz')"><span>返回</span>
+			</a>
+		</div>
+	</div>
+	<!--角色设置 结束-->
+<!--数据权限 开始-->
+<div class="pop" id="sjqx">
+	<div class="popTitle"><span class="close fr" onclick="hide('cover','sjqx');re_dataAuth()"></span><strong class="font14 fl">数据权限</strong><div class="clear"></div></div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+	<div class="" style=" padding:0 10px; height:300px;">
+        <div style=" margin:10px auto">
+        <!--tab 开始-->
+                <p id="tab2" class="fl hover" onclick="tab2_click()"></p>
+               <!-- <p id="tab3" class="fl" onclick="tab3_click()"><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">数据权限</span><span class="titleRight fl"></span></p> -->
+                
+            </div>
+            <div class="clear"></div>
+            <div class=" pl10 pr10 pb10" style=" width:830px;position:absolute;">
+            	<div id="tab_2">
+                <p class="lineh20"><strong>全部功能权限树：</strong></p>
+            		<form id="authTreeform">
+            		<p id="par"></p>
+            		</form>
+					<div>
+                    	<div class="shuBox" style="float:left ;  width:30%; height:240px;" id="sjqx_shu">
+                    	<img src="../../images/shu.png">
+                    	</div>
+                    	<span style="font-size:12px;text-align:left;">数据可视范围 &gt; 查询条件</span>
+                    	<span id="dAUid_2"></span>
+                    	<form id="saveDataAuthForm">
+                    	<div id="showDataAuth" class="bord_gray" style="float:left ;  width:60%; height:240px;overflow:auto;position:relative">
+                    	<span id="dAuthUid_"></span>
+                    	<span id="funids_">
+                    	</span>
+                    	<div id="dAuthfid_">
+                    	<input type="hidden" name="funcid" value=""/>
+                    	</div>
+                    	<div id="dAuthid_"></div>
+                    	<div id="dAuthInFo_">
+                    	<span style="visibility:hidden;width:30%;float:left ;text-align: right;margin-top: 10px">查询条件：</span>
+                    	<table id="dAuthInFo_table">
+                    		 <!--<tr>
+                    			<td><input type="text" class="da_input" name="dataAuthBean.dataauth" value=""/></td>
+                    			<td>
+        						<a href=\"javascript:;\"><div class="minus_div" onclick="deltr(this)" ></div></a>
+							    </td>
+                    		</tr>
+                    		<tr>
+                    			<td><input type="text" class="da_input" name="dataAuthBean.dataauth" value=""/></td>
+                    			<td>
+        						<div class="minus_div" onclick="deltr(this)"></div>
+							    </td>
+                    		</tr>
+                    		<tr>
+                    			<td><input type="text" class="da_input" name="dataAuthBean.dataauth" value=""/></td>
+                    			<td>
+                    			<span onclick="addtr(this)">
+                    			<div class="plus1">
+						        <div class="plus1_div"></div>
+						      	</div>
+                    			<div class="plus2">
+						        <div class="plus2_div"></div>
+						      	</div>
+						      	</span>
+							    </td>
+                    		</tr>
+                    		<tr>
+                    		<td colspan="2" align="center">  
+                    		<a href="javascript:;"><span style="padding: 5px 38px;background: rgba(102, 255, 255, 1);color: #333;">保存</span></a>
+							<span style="padding: 5px 38px;background: #ddd;margin-left: 10px;">重置</span>
+							</td>
+							</tr> -->
+                    	</table>
+                    	</div>
+                    	
+                    	<!-- <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="text" class="text_1" id="dataauth_" name="dataAuthBean.dataauth" value="" /></div> -->
+                    	
+                    	</div>
+                    	</form>
+                    </div>
+                   <!--  </form> -->
+                </div>
+                <!-- <div id="tab_3" class="undis">
+                <p class="middle borb_xu mb10 pt5 pb5"><span>请勾选下列数据字典名称，再选择对应的数据,对</span><strong class="blue">研发经理超级管理</strong><span>角色进行数据授权：</span></p>
+            		<div class="fl">
+                    	<p class="lineh20"><strong>数据字典选择：</strong></p>
+                        <div class="shuBox bord_gray" style=" height:160px;"><img src="../../images/shu.png" /></div>
+                    </div>
+                    <div class="fl ml10">
+                    	<p class="lineh20"><strong>数据字典值选择：</strong></p>
+                        <div class="shuBox bord_gray" style=" height:160px;">
+                            <ul>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能1</span></li>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能2</span></li>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能3</span></li>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能4</span></li>
+                                <li class="middle"><input type="checkbox" name="shxz" /><span>功能5</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div> -->
+            </div>
+        <!--tab 开始-->
+        </div>
+    <div class="text_c mt10 mb10"><a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="sub_batch_();hide('cover','sjqx');"><span>批量提交授权</span></a><a href="javascript:;" class="bt_blue ml10 cancel_href" id="selectAll"><span>全部选择</span></a><a href="javascript:;" class="bt_blue ml10 cancel_href" id="deSelectAll"><span>全部取消</span></a><a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="hide('cover','sjqx');re_dataAuth()"><span>返回</span></a></div>
+    </div>
+</div>
+<!--数据权限 结束-->
+	<!--查看角色 开始-->
+	<div class="pop" id="ckjs">
+		<!--弹出层 头部定位 开始-->
+		<div class="popPR">
+			<div class="popTitle">
+				<span class="close fr" onclick="hide('cover','ckjs')"></span><strong
+					class="font14 fl">查看角色</strong>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+			<div class="popTOP bg_cff">
+				<div class="bg_ea mt10 mb10">
+					<p class="blue lineh30 pl10">角色信息：</p>
+				</div>
+			</div>
+		</div>
+		<!--弹出层 头部定位 结束-->
+		<!--弹出层 表格 开始-->
+		<div class="popInfoBox">
+			<div class="mb10">
+				<!--最多发7条数据-->
+				<form id="userRoleForm">
+					<div id="id_position"></div>
+				</form>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+					class="tb_content1 bg_cff">
+					<tbody>
+						<tr>
+							<th width="15%">角色名称</th>
+							<th width="20%">所属部门</th>
+							<th width="65%">备注</th>
+						</tr>
+						<tbody id="userRole_tbody">
+							<tr id="userRole" clazz='odd$'>
+								<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{roleName}">{roleName}</td>
+								<td width="25%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{locationName}">{locationName}</td>
+								<td width="60%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{remark}">{remark}</td>
+							</tr>
+							<tr>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+						</tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--弹出层 表格 结束-->
+		<div class="page middle">
+			<div class="fl" id="userRoleForm_f">
+				<label>找到</label><label id="totalNum">0</label><label>条记录,
+					显示</label><label id="beginNum">0</label><label>到</label><label id="endNum">0</label>
+			</div>
+			<div class="fr" id="userRoleForm_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">1</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id="gotoUserRoles" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+				<a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="text_c mt10 mb10">
+			<a href="javascript:;" class="bt_blue" onclick="hide('cover','ckjs')"><span>返回</span>
+			</a>
+		</div>
+	</div>
+	<!--查看角色 结束-->
+	<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a  class="close fr" onclick="hide('cover','bccg')" id="close"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a id="qd" class="mr10 bt_blue" onclick="hide('cover','bccg')"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+<!-- 数据权限临时表  开始-->
+<div style="visibility: hidden">
+<form id="appendDataAuthForm">
+<p id="par"/>
+</form>
+</div>
+<!-- 数据权限临时表 结束-->
+</body>
+</html>

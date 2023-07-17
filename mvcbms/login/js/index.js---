@@ -1,0 +1,167 @@
+/**
+ * fatherMenus:首页菜单的json数据
+ * 
+ */
+var fatherMenus;
+var appStyle;
+/**
+ * 获取首页的菜单json数据；并将一级菜单封装到<nav>中；
+ */
+jQuery(function() {
+  getHeadMsg();
+  //设置定时器，定时获取数据
+  setInterval("getHeadMsg()",jsonData.frequency);
+	jQuery("#userRealName").html("欢迎您,"+jsonData.userRealName+"管理员");
+	fatherMenus = getdefaultTree(basePath+"index/leftTree.controller");
+	jQuery("#nav_1").html("");
+	jQuery("#nav_2").html("");
+	for ( var i in fatherMenus) {
+		var span = "<span title='"+fatherMenus[i].text+"' value='"+(parseInt(i)+1)+"_' id='"+fatherMenus[i].id+"_'   onClick=\"getMenus('"+fatherMenus[i].text+"','"+ fatherMenus[i].id + "','"+(parseInt(i)+1)+"_','"+fatherMenus[i].siCode+"','"+fatherMenus[i].url+"')\"; style='width: 170px;' name='" + fatherMenus[i].url+ "'>" + fatherMenus[i].text + "</span>";
+		var a = "<span id='"+fatherMenus[i].id+"' title='"+fatherMenus[i].text+"'   onClick=\"getMenus('"+fatherMenus[i].text+"','"+ fatherMenus[i].id + "','"+(parseInt(i)+1)+"','"+fatherMenus[i].siCode+"','"+fatherMenus[i].url+"')\"; onmouseover=\"this.style.background='#56B4D6'\" onmouseout=\"this.style.background=''\" name='" + fatherMenus[i].url+ "'>" + fatherMenus[i].text + "</span>";
+		if(i==0){
+			span = "<span title='"+fatherMenus[i].text+"' value='"+(parseInt(i)+1)+"_'  id='"+fatherMenus[i].id+"' onClick=\"getMenus('"+fatherMenus[i].text+"','"+ fatherMenus[i].id + "','"+(parseInt(i)+1)+"_','"+fatherMenus[i].siCode+"','"+fatherMenus[i].url+"')\"; style='width: 170px;' name='" + fatherMenus[i].url+ "'>" + fatherMenus[i].text + "</span>";
+		}
+		jQuery("#nav_1").append(span);
+		jQuery("#nav_2").append(a);
+	}
+	var css = "<img src='../theme/bmsHTGL/images/navSelect_1.gif' id='disNav' />";
+	jQuery("#nav_1").append(css);
+	if(typeof(basePath)!="undefined"){
+		jQuery("#closeAll").attr("src",basePath+"theme/bmsHTGL/"+$("#closeAll").attr("src"));
+	 	jQuery("#logo_image").attr("src",basePath+"theme/bmsHTGL/"+$("#logo_image").attr("src"));
+	 	jQuery("#myiframe").attr("src",basePath+"index/home.controller");
+	}
+	jQuery("#loginOut").bind("click",function(){loginOut();})
+	appStyle = jsonData.appStyle;
+	if(appStyle !="" || appStyle != null){
+		jQuery("#siCode").val(appStyle);
+	}
+//	jQuery("#home").attr("name",basePath+"index/home.controller");
+	jQuery("#pcs_tab_ul").html("<li class='cur'><label title='首页' name='"+basePath+"index/home.controller'><span><em class='myspan'>首页</em></span></label></li>");
+	
+	
+	/**样式切换后，保留一级菜单请求*/
+	var menuid = jsonData.menuId;
+	if(menuid != "" && menuid != "null"){
+		for ( var i in fatherMenus) {
+			if (menuid === fatherMenus[i].id) {
+				getMenus(fatherMenus[i].text,fatherMenus[i].id,(parseInt(i)+1),fatherMenus[i].siCode,fatherMenus[i].url);
+//				getMenus(title,id,value,sCode,url);
+			}
+		}
+	}
+});
+
+function getHeadMsg(){
+  jQuery.ajax({
+    type:"post",
+    cache:"false",
+    url:basePath+"login/getSystemMsg.controller?t="+Math.random(),
+    dataType:"json",
+    success:function(result){
+      var message = "";
+      if(result != null && result != ""){
+        for(var i in result){
+          message = message + result[i].time + ">>" + result[i].data+",";
+          jQuery("#headmsg").text(message.substring(0, message.length-1));
+        }
+      }
+    }
+  });
+}
+/**
+ * 通过一级菜单的id获取起子菜单
+ * 
+ * @param id 外部系统的一级菜单id
+ */
+function changerFontColor(){
+}
+
+function getMenus(title,id,value,sCode,url) {
+	/**样式切换加一级菜单也是请求*/
+	var appStyleCode =  jQuery("#siCode").val();
+	/**样式需要变化*/
+	if(appStyleCode == "" ||appStyleCode != sCode){
+		jQuery("#siCode").val(sCode);
+		window.location.href=basePath+"login/index.controller?appStyle="+sCode+"&menuId="+id;
+		return false;
+	}else{
+		if(url != "" && url !="null"){
+			var name = basePath+"index/loadapp.controller?id="+id;
+			addTab(name,title);
+		}
+	}
+	jQuery("#"+id).addClass('hover').siblings().removeClass('hover');
+	jQuery("#"+id+"_").addClass('hover').siblings().removeClass('hover');
+	tree_str="";
+	/**匹配该id，找到应用对应的子孙菜单*/
+	for ( var i in fatherMenus) {
+		if (id === fatherMenus[i].id) {
+			if(typeof(fatherMenus[i].children) != 'undefined' || fatherMenus[i].children != null){
+				menus(fatherMenus[i].children);
+			}else{
+				jQuery("#tree ul").html("");
+			}
+		}
+	}
+	jQuery("#tree ul").html(tree_str);
+	tree_str = "";
+	
+	var myself = parseInt(value);
+	var spanLeng =  jQuery("#nav_2").find("span").length;
+	if(myself>=maxZ){
+		maxZ = myself;
+		minZ = myself-9;
+	}
+	if(0<myself && myself<=minZ){
+		minZ=myself;
+		maxZ=myself+9;
+	}
+	if(minZ<=myself && myself<=maxZ){
+		$("#nav_1").children("span").css("display","none");
+		for(i=minZ;i<=maxZ;i++){
+			$("#nav_1 span[value="+i+"_]").css("display","block");
+		}
+	}
+}
+
+var tree_str="";
+/**
+ * 递归遍历菜单树
+ * @param treeData 菜单树json数据
+ */
+function menus(treeData) {
+	for ( var i = 0; i < treeData.length; i++) {
+		if(treeData[i].menus == 1){
+			var treeData_children = treeData[i].children;
+			var treeData_url = treeData[i].url;
+			var span;
+			if(treeData_url == "null" || treeData_url == null || treeData_url == ""){
+				span = 	"<span title='"+treeData[i].text+"' name='null'>"+treeData[i].text+"</span>";
+			}else{
+				span = "<span title='"+treeData[i].text+"' name='index/loadapp.controller?id="+treeData[i].id+"'>"+treeData[i].text+"</span>";
+			}
+			/**如果【i】中有孩子；表是它下面还有子菜单，需要先添加一个<ui>标签*/
+			if (treeData_children) {
+				span += "<ul class='undis'>";
+			}
+			var li = "<li class='leftTree'>" + span;
+			tree_str += li;
+			/**如果【i】中有孩子；表是它下面还有子菜单，递归调用添加<li>标签添加菜单项*/
+			if (treeData_children) {
+				menus(treeData_children);
+			}
+			/**没有子菜单，这闭合<ul>与<li>*/
+			if (i == treeData.length - 1) {
+				if(i>0){
+					tree_str += "</ul>"
+				}
+				tree_str += "</li>";
+			}
+		}
+	}
+}
+
+function loginOut(){
+	window.location.href=basePath+"login/loginOut.controller";
+}

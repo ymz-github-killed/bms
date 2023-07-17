@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.adm.model.dto.TBmsWebappDTO"  table="BMS_WEBAPP" >
+		<comment>外部应用管理</comment>
+		<id name="appCode"  type="java.lang.String" >
+			<column  name="app_Code"  length="255"  />
+			<generator class="assigned" />
+		</id>
+
+		<property  name="appUrl"  type="java.lang.String" >
+			<column  name="app_Url"  length="255" >
+				<comment>URL链接</comment>
+			</column>
+		</property>
+		
+		<property name="bmsStatus" type="java.lang.String">
+			<column name="BMS_STATUS" length="1">
+				<comment>状态：1正常，0删除</comment>
+			</column>
+		</property>
+
+		<property  name="desKey"  type="java.lang.String" >
+			<column  name="des_Key"  length="255" >
+				<comment>3DES加密KEY</comment>
+			</column>
+		</property>
+
+		<property  name="appName"  type="java.lang.String" >
+			<column  name="app_Name"  length="255" >
+				<comment>应用名称</comment>
+			</column>
+		</property>
+		
+		<property  name="appIp"  type="java.lang.String" >
+			<column  name="app_ip"  length="255" >
+				<comment>应用名称</comment>
+			</column>
+		</property>
+		
+		<property  name="appDesc"  type="java.lang.String" >
+			<column  name="app_Desc"  length="255" >
+				<comment>应用名称</comment>
+			</column>
+		</property>
+
+
+	</class>
+</hibernate-mapping>

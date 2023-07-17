@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123" />
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123" />
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123" />
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+	<div class="mainBox">
+		<div class="route">
+			<span>外部应用</span>
+		</div>
+		<form id="search">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				class="mt20 bord_gray">
+				<tr>
+					<td align="right">应用编码：&nbsp;</td>
+					<td><input name="appCode" id="appCode"
+						class="input_normal w160" />
+					</td>
+					<td align="right">应用名称：&nbsp;</td>
+					<td><input name="appName" id="appName"
+						class="input_normal w160" />
+					</td>
+					<td align="right">URL链接：&nbsp;</td>
+					<td><input name="appURL" id="appURL" class="input_normal w160" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="6" align="right"><p class="mr20">
+							<a href="javascript:;" id="btnsearch" class="bt_blue cancel_href"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<p class="overflow text_r mt10">
+				<a id="add" href="newWbyy.html" class="bt_blue ml10 cancel_href"><span>新增外部应用</span>
+				</a><a href="javascript:;" class="bt_blue ml10 cancel_href" id="batchDel"
+					onclick="show('cover','delete')"><span>批量删除</span>
+				</a>
+			</p>
+			<p><font color="red">*删除外部应用后需重启系统生效！</font></p>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				class="tb_searchbox mt15 tb_content1">
+				<tr>
+					<th width="5%"><input class="checkedAll" type="checkbox"
+						name="items" id="wbyy" />
+					</th>
+					<th width="15%%">应用编码</th>
+					<th width="15%">应用名称</th>
+					<th width="50%">URL链接</th>
+					<th width="15%">操作</th>
+				</tr>
+				<tbody id="pp_tbody">
+					<tr id="pp" clazz='odd$'>
+						<td width="5%"><input type="checkbox" name="wbyy" value="{appCode}" />
+						</td>
+						<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{appCode}">{appCode}</td>
+						<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{appName}">{appName}</td>
+						<td width="50%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{appUrl}">{appUrl}</td>
+						<td width="15%"><a href="###" val="{appCode}"
+							class="ml10 cancel_href" onclick="btn_click_edit('{appCode}')">编辑</a><a
+							href="###" class="ml10"
+							onclick="btn_delete_click('{appCode}')">删除</a>
+						</td>
+					</tr>
+					<!-- <tr>
+						<td><input type="checkbox" name="items" />
+						</td>
+						<td>payment3_1_1</td>
+						<td>payment3_2_0</td>
+						<td>http://124.192.56.219:9527/paymentback3.2.4/</td>
+						<td><a href="newWbyy.html" class="ml10">编辑</a><a
+							href="javascript:;" class="ml10" onclick="show('cover','delete')">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="items" />
+						</td>
+						<td>BMS</td>
+						<td>BMS</td>
+						<td>http://192.168.2.36:7070/bms/</td>
+						<td><a href="newWbyy.html" class="ml10">编辑</a><a
+							href="javascript:;" class="ml10" onclick="show('cover','delete')">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="items" />
+						</td>
+						<td>payment3_1_1</td>
+						<td>payment3_2_0</td>
+						<td>http://124.192.56.219:9527/paymentback3.2.4/</td>
+						<td><a href="newWbyy.html" class="ml10">编辑</a><a
+							href="javascript:;" class="ml10" onclick="show('cover','delete')">删除</a>
+						</td>
+					</tr> -->
+				</tbody>
+
+			</table>
+			<!-- <div class="page middle">
+				<div class="fl" id="search_f">
+					<label>找到</label><label id="totalNum">3</label><label>条记录,
+						显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+				</div>
+				<div class="fr" id="search_r">
+					<label id="first">首页 </label>
+					<label id="before">上一页 </label>
+					<label id="next">下一页 </label>
+					<label id="end">末页 </label>
+					<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+					<input type="text"
+						class="text_8" onkeyup="value=value.replace(/[^\d]/g,'')"
+						onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
+						id="gotoWebapp" /><a href="javascript:;" id="go"
+						class="bt_blue cancel_href"><span>GO</span> </a>
+				</div>
+				<div class="clear"></div>
+			</div> -->
+			
+			
+			<div class="page middle mb10">
+				<div class="fl" id="search_f">
+					<label>找到</label><label id="totalNum">3</label><label>条记录,显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+				</div>
+				<div class="fr" id="search_r">
+					<label id="first">首页 </label>
+					<label id="before">上一页 </label>
+					<label id="next">下一页 </label>
+					<label id="end">末页 </label>
+					<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+					<input type="text" class="text_8" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="gotoWebapp" />
+					<a href="javascript:;" id="go" class="bt_blue cancel_href"><span>GO</span></a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			
+	</div>
+
+	<!--弹出层 开始-->
+	<div class="cover" id="cover"></div>
+	<!--确定要删除 开始-->
+	<div class="pop" id="delete" style=" width:300px;">
+		<div class="popTitle">
+			<span class="close fr" onclick="hide('cover','delete')"></span><strong
+				class="font14 fl">提示</strong>
+			<div class="clear"></div>
+		</div>
+		<div class="mt25 mb25">
+			<p class="text_c" id="dialog_">确定要删除吗？</p>
+		</div>
+		<div class="text_c mt10 mb10">
+			<a href="javascript:;" id="isDelete" name="isDelete"
+				class="mr10 bt_blue cancel_href"
+				onclick="hide('cover','delete');show('cover','deleteCg')"><span>确定</span>
+			</a><a href="javascript:;" class="mr10 bt_blue cancel_href"
+				onclick="hide('cover','delete')"><span>取消</span>
+			</a>
+		</div>
+	</div>
+	<!--确定要删除 结束-->
+	<!--删除成功 开始-->
+	<div class="pop" id="deleteCg" style=" width:300px;">
+		<div class="popTitle">
+			<a href="javascript:;" class="close fr"
+				onclick="hide('cover','deleteCg')"></a><strong class="font14 fl">提示</strong>
+			<div class="clear"></div>
+		</div>
+		<div class="mt25 mb25">
+			<p class="text_c" id="message">删除成功！</p>
+		</div>
+		<div class="text_c mt10 mb10">
+			<a href="javascript:;" class="mr10 bt_blue cancel_href"
+				onclick="hide('cover','deleteCg')" id="qd"><span>确定</span>
+			</a>
+		</div>
+	</div>
+	<!--删除成功 结束-->
+</body>
+</html>

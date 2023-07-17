@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style=" overflow-x:auto; overflow-y:auto;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/home.css"/>
+<script src="../../js/title.js" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js"></script>
+<script src="../../js/public.js" type="text/javascript"></script>
+<script src="../../js/des1.js" type="text/javascript"></script>
+</head>
+<body style="background:#269fd4">
+<form id="loginForm" class="loginBg">
+	<div class="loginBox" id="loginDiv">
+    	<div class="login">
+        <div class="loginTable" id="login1">
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr id="loginNameTrId">
+              	<td align="right" width="90">账户名：</td>
+                <td><span class="lgntext"><input type="text"id="userLoginName" name="userLoginName" value="" /></span></td>
+              </tr>
+              <tr id="pwdTrId">
+              	<td align="right">密　码：</td>
+                <td><span class="lgntext"><input type="password" autocomplete="off" id="userLoginPassword" name="userLoginPassword" value="" />
+               			 </span>
+               			 <a href="#" id="forgetPassWord">重置密码</a>
+                </td>
+              </tr>
+              <tr id="phoneValidate">
+              	<td align="right">短信验证码：</td>
+                <td class="middle">
+                	<span class="lgntext3">
+                			<input type="text" id="phoneValidateNum" name="phoneValidateNum" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  readonly="readonly"/>
+					 </span>
+					 <a href="javascript:;" style="color:#fff; display:inline-block;width:88px; height:22px; line-height:22px; text-align:center;background:#e71600;margin-top:1px;" class="ml10 btn_href"  id="get_">点击获取</a>
+					 </td>
+              </tr>
+              <tr id="subAcctsTrId" class="undis">
+              	<td align="right" width="70">&nbsp;</td>
+				<td><span>
+				<select id="seluser" class="lgntext" name="seluser">
+					<option value="">请选择从账号!</option>
+				</select>
+				</span></td>
+			  </tr>
+              <tr id="loginBtn">
+              <td align="right">&nbsp;</td>
+                <td><a href="#" id="submit" onclick="beforeSubmit()" class="loginBtn font18 mr20 btn_href">登录</a>
+                	<a href="javascript:;" id="reset" class="resetBtn font18 btn_href">重置</a>
+                	</td>
+              </tr>
+              <tr id="subAccBtn" class="undis">
+              <td >&nbsp;</td>
+                <td><a href="javascript:;" onClick="goback();" class="loginBtn font18 mr20 btn_href">返回</a><a href="#" id="submit" onclick="subAcctSubmit()" class="resetBtn font18 btn_href">确认</a></td>
+              </tr>
+            </table>
+        </div>
+        </div>
+    </div>
+    
+    
+    <div class="loginBox" style="display:none" id="resetDiv">
+    	<div class="login">
+        <div class="loginTable" >
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr id="loginNameTrId_">
+              	<td align="right" width="90">账户名：</td>
+                <td><span class="lgntext"><input type="text"id="userLoginName_" value="" /></span>
+                	<!-- <a href="#" id="returnLogin">返回登陆</a> -->
+                </td>
+              </tr>
+             
+              <tr id="newpwdTrId" style="disabled:disabled">
+              	<td align="right">新密码：</td>
+                <td><span class="lgntext"><input type="password" autocomplete="off" id="newPassword"  value="" />
+               			 </span>
+                </td>
+              </tr>
+              <tr id="commitpwdTrId" style="disabled:none">
+              	<td align="right">确认密码：</td>
+                <td><span class="lgntext"><input type="password" autocomplete="off" id="commitNewPassword"  value="" />
+               			 </span>
+                </td>
+              </tr>
+ 			<tr id="useValidCode">
+              	<td align="right">验证码：</td>
+                <td class="middle"><span class="lgntext2"><input type="text" id="validCode" maxlength="5" name="validCode" /></span><img id="validCodeImg" src="common/sinoaptcha1.jpg"  width="77" height="22" class="ml10 hand" /></td>
+              </tr>              
+              <tr id="phoneValidate">
+              	<td align="right">短信验证码：</td>
+                <td class="middle">
+                	<span class="lgntext3">
+                			<input type="text" id="phoneValidateNum_"  maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  readonly="readonly"/>
+					 </span>
+					 <a href="javascript:;" style="color:#fff; display:inline-block;width:93px; height:22px; line-height:22px; text-align:center;background:#e71600;margin-top:1px;" class="ml10 btn_href"  id="newget_">点击获取</a>
+					 </td>
+              </tr>
+              <tr id="loginBtn">
+              <td align="right">&nbsp;</td>
+                <td>
+                	<a href="#" id="resetPassword"  class="loginBtn font18 mr20 btn_href" style="disabled:none" >确定</a>
+                	<a href="javascript:;" id="returnLogin" class="resetBtn font18 btn_href">返回登录</a>
+                	</td>
+              </tr>
+             
+            </table>
+        </div>
+        </div>
+    </div>
+</form>
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" id="closeUrl" class="close fr btn_href" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue btn_href" onclick="hide('cover','bccg')" id="goUrl"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+ 
+</body>
+</html>

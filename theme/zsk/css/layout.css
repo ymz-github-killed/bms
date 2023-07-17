@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* 样式说明： 网厅3.0
+ * 开发时间： 2014-6-16
+ * 开发者： ly   
+ * 维护者： ly
+ *
+ * 样式版本： v1.0
+ * 版本时间： 2014-6-16
+ * 注意事项： 布局样式,请勿轻易修改
+ */
+
+#wapContent{ width:auto; min-width:966px;  }
+.wapContent{ width:966px; margin:0 auto; font-family:Arial,"宋体"; font-size:14px; }

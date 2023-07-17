@@ -1,0 +1,124 @@
+<!--#include virtual="/include/header.html"-->
+
+
+
+<div class="content">
+     <div class="space-50"></div>
+     <div class="UserManageLine" style="margin:0 auto">
+          <span style="width:auto">增加新字段：</span>
+     </div>
+     
+     <div class="newUser">
+     		
+          <div class="UserManage" id="showText">
+          <div class="space-30"></div>
+              
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 表单提示文字：</dt>
+                   <dd>
+                        <input class="ManageInput" type="text" value="发布内容时显示的提示文字" />
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 字段名称：</dt>
+                   <dd>
+                       <input class="ManageInput" type="text" value="只能用英文字母" />
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 是否前台展现：</dt>
+                   <dd class="inputR">
+                        <label><input name="1" type="radio">&nbsp;是</label>
+                        <label><input name="1" type="radio">&nbsp;否</label>
+                        
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 数据类型：</dt>
+                   <dd class="inputR">
+                        <label><input name="0" type="radio">&nbsp;单行文本</label>
+                        <label><input name="0" type="radio">&nbsp;多行文本</label>
+                        <label><input name="0" type="radio">&nbsp;HTML文本</label>
+                         <label><input name="0" type="radio">&nbsp;整数类型</label>
+                         <label><input name="0" type="radio">&nbsp;小数类型</label>
+                         <label style="width:145px;"><input name="0" type="radio">&nbsp;使用OPTION下拉框</label>
+                         <label><input name="0" type="radio">&nbsp;HTML文本</label>
+                        
+                        <label style="width:120px;"><input name="0" type="radio">&nbsp;使用radio选项卡</label>
+                        <label><input name="0" type="radio">&nbsp;多选框</label>
+                        <label><input name="0" type="radio">&nbsp;附件类型</label>
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt style="width:122px; padding:0 5px;">
+                   	<i>*</i> 默认值：
+                   	<p style="color:#999">
+
+如果定义数据类型为select、radio、checkbox时
+
+此处填写被选择的项目(用“,”分开，如“男,女”)。
+</p>
+                   </dt>
+                   <dd class="textareaW">
+                        <textarea style="height:180px;"></textarea>
+
+                       
+                   </dd>
+               </dl>
+               
+                <dl class="UserManageDl">
+                   <dt><i>*</i> 最大长度：
+                   <p style="color:#999">
+                   		文本数据必须填写，大于255为text类型
+                   </p>
+                   </dt>
+                   <dd>
+                       <input class="ManageInput" type="text" value="200" />
+                   </dd>
+               </dl>
+               
+          </div>
+         
+         <div class="certainBtn" style="margin-top:40px;">
+              <input class="marR35" onclick="location.href='/systemManage/changeTemp.html'"  value="确 定" type="button">
+              <input class="dfdfdf btnCertain" value="重 置" type="button">
+              <div class="space-40"></div>
+              <div class="clr"></div>
+              <div class="space-40"></div>
+      </div>
+          <div class="clr"></div>
+          <div class="space-50"></div>
+     </div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+
+
+
+<script>
+/*var id = 1;
+var html ;
+$("#showIdBtn").on("click",function(){
+	a = id++;
+    html = '<dl class="UserManageDl closeS">';
+    html += '<dt>自定义字段'+a+'：</dt><dd><input class="ManageInput" type="text" value="类型" />'
+    html += '<select class="select2"><option>新增多选</option><option>总部系统管理员</option><option>省份系统管理员</option>'
+    html += '<option><option>总部客服</option><option>省份客服</option></select><a href="javascript:;" class="del">删除</a></dd></dl>'
+	$("#showText").append(html)
+});
+
+$(".del").live("click",function(){
+	$(this).parents(".closeS").remove();
+});*/
+
+
+
+
+</script>
+
+</body>
+</html>
+

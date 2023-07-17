@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css_bms/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css_bms/public.css"/>
+<link rel="stylesheet" type="text/css" href="../../css_bms/mianBox.css"/>
+<script src="../../js_bms/title.js" type="text/javascript"></script>
+<script src="../../js_bms/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="../../js_bms/public.js" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>角色管理</span>&nbsp;&gt;&nbsp;<span>查看</span></div>
+    <div class="mt10 mb10"><a href="jsgl.html" class="mr10 bt_blue back cancel_href"><span>返回</span></a></div>
+    <div class="bord_gray padd_10 pb30">
+    	<p class="lineh40 borb font16"><span>角色信息</span><img src="../../images_bms/xl.gif" class="ml10" /></p>
+        <!--角色名称 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>角色名称：</span></p>
+            <div class="fl rightInfo lineh20" id="roleName_">研发超级管理员</div>
+            <div class="clear"></div>
+        </div>
+        <!--角色名称 结束-->
+        <!--所属地市 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>所属地市：</span></p>
+            <div class="fl rightInfo lineh20" id="locationName_">质量保证部</div>
+            <div class="clear"></div>
+        </div>
+        <!--所属地市 结束-->
+        <!--备注 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>备注：</span></p>
+            <div class="fl rightInfo lineh20" id="remark_">正常</div>
+            <div class="clear"></div>
+        </div>
+        <!--备注 结束-->
+        <p class="lineh40 borb font16"><span>角色用户信息</span><img src="../../images_bms/xl.gif" class="ml10" /></p>
+        <form id="search">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt20 bord_gray">
+          <tr>
+            <td align="right">登录名：&nbsp;</td>
+            <td><input class="input_normal w160" name="loginName"/></td>
+            <td align="right">真实姓名：&nbsp;</td>
+            <td><input class="input_normal w160" name="realName"/></td>
+          </tr>
+          <tr>
+            <td align="right">性别：&nbsp;</td>
+            <td>
+              <dl class="selectbox" style="z-index: 1;">
+                <dt id="userSexSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+                <dd id="userSexSelect">
+                  <p class="sel">男</p>
+                  <p>女</p>
+                </dd>
+              </dl>
+            </td>
+            <td align="right">状态：&nbsp;</td>
+            <td>
+              <dl class="selectbox" style="z-index: 1;">
+                <dt id="userStatusSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+                <dd id="userStatusSelect">
+                  <p class="sel">正常</p>
+                  <p>停用</p>
+                </dd>
+              </dl>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="3"><a href="javascript:;" class="bt_blue cancel_href" id="btnsearch"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a></td>
+          </tr>
+        </table>
+        </form>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox mt15 tb_content1">
+          <tr>
+            <th>登录名</th>
+            <th>真实姓名</th>
+            <th>性别</th>
+            <th>状态</th>
+          </tr>
+          <tbody id="users_tbody">
+      		<tr id="users" clazz ='odd$'>
+      		<td>{loginName}</td>
+      		<td>{realName}</td>
+      		<td>{userSexTxt}</td>
+      		<td>{userStatusTxt}</td>
+      		</tr>
+         	<tr>
+            <td>yh_zym</td>
+            <td>曾玉梅</td>
+            <td>男</td>
+            <td>正常</td>
+          </tr>
+          <tr>
+            <td>yh_zym</td>
+            <td>曾玉梅</td>
+            <td>男</td>
+            <td>正常</td>
+          </tr>
+          <tr>
+            <td>yh_zym</td>
+            <td>曾玉梅</td>
+            <td>男</td>
+            <td>正常</td>
+          </tr>
+          <tr>
+            <td>yh_zym</td>
+            <td>曾玉梅</td>
+            <td>男</td>
+            <td>正常</td>
+          </tr>
+          <tr>
+            <td>yh_zym</td>
+            <td>曾玉梅</td>
+            <td>男</td>
+            <td>正常</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="page middle">
+            <div class="fl" id="search_f">
+            <label>找到</label><label id="totalNum">3</label>
+            <label>条记录, 显示</label><label id="beginNum">1</label>
+            <label>到</label><label id="endNum">3</label>
+            </div>
+            <div class="fr" id="search_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="gotoUsers" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a></div>
+            <div class="clear"></div>
+        </div>
+        <p class="lineh40 borb font16 mb15"><span>角色权限信息</span><img src="../../images_bms/xl.gif" class="ml10" /></p>
+        <!--tab 开始-->
+            <div style=" overflow:hidden">
+               <!--  <p id="tab3" onclick="tab3_click()" class="fl" ><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">数据权限</span><span class="titleRight fl"></span></p>-->
+            </div>
+            <div class="clear"></div>
+            <div class="borblr pl10 pr10 pb10" style=" width:830px;border-top:1px solid #dfdfdf;">
+            	<div class="pt10">
+                	<p class="lineh20"><strong>权限配置-功能权限：</strong></p>
+            		<div>
+                    	<div class="shuBox bord_gray" id="func">
+                    		<img src="../../images_bms/shuNoinput.png">
+                    	</div>
+                    </div>
+                </div>
+                <!-- <div id="tab_3" class="undis">
+            		<div class="fl">
+                    	<p class="lineh20"><strong>数据字典：</strong></p>
+                        <div class="shuBox bord_gray"><img src="../../images_bms/shuNoinput.png" /></div>
+                    </div>
+                    <div class="fl ml10">
+                    	<p class="lineh20"><strong>数据字典值：</strong></p>
+                        <div class="shuBox bord_gray">
+                            <ul>
+                                <li class="middle"><span>功能1</span></li>
+                                <li class="middle"><span>功能2</span></li>
+                                <li class="middle"><span>功能3</span></li>
+                                <li class="middle"><span>功能4</span></li>
+                                <li class="middle"><span>功能5</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div> -->
+            </div>
+        <!--tab 开始-->
+    </div>
+    <div class="mt10 mb10"><a href="jsgl.html" class="mr10 bt_blue back cancel_href"><span>返回</span></a></div>
+</div>
+</body>
+</html>

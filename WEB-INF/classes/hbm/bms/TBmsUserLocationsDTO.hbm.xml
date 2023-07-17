@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.sinovatech.bms.adm.model.dto.TBmsUserLocationsDTO"
+		table="BMS_USER_LOCATIONS">
+		<comment>用户可访问区域</comment>
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+			<generator class="uuid.hex" />
+		</id>
+		
+		<property name="bmsStatus" type="java.lang.String">
+			<column name="BMS_STATUS" length="1">
+				<comment>状态：1正常，0删除</comment>
+			</column>
+		</property>
+		
+		<many-to-one name="tbTBmsLocationDTO"
+			class="com.sinovatech.bms.adm.model.dto.TBmsLocationDTO"
+			fetch="select">
+			<column name="LOCATIONID" length="32">
+				<comment>区域编号</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="tbTBmsUserDTO"
+			class="com.sinovatech.bms.adm.model.dto.TBmsUserDTO"
+			fetch="select">
+			<column name="USERID" length="32">
+				<comment>用户编号</comment>
+			</column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

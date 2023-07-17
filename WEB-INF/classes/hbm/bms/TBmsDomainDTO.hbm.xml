@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.domain.model.dto.TBmsDomainDTO"  table="BMS_DOMAIN" >
+		<comment>域</comment>
+		<id name="name"  type="java.lang.String" >
+			<column  name="NAME"  length="32"  />
+			<generator class="assigned" />
+		</id>
+	<!-- 
+		<property  name="canmodify"  type="java.lang.String" >
+			<column  name="CANMODIFY"  length="1" >
+				<comment>可修改</comment>
+			</column>
+		</property>
+		
+		<property  name="appCode"  type="java.lang.String" >
+			<column  name="appCode"  length="50" >
+				<comment>所属应用</comment>
+			</column>
+		</property>
+	 -->		
+		
+		<property  name="dic_order"  type="java.lang.String" >
+			<column  name="DIC_ORDER"  length="500" >
+				<comment>排序字段</comment>
+			</column>
+		</property>
+		
+		<property  name="dic_inner"  type="java.lang.String" >
+			<column  name="DIC_INNER"  length="1" >
+				<comment>是否是内部字典</comment>
+			</column>
+		</property>
+		
+		
+		<property  name="id"  type="java.lang.String" >
+			<column  name="DIC_ID"  length="50" >
+				<comment>数据主键字段</comment>
+			</column>
+		</property>
+		
+		
+		<property  name="parentId"  type="java.lang.String" >
+			<column  name="DIC_PARID"  length="50" >
+				<comment>父数据主键字段</comment>
+			</column>
+		</property>
+		
+		
+		<property  name="level"  type="java.lang.String" >
+			<column  name="DIC_LEVEL"  length="5" >
+				<comment>层级</comment>
+			</column>
+		</property>
+		
+		<property  name="dic_where"  type="java.lang.String" >
+			<column  name="DIC_WHERE"  length="200" >
+				<comment>数据过滤条件</comment>
+			</column>
+		</property>
+		
+		
+		<property  name="dic_code_fid"  type="java.lang.String" >
+			<column  name="DIC_CODE_FID"  length="50" >
+				<comment>字典值字段</comment>
+			</column>
+		</property>
+		
+		
+		<property  name="dic_name_fid"  type="java.lang.String" >
+			<column  name="DIC_NAME_FID"  length="50" >
+				<comment>字典名称字段</comment>
+			</column>
+		</property>
+		
+		
+		<property  name="dic_table"  type="java.lang.String" >
+			<column  name="DIC_TABLE"  length="50" >
+				<comment>字典表</comment>
+			</column>
+		</property>
+		
+		
+		<property  name="remark"  type="java.lang.String" >
+			<column  name="REMARK"  length="500" >
+				<comment>描述</comment>
+			</column>
+		</property>
+		
+		<property  name="valueType"  type="java.lang.String" >
+			<column  name="valueType"  length="50" >
+				<comment>字典类型</comment>
+			</column>
+		</property>
+		
+		<property name="bmsStatus" type="java.lang.String">
+			<column name="BMS_STATUS" length="1">
+				<comment>状态：1正常，0删除</comment>
+			</column>
+		</property>
+		
+		<property  name="description"  type="java.lang.String" >
+			<column  name="description"  length="200" >
+				<comment>描述</comment>
+			</column>
+		</property>
+		
+	</class>
+</hibernate-mapping>

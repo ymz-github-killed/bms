@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<!DOCTYPE weblogic-web-app PUBLIC "-//BEA Systems, Inc.//DTD Web Application 6.1//EN" "http://www.bea.com/servers/wls610/dtd/weblogic-web-jar.dtd">
+<weblogic-web-app>
+	<jsp-descriptor>
+		<!-- 每隔一段时间检查一次jsp，如果发现变更则自动加载。 -->
+		<page-check-seconds>1</page-check-seconds>
+	</jsp-descriptor>
+
+	<container-descriptor>
+		<servlet-reload-check-secs>-1</servlet-reload-check-secs>
+		<resource-reload-check-secs>-1</resource-reload-check-secs>
+		<prefer-web-inf-classes>FALSE</prefer-web-inf-classes>
+	</container-descriptor>
+
+	<context-root>/bms</context-root>
+
+</weblogic-web-app>   

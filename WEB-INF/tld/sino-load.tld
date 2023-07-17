@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.3</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>domain</short-name>
+	<uri>http://bms.sinovatech.com/tags-load</uri>
+	<tag>
+		<name>jdbc</name>
+		<tag-class>com.sinovatech.bms.client.tld.JdbcLoad</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			Executes the SQL query defined in its body or through the
+			sql attribute.
+    	</description>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				Name of the exported scoped variable for the
+				query
+				result. The type of the scoped variable is
+				javax.servlet.jsp.jstl.sql.
+				Result (see Chapter 16 "Java APIs").
+        	</description>
+		</attribute>
+		<attribute>
+			<name>scope</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				Scope of var.
+      	 	</description>
+		</attribute>
+		<attribute>
+			<name>sql</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				SQL query statement.
+        </description>
+		</attribute>
+		<attribute>
+			<name>dataSource</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Data source associated with the database to
+				query. A
+				String value represents a relative path
+				to a JNDI resource or the
+				parameters for the
+				DriverManager class.
+        </description>
+		</attribute>
+		<attribute>
+			<name>startRow</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				The returned Result object includes the rows
+				starting at
+				the specified index. The first row of
+				the original query result set
+				is at index 0. If not
+				specified, rows are included starting from the
+				first row at index 0.
+        </description>
+		</attribute>
+		<attribute>
+			<name>maxRows</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				The maximum number of rows to be included in
+				the query
+				result. If not specified, or set to -1, no
+				limit on the maximum
+				number of rows is
+				enforced.
+        	</description>
+		</attribute>
+
+		<attribute>
+			<name>topOne</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				If you set value "true" ,the result is only one record ,
+				Or "false" All. 
+        	</description>
+		</attribute>
+	</tag>
+
+
+	<tag>
+		<name>param</name>
+		<tag-class>org.apache.taglibs.standard.tag.rt.sql.ParamTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			Sets a parameter in an SQL statement to the specified
+			value.
+    	</description>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>Parameter value.</description>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>dateParam</name>
+		<tag-class>org.apache.taglibs.standard.tag.rt.sql.DateParamTag</tag-class>
+		<body-content>empty</body-content>
+		<description>
+			Sets a parameter in an SQL statement to the specified
+			java.util.Date value.
+    	</description>
+		<attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Parameter value for DATE, TIME, or
+				TIMESTAMP column in a
+				database table.
+       		 </description>
+		</attribute>
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>One of "date", "time" or "timestamp".</description>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>hibernate</name>
+		<tag-class> com.sinovatech.bms.client.tld.HibernateLoad</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			使用Hibernate 加载对象
+    	</description>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				ame of the exported scoped variable for the
+				query
+				result.
+				The type of the scoped variable is
+				javax.servlet.jsp.jstl.sql.
+				Result
+				(see Chapter 16 "Java APIs").
+        	</description>
+		</attribute>
+		<attribute>
+			<name>scope</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				Scope of var.
+      	 	</description>
+		</attribute>
+		<attribute>
+			<name>hql</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				HQL query statement.
+        </description>
+		</attribute>
+		<attribute>
+			<name>startRow</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				The returned Result object includes the rows
+				starting at
+				the specified index. The first row of
+				the original query result set
+				is at index 0. If not
+				specified, rows are included starting from the
+				first row at index 0.
+        </description>
+		</attribute>
+		<attribute>
+			<name>maxRows</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				The maximum number of rows to be included in
+				the query
+				result. If not specified, or set to -1, no
+				limit on the maximum
+				number of rows is
+				enforced.
+        	</description>
+		</attribute>
+
+		<attribute>
+			<name>clsName</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				The full class name of Hibernate mapping DTO.
+        	</description>
+		</attribute>
+
+		<attribute>
+			<name>keyValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				Load object by keyValue with Hibernate!
+        	</description>
+		</attribute>
+
+		<attribute>
+			<name>topOne</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				If you set value "true" ,the result is only one record ,
+				Or "false" All. Default is false. 
+        	</description>
+		</attribute>
+	</tag>
+
+
+	<tag>
+		<name>userCanView</name>
+		<tag-class>com.sinovatech.bms.client.tld.UserCanView</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			Sets a parameter in an SQL statement to the specified
+			value.
+    	</description>
+		<attribute>
+			<name>uri</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>URI Path</description>
+		</attribute>
+
+		<attribute>
+			<name>user</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>current user in session</description>
+		</attribute>
+
+		<attribute>
+			<name>bmsService</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>bms service client component!</description>
+		</attribute>
+	</tag>
+</taglib>

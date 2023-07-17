@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans default-lazy-init="false" default-autowire="no" default-dependency-check="none" default-merge="false">
+  <!--=============================================-->
+  <!--审记日志-->
+  <bean id="myBmsAuditlogDAO" class="com.sinovatech.bms.adm.model.dao.BmsAuditlogDAO" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+      <bean id="myBmsAuditlogBPO" class="com.sinovatech.bms.adm.model.bpo.BmsAuditlogBPO" lazy-init="default" autowire="default" dependency-check="default">
+        <property name="myBmsAuditlogDAO">
+          <ref local="myBmsAuditlogDAO"/>
+        </property>
+      </bean>
+  <bean id="myBmsAuditlogFacade" class="com.sinovatech.bms.adm.model.facade.BmsAuditlogFacade" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="myBmsAuditlogBPO">
+      <ref local="myBmsAuditlogBPO"/>
+    </property>
+    <!--End-->
+    <!--=====================================-->
+  </bean>
+  <!--=============================================-->
+  <!--审计日志定义-->
+  <bean id="myBmsAuditdefineDAO" class="com.sinovatech.bms.adm.model.dao.BmsAuditdefineDAO" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+      <bean id="myBmsAuditdefineBPO" class="com.sinovatech.bms.adm.model.bpo.BmsAuditdefineBPO" lazy-init="default" autowire="default" dependency-check="default">
+        <property name="myBmsAuditdefineDAO">
+          <ref local="myBmsAuditdefineDAO"/>
+        </property>
+      </bean>
+  <bean id="myBmsAuditdefineFacade" class="com.sinovatech.bms.adm.model.facade.BmsAuditdefineFacade" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="myBmsAuditdefineBPO">
+      <ref local="myBmsAuditdefineBPO"/>
+    </property>
+    <!--End-->
+    <!--=====================================-->
+  </bean>
+  <!--=============================================-->
+  <!--外部应用管理-->
+  <bean id="myBmsWebappDAO" class="com.sinovatech.bms.adm.model.dao.BmsWebappDAO" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+      <bean id="myBmsWebappBPO"  class="com.sinovatech.bms.adm.model.bpo.BmsWebappBPO" lazy-init="default" autowire="default" dependency-check="default">
+        <property name="myBmsWebappDAO">
+          <ref local="myBmsWebappDAO"/>
+        </property>
+        <property name="myBmsAuditdefineDAO">
+          <ref local="myBmsAuditdefineDAO"/>
+        </property>
+      </bean>
+  <bean id="myBmsWebappFacade" class="com.sinovatech.bms.adm.model.facade.BmsWebappFacade" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="myBmsWebappBPO">
+      <ref local="myBmsWebappBPO"/>
+    </property>
+    </bean>
+    <!--End-->
+    <!--=====================================-->
+  <!--=============================================-->
+  <!--用户权限-->
+  <bean id="myBmsUserFuncDAO" class="com.sinovatech.bms.adm.model.dao.BmsUserFuncDAO" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+      <bean id="myBmsUserFuncBPO" class="com.sinovatech.bms.adm.model.bpo.BmsUserFuncBPO" lazy-init="default" autowire="default" dependency-check="default">
+        <property name="myBmsUserFuncDAO">
+          <ref local="myBmsUserFuncDAO"/>
+        </property>
+      </bean>
+  <bean id="myBmsUserFuncFacade" class="com.sinovatech.bms.adm.model.facade.BmsUserFuncFacade" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="myBmsUserFuncBPO">
+      <ref local="myBmsUserFuncBPO"/>
+    </property>
+    <!--End-->
+    <!--=====================================-->
+  </bean>
+  <!--=============================================-->
+  <!--用户数据权限否决-->
+  <bean id="myBmsForbidUserdomainDAO" class="com.sinovatech.bms.adm.model.dao.BmsForbidUserdomainDAO" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+      <bean id="myBmsForbidUserdomainBPO" class="com.sinovatech.bms.adm.model.bpo.BmsForbidUserdomainBPO" lazy-init="default" autowire="default" dependency-check="default">
+        <property name="myBmsForbidUserdomainDAO">
+          <ref local="myBmsForbidUserdomainDAO"/>
+        </property>
+      </bean>
+  <bean id="myBmsForbidUserdomainFacade" class="com.sinovatech.bms.adm.model.facade.BmsForbidUserdomainFacade" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="myBmsForbidUserdomainBPO">
+      <ref local="myBmsForbidUserdomainBPO"/>
+    </property>
+    <!--End-->
+    <!--=====================================-->
+  </bean>
+  <!--=============================================-->
+  <!--功能数据权限关联-->
+  <bean id="myBmsDomainFuncDAO" class="com.sinovatech.bms.adm.model.dao.BmsDomainFuncDAO" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+      <bean  id="myBmsDomainFuncBPO" class="com.sinovatech.bms.adm.model.bpo.BmsDomainFuncBPO" lazy-init="default" autowire="default" dependency-check="default">
+        <property name="myBmsDomainFuncDAO">
+          <ref local="myBmsDomainFuncDAO"/>
+        </property>
+      </bean>
+  <bean id="myBmsDomainFuncFacade" class="com.sinovatech.bms.adm.model.facade.BmsDomainFuncFacade" lazy-init="default" autowire="default" dependency-check="default">
+    <property name="myBmsDomainFuncBPO">
+      <ref local="myBmsDomainFuncBPO"/>
+    </property>
+    <!--End-->
+    <!--=====================================-->
+  </bean>
+  <!--=============================================-->
+  <!--角色数据权限-->
+  <bean id="myBmsRoleDomainrightDAO" class="com.sinovatech.bms.adm.model.dao.BmsRoleDomainrightDAO">
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+      <bean  id="myBmsRoleDomainrightBPO" class="com.sinovatech.bms.adm.model.bpo.BmsRoleDomainrightBPO">
+        <property name="myBmsRoleDomainrightDAO">
+          <ref local="myBmsRoleDomainrightDAO"/>
+        </property>
+      </bean>
+  <bean id="myBmsRoleDomainrightFacade" class="com.sinovatech.bms.adm.model.facade.BmsRoleDomainrightFacade">
+    <property name="myBmsRoleDomainrightBPO">
+      <ref local="myBmsRoleDomainrightBPO"/>
+    </property>
+    <!--End-->
+    <!--=====================================-->
+  </bean>
+</beans>

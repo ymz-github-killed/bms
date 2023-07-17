@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style=" overflow-x:hidden; overflow-y:hidden;">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/title.js" type="text/javascript"></script>
+<script src="js/public.js" type="text/javascript"></script>
+<script src="js/treeNav_tab.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/public.css"/>
+<link rel="stylesheet" type="text/css" href="css/mianBox.css"/> 
+<!--head
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<script src="../../js/jquery-1.7.2.min.js"></script>
+<script src="../../js/title.js" type="text/javascript"></script>
+<script src="../../js/public.js" type="text/javascript"></script>
+<script src="../../js/treeNav_tab.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css"/>head-->
+
+</head>
+
+<body>
+     
+<!--头部引用 开始-->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="topHeader" style="margin-top: -10px;">
+      <tr>
+        <td class="topLeft toggle_td" valign="top" style=" width:220px;" >
+        
+        <span style="width:220px;display:inline-block;"><img id="logo_image" src="images/logo.gif" width="170" style="padding:5px 0 0 20px"></span>
+        <!--  <img id="logo_image" src="images/logo.png" width="220" height="86" />-->
+        
+        
+        <label class="write font16">
+        <div id="headmsg" style="white-space:nowrap;overflow:hidden;width:600px;"></div>
+        </label>
+        </td>
+        <td>
+            <div class="topRight font12 cFff fontST text_r fr">
+                <span class=" fontb mr10" style="cursor: default;" id="userRealName">欢迎您，xxxx管理员</span>
+                <a href="login.html" class="aqtc mr10 cancel_href" id="loginOut">安全退出</a>
+               <!--  |<a href="javascript:;" id="return_upper_story">返回上一层 </a>  -->
+            </div>
+            <div class="clear"></div>
+            <div id="navBOX" class="navBOX">
+            <div class="nav" id="nav_1"><span name="" title="CMS" class="hover">CMS</span><span title="BMS" name="bms/user/jbxxgl.html">BMS</span><img src="images/navSelect_1.gif" id="disNav" /></div>
+            <ul class="pcs_tab_ul" id="pcs_tab_ul" style=" position:absolute; padding-left:15px; padding-top:9px; left:0px; bottom:-32px;">
+               <li class="cur" id="myli1"><label  name="home.html" title="首页"> <span id="iispan1"><p class="myspan" idnum="1"><b>首页</b></p></span></label></li>
+          	</ul>
+            <img src="images/yqClose.gif" title="关闭全部" class="hand" id="closeAll" style=" position:absolute; right:5px; top:51px;" />
+             <!-- 这个div用来存放系统名称的标签【右侧的下拉框】 -->
+            <div class="nav" id="nav_2"><span title="首页" name="home.html">首页</span><span title="BMS" name="bms/user/jbxxgl.html">BMSBMSBMSBMS</span></div>
+            </div>
+        </td>
+      </tr>
+    </table>
+    <input type="hidden" id="siCode" value="" />
+<!--头部引用 结束-->
+<table border="0" cellspacing="0" cellpadding="0" class="mainBoxWarp bg_cff" style="width:100%;">
+<tr>
+<td style=" background:#56b4d6" class='toggle_td'>
+<!--左侧引用 开始-->
+    <div class="treeBox" style="position: relative;">
+<!-- 	<p id="czcd" class="title" style=" *margin-top:0px;"><strong>操作菜单</strong></p> style=" margin-top:-32px;" -->
+<!-- 	<p  class="title" style="margin-top:0px;padding-bottom: 5px;"><strong><input type="text" id="searchInp" style="height: 20px"/> <img src="../theme/bmsHTGL/images/search.png" alt="搜索" width="15" height="15"/></strong></p> -->
+    <!-- <a class="toggle_switch" onclick='toggleMenuBar();'  style="z-index: 998;top:50%;right:0px;background-color: #0069ff;float:right;"><img src="../theme/bmsHTGL/images/navigate_l.png" /></a> -->
+    
+     <div class="personal_collection_wrap">
+ 		<div class="drop_down_wrap fn-clear">
+ 		<div class="drop_down_menu">
+             <div class="display_btn "><img src="../../images/heshang.png" alt=""></div>
+             <div class="display_btn fn-hide"><img src="../../images/zhangkai.png" alt=""></div>
+        </div>
+         <div class="menu_list_wrap" style="padding-left : 19px;">
+                <div style='position:relative; color:#fff; text-decoration:none; padding-left:30px;white-space:nowrap; background:url(../../images/collect2.png) no-repeat left center; display:block; line-height:25px; font-size:14px'>
+                   <span>个人收藏</span>
+                </div>
+                <div class="personal_collection fn-hide">
+                    <div class="personal_collection_top">
+                        <div class="fn-left" style="float:left;font-size:22px;display:inline;">个人收藏</div>
+                        <div class="fn-right"style=" font-size: 18px;color: #9497a1;">
+                            <span class="fn-hide">保存</span> <img class="" src="../../images/set_up.png" alt="" style="margin-top:18px;">
+                        </div>
+                    </div>
+                    <div class="personal_collection_content fn-clear ">
+                        <!-- <div ><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png"
+                                alt=""></div>
+                        
+                        <div><span></span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div> -->
+                       <!--  <div><span class='collect_span_click' title='猴子' name='4028811f4a2899cb014a289aa8ce000b'>三生三世十里桃花</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+   	</div>
+     
+     
+     
+     
+     
+     
+     
+    <div id="treeBox">
+        <div id="tree" class="tree">
+			 <ul>
+                <li class="leftTree"><!-- <span id='home' name="home.html" class="current">首页</span> --></li>
+            </ul>
+        </div>
+        <div class="tree undis">
+            <ul>
+            	<li class="leftTree"><span name="bms/yhsdgl/yhsdgl.html" class="current">用户锁定管理</span></li>
+                <li class="leftTree"><span name="null">用户管理</span>
+                    <ul class="undis">
+                        <li class="leftTree"><span name="bms/user/jbxxgl.html">基本信息管理</span></li>
+                        <li class="leftTree"><span name="bms/user/yhqxgl.html">用户权限管理</span></li>
+                    </ul>
+                </li>
+                <li class="leftTree"><span name="bms/jsgl/jsgl.html">角色管理</span></li>
+                <li class="leftTree"><span name="bms/bmgl/bmxxck.html">部门管理</span></li>
+                <li class="leftTree"><span name="null">数据配置</span>
+                    <ul class="undis">
+                        <li><span name="bms/sjpz/sjzd.html">数据字典</span></li> 
+                        <li><span name="bms/sjpz/sjqx.html">数据权限</span></li> 
+                    </ul>
+                </li>
+                <li class="leftTree"><span name="bms/gnqx/gnqx.html">功能权限</span></li>
+                <li class="leftTree"><span name="bms/wbyy/wbyy.html">外部应用</span></li>
+                <li class="leftTree"><span name="bms/yswh/yswh.html">样式维护</span></li>
+                <li class="leftTree"><span name="bms/drsc/drsc.html">导入删除</span></li>
+                <li class="leftTree"><span name="bms/rzgl/rzgl.html">日志管理</span></li>
+                <li class="leftTree"><span name="bms/ggmm/ggmm.html">安全设置</span></li>
+                <li class="leftTree"><span name="bms/gggl/gggl.html">公告管理</span></li>
+                <li class="leftTree"><span name="bms/xtgg/xtgg.html">系统公告</span></li>
+                <li class="leftTree"><span name="bms/syxyy/syxyy.html">首页小应用</span></li>
+            </ul>
+		</div>
+    </div>
+</div>
+<!--左侧引用 结束-->
+</td>
+<td style="width:100%;">
+<!--右侧引用 开始-->
+<div style="height:32px; _width:100px;width:100%">&nbsp;</div>
+	<div id="iframeRight" class=" bgFFF" style='position:relative;' >  <!-- style=" padding-top:32px;" -->
+	<!-- <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:46%;left:0px;background-color: #0069ff;;color:white;display:none;"><img src="../theme/bmsHTGL/images/navigate_r.png" /></a> -->
+    <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:8%;left:0px;;color:white;display:none;position:absolute;"><img src="../theme/bmsHTGL/images/nav_right.png" style="width:15px;"/></a>
+    <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:8%;left:0px;;color:white;position:absolute;"><img src="../theme/bmsHTGL/images/nav_left.png"  style="width: 15px;"/></a>
+    <iframe id="myiframe" frameborder="0" width="100%" height="100%" scrolling="auto" src="" class=""></iframe>
+    </div>
+<!--右侧引用 结束--> 
+</td>
+</tr>
+</table>  
+<!--版权引用 开始-->
+	<div class="text_c footer">Copyright&copy;1999-2020&nbsp;&nbsp;炎黄新星&nbsp;&nbsp;版权所有</div>
+<!--版权引用 结束-->
+
+<!--弹出层 开始-->
+<div id="coverBox">&nbsp;</div>
+<div class="cover" id="cover">&nbsp;</div>
+
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr cancel_href" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','bccg')" id="goUrl"><span>确定</span></a></div>
+</div>
+
+<!--请关闭您不用的窗口 开始-->
+<div class="yqPOP" id="yqPOP">
+	<div class="popTitle"><span class="close fr" onclick="cLose()"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c">您打开的窗口已经超过10个！请关闭您不用的窗口！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue" onclick="cLose()"><span>确定</span></a></div>
+</div>
+<!--请关闭您不用的窗口 结束-->
+<!--您没有打开任何页面 开始-->
+<div class="yqPOP" id="noTab">
+	<div class="popTitle"><span class="close fr" onclick="noTab()"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c">您没有打开任何页面！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue" onclick="noTab()"><span>确定</span></a></div>
+</div>
+<!--您没有打开任何页面 结束-->
+</body>
+<script>
+if(typeof(basePath)=="undefined"){
+ 	jQuery("#myiframe").attr("src","home.html");
+ 	jQuery("#myiframe").attr("class","home.html");
+ 	jQuery("#homelabel").attr("name","home.html");
+}
+
+function toggleMenuBar(){
+	$(".toggle_td").toggle();	
+}
+
+
+
+
+</script>
+</html>

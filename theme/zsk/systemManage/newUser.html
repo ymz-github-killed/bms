@@ -1,0 +1,220 @@
+<!--#include virtual="/include/header.html"-->
+
+
+
+<div class="content">
+     <div class="space-50"></div>
+     <div class="manageNav">
+          <ul class="manageNavLi">
+              <li class="on"><a href="/systemManage/index.html">用户管理</a></li>
+              <li><a href="/systemManage/roleManage.html">角色管理</a></li>
+              <li><a href="/systemManage/rightsManag.html">权限管理</a></li> 
+              <li><a href="/systemManage/outsideApplication.html">外部应用</a></li>
+              <li><a href="/systemManage/safeSet.html">安全设置</a></li>
+              <li><a href="/systemManage/luckUser.html">用户锁定</a></li>
+          	  <li><a href="/systemManage/mouldManage.html">模版管理</a></li>
+          </ul>
+     </div>
+     <div class="newUser">
+          <div class="space-30"></div>
+          <div class="UserManage">
+               <dl class="UserManageDl">
+                   <dt>用户ID：</dt>
+                   <dd>
+                        <span>12344555</span>
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 登录名：</dt>
+                   <dd>
+                        <input class="ManageInput" type="text" />
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 登录密码：</dt>
+                   <dd>
+                        <input id="password" class="ManageInput" type="text" />
+                        <strong>密码长度6-16位，首字符为英文，必须包含数字。</strong>
+                   </dd>
+               </dl>
+                <dl class="UserManageDl">
+                   <dt><i>*</i> 确认密码：</dt>
+                   <dd>
+                        <input id="confirmPassword" class="ManageInput" type="text" />
+                        <strong style="display:none">两次密码输入不一样!</strong>
+                     
+                   </dd>
+               </dl>
+              <!-- <dl class="UserManageDl">
+                   <dt><i>*</i> 用户角色：</dt>
+                   <dd>
+                        <select>
+                          <option>请选择</option>
+                          <option>总部系统管理员</option>
+                          <option>省份系统管理员</option>
+                          <option>总部客服</option>
+                          <option>省份客服</option>
+                          <option>地市客服</option>
+                          <option>省份普通客服</option>
+                          <option>地市普通客服</option>
+                      </select>
+                   </dd>
+               </dl>-->
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 帐号状态：</dt>
+                   <dd class="inputR">
+                        <label><input type="radio" name="0" />&nbsp;正常</label>
+                        <label><input type="radio" name="0" />&nbsp;停用</label>
+                        <label><input type="radio" name="0" />&nbsp;未启用</label>
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 所属省份：</dt>
+                   <dd>
+                        <div class="inputBox">
+                             <div class="inputList">
+                                 <label><input type="checkbox" />&nbsp;<b>总部</b></label>
+                                 <label><input type="checkbox" />&nbsp;湖北</label>
+                                 <label><input type="checkbox" />&nbsp;湖南</label>
+                                 <label><input type="checkbox" />&nbsp;天津</label>
+                                 <label><input type="checkbox" />&nbsp;江苏</label>
+                                 <label><input type="checkbox" />&nbsp;浙江</label>
+                                 <label><input type="checkbox" />&nbsp;贵州</label>
+                                 <label><input type="checkbox" />&nbsp;北京</label>
+                                 <label><input type="checkbox" />&nbsp;河南</label>
+                                 <label><input type="checkbox" />&nbsp;河北</label>
+                                 <label><input type="checkbox" />&nbsp;山西</label>
+                                 <label><input type="checkbox" />&nbsp;山东</label>
+                                 <label><input type="checkbox" />&nbsp;江西</label>
+                                 <label><input type="checkbox" />&nbsp;广东</label>
+                                 <label><input type="checkbox" />&nbsp;新疆</label>
+                                 <label><input type="checkbox" />&nbsp;青海</label>
+                                 <label><input type="checkbox" />&nbsp;辽宁</label>
+                                 <label><input type="checkbox" />&nbsp;吉林</label>
+                                 <label><input type="checkbox" />&nbsp;黑龙江</label>
+                                 <label><input type="checkbox" />&nbsp;重庆</label>
+                                 <label><input type="checkbox" />&nbsp;广西</label>
+                                 <label><input type="checkbox" />&nbsp;甘肃</label>
+                                 <label><input type="checkbox" />&nbsp;西藏</label>
+                                 <label><input type="checkbox" />&nbsp;上海</label>
+                                 <label><input type="checkbox" />&nbsp;内蒙古</label>
+                                 <label><input type="checkbox" />&nbsp;云南</label>
+                                 <label><input type="checkbox" />&nbsp;陕西</label>
+                                 <label><input type="checkbox" />&nbsp;海南</label>
+                                 <label><input type="checkbox" />&nbsp;安徽</label>
+                                 <label><input type="checkbox" />&nbsp;四川</label>
+                                 <label><input type="checkbox" />&nbsp;宁夏</label>
+                                 <label><input type="checkbox" />&nbsp;福建</label>
+                             </div>
+                             <div class="inputList">
+                                 <div class="inputLine">
+                                      <p>选择地市</p>
+                                      <div class="space-20"></div>
+                                 </div>
+                                 <label><input type="checkbox" />&nbsp;省中心</label>
+                                 <label><input type="checkbox" />&nbsp;广东</label>
+                                 <label><input type="checkbox" />&nbsp;佛山</label>
+                                 <label><input type="checkbox" />&nbsp;深圳</label>
+                                 <label><input type="checkbox" />&nbsp;东莞</label>
+                                 <label><input type="checkbox" />&nbsp;中山</label>
+                                 <label><input type="checkbox" />&nbsp;惠州</label>
+                                 <label><input type="checkbox" />&nbsp;清远</label>
+                                 <label><input type="checkbox" />&nbsp;汕头</label>
+                                 <label><input type="checkbox" />&nbsp;潮州</label>
+                                 <label><input type="checkbox" />&nbsp;揭阳</label>
+                                 <label><input type="checkbox" />&nbsp;肇庆 </label>
+                                 <label><input type="checkbox" />&nbsp;云浮</label>
+                                 <label><input type="checkbox" />&nbsp;韶关</label>
+                                 <label><input type="checkbox" />&nbsp;江门</label>
+                                 <label><input type="checkbox" />&nbsp;阳江</label>
+                                 <label><input type="checkbox" />&nbsp;茂名</label>
+                                 <label><input type="checkbox" />&nbsp;湛江 </label>
+                                 <label><input type="checkbox" />&nbsp;珠海</label>
+                                 <label><input type="checkbox" />&nbsp;梅州</label>
+                             </div>
+                        </div>
+                   </dd>
+               </dl>
+          </div>
+          <div class="clr"></div>
+          <div class="space-50"></div>
+          <div class="UserManage">
+               <div class="UserManageLine">
+                    <span>基本信息</span>
+                    <p>收起/打开</p>
+               </div>
+               <div class="space-30"></div>
+               <div class="UserManageShow">
+                   <dl class="UserManageDl">
+                       <dt><i>*</i> 真实姓名：</dt>
+                       <dd>
+                            <input class="ManageInput" type="text" />
+                       </dd>
+                   </dl>
+                   <dl class="UserManageDl">
+                       <dt>性别：</dt>
+                       <dd class="inputR">
+                            <label><input type="radio" name="0" />&nbsp;男</label>
+                            <label><input type="radio" name="0" />&nbsp;女</label>
+                       </dd>
+                   </dl>
+                   <dl class="UserManageDl">
+                       <dt><i>*</i>手机：</dt>
+                       <dd>
+                            <input class="ManageInput" type="text" />
+                       </dd>
+                   </dl>
+                   <dl class="UserManageDl">
+                       <dt>电话：</dt>
+                       <dd>
+                            <input class="ManageInput" type="text" />
+                       </dd>
+                   </dl>
+                   <dl class="UserManageDl">
+                       <dt>电子邮件：</dt>
+                       <dd>
+                            <input class="ManageInput" type="text" />
+                       </dd>
+                   </dl>
+                   <dl class="UserManageDl">
+                       <dt>备注：</dt>
+                       <dd>
+                            <textarea></textarea>
+                       </dd>
+                   </dl>
+               </div>
+               <div class="clr"></div>
+               <div class="space-40"></div>
+          </div>
+          <div class="clr"></div>
+          <div class="space-40"></div>
+          <div class="certainBtn">
+              <input class="marR35" onclick="location.href='/systemManage/index.html'" type="button" value="提 交">
+              <input class="dfdfdf" onclick="location.href='/systemManage/index.html'" type="button" value="返 回">
+              <div class="space-40"></div>
+          </div>
+          <div class="clr"></div>
+          <div class="space-50"></div>
+     </div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+<script>
+	$("#confirmPassword").blur(function(){
+		var text = $("#password").val();
+		if(text != $(this).val())
+		{
+			$(this).next("strong").show();
+		}
+		else
+		{
+			$(this).next("strong").hide();
+		}
+	})
+</script>
+</body>
+</html>
+

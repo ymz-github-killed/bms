@@ -1,0 +1,118 @@
+<%@ page language="java" contentType="text/html; charset=GBK"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<script src="${pageContext.request.contextPath}/js/title.js" charset="GBK"></script>
+<link href="${pageContext.request.contextPath}/css1.6/login.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/js1.6/jQuery/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/csrfToken.js"></script>
+<script type="text/javascript">
+	function beforeSubmit()
+	{
+		var userName=$("#userName_").val();
+	
+		if(userName == "登录帐号"  || userName == "")
+		{
+			alert("请输入用户名！");
+			return false;
+		}
+		if($("#pwd_").val() == "登录密码" || $("#pwd_").val() == "")
+		{
+			if($("#pwd_").value != ""){
+				alert("请在英文状态下重新输入密码！");
+				$("#pwd_").value="";
+				return false;
+			}else{
+				alert("请输入密码！");
+				return false;
+			}
+		}
+		if($("#yzm_").val() == "验证码" || $("#yzm_").val() == "")
+		{
+			alert("请输入验证码！");
+			return false;
+		}
+		if(!/^\w+$/g.test(userName)){
+			alert("请输入正确的用户名！");
+			return false;
+		}
+		if(userName.indexOf("http")>0 || userName.indexOf("html")>0 || userName.indexOf(".")>0){
+			alert("用户名不正确，请重新输入！");
+			return false;
+		}
+	updateForms("${csrftoken }");
+	updateTags("${csrftoken }");
+	// document.getElementById("pwd_").value="";
+	document.getElementById("logonForm").submit();
+	}
+
+</script>
+</head>
+<body scroll="no" id="body">
+	<div id="logonpage">
+	<form id="logonForm" name="logonForm" method="post" action="${pageContext.request.contextPath}/login.do">
+		<div id="logo"><img src="${pageContext.request.contextPath}/images1.6/cms_newlogo.jpg" width="340" height="110" ></div>
+		<div id="ap">
+			<div class="err"></div>
+			<div class="content">
+				<div id="inp_zh" class="inputbox inputbox_def"><span class="user"></span><!--<label>登录账号</label>--><input name="userName" id="userName_" type="text" value="登录帐号"/></div>
+				<div id="inp_mm" class="inputbox inputbox_def"><span class="password"></span><!--<label>登录密码</label>--><input name="pwdshow" id="passshow" type="text" value="登录密码" /><input name="userPwd" id="pwd_" type="password" /></div>
+				<div id="inp_yzm" class="inputbox  yzmbox inputbox_def"><span class="code"></span><!--<label>验证码</label>--><input id="yzm_" value="验证码" class="yzm" name="yzm" type="text" maxlength="5" /></div>
+				<div class="yampic_showbox"><img width="65px" height="25px" style="cursor: pointer; border: 1px solid #cc00; margin-left: 1px;" 	src="${pageContext.request.contextPath}/common/sinoaptcha1.jpg" onclick="var s=Math.random();this.src='${pageContext.request.contextPath}/common/sinoaptcha1.jpg?1='+s;" alt="看不清请刷新" /></div>
+				<div id="inp_but">
+					<input class="btn_submit" onClick="beforeSubmit();return false" type="button" value="提交" />
+					<input id="reset" class="btn_reset"  type="reset" value="重置" />
+				</div>
+			</div>
+		</div>
+	</form>
+	</div>
+</body>
+</html>
+<script language="javascript">
+	$(".inputbox input").focus(function(){
+		$(this).parent().removeClass("inputbox_def").addClass("inputbox_focus");
+		var  vals = $(this).val();
+		if(vals=="登录帐号"){
+			$(this).val("");
+		}else if(vals=="登录密码"){
+			$(this).val("");
+		}else if(vals=="验证码"){
+			$(this).val("");
+		}
+		
+	});
+	$(".inputbox input").blur(function(){
+		$(this).parent().addClass("inputbox_def").removeClass("inputbox_focus");
+	});
+	$("#passshow").focus(function(){
+		$(this).hide();
+		$("#pwd_").show().focus();
+	});
+	$("#userName_").blur(function(){
+		if($(this).val() == ""){
+			$(this).val("登录帐号");
+		}
+	});
+
+	$("#yzm_").blur(function(){
+		if($(this).val() == ""){
+			$(this).val("验证码");
+		}
+	});
+	$("#pwd_").blur(function(){
+		if($(this).val() == ""){
+			$(this).hide()
+			$("#passshow").show().val("登录密码");
+		}
+	});
+	$("#reset").click(function(){
+		$("#passshow").show().val("登录密码");
+		$("#pwd_").hide();
+	});
+	if("${msgs }"!=""){
+		alert("${msgs }");
+	}
+</script>

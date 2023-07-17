@@ -1,0 +1,999 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style=" overflow-x:hidden; overflow-y:hidden;">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/title.js" type="text/javascript"></script>
+<script src="js/public.js" type="text/javascript"></script>
+<script src="js/treeNav_tab.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/public.css"/>
+<link rel="stylesheet" type="text/css" href="css/mianBox.css"/> 
+<!--head
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<script src="../../js/jquery-1.7.2.min.js"></script>
+<script src="../../js/title.js" type="text/javascript"></script>
+<script src="../../js/public.js" type="text/javascript"></script>
+<script src="../../js/treeNav_tab.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css"/>head-->
+<style>
+        
+.management_header {
+    /* overflow: hidden; */
+    padding: 0 3.125%;
+    /* max-width: 1920px; */
+    height: 80px;
+    width: 100%;
+    background: url("../images/img1_bg.png") no-repeat left center;
+    background-size: 100% 100%;
+}
+
+.box_header {
+    position: relative;
+    height: 14.8%;
+    min-height: 100px;
+}
+
+.management_left {
+    width: 25%;
+    min-width: 485px;
+}
+
+/* loge */
+.management_left>div {
+
+    margin-top: 14px;
+    display: inline-block;
+    color: white;
+    font-size: 32px;
+
+}
+
+.management_left>img {
+    vertical-align: bottom;
+    margin-right: 5px;
+
+}
+
+/* user_name */
+.management_right {
+    margin-top: 23px;
+    /* margin-top: 2.3%; */
+    color: white;
+    font-size: 20px;
+    width: 27.5%;
+    min-width: 405px;
+    text-align: right;
+}
+
+/* 通知 */
+.icon {
+    display: inline-block;
+    /* margin-top: 29px; */
+    color: white;
+    font-size: 20px;
+    min-width: 50px;
+    width: 4.8%;
+}
+
+.icon>img {
+    vertical-align: middle;
+    margin-right: 15px;
+    width: 20px;
+}
+
+.user_wrap {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.user_wrap>div {
+    display: inline-block;
+
+}
+
+.triangle {
+    line-height: 100%;
+}
+
+.triangle .content {
+    margin-bottom: 80%;
+    width: 11px;
+    height: 11px;
+    border: white solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(135deg);
+}
+
+.triangle .content1 {
+    margin-bottom: 0%;
+    width: 11px;
+    height: 11px;
+    border: white solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(-48deg);
+
+}
+
+.login_state {
+    position: absolute;
+    height: 206px;
+    width: 10.5%;
+    min-width: 205px;
+    margin-top: 32px;
+    z-index: 3;
+    right: 1%;
+}
+
+.content2 {
+    position: absolute;
+    left: 44%;
+    top: -10.5%;
+    width: 0px;
+    height: 11x;
+    border: 11px solid;
+    border-color: transparent transparent #f7f7f7 transparent;
+}
+
+.content3 {
+    background: #f7f7f7;
+    color: #666;
+    text-align: center;
+    height: 100%;
+    font-size: 22px;
+}
+
+.content3>div {
+    padding-top: 10%;
+}
+
+/*  下半部分。 management_content_wrap */
+.management_content_wrap {
+    width: 100%;
+    /* height: 89.5%; */
+}
+
+.management_content_wrap>div {
+    float: left;
+}
+
+.menu_list_wrap {
+    /* padding-left: 10%; */
+    /* height: 60%; */
+}
+
+.menu_list_wrap>div {
+    padding-left: 10%;
+}
+
+.drop_down_wrap {
+    height: 100%;
+    width: 15%;
+    background: #4a5060;
+}
+
+.drop_down_menu {
+    background: #383d50;
+}
+
+.display_btn {
+    text-align: center;
+    height: 40px;
+    border: 1px solid #383d50;
+}
+
+.display_btn>img {
+    /* width: 29px;
+    height: 25px; */
+    margin-top: 6px;
+}
+
+.personal_collection_wrap {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    color: #fff;
+    border: 1px solid transparent;
+    font-size: 18px;
+}
+.personal_collection_wrap img {
+    height: 20px;
+}
+
+.personal_collection_wrap:hover:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background: rgba(56, 61, 80, .3);
+    top: 0;
+    left: 0;
+    border-left: #3a85f4;
+    border-left-width: 2%;
+    border-left-style: solid;
+}
+
+/* .second_level_wrap1::after {
+    
+} */
+
+.bg_color {
+    background: #383d50;
+}
+
+.personal_collection_wrap img {
+    vertical-align: middle;
+    margin-right: 10%;
+}
+
+.menu_triangle .content45 {
+    /* margin-bottom: 80%; */
+    width: 10px;
+    height: 10px;
+    border: white solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(45deg);
+}
+
+.menu_triangle .content135 {
+    width: 10px;
+    height: 10px;
+    border: white solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(135deg);
+}
+
+.first_level>li {
+    min-height: 40px;
+    /* border: 1px solid red; */
+    color: #fff;
+}
+
+.menu_content {
+    height: 40px;
+}
+
+.color_blue {
+    color: #3a85f4;
+}
+
+.menu_content>div {
+    display: inline-block;
+    /* color: #fff; */
+    font-size: 18px;
+    /* margin-top: 16px; */
+    margin-right: 14%;
+    line-height: 40px;
+}
+
+.second_level {
+    position: relative;
+    height: 40px;
+    line-height: 40PX;
+}
+
+.second_level:hover:after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    background: rgba(56, 61, 80, .6);
+    top: 0;
+    left: -11%;
+    border-left: #3a85f4;
+    border-left-width: 2%;
+    border-left-style: solid;
+}
+
+.second_level_wrap::after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    background: rgba(56, 61, 80, .6);
+    top: 0;
+    left: -11%;
+    border-left: #3a85f4;
+    border-left-width: 2%;
+    border-left-style: solid;
+}
+
+/* blur——search */
+.blur_search {
+    border: 1px solid transparent;
+    width: 90%;
+    height: 40px;
+    margin-left: 5%;
+    /* margin-top: 8%; */
+    /* margin-top: 150%; */
+}
+
+.blur_search>input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: #535968;
+    font-size: 18px;
+    padding: 0 5%;
+    color: #f7f7f7;
+}
+
+.blur_search>img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10%;
+}
+
+input::-webkit-input-placeholder {
+    /*WebKit browsers*/
+
+    color: #b4b6bb;
+
+}
+
+input::-moz-input-placeholder {
+    /*Mozilla Firefox*/
+
+    color: #b4b6bb;
+
+}
+
+input::-ms-input-placeholder {
+    /*Internet Explorer*/
+
+    color: #b4b6bb;
+
+}
+
+/* 右边的图表 */
+.management_business_warp {
+    position: relative;
+    width: 85%;
+}
+
+.chart_warp {
+    margin-top: 28px;
+    margin-left: 38px;
+    width: 95%;
+    height: 80%;
+}
+
+
+.chart_header>span {
+    float: left;
+    font-size: 18px;
+    color: #333;
+}
+
+.chart_header>img {
+    float: right;
+}
+
+.chart_contetn_wrap {
+    margin-top: 28px;
+    height: 80%;
+}
+
+.chart>table {
+    border-collapse: separate;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    color: #333;
+
+}
+
+.chart>table tr {
+    height: 100%;
+
+}
+
+.chart>table td {
+    padding-left: 10px;
+    border: 1px solid #cacbcb;
+}
+
+/* 个人收藏 */
+.personal_collection {
+    position: absolute;
+    top: -126%;
+    left: 100%;
+    width: 650px;
+    height: 440px;
+    background: #4a5060;
+    color: #fff;
+    padding: 0 12%;
+    z-index: 3;
+    border-left: 3px solid #383d50;
+}
+
+.personal_collection_top {
+    height: 60px;
+    color: #fff;
+    line-height: 60px;
+}
+
+.personal_collection_top>div {
+    font-size: 22px;
+
+}
+
+.personal_collection_top>div+div {
+    font-size: 18px;
+    color: #9497a1;
+}
+
+.personal_collection_top>div>img {
+    vertical-align: text-top;
+}
+
+.personal_collection_content {
+    width: 100%;
+    text-align: center;
+}
+
+.personal_collection_content>div {
+    float: left;
+    height: 60px;
+    width: 25%;
+    line-height: 60px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.personal_collection_content>div>img {
+    vertical-align: text-top;
+    width: 16px;
+    height: 16px;
+    margin-left: 1px;
+}
+/* 弹出框样式 */
+.confirm_message_wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    z-index: 8;
+}
+.confirm_message_content_outer{
+    width: 37.5%;
+    height: 40%;
+    margin: 10% auto;
+    min-height: 440px;
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+}
+.confirm_message_title{
+    height: 16%;
+    background: #4a5060;
+    padding: 0 3%;
+    /* border: 1px solid #f2f2f2; */
+    -moz-border-top-left-radius: 10px;
+    /* Firefox */
+    -webkit-border-top-left-radius: 10px;
+    /* Safari and Chrome */
+    border-top-left-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    -moz-border-top-right-radius: 10px;
+    /* Firefox */
+    -webkit-border-top-right-radius: 10px;
+    /* Safari and Chrome */
+    border-top-right-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    behavior: url(./js/PIE.htc);
+}
+.confirm_message_title>div{
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    height: 100%;
+    margin-top: 2%;
+}
+.confirm_message_content{
+    height: 84%;    border: 1px solid #f2f2f2;
+    
+    -moz-border-bottom-right-radius: 10px;
+    /* Firefox */
+    -webkit-border-bottom-right-radius: 10px;
+    /* Safari and Chrome */
+    border-bottom-right-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    -moz-border-bottom-left-radius: 10px;
+    /* Firefox */
+    -webkit-border-bottom-left-radius: 10px;
+    /* Safari and Chrome */
+    border-bottom-left-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    behavior: url(./js/PIE.htc);
+    background: #fff;
+}
+.confirm_message_text{
+    padding: 0 12%;
+    margin-top: 10%;
+    font-size: 26px;
+    font-weight: 550;
+}
+.confirm_message_text>p{
+    font-size: 22px;font-weight: 500;
+}
+.confirm_message_btn{
+    /* border: 1px solid red; */
+    margin-top: 10%;
+    /* padding-left: 15%; */
+}
+.confirm_message_btn>div{
+    display: inline-block;
+    width: 25%;
+    border: 1px solid #d6d6d6;
+    text-align: center;
+    font-size: 24px;
+    height: 16.2%;
+    background: #0085d0;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 21.5%;
+}
+.confirm_message_btn>div+div{
+    background: #ddd;
+    color: #333;
+    margin-left: 10%;
+}
+/* 弹出框样式 */
+        
+        
+    </style>
+</head>
+
+<body style=" background: #4a5060;">
+     
+<!--头部引用 开始-->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="topHeader" style="margin-top: -10px;">
+      <tr>
+        <td class="topLeft toggle_td" valign="top" style=" width:220px;" >
+        
+        <span style="width:220px;display:inline-block;">
+        <img id="logo_image" src="images/ydlogo.png" />
+        
+        
+        <label class="write font16">
+        <div id="headmsg" style="white-space:nowrap;overflow:hidden;width:600px;"></div>
+        </label>
+        </td>
+     <!--    <td>
+        <div class="management_header fn-clear">
+            <div class="management_left fn-left">
+                <img  src="../../images/yd_logo.png" alt="中国移动logo">
+                <div>浙江移动电渠运营管理系统</div>
+            </div>
+
+            <div class="management_right fn-right">
+                <div class=" icon"><img src="../../images/news_icon.png" alt=""><span>|</span></div>
+                <div class=" icon"><img src="../../images/knowledge_icon.png" alt=""><span>|</span></div>
+                <div class="user_wrap">
+                    <div id="userRealName" class="user_name">你好，佩奇</div>
+                    <div class="triangle">
+                        <div class="content "></div>
+                        <div class="content1 fn-hide"></div>
+                    </div>
+                </div>
+                <div class="login_state">
+                    <div class="content2"></div>
+                    <div class="content3 ">
+                        <div>个人中心</div>
+                        <div  id="loginOut">退出</div>
+                    </div>
+                </div>
+            </div>
+  			</td> -->
+  			<td>
+        </div>
+            <div class="topRight font12 cFff fontST text_r fr">
+                <span class=" fontb mr10" style="cursor: default;" id="userRealName">欢迎您，xxxx管理员</span>
+                <a href="login.html" class="aqtc mr10 cancel_href" id="loginOut">安全退出</a>
+<!--                 |<a href="javascript:;" id="return_upper_story">返回上一层 </a>  -->
+            </div>
+            <div class="clear"></div>
+            <div id="navBOX" class="navBOX">
+            <!-- <div class="nav" id="nav_1"><span name="" title="CMS" class="hover">CMS</span><span title="BMS" name="bms/user/jbxxgl.html">BMS</span><img src="images/navSelect_1.gif" id="disNav" /></div> -->
+            <ul class="pcs_tab_ul" id="pcs_tab_ul" style=" position:absolute; padding-left:15px; padding-top:9px; left:0px; bottom:-32px;">
+               <li class="cur" id="myli1"><label  name="home.html" title="首页"> <span id="iispan1"><p class="myspan" idnum="1"><b>首页</b></p></span></label></li>
+          	</ul>
+            <img src="images/yqClose.gif" title="关闭全部" class="hand" id="closeAll" style=" position:absolute; right:5px; top:51px;" />
+             <!-- 这个div用来存放系统名称的标签【右侧的下拉框】 -->
+            <div class="nav" id="nav_2"><span title="首页" name="home.html">首页</span><span title="BMS" name="bms/user/jbxxgl.html">BMSBMSBMSBMS</span></div>
+            </div>
+        </td>
+      </tr>
+    </table>
+    <input type="hidden" id="siCode" value="" />
+<!--头部引用 结束-->
+<table border="0" cellspacing="0" cellpadding="0" class="mainBoxWarp bg_cff" style="width:100%;">
+<tr>
+<td class='toggle_td'>
+<!--左侧引用 开始-->
+        <div class="management_content_wrap">
+        <div class="drop_down_wrap fn-clear">
+	        <div class="drop_down_menu">
+	             <div class="display_btn "><img src="../../images/heshang.png" alt=""></div>
+	             <div class="display_btn fn-hide"><img src="../../images/zhangkai.png" alt=""></div>
+	        </div>
+<!-- 	<p id="czcd" class="title" style=" *margin-top:0px;"><strong>操作菜单</strong></p> style=" margin-top:-32px;" -->
+<!-- 	<p  class="title" style="margin-top:0px;padding-bottom: 5px;"><strong><input type="text" id="searchInp" style="height: 20px"/> <img src="../theme/bmsHTGL/images/search.png" alt="搜索" width="15" height="15"/></strong></p> -->
+    <!-- <a class="toggle_switch" onclick='toggleMenuBar();'  style="z-index: 998;top:50%;right:0px;background-color: #0069ff;float:right;"><img src="../theme/bmsHTGL/images/navigate_l.png" /></a> -->
+         <div class="menu_list_wrap" style="overflow:auto">
+          <div class="personal_collection_wrap">
+         	<div>
+                  <img src="../../images/collect2.png" alt=""><span>个人收藏</span>
+             </div>
+<!--                 <div style='position:relative; color:#fff; text-decoration:none; padding-left:30px;white-space:nowrap; background:url(../../images/collect2.png) no-repeat left center; display:block; line-height:25px; font-size:14px'> -->
+<!--                    <span>个人收藏</span> -->
+<!--                 </div> -->
+                <div class="personal_collection fn-hide">
+                    <div class="personal_collection_top">
+                        <div class="fn-left" style="float:left;font-size:22px;display:inline;">个人收藏</div>
+                        <div class="fn-right"style=" font-size: 18px;color: #9497a1;">
+                            <span class="fn-hide">保存</span> <img class="" src="../../images/set_up.png" alt="" style="margin-top:18px;">
+                        </div>
+                    </div>
+                    <div class="personal_collection_content fn-clear ">
+                        <!-- <div ><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png"
+                                alt=""></div>
+                        
+                        <div><span></span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>后台管理系统</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div>
+                        <div><span>接入密钥管理</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div> -->
+                       <!--  <div><span class='collect_span_click' title='猴子' name='4028811f4a2899cb014a289aa8ce000b'>三生三世十里桃花</span><img class="fn-hide" src="../../images/delete_btn.png" alt=""></div> -->
+                    </div>
+                </div>
+             </div>
+            <div id="tree" class="drop_down_list" >
+			 <ul style="height: 80%;overflow: auto;" >
+                <li class="leftTree"><!-- <span id='home' name="home.html" class="current">首页</span> --></li>
+            </ul>
+        	</div>
+     	</div>
+     	 <div class="blur_search">
+                    <input id="searchInp" type="text" placeholder="搜索菜单">
+                    <img class="fn-hide" src="../../images/search_icon.png" alt="">
+        </div>
+     </div>
+    <div id="treeBox" style="display:none">
+        <div id="tree" class="tree">
+			 <ul>
+                <li class="leftTree"><!-- <span id='home' name="home.html" class="current">首页</span> --></li>
+            </ul>
+        </div>
+        <div class="tree undis">
+            <ul>
+            	<li class="leftTree"><span name="bms/yhsdgl/yhsdgl.html" class="current">用户锁定管理</span></li>
+                <li class="leftTree"><span name="null">用户管理</span>
+                    <ul class="undis">
+                        <li class="leftTree"><span name="bms/user/jbxxgl.html">基本信息管理</span></li>
+                        <li class="leftTree"><span name="bms/user/yhqxgl.html">用户权限管理</span></li>
+                    </ul>
+                </li>
+                <li class="leftTree"><span name="bms/jsgl/jsgl.html">角色管理</span></li>
+                <li class="leftTree"><span name="bms/bmgl/bmxxck.html">部门管理</span></li>
+                <li class="leftTree"><span name="null">数据配置</span>
+                    <ul class="undis">
+                        <li><span name="bms/sjpz/sjzd.html">数据字典</span></li> 
+                        <li><span name="bms/sjpz/sjqx.html">数据权限</span></li> 
+                    </ul>
+                </li>
+                <li class="leftTree"><span name="bms/gnqx/gnqx.html">功能权限</span></li>
+                <li class="leftTree"><span name="bms/wbyy/wbyy.html">外部应用</span></li>
+                <li class="leftTree"><span name="bms/yswh/yswh.html">样式维护</span></li>
+                <li class="leftTree"><span name="bms/drsc/drsc.html">导入删除</span></li>
+                <li class="leftTree"><span name="bms/rzgl/rzgl.html">日志管理</span></li>
+                <li class="leftTree"><span name="bms/ggmm/ggmm.html">安全设置</span></li>
+                <li class="leftTree"><span name="bms/gggl/gggl.html">公告管理</span></li>
+                <li class="leftTree"><span name="bms/xtgg/xtgg.html">系统公告</span></li>
+                <li class="leftTree"><span name="bms/syxyy/syxyy.html">首页小应用</span></li>
+            </ul>
+		</div>
+    </div>
+</div>
+<!--左侧引用 结束-->
+</td>
+<td style="width:100%;">
+<!--右侧引用 开始-->
+<div style="height:32px; _width:100px;width:100%">&nbsp;</div>
+	<div id="iframeRight" class=" bgFFF" style='position:relative;' >  <!-- style=" padding-top:32px;" -->
+	<!-- <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:46%;left:0px;background-color: #0069ff;;color:white;display:none;"><img src="../theme/bmsHTGL/images/navigate_r.png" /></a> -->
+<!--     <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:8%;left:0px;;color:white;display:none;position:absolute;"><img src="../theme/bmsHTGL/images/nav_right.png" style="width:15px;"/></a> -->
+<!--     <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:8%;left:0px;;color:white;position:absolute;"><img src="../theme/bmsHTGL/images/nav_left.png"  style="width: 15px;"/></a> -->
+    <iframe id="myiframe" frameborder="0" width="100%" height="100%" scrolling="auto" src="" class=""></iframe>
+    </div>
+<!--右侧引用 结束--> 
+</td>
+</tr>
+</table>  
+<!--版权引用 开始-->
+	<div class="text_c footer">Copyright&copy;1999-2020&nbsp;&nbsp;炎黄新星&nbsp;&nbsp;版权所有</div>
+<!--版权引用 结束-->
+
+<!--弹出层 开始-->
+<div id="coverBox">&nbsp;</div>
+<div class="cover" id="cover">&nbsp;</div>
+
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr cancel_href" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','bccg')" id="goUrl"><span>确定</span></a></div>
+</div>
+
+<!--请关闭您不用的窗口 开始-->
+<div class="yqPOP" id="yqPOP">
+	<div class="popTitle"><span class="close fr" onclick="cLose()"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c">您打开的窗口已经超过10个！请关闭您不用的窗口！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue" onclick="cLose()"><span>确定</span></a></div>
+</div>
+<!--请关闭您不用的窗口 结束-->
+<!--您没有打开任何页面 开始-->
+<div class="yqPOP" id="noTab">
+	<div class="popTitle"><span class="close fr" onclick="noTab()"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c">您没有打开任何页面！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue" onclick="noTab()"><span>确定</span></a></div>
+</div>
+<!--您没有打开任何页面 结束-->
+</body>
+<script>
+if(typeof(basePath)=="undefined"){
+ 	jQuery("#myiframe").attr("src","home.html");
+ 	jQuery("#myiframe").attr("class","home.html");
+ 	jQuery("#homelabel").attr("name","home.html");
+}
+
+function toggleMenuBar(){
+	$(".toggle_td").toggle();	
+}
+
+
+
+
+</script>
+<script>
+    //弹出框js
+    function Alertmessage(){
+            var msgele = $('<div class="confirm_message_wrap"><div class="confirm_message_content_outer"><div class="confirm_message_title"><div class="fn-left">提示信息</div><div class="fn-right close_btn"><img src="images/alert_close.png" alt=""></div></div><div class="confirm_message_content"><div class="confirm_message_text"><div>网络连接超时</div><p>别紧张，试试刷新页面~</p></div><div class="confirm_message_btn"><div class="confirm_btn">确定</div><div class="cancel_btn">取消</div></div></div></div></div>');
+            $('body').before(msgele);
+            console.log(333);
+    }
+    function Confirm_colse(){
+        $(".confirm_message_wrap").remove();
+    }
+    
+    $(function () {
+        Alertmessage();
+        // 点击个人中心
+        $(".user_wrap>div>div").on("click", function (e) {
+            e.stopPropagation();
+            //阻止事件冒泡
+            $(this).addClass("fn-hide").siblings().removeClass("fn-hide");
+            if($(this).hasClass("content")){
+            $(".login_state").removeClass("fn-hide");
+            }else{
+                $(".login_state").addClass("fn-hide");
+            }
+            
+        })
+        $("body").on("click",function(e){
+            console.log("111")
+            e.stopPropagation();
+            if($(".user_wrap>div>div").hasClass("content")){
+                $(".login_state").addClass("fn-hide");
+                $(".content").removeClass("fn-hide").siblings().addClass("fn-hide");
+            }
+            
+        })
+        //弹出框js
+        $(document).on("click",".close_btn",function(){
+            Confirm_colse();
+            console.log("关闭");
+        })
+        $(document).on("click",".cancel_btn",function(){
+            Confirm_colse();
+            console.log("取消");
+        })
+        $(document).on("click",".confirm_btn",function(){
+            Confirm_colse();
+            console.log("确定");
+        })
+        // 个人收藏
+
+        $('.personal_collection_wrap').hover(function(){
+            $(".drop_down_wrap ").css({
+                "overflow":"visible"
+            })
+            $(".personal_collection").removeClass("fn-hide");
+        },function(){
+            $(".personal_collection").addClass("fn-hide");
+        })
+        $(".personal_collection_content>div").on("click", function (e) {
+            e.stopPropagation;
+            $(this).addClass("color_blue active").siblings().removeClass("color_blue active");
+        })
+        $(".personal_collection_top>div").on("click", function () {
+            if($(this).children("img").hasClass("fn-hide")){
+                //点击了保存
+                Alertmessage();
+                
+                $(this).children("span").toggleClass("fn-hide");
+                $(this).children("img").toggleClass("fn-hide");
+                console.log("点击了保存")
+            }else{
+                //点击了设置
+                $(this).children("span").toggleClass("fn-hide");
+                $(this).children("img").toggleClass("fn-hide");
+                console.log("点击了设置")
+            }
+            
+            
+            $(".personal_collection_content>div>img").toggleClass("fn-hide");
+            
+            
+        })
+        $(".personal_collection_content>div>img").on("click", function (e) {
+            var num = $(this).parent().remove();
+            console.log(num);
+            e.stopPropagation;
+            //调整样式。
+            $(".personal_collection_content>div").css({
+                "text-align": "center"
+            })
+            $(".personal_collection_content>div:nth-child(4n+1)").css({
+                "text-align": "left"
+            })
+            $(".personal_collection_content>div:nth-child(4n+4)").css({
+                "text-align": "right"
+            })
+        })
+        
+        //点击展开收缩菜单
+        $(".display_btn>img").on("click", function () {
+            var num = $(this).parent().index();
+            $(this).parent().addClass("fn-hide").siblings().removeClass("fn-hide");
+            if (num == 0) {
+                $(".chart1").removeClass("fn-hide").siblings().addClass("fn-hide");
+                $(".drop_down_wrap").animate({
+                    "width": '3%'
+                }, function () {
+                    $(".chart_warp").css({
+                        "width": '106%'
+                    });
+                });
+                // $(".chart_warp").css({
+                //     "width": '104%'
+                // });
+                $(".menu_list_wrap").animate({
+                    "opacity": '0'
+                });
+                $(".blur_search>input").addClass("fn-hide");
+                $(".blur_search>img").removeClass("fn-hide");
+
+            } else if (num == 1) {
+                $(".chart_warp").css({
+                    "width": '95%'
+                });
+                $(".chart1").addClass("fn-hide").siblings().removeClass("fn-hide");
+                $(".drop_down_wrap").animate({
+                    "width": '13%'
+                });
+                $(".management_business_warp").css({
+                    "width": '86%'
+                });
+                $(".menu_list_wrap").animate({
+                    "opacity": '1'
+                });
+                $(".blur_search>input").removeClass("fn-hide");
+                $(".blur_search>img").addClass("fn-hide");
+
+            }
+        })
+        // 这里是下拉菜单。
+
+        $(".menu_content").on("click", function () {
+            var num = $(this).parent().index();
+            // console.log(num);
+            $(this).children(".menu_triangle").children("div").toggleClass("fn-hide");
+            $(".first_level>li").eq(num).hasClass("kaile");
+            if ($(".first_level>li").eq(num).hasClass("kaile")) {
+                $(this).siblings().toggleClass("fn-hide");
+            } else {
+                $(this).siblings().toggleClass("fn-hide");
+                $(".first_level>li").eq(num).addClass("kaile").siblings().removeClass("kaile");
+            }
+        })
+        // 二级菜单点击  添加悬浮框
+        $(".second_level").on("click", function () {
+            var num = $(this).index();
+            $(this).parent().children(".second_level").eq(num);
+            $(this).children(".menu_content").addClass("color_blue");
+            $(this).siblings().children(".menu_content").removeClass("color_blue");
+            // $(this).addClass("second_level_wrap").siblings().removeClass("second_level_wrap ");
+            // $(this).parent().siblings().children(".second_level").removeClass('second_level_wrap ');
+            $(this).parent().siblings().children(".second_level").children(".menu_content")
+                .removeClass('color_blue');
+        })
+        //
+
+        // 表格样式
+        $(".chart>table").children("thead").css({
+            "text-align": "center",
+            'background': "#ddd",
+            "color": "#5c5e65",
+            "font-weight": "550",
+            "font-size": "18px"
+        })
+        $(".chart>table").children("thead").children("tr").css({
+            "height": "45px"
+        })
+        $(".chart>table").children("tbody").children("tr").css({
+            "height": "40px"
+        })
+        $(".chart>table").children("tfoot").children("tr").css({
+            "height": "16px"
+        })
+        $(".chart>table").children("tbody").children("tr:nth-child(odd)").css({
+
+            "background": "#eff8ff"
+        })
+        $(".chart>table").children("tfoot").css({
+            'background': "#dce5eb"
+        })
+        $(".chart>table").children("thead").children("tr").children("td:first-child").css({
+            "border-top-left-radius": "10px"
+        })
+        $(".chart>table").children("thead").children("tr").children("td:last-child").css({
+            "border-top-right-radius": "10px"
+        })
+        // 表格1样式
+        $(".chart1>table").children("tbody").children("tr").children("td:last-child").css({
+            "padding-left": "0",
+            "text-align": "center",
+            "color": "#105ee0",
+            "text-decoration": "underline",
+            "cursor": "pointer"
+        })
+        // 收藏列表
+        $(".personal_collection_content>div:nth-child(4n+1)").css({
+            "text-align": "left"
+        })
+        $(".personal_collection_content>div:nth-child(4n+4)").css({
+            "text-align": "right"
+        })
+    })
+    $(document).ready(function () {
+        //初始化宽度、高度  
+        $(".management_wrap").width($(window).width());
+        $(".management_wrap").height($(window).height());
+        //当文档窗口发生改变时 触发  
+        $(window).resize(function () {
+            $(".management_wrap").width($(window).width());
+            $(".management_wrap").height($(window).height());
+        })
+    })
+    // 弹框提示
+    
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>公告管理</span></div>
+	<form id="search" method="get">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt20 bord_gray">
+      <tr>
+        <td align="right">公告标题：&nbsp;</td>
+        <td><input class="input_normal w160" id="title" name="title"/></td>
+        <td align="right">公告标记：&nbsp;</td>
+        <td><input class="input_normal w160" id="tab" name="tab"/></td>
+        <td align="right">生效状态：&nbsp;</td>
+        <td>
+        	<dl class="selectbox" style="z-index: 1;">
+            <dt id="statusSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+            <dd id="statusSelect">
+              <p class="sel">是</p>
+              <p>否</p>
+            </dd>
+          	</dl>
+        </td>
+       </tr>
+       <tr>
+        <td colspan="6" align="right"><p class="mr20"><a href="javascript:;" class="bt_blue cancel_href" id="btnsearch"><span>查询</span></a>
+        <a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a></p></td>
+    </table>
+    <p class="overflow text_r mt10"><a href="newGg.html" id="newNotice"class="bt_blue ml20 cancel_href"><span>新增公告</span></a>
+    <a href="javascript:;" id="delall" class="bt_blue ml10 cancel_href" onclick="show('cover','delete')"><span>批量删除</span></a></p>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox mt15 tb_content1">
+      <tr>
+        <th width="30"><input class="checkedAll" type="checkbox"  name="items" id="notices"/></th>
+        <th>公告标题</th>
+        <th>公告标记</th>
+        <th>生效状态</th>
+        <th>操作</th>
+      </tr>
+      <tbody id="notice_tbody">
+      	<tr id="notice" clazz="odd$">
+        <td width="30"><input class="checkedAll" type="checkbox"  name="notices" value="{id}"/></td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{title}">{title}</td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{tab}" >{tab}</td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{statusTxt}">{statusTxt}</td>
+        <td>
+        <a href="javascript:editNotice('{id}')"val="{id}"class="ml10">编辑</a>
+        <a href="javascript:changeStatus('{id}');" val="{id}" id="nowStatus" class="ml10" >{statusShow}</a>
+        <a href="javascript:before_delete('{id}');" val="{id}" class="ml10" onclick="show('cover','delete')">删除</a>
+        <a href="javascript:showNotice('{id}')" val="{id}"class="ml10">查看</a>
+        </td>
+      	</tr>
+     
+      
+       </tbody>
+    </table>
+    <div class="page middle">
+		<div class="fl" id="search_f"><label>找到</label><label id="totalNum">3</label><label>条记录, 显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label></div>
+		<div class="fr" id="search_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="goPage" onkeyup="value=value.replace(/[^\d]/g,'')" 
+				onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a></div>
+		<div class="clear"></div>
+	</div>
+	</form>
+</div>
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--确定要删除 开始-->
+<div class="pop" id="delete" style=" width:300px;">
+	<div class="popTitle"><span class="close fr" onclick="hide('cover','delete')"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="dialog_">确定要删除吗？</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','delete');show('cover','deleteCg')" id="qd"><span>确定</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','delete')"><span>取消</span></a></div>
+</div>
+<!--确定要删除 结束-->
+<!--删除成功 开始-->
+<div class="pop" id="deleteCg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr cancel_href" id="close" onclick="hide('cover','deleteCg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">删除成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','deleteCg')" id="qd_"><span>确定</span></a></div>
+</div>
+<!--删除成功 结束-->
+</body>
+</html>

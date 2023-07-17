@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css_bms/base.css" />
+<link rel="stylesheet" type="text/css" href="../../css_bms/public.css" />
+<link rel="stylesheet" type="text/css" href="../../css_bms/mianBox.css" />
+<script src="../../js_bms/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="../../js_bms/title.js" type="text/javascript"></script>
+<script src="../../js_bms/public.js" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+	<div class="mainBox">
+		<div class="route">
+			<span>用户权限管理</span>
+		</div>
+		<form id="search">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				class="mt20 bord_gray">
+				<tr>
+					<td align="right">登录名：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="userLoginName" name="userLoginName" />
+					</td>
+					<td align="right">真实姓名：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="userRealName" name="userRealName" />
+					</td>
+					<td align="right">职位：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="userStation" name="userStation" />
+					</td>
+				</tr>
+				<tr>
+					<td align="right">员工工号：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="applyid" name="applyid" />
+					</td>
+					<td align="right">所属地市：&nbsp;</td>
+					<td><input class="input_normal w160" type="text" id="bmsLocationName" name="bmsLocationName" />
+					</td>
+					<td align="right">状态：&nbsp;</td>
+					<td>
+						<dl class="selectbox" style="z-index: 1;" id="userStatus" name="userStatus">
+							<dt id="userStatusSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span>
+							</dt>
+							<dd id="userStatusSelect">
+								<p class="sel">正常</p>
+								<p>停用</p>
+							</dd>
+						</dl>
+						</td>
+				</tr>
+				<tr>
+					<td align="right">性别：&nbsp;</td>
+					<td>
+						<dl class="selectbox" style="z-index: 1;">
+							<dt id="userSexSelected">
+								<span class="fleft">请选择</span><span class="fright" id="userSex"
+									name="userSex">&nbsp;</span>
+							</dt>
+							<dd id="userSexSelect">
+								<p class="sel">男</p>
+								<p>女</p>
+							</dd>
+						</dl></td>
+					<td><br />
+					</td>
+					<td colspan="4" align="right"><p class="mr20">
+							<a href="javascript:;" id="btnsearch"
+								class="bt_blue"><span>查询</span> </a><a href="javascript:;"
+								id="reset" class="bt_blue ml20"><span>重置</span>
+							</a>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			class="mt15 tb_content1 tb_searchbox ">
+			<tr>
+				<th width="10%">登录名</th>
+				<th width="10%">真实姓名</th>
+				<th width="5%">性别</th>
+				<th width="10%">员工工号</th>
+				<th width="10%">角色信息</th>
+				<th width="10%">职位</th>
+				<th width="15%">所属地市</th>
+				<th width="8%">状态</th>
+				<th width="22%">操作</th>
+			</tr>
+			<tbody id="userFunc_tbody">
+				<tr id="userFunc" clazz='odd$'>
+					<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userLoginName}">{userLoginName}</td>
+					<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userLoginName}">{userRealName}</td>
+					<td width="5%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userSexTxt}">{userSexTxt}</td>
+					<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{applyid}">{applyid}</td>
+					<td width="10%"><a href="###"
+						onclick="show_roleInfo('{id}');showTB('cover','ckjs')">查看角色信息</a></td>
+					<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userStation}">{userStation}</td>
+					<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{bmsLocationName}">{bmsLocationName}</td>
+					<td width="8%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userStatusTxt}">{userStatusTxt}</td>
+					<td width="22%"><a href="###" class="ml10"
+						onclick="location_config('{id}','true');showTB('cover','glbmsz')">管理地市设置</a>
+						<a href="###" class="ml10"
+						onclick="role_config('{id}','true');showTB('cover','jssz')">角色设置</a>
+						<a href="###" class="ml10"
+						onclick="show_userFunc('{id}')">查看</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- <div class="page middle">
+			<div class="fl" id="search_f">
+			<label>找到</label><label id="totalNum">3</label><label>条记录,显示</label>
+			<label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+			</div>
+			<div class="fr" id="search_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id="gotoUsers"  onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+				<a href="javascript:;" class="bt_blue" id="go"><span>GO</span> </a>
+				</div>
+			<div class="clear"></div>
+		</div> -->
+		
+		<div class="page middle mb10">
+			<div class="fl" id="search_f">
+			<label>找到</label><label id="totalNum">3</label><label>条记录,显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+			</div>
+			<div class="fr" id="search_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id="gotoUsers"  onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+				<a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		
+	</div>
+
+	<!--弹出层 开始-->
+	<div class="cover" id="cover"></div>
+	<!--管理地市设置 开始-->
+	<div class="pop" id="glbmsz">
+		<!--弹出层 头部定位 开始-->
+		<div class="popPR">
+			<div class="popTitle">
+				<a class="close fr" onclick="hide('cover','glbmsz')"></a><strong
+					class="font14 fl">管理地市设置<font color="red" size='2'>[*只对当前页授权]</font></strong>
+					<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+			<div class="popTOP bg_cff">
+				<div class="bg_ea mt10 mb10">
+					<p id="location_position" class="blue lineh30 pl10" style="height:30px;overflow:hidden;text-overflow : ellipsis; white-space : nowrap; ">当前管理的地市：&nbsp;研发中心、质量保证部</p>
+				</div>
+				<form id="locationForm">
+					<div id="id_position"></div>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0"
+						class="bord_gray">
+						<tr>
+							<td align="right">地市名称：&nbsp;</td>
+							<td><input class="input_normal w160" name="locationName" />
+							</td>
+							<td><a href="javascript:;" class="bt_blue cancel_href" id="btnsearch"><span>查询</span>
+							</a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span> </a>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<!--弹出层 头部定位 结束-->
+		<!--弹出层 表格 开始-->
+		<div class="popInfoBox">
+			<div class="mb10">
+				<!--最多发7条数据-->
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+					class="tb_content1 bg_cff mb10 tb_searchbox ">
+					<tbody>
+						<tr>
+							<th width="5%"><input class="checkedAll" type="checkbox"
+								name="items" id="locationitem" />
+							</th>
+							<th width="15%">地市名称</th>
+							<th width="30%">层次结构</th>
+							<th width="55%">备注</th>
+						</tr>
+						<tbody id="locations_tbody">
+							<tr id="locations" clazz='odd$'>
+								<td><input type="checkbox" name="locationitem"
+									value="{lid}" {checked}/>
+								</td>
+								<td  width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{locationName}">{locationName}</td>
+								<td  width="30%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{stepInfo}">{stepInfo}</td>
+								<td  width="55%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{remark}">{remark}</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发中心</td>
+								<td>炎黄新星 >> 研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+						</tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--弹出层 表格 结束-->
+		<div class="page middle">
+			<div class="fl" id="locationForm_f">
+				<label>找到</label><label id="totalNum">3</label>
+				<label>条记录,显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+				</div>
+				<div class="fr" id="locationForm_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id='gotoLocations' onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+				<a href="javascript:;" class="bt_blue" id="go"><span>GO</span> </a>
+				</div>
+			<div class="clear"></div>
+		</div>
+		<div class="text_c mt10 mb10">
+			<a href="javascript:;" class="mr10 bt_blue"
+				onclick="hide('cover','glbmsz')" id="lgrantFunc"><span>授权</span> </a><a
+				href="javascript:;" class="mr10 bt_blue"
+				onclick="hide('cover','glbmsz')" id="lback"><span>返回</span>
+			</a>
+			</div>
+			</div>
+	<!--管理地市设置 结束-->
+	<!--角色设置 开始-->
+	<div class="pop" id="jssz">
+		<!--弹出层 头部定位 开始-->
+		<div class="popPR">
+			<div class="popTitle">
+				<a class="close fr" onclick="hide('cover','jssz')"></a><strong
+					class="font14 fl">角色设置<font color="red" size='2'>[*只对当前页授权]</font></strong>
+					<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+			<div class="popTOP bg_cff">
+				<div class="bg_ea mt10 mb10">
+					<p class="blue lineh30 pl10" id="role_position" style="height:30px;overflow:hidden;text-overflow : ellipsis; white-space : nowrap; ">当前角色：&nbsp;超级管理员</p>
+				</div>
+				<form id="roleForm">
+					<div id="id_position"></div>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0"
+						class="bord_gray">
+						<tr>
+							<td align="right">地市名称：&nbsp;</td>
+							<td><input class="input_normal w160" name="locationName" />
+							</td>
+							<td><a href="javascript:;" class="bt_blue" id="btnsearch"><span>查询</span> </a><a
+								href="javascript:;" class="bt_blue ml20"
+								id="reset"><span>重置</span> </a>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<!--弹出层 头部定位 结束-->
+		<!--弹出层 表格 开始-->
+		<div class="popInfoBox">
+			<div class="mb10">
+				<!--最多发7条数据-->
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+					class="tb_content1 bg_cff tb_searchbox ">
+					<tbody>
+						<tr>
+							<th width="5%"><input class="checkedAll" type="checkbox"
+								name="items" id="roleitem"/>
+							</th>
+							<th width="15%">角色名称</th>
+							<th width="20%">所属地市</th>
+							<th width="60%">备注</th>
+						</tr>
+						<tbody id="roles_tbody">
+							<tr id="roles" clazz='odd$'>
+								<td width="5%"><input type="checkbox" name="roleitem" value="{rid}" {checked}/>
+								</td>
+								<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{roleName}">{roleName}</td>
+								<td  width="20%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{locationName}">{locationName}</td>
+								<td  width="60%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{remark}">{remark}</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="items" />
+								</td>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+						</tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--弹出层 表格 结束-->
+		<div class="page middle">
+			<div class="fl" id="roleForm_f">
+				<label>找到</label><label id="totalNum">3</label><label>条记录,
+					显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+			</div>
+			<div class="fr" id="roleForm_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id="gotoRoles" onkeyup="value=value.replace(/[^\d]/g,'')" 
+						onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+					<a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="text_c mt10 mb10">
+			<a href="javascript:;" class="mr10 bt_blue cancel_href"
+			 id="rgrantFunc" onclick="hide('cover','jssz')"><span>授权</span>
+			</a><a href="javascript:;" class="mr10 bt_blue cancel_href"
+				id="rback" onclick="hide('cover','jssz')"><span>返回</span>
+			</a>
+		</div>
+	</div>
+	<!--角色设置 结束-->
+	<!--查看角色 开始-->
+	<div class="pop" id="ckjs">
+		<!--弹出层 头部定位 开始-->
+		<div class="popPR">
+			<div class="popTitle">
+				<span class="close fr" onclick="hide('cover','ckjs')"></span><strong
+					class="font14 fl">查看角色</strong>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+			<div class="popTOP bg_cff">
+				<div class="bg_ea mt10 mb10">
+					<p class="blue lineh30 pl10">角色信息：</p>
+				</div>
+			</div>
+		</div>
+		<!--弹出层 头部定位 结束-->
+		<!--弹出层 表格 开始-->
+		<div class="popInfoBox">
+			<div class="mb10">
+				<!--最多发7条数据-->
+				<form id="userRoleForm">
+					<div id="id_position"></div>
+				</form>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+					class="tb_content1 bg_cff">
+					<tbody>
+						<tr>
+							<th width="15%">角色名称</th>
+							<th width="20%">所属地市</th>
+							<th width="65%">备注</th>
+						</tr>
+						<tbody id="userRole_tbody">
+							<tr id="userRole" clazz='odd$'>
+								<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{roleName}">{roleName}</td>
+								<td width="25%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{locationName}">{locationName}</td>
+								<td width="60%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{remark}">{remark}</td>
+							</tr>
+							<tr>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+							<tr>
+								<td>研发超级管理</td>
+								<td>研发中心</td>
+								<td>主要负责产品项目开发</td>
+							</tr>
+						</tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--弹出层 表格 结束-->
+		<div class="page middle">
+			<div class="fl" id="userRoleForm_f">
+				<label>找到</label><label id="totalNum">3</label><label>条记录,
+					显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label>
+			</div>
+			<div class="fr" id="userRoleForm_r">
+				<label id="first">首页</label>
+				<label id="before">上一页</label>
+				<label id="next">下一页</label>
+				<label id="end">末页</label>
+				<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+				<input type="text" class="text_8" id="gotoUserRoles" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+				<a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="text_c mt10 mb10">
+			<a href="javascript:;" class="bt_blue" onclick="hide('cover','ckjs')"><span>返回</span>
+			</a>
+		</div>
+	</div>
+	<!--查看角色 结束-->
+	<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a  class="close fr" onclick="hide('cover','bccg')" id="close"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a id="qd" class="mr10 bt_blue" onclick="hide('cover','bccg')"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+</html>

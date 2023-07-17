@@ -1,0 +1,289 @@
+@CHARSET "UTF-8";
+.box_warp {
+    width: 100%;
+    position: relative;
+}
+
+/* header部分 */
+.headers {
+    padding: 0 3.125%;
+    min-width: 850px;
+    min-height: 100px;
+    height: 100%;
+    width: 100%;
+    background: url("../images/img1_bg.png") no-repeat left center;
+    background-size: 100% 100%;
+}
+
+.box_header {
+    position: relative;    
+    height: 110px;
+}
+
+.header_left {
+    width: 25%;
+    min-width: 485px;
+    margin-top: 15px;
+}
+
+/* loge */
+.header_left>div {
+    display: inline-block;
+    color: white;
+    font-size: 28px;
+}
+
+.header_left>img {
+    vertical-align: bottom;
+    width: 40px;
+}
+
+
+/* user_name */
+.header_right {
+    margin-top: 18px;
+    color: white;
+    font-size: 23px;
+    width: 52%;
+    min-width: 435px;
+    text-align: right;
+}
+/* 通知 */
+.icon {
+    display: inline-block;
+    /* margin-top: 29px; */
+    color: white;
+    font-size: 23px;
+    width: 64px;
+
+}
+.icon>img {
+    vertical-align: middle;
+    margin-right: 20px;
+    width: 20px;
+}
+
+.user_wrap {
+    text-align: right;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.user_wrap>div {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.triangle {
+    line-height: 100%;
+}
+
+.triangle .content {
+    margin-bottom: 40%;
+    width: 11px;
+    height: 11px;
+}
+.content img {
+	width:17px;
+}
+.content1 img {
+	width:17px;
+}
+.triangle .content1 {
+    margin-bottom: 0%;
+    width: 11px;
+    height: 11px;
+}
+
+.login_state {
+    position: absolute;
+    height: 176px;
+    width: 7.5%;
+    margin-top: 22px;
+    z-index: 3;
+    right: 1%;
+}	
+
+.content2 {
+    position: absolute;
+    left: 44%;
+    top: -10.5%;
+    width: 0px;
+    height: 11x;
+    border: 11px solid;
+    border-color: transparent transparent #f7f7f7 transparent;
+}
+
+.content3 {
+    background: #f7f7f7;
+    color: #666;
+    text-align: center;
+    height: 45%;
+    width: 100px;
+    font-size: 16px;
+}
+
+.content3>div {
+    padding-top: 10%;
+}
+
+.triangle {
+    /* width: 15px;
+    height: 15px; */
+}
+
+/* header 上部分 */
+/* header 下部分 */
+.news {
+    padding: 0 3.125%;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 40px;
+    background: rgba(81, 93, 119, .2);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50515d77,endColorstr=#50515d77);
+
+	
+}
+
+.news>div {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+
+.news img {
+    vertical-align: middle;
+    width: 40px;
+}
+
+.news_left {
+    min-width: 154px;
+    width: 13%;
+    color: white;
+    font-size: 22px;
+}
+
+/* 告示列表 */
+.news_list {
+    overflow: hidden;
+    width: 80%;
+    color: white;
+    font-size: 18px;
+
+}
+
+.news_list ul li {
+    height: 40px;
+    line-height: 40px;
+}
+
+/* header部分 */
+/* middle部分 */
+
+
+.box_middle {
+    width: 100%;
+}
+
+.content_wrap {
+    margin: 0 auto;
+    width: 900px; 
+    position: absolute;
+}
+
+.content_wrap>div {
+    margin-top: 20px;
+    float: left;
+    width: 200px;
+    height: 157px;
+    font-size: 23px;
+    color: white;
+    margin-left: 25px;
+    text-align: center;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    /* Firefox */
+    -webkit-border-radius: 10px;
+    /* Safari and Chrome */
+    border-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    behavior: url(../js/PIE.htc);
+}
+
+.content_wrap>div img {
+    /* margin-top: 20.9%; */
+    /* margin-bottom: 5%; */
+    /* width: 23.3%;
+    height: 28.18%; */
+}
+
+.color1 {
+    background: #55cdc3;
+}
+
+.color2 {
+    background: #e5ae2f;
+}
+
+.color3 {
+    background: #827262;
+}
+
+.color4 {
+    background: #f67402;
+}
+
+.color5 {
+    background: #49b73c;
+}
+
+.color6 {
+    background: #02b7e2;
+}
+
+/* millde部分 */
+/* footer_nav */
+.footer_nav {
+    position: fixed;
+    bottom: 0;
+    background: #eee;
+    padding-left: 4%;
+    padding-bottom: 4%;
+    font-weight: 550;
+    height: 90px;
+    border: 1px solid transparent;
+    width: 100%;
+
+}
+
+.nav_title {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #333;
+
+}
+
+.nav_list {
+    margin-top: 5px;
+}
+
+.nav_list ul li {
+    float: left;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 25px;
+}
+
+.header_right span {
+	font-size:17px;
+	opacity:0.3;
+}
+
+/* footer_nav */
+/* footer_nav */
+/* 新加 */
+.big_mid_content {
+	width:100%;
+	position:relative;
+}

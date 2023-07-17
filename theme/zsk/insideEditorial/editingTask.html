@@ -1,0 +1,297 @@
+<!--#include virtual="/include/header.html"-->
+
+
+<div class="content">
+     <div class="space-10"></div>
+     <div class="returnAsk">
+          <a href="/insideEditorial/viewTask.html"><img src="../images/returnAskImg.jpg" /></a>
+     </div>
+     <div class="space-10"></div>
+     <div class="newUser">
+          <div class="UserManage">
+               <div class="UserManageLine">
+                    <span>基本信息</span>
+               </div>
+               <div class="space-30"></div>
+               <div class="UserManageShow">
+                   <dl class="UserManageDl">
+                       <dt><i>*</i> 发起者：</dt>
+                       <dd style="height:30px; line-height:30px;">
+                            工号9527&nbsp;&nbsp;&nbsp;&nbsp;广东省广州市
+                       </dd>
+                   </dl>
+                   
+                   <dl class="UserManageDl">
+                       <dt><i>*</i> 采编范围：</dt>
+                       <dd>
+                            <select>
+                              <option>总部采编</option>
+                              <option>省份采编</option>
+                              <option>地市采编</option>
+                          </select>
+                       </dd>
+                   </dl>
+                   <dl class="UserManageDl">
+                       <dt><i>*</i> 任务标题：</dt>
+                       <dd>
+                            <input class="ManageInput" type="text" value="什么是什么是" />
+                       </dd>
+                   </dl>
+                   
+                   <dl class="UserManageDl">
+                       <dt><i>*</i> 任务类型：</dt>
+                       <dd>
+                            <select id="select_task">
+                              <option value="0">采编任务</option>
+                              <option value="1">审核任务</option>
+                              <option value="2">更新任务</option>
+                              <option  value="3">下线任务</option>
+                          </select>
+                       </dd>
+                   </dl>
+                    <dl class="UserManageDl">
+                      <dt><i>*</i> 任务时限：</dt>
+                       <dd style="line-height:30px;">
+                            <input class="ManageInput"  style="width:70px;" type="text" value="48" />小时
+                       </dd>
+                   </dl>
+                   
+                    <dl class="UserManageDl select_change_area_city cbsx">
+                      <dt><i>*</i> 采编时限：</dt>
+                       <dd style="line-height:30px;">
+                            <input class="ManageInput"  style="width:70px;" type="text" value="48" />小时
+                       </dd>
+                   </dl>
+                   
+                   <dl class="UserManageDl">
+                       <dt><i>*</i> 审核时限：</dt>
+                        <dd style="line-height:30px;">
+                            <input class="ManageInput" style="width:70px;" type="text" value="48" />小时
+                       </dd>
+                   </dl>
+                   <dl class="UserManageDl">
+                       <dt id="time_title"><i>*</i> <span>有效时限：</span></dt>
+                       <dd class="calen-input" style="border:1px solid #ccc">
+                          <input class="startDate"/>
+                        <img src="../images/calen_day.gif" width="14" height="13" /> 
+                       </dd>
+                       <dd class="calen-line select_change_area_city">-</dd>
+                       <dd class="calen-input select_change_area_city" style="border:1px solid #ccc">
+                          <input class="endDate"/>
+                          <img src="../images/calen_day.gif" width="14" height="13" />
+                       </dd>
+              	   </dl>
+                   <dl class="UserManageDl select_change_area_city">
+                       <dt><i>*</i> 适用地市：</dt>
+                       <dd>
+                            <div class="inputBox">
+                                 <div class="inputList">
+                                     <div class="">
+                                          <label><input type="checkbox" id="checkbox_all"/>&nbsp;<b>全选/取消</b></label>
+                                          <div class="clr"></div>
+                                     </div>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;省中心</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;广东</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;佛山</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;深圳</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;东莞</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;中山</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;惠州</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;清远</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;汕头</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;潮州</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;揭阳</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;肇庆 </label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;云浮</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;韶关</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;江门</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;阳江</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;茂名</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;湛江 </label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;珠海</label>
+                                     <label><input type="checkbox" name="checkbox01" />&nbsp;梅州</label>
+                                 </div>
+                            </div>
+                       </dd>
+                   </dl>
+                   <dl class="UserManageDl">
+                       <dt>任务等级：</dt>
+                       <dd>
+                            <select>
+                              <option>一般</option>
+                              <option>紧急</option>
+                          </select>
+                       </dd>
+                   </dl>
+               
+               </div>
+          </div>
+          <div class="clr"></div>
+          <div class="space-30"></div>
+          <div class="UserManage">
+               <div class="UserManageLine">
+                    <span>附件信息</span>
+               </div>
+               <div class="space-30"></div>
+               <div class="mx_list askTable UserManageShow">
+               		<dl class="UserManageDl">
+                   
+                   <dd class="textareaW">
+                        <input class="ManageInput ManageInputW" style="margin-right:0px;" type="file">
+                       <div class="btn_check">上传</div>
+                       
+                   </dd>
+                   
+               </dl>
+                   <div class="mx_list" style="width:880px">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tbody><tr>
+                    <th width="5%"></th>
+                    <th>附件名称</th>
+                    <th width="15%">操作</th>
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="checkbox02"></td>
+                    <td>某某某111111111111111111111111111111某某某11111111111111111111111111111111某某某11111111111111111111111111111111111111111111下发业务文件.doc</td>
+                    <td><a class="blue_a del_tr">删除</a></td>
+                </tr>
+               <tr>
+                	<td><input type="checkbox" name="checkbox02"></td>
+                    <td>某某某下发业务文件.doc</td>
+                    <td><a class="blue_a del_tr">删除</a></td>
+                    
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="checkbox02"></td>
+                    <td>某某某下发业务文件.doc</td>
+                   <td><a class="blue_a del_tr">删除</a></td>
+                </tr>
+                <tr>
+                    <th><input type="checkbox" id="check_all1"></th>
+                    <th colspan="4" style="text-align:left">
+                    
+                    	
+                        <div class="btn_check" style="background-color:#00b7ee">删除</div>
+                    </th>       
+                </tr>        
+            </tbody></table>
+     </div>
+               </div>
+               <div class="clr"></div>
+               <div class="space-40"></div>
+          </div>
+          
+          
+           <div class="space-30"></div>
+          <div class="UserManage select_change_area">
+               <div class="UserManageLine">
+                    <span>知识列表</span>
+               </div>
+               <div class="space-30"></div>
+               <dl class="UserManageDl" style="overflow:visible">
+                      
+                       
+                        <div  style="margin-left:50px;" class="search_button" onclick="window.showModalDialog('relateKnowledge.html', null, 'dialogWidth=800px;dialogHeight=700px')">搜索</div>
+                   </dl>
+                   <div class="clr"></div>
+                    <div class="space-30"></div>
+               <div class="mx_list askTable UserManageShow">
+                   <div class="mx_list" style="width:880px">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tbody><tr>
+                    <th></th>
+                    <th>序号</th>
+                    <th>采编时间</th>
+                    <th>知识名称</th>
+                    <th>采编类型</th>
+                    <th>服务类目</th>
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="checkbox03"></td>
+                    <td>1</td>
+                    <td>2014-11-15  10:30</td>
+                    <td>某某某下发业务文件.doc</td>
+                    <td>结构化采编</td>
+                    <td>3G业务</td>
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="checkbox03"></td>
+                    <td>2</td>
+                    <td>2014-11-15  10:30</td>
+                    <td>某某某下发业务文件.doc</td>
+                    <td>结构化采编</td>
+                    <td>3G业3G业务-3G业务3</td>
+                </tr>
+               
+                <tr>
+                    <th><input type="checkbox" id="check_all2"></th>
+                    <th colspan="5" style="text-align:left">
+                    	
+                        
+                        <div class="btn_check" style="background-color:#00b7ee">批量删除</div>
+                    </th>       
+                </tr>        
+            </tbody></table>
+     </div>
+               </div>
+               <div class="clr"></div>
+               <div class="space-40"></div>
+          </div>
+          
+          
+          
+          
+          
+           <div class="clr"></div>
+               <div class="space-40"></div>
+          <div class="certainBtn">
+              <input id="isread-text" class="marR35" type="button" value="提 交">
+              <input class="dfdfdf" onclick="location.href='/insideEditorial/manager.html'" type="button" value="返 回">
+              <div class="space-40"></div>
+          </div>
+          <div class="clr"></div>
+          <div class="space-50"></div>
+     </div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+
+
+<!--弹层-->
+<div class="transact_tc_box"  id="arry">
+     <div class="transact_tc_t">
+          <dl class="close_t">
+              <dt>温馨提示</dt>
+              <dd><a href="javascript:;"  title="关闭" class="closeTransact"></a></dd>
+          </dl>
+     </div>
+     <div class="transact_tc_c">
+          <div class="space-30"></div>
+       <div class="newUserC" style="text-align:center">
+               <div class="tc_tip">
+       		   	<img src="../images/wenxin.png" width="70" height="71"> 
+                	温馨提示
+               </div>
+               <p class="tc_p">
+               	恭喜您！您在<em>2014-12-15 15:30</em>前发布文章成功！
+               </p>
+       </div>
+          <div class="space-30"></div>
+          <!--<div class="submit_btn">
+               <input class="btn_save closeTransact" type="button" value="继续审核"  />
+               <input class="btn_save closeTransact" type="button" value="稍后再审"  />
+          </div>-->
+          <div class="button_group" style="width:498px">
+            <ul>
+                <li onclick="location.href='/insideEditorial/manager.html'" class="closeTransact" style="margin-right:0px;"> 确定</li>
+               
+            </ul>
+     	  </div>
+     </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans>
+    <form-bean name="TBmsDomainvalueDTO" type="com.sinovatech.bms.domain.model.dto.TBmsDomainvalueDTO"/>
+    <form-bean name="TBmsDomainDTO" type="com.sinovatech.bms.domain.model.dto.TBmsDomainDTO"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="commonMapping" path="/common/msgMapping.jsp" module="/"/>
+  </global-forwards>
+  <action-mappings>
+    
+    <action path="/bmsdomainvalue/*" type="com.sinovatech.bms.domain.action.BmsDomainvalueAction" scope="request" parameter="{1}" name="TBmsDomainvalueDTO">
+      <forward name="list" path="/listBmsdomainvalue.jsp"/>
+      <forward name="tree" path="/treeBmsdomainvalue.jsp"/>
+      <forward name="add" path="/addBmsdomainvalue.jsp"/>
+      <forward name="edit" path="/editBmsdomainvalue.jsp"/>
+      <forward name="view" path="/viewBmsdomainvalue.jsp"/>
+      <forward name="deleteConfirm" path="/deleteConfirmBmsdomainvalue.jsp"/>
+    </action>
+    
+    <action path="/bmsdomain/*" type="com.sinovatech.bms.domain.action.BmsDomainAction" scope="request" parameter="{1}" name="TBmsDomainDTO">
+      <forward name="list" path="/listBmsdomain.jsp"/>
+      <forward name="add" path="/addBmsdomain.jsp"/>
+      <forward name="edit" path="/editBmsdomain.jsp"/>
+      <forward name="view" path="/viewBmsdomain.jsp"/>
+      <forward name="selDomain" path="/selDomain.jsp"></forward>
+      <forward name="deleteConfirm" path="/deleteConfirmBmsdomain.jsp"/>
+    </action>
+  </action-mappings>
+</struts-config>

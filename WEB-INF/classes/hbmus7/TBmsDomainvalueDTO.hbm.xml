@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.sinovatech.bms.domain.model.dto.TBmsDomainvalueDTO"
+		table="BMS_DOMAINVALUE">
+		<comment>域值</comment>
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="indexsequnce" type="java.lang.Long">
+			<column name="INDEXSEQUNCE" length="4">
+				<comment>显示次序</comment>
+			</column>
+		</property>
+
+		<property name="domainlabel" type="com.sinovatech.common.hibernate.type.Us7AsciiString">
+			<column name="LABEL" length="60">
+				<comment>键</comment>
+			</column>
+		</property>
+
+		<many-to-one name="tbTBmsDomainDTO"
+			class="com.sinovatech.bms.domain.model.dto.TBmsDomainDTO"
+			fetch="select">
+			<column name="DOMAINNAME" length="32">
+				<comment>域编号</comment>
+			</column>
+		</many-to-one>
+
+		<property name="domainvalue" type="java.lang.String">
+			<column name="VALUE" length="60">
+				<comment>值</comment>
+			</column>
+		</property>
+		
+		<property name="domainLevel" type="java.lang.String">
+			<column name="DOMAINLEVEL" length="60">
+				<comment>级别</comment>
+			</column>
+		</property>
+
+	</class>
+</hibernate-mapping>

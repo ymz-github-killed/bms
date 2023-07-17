@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.domain.model.dto.TBmsDomainDTO"  table="BMS_DOMAIN" >
+		<comment>域</comment>
+		<id name="name"  type="java.lang.String" >
+			<column  name="NAME"  length="32"  />
+			<generator class="assigned" />
+		</id>
+		<property  name="canmodify"  type="java.lang.String" >
+			<column  name="CANMODIFY"  length="1" >
+				<comment>可修改</comment>
+			</column>
+		</property>
+
+		<property  name="remark"  type="com.sinovatech.common.hibernate.type.Us7AsciiString" >
+			<column  name="REMARK"  length="500" >
+				<comment>描述</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

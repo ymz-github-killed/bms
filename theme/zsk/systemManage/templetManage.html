@@ -1,0 +1,140 @@
+<!--#include virtual="/include/header.html"-->
+
+
+
+<div class="content">
+<!--     <div class="space-50"></div>
+     <div class="manageNav">
+         <ul class="manageNavLi">
+              <li><a href="/systemManage/index.html">用户管理</a></li>
+              <li><a href="/systemManage/roleManage.html">角色管理</a></li>
+              <li><a href="/systemManage/rightsManag.html">权限管理</a></li> 
+              <li><a href="/systemManage/outsideApplication.html">外部应用</a></li>
+              <li><a href="/systemManage/safeSet.html">安全设置</a></li>
+              <li><a href="/systemManage/luckUser.html">用户锁定</a></li>
+          	  <li class="on"><a href="/systemManage/mouldManage.html">模版管理</a></li>
+          </ul>
+     </div>-->
+  <!--   <div class="submitBtn">
+          <div class="space-30"></div>
+          <input type="button" value="新增字段" id="showIdBtn" />
+          <div class="space-25"></div>
+     </div>-->
+      <div class="space-20"></div>
+     <div class="newUser" >
+          <div class="UserManage" id="showText" style="border:none">
+               <dl class="UserManageDl">
+                   <dt><i>*</i> diyID：</dt>
+                   <dd style="line-height:30px;">
+                        1
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 模版名称：</dt>
+                   <dd>
+                        <input class="ManageInput" type="text" value="国际及港澳台漫游" />
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt><i>*</i> 服务类目：</dt>
+                   <dd>
+                        <select>
+                           <option>套餐品牌类</option>
+                           <option>总部系统管理员</option>
+                           <option>省份系统管理员</option>
+                           <option>总部客服</option>
+                           <option>省份客服</option>
+                           <option>地市客服</option>
+                           <option>省份普通客服</option>
+                           <option>地市普通客服</option>
+                        </select>
+                        <select>
+                           <option>基础业务</option>
+                           <option>总部系统管理员</option>
+                           <option>省份系统管理员</option>
+                           <option>总部客服</option>
+                           <option>省份客服</option>
+                           <option>地市客服</option>
+                           <option>省份普通客服</option>
+                           <option>地市普通客服</option>
+                        </select>
+                   </dd>
+               </dl>
+               
+                <dl class="UserManageDl">
+                   <dt><i>*</i>数据表：</dt>
+                   <dd>
+                        <input class="ManageInput" type="text" />
+                   </dd>
+               </dl>
+               
+                <dl class="UserManageDl">
+                   <dt><i>*</i>字段配置：</dt>
+                   <dd style="line-height:30px">
+                        建立自定义表单后在“更改”自定义表单的地方添加字段即可。
+                   </dd>
+               </dl>
+               
+               <dl class="UserManageDl" style=" display:none;">
+                   <dt>自定义字段1：</dt>
+                   <dd>
+                        <input class="ManageInput" type="text" value="知识名称" />
+                        <select class="select2">
+                          <option>新增字段</option>
+                          <option>总部系统管理员</option>
+                          <option>省份系统管理员</option>
+                          <option>总部客服</option>
+                          <option>省份客服</option>
+                       </select>
+                       <select class="select2">
+                          <option>可见</option>
+                          <option>不可见</option>
+                       </select>
+                       <a href="javascript:;" class="del">删除</a>
+                   </dd>
+               </dl>
+          </div>
+          <div class="clr"></div>
+          <div class="space-40"></div>
+          <div class="certainBtn certainBtn2">
+              <input class="marR35" type="button" value="导 入" onclick="location.href='/systemManage/templetManage1.html'">
+              <input class="marR35" onclick="location.href='/systemManage/mouldManage.html'" type="button" value="提 交">
+              <input class="dfdfdf" onclick="location.href='/systemManage/mouldManage.html'" type="button" value="返 回">
+              <div class="space-40"></div>
+          </div>
+          <div class="clr"></div>
+          <div class="space-50"></div>
+     </div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+
+<script>
+var id = 1;
+var html ;
+$("#showIdBtn").on("click",function(){
+	a = id++;
+    html = '<dl class="UserManageDl closeS">';
+    html += '<dt>自定义字段'+a+'：</dt><dd><input class="ManageInput" type="text" value="类型" />'
+    html += '<select class="select2"><option>新增多选</option><option>总部系统管理员</option><option>省份系统管理员</option>'
+    html += '<option><option>总部客服</option><option>省份客服</option></select>'
+	html += '<select class="select2"><option>可见</option><option>不可见</option></select>'
+	html += '<a href="javascript:;" class="del">删除</a></dd></dl>'
+	$("#showText").append(html)
+});
+
+$(".del").live("click",function(){
+	$(this).parents(".closeS").remove();
+});
+
+</script>
+</body>
+</html>
+
+
+                          
+                          
+                       

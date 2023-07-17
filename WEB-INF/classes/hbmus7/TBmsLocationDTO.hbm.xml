@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.adm.model.dto.TBmsLocationDTO"  table="BMS_LOCATION" >
+		<comment>区域</comment>
+		<id name="id"  type="java.lang.String" >
+			<column  name="id"  length="32"  />
+			<generator class="uuid.hex" />
+		</id>
+		<property  name="parentid"  type="java.lang.String" >
+			<column  name="PARENTID"  length="32" >
+				<comment>父编号</comment>
+			</column>
+		</property>
+		
+		<property  name="applyid"  type="java.lang.String" >
+			<column  name="APPLYID"  length="32" >
+				<comment>外部应用专用ID</comment>
+			</column>
+		</property>
+
+		<property  name="remark"  type="com.sinovatech.common.hibernate.type.Us7AsciiString" >
+			<column  name="REMARK"  length="1000" >
+				<comment>备注</comment>
+			</column>
+		</property>
+
+		<property  name="name"  type="com.sinovatech.common.hibernate.type.Us7AsciiString" >
+			<column  name="NAME"  length="60" >
+				<comment>名称</comment>
+			</column>
+		</property>
+		
+		<property  name="stepinfo"  type="com.sinovatech.common.hibernate.type.Us7AsciiString" >
+			<column  name="STEPINFO"  length="500" >
+				<comment>名称</comment>
+			</column>
+		</property>
+
+	</class>
+</hibernate-mapping>

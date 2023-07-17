@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd ">
+	<!-- 注解形式要配置的组件：ViewResolver，interceptor -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/html;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<!-- <mvc:annotation-driven/> mvc注解的驱动但是如果context:component-scan存在mvc:annotation就没有必要配 -->
+	<context:component-scan base-package="com.sinovatech.mvcbms">  
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>   
+</context:component-scan> 
+
+	<!-- 视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 配置从项目根目录到指定目录一端路径 ,建议指定浅一点的目录 -->
+		<property name="prefix" value="/"></property>
+		<!-- 文件的后缀名 -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<bean id="multipartResolver"  
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">   
+        <property name="maxUploadSize">   
+            <value>104857600</value>   
+        </property>   
+        <property name="maxInMemorySize">   
+            <value>4096</value>   
+        </property>   
+    </bean> 
+</beans>

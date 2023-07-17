@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css_bms/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css_bms/public.css"/>
+<link rel="stylesheet" type="text/css" href="../../css_bms/mianBox.css"/>
+<script src="../../js_bms/title.js" type="text/javascript"></script>
+<script src="../../js_bms/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="../../js_bms/public.js" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>角色管理</span>&nbsp;&gt;&nbsp;<span>新增/编辑角色</span></div>
+    <form id="search">
+    <div class="mt10 mb10"><a href="jsgl.html" class="mr10 bt_blue back cancel_href"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue reset cancel_href"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue save cancel_href" onclick="show('cover','bccg')"><span>保存</span></a></div>
+    <div class="bord_gray padd_10 pb30">
+    	<p class="lineh40 borb font16"><span>角色信息</span><img src="../../images_bms/xl.gif" class="ml10" /></p>
+        <!--角色名称 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>角色名称：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" id="roleName_" name="roleBean.roleName"/></div>
+            <div class="clear"></div>
+        </div>
+        <!--角色名称 结束-->
+        <!--所属地市 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>所属地市：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_2" readonly="readonly" id="locationName_" name="roleBean.locationName"/><a href="javascript:;" class="bt_blue ml10 checkBtn cancel_href" id="select"><span>选择</span></a>
+            	<div class="padd_10 mt10 bg_ea pos_r undis" id="closeLocationList">
+                	<img src="../../images_bms/closeRed.gif" class="pos_a hand rt_10 xzClose" />
+                	<p class="blue mb10">选择所属地市</p>
+                    <div class="bord_gray padd_10">
+                        <div class="lineh40"><span>地市名称：</span><input type="text" class="text_3 mr10" name="locationName" id="locationName"/><a href="javascript:;" class="mr10 bt_blue cancel_href" id="btnsearch"><span>查询</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href" id="btnreset"><span>重置</span></a></div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_content1 bg_cff">
+                        <tbody>
+                          <tr>
+                            <th width="5%">&nbsp;</th>
+                            <th>地市名称</th>
+                            <th>层次结构</th>
+                            <th>备注</th>
+                          </tr>
+                          </tbody>
+                          <tbody id="locations_tbody">
+                        	<tr id="locations" clazz='odd$'>
+								<td><input type="radio" name="radioName" value="{id}" onclick="javascript:selLocationSuc('{id}','{name}');"/></td>
+								<td>{name}</td>
+								<td>{stepInfo}</td>
+								<td>{remark}</td>
+							</tr>
+                          <tr>
+                            <td><input type="radio" name="xz" /></td>
+                            <td>研发中心</td>
+                            <td>炎黄新星 >> 研发中心</td>
+                            <td>主要负责产品项目开发</td>
+                          </tr>
+                          <tr>
+                            <td><input type="radio" name="xz" /></td>
+                            <td>研发中心</td>
+                            <td>炎黄新星 >> 研发中心</td>
+                            <td>主要负责产品项目开发</td>
+                          </tr>
+                          <tr>
+                            <td><input type="radio" name="xz" /></td>
+                            <td>研发中心</td>
+                            <td>炎黄新星 >> 研发中心</td>
+                            <td>主要负责产品项目开发</td>
+                          </tr>
+                          <tr>
+                            <td><input type="radio" name="xz" /></td>
+                            <td>研发中心</td>
+                            <td>炎黄新星 >> 研发中心</td>
+                            <td>主要负责产品项目开发</td>
+                          </tr>
+                        </tbody>
+                        </table>
+                        <div class="page middle">
+                            <div class="fl" id="search_f"><label>找到</label><label id="totalNum">3</label><label>条记录, 显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label></div>
+                            <div class="fr" id="search_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="gotoLocations" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mt10"><a href="javascript:;" class="mr10 bt_blue addSure cancel_href"><span>确认添加</span></a></div>
+					</div>
+                </div>
+            
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--所属地市 结束-->
+        <!--备注 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>备注：</span></p>
+            <div class="fl rightInfo midTop"><textarea class="textarea_1" id="remark_" name="roleBean.remark"></textarea><span class="red ml10">可以为空，如果不为空，最大长度为200字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--备注 结束-->
+    </div>
+    <div class="mt10 mb10"><a href="jsgl.html" class="mr10 bt_blue back cancel_href"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue reset cancel_href" ><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue save cancel_href" onclick="show('cover','bccg')"><span>保存</span></a></div>
+</form>
+</div>
+
+
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr cancel_href" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','bccg')" id="qd"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+<script type="text/javascript">
+	$(function(){
+		$(".checkBtn").click(function(){
+			$(this).next("div").show();
+		});
+		$(".addSure").click(function(){
+			$(this).parent().parent().parent().hide();							 
+		});	
+		$(".xzClose").click(function(){
+			$(this).parent().hide();								 
+		});
+	})
+</script>
+</html>

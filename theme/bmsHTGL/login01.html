@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中国移动电商合作运营平台-中国移动通信</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+<style type="text/css">
+*{margin:0px;padding:0px;}
+html{ height:100%;overflow:hidden;}
+body{background:url(../../images/login_body.jpg) center top;font-family:'瀹嬩綋';}
+.mr20{ margin-right:20px;}
+.mr90{ margin-right:90px;}
+.gray{ color:#B3B3B3;}
+.hide{ display:none;}
+/*甯冨眬*/
+table.layout{table-layout:fixed;border-collapse:collapse;height:100%;width:100%;}
+table.layout td.header{height:70px;}
+table.layout td.mainBox{vertical-align:top;}
+table.layout td.foot{height:24px;}
+
+
+.loginBox{ width:960px; margin:0px auto;}
+.leftBox{ background:url(../../images/jbline.png) right top no-repeat; height:347px; width:410px; padding-right:30px; padding-top:120px; float:left;}
+.mobile_logo{ background:url(../../images/mobile_logo.png) no-repeat; width:189px; height:79px; margin:0px auto 58px;}
+.platform_logo{background:url(../../images/platform_logo.png) center no-repeat;height:43px;/* margin-top:58px;*/ }
+
+.rightBox{margin-left:440px;padding-top:80px;}
+table.loginTxt{border-collapse:collapse;}
+table.loginTxt td{padding-top:15px;padding-bottom:15px;}
+table.loginTxt td.leftxt{text-align:right; width:120px;padding-right:20px;font-family:"榛戜綋";font-weight:bold; font-size:20px;color:white;}
+.inner{ position:relative; width:350px;}
+span.tsIcon{ display:block; position:absolute; width:22px; background:url(images/tsIcon.png) no-repeat; height:20px;left:10px; top:48px; overflow:hidden;}
+span.correct{ background-position:0px 0px;}
+span.wrong{background-position:0px -20px;}
+span.empty{background-position:0px -40px;}
+span.tsTxt{ position:absolute;font-family:"榛戜綋"; font-size:15px; color:white; width:320px; padding-left:10px; left:24px; top:48px;}
+.tsEmpty{position:absolute; top:12px;left:16px; width:292px;font-family:"榛戜綋"; font-size:16px; color:#B3B3B3;}
+.logInput{ background:url(../../images/text_bg.jpg) repeat-x; height:28px; padding:6px 10px; border:1px solid #b3b3b3; border-radius:10px; line-height:28px; width:292px;font-family:"榛戜綋"; font-size:16px;}
+.slogInput{width:140px; vertical-align:middle;}
+.logInput_focus{ border-color:#ff6900;}
+
+.vertify{vertical-align:middle;}
+.logBtn{background:url(../../images/Btn_bg.jpg) repeat-x; height:35px;border-radius:3px; border:1px solid #006eae;  color:white; text-shadow:1px 1px 0px #006eae; font-size:16px; font-weight:bold;  width:110px; text-align:center;}
+
+.footer{font-weight:bold; font-size:13px; color:white;text-align:center;}
+</style>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<script src="../../js/jquery-1.7.2.min.js"></script>
+<script src="../../js/title.js" charset="UTF-8"></script>
+<script src="../../js/DD_belatedPNG_0.0.8a-min.js" charset="UTF-8"></script>
+<script src="../../js/validate.js"></script>
+<script src="../../js/public.js" type="text/javascript"></script>
+<script src="../../js/des1.js" type="text/javascript"></script>
+</head>
+<body>
+<form id="loginForm">
+<table class="layout" border="0" cellspacing="0" cellpadding="0">
+	<tr><td class="header"></td></tr>
+	<tr>
+	<td class="mainBox">
+		<div class="loginBox">
+			<div class="leftBox">
+		    	<div class="mobile_logo"></div>
+		    	<div class="platform_logo"></div>
+		    </div>
+		    <div class="rightBox">
+		    	<table class="loginTxt" border="0" cellspacing="0" cellpadding="0">
+		    		<tr>
+		    			<td class="leftxt">账号：</td>
+		    			<td><div class="inner"><input  class="logInput gray" name="userLoginName" onfocus="this.style.color='#000';" style="color: rgb(0, 0, 0);" maxlength="25" title="用户名" id="userLoginName" type="text" value="" placeholder="请输入账号"></div></td>
+		    		</tr>
+		    		<tr class='beforeReset'>
+		             	<td class="leftxt">手机号：</td>
+		               	<td><div class="inner">
+		               	<input  class="logInput gray" name="userPhoneNumber" onfocus="this.style.color='#000';" style="color: rgb(0, 0, 0);" maxlength="25" title="用户名" id="userPhoneNumber" type="text" value="" placeholder="请输入对应的手机号码"></div></td>
+		               
+		             </tr>
+		    		<tr class='tologin'>
+		    			<td class="leftxt">密码：</td>
+		    			<td><div class="inner" style="width: 370px">
+						<input name="userLoginPassword" onfocus="this.style.color='#000';" style="color: rgb(0, 0, 0);" class="logInput gray" title="密码" id="userLoginPassword" type="password" maxlength="25" placeholder="请输入密码">
+					   	<a href="#"  id="beforePhoneVerification">密码重置</a></div></td>
+		    		</tr>
+  		              <tr id="" class="beforeReset"><!-- beforeReset -->
+		              	<td class="leftxt">短信验证码：</td>
+		              	<td><div class="inner" style="width: 370px">
+							<input class="logInput slogInput mr20 gray" onfocus="this.style.color='#000';" style="color: rgb(0, 0, 0);" type="text" id="resetphoneValidateNum" name="resetphoneValidateNum" maxlength="6" placeholder="请输入短信验证码" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+					   		<a href="javascript:;" style="color:#fff; display:inline-block;width:100px; height:24px; line-height:24px; text-align:center;background:#e71600;" class="ml10 btn_href"  id="getReset_">获取短信验证码</a>
+							</div></td>
+		              </tr>
+		    		<tr id="useValidCode">
+		    			<td class="leftxt">验证码：</td>
+		    			<td><div class="inner">
+						<input id="validCode" name="validCode" type="text" title="验证码" value=""  onfocus="this.style.color='#000';" style="color: rgb(0, 0, 0);" class="logInput slogInput mr20 gray" placeholder="请输入验证码">
+						  <img id="validCodeImg" width="72px" height="36px" style="vertical-align: middle;cursor:pointer;border:1px solid #cc00;margin-left:1px;" src="common/sinoaptcha1.jpg" 
+               				 onclick="var s=Math.random();this.src='common/sinoaptcha1.jpg?1='+s;" alt="看不清请刷新"></div></td>
+		    		</tr>
+                    <tr class='tologin'>
+		    			<td class="leftxt"></td>
+		    			<td><input type="button" id="submit" class="logBtn mr90" value="登 录"  /><input type="" class="logBtn" value="重 置"  id="resetBtn" /></td>
+		    		</tr>
+		    		<tr class='beforeReset'>
+		              <td class="leftxt"></td>
+		              	<td><input type="button" id="phoneVerification" class="logBtn mr90" value="确认重置"  /><input id ="cancel" class="logBtn" value="取消重置" /></td>
+		            </tr>
+		    	</table>
+		    </div>
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td class="foot">
+		<div class="footer">京ICP备05002571号| 中国移动通信版权所有</div>
+	</td>
+	</tr>
+</table>
+</form>
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" id="closeUrl" class="close fr btn_href" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue btn_href" onclick="hide('cover','bccg')" id="goUrl"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+</html>
+<script src="http://www.zj.10086.cn/js/public/util/des.js" type="text/javascript"></script>
+<script language="javascript">
+	var userName="";
+	/*if(userName=="")
+	{
+		document.getElementById("userName_").focus();
+		//logonForm.userName.focus();
+	}else
+	{
+		document.getElementById("userPass_").focus();
+		//logonForm.password.focus();
+	}
+	$('#userPass_').hide();*/
+	if("" != "" && "" !="请输入验证码!")
+	{
+		alert("");
+	}
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css"/>
+<script src="../../js/title.js" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="../../js/public.js" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>功能权限导入</span></div>
+<form id="importForm" action="" method="post" enctype="multipart/form-data" target="success">
+<div id="file_position" style="overflow:hidden;width:0px;height:0px;"></div>
+    <div class="mt10 mb10"><a href="gnqx.html" class="mr10 bt_blue hand bt_back btn_href"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue bt_ensure" onclick="show('cover','bccg')"><span>确定导入</span></a></div>
+    <div class="bord_gray padd_10 pb30">
+    	<p class="lineh40 borb font16"><span>导入功能权限说明</span><img src="../../images/xl.gif" class="ml10" /></p>
+        <div class="mt10"><span class="w50 text_r inlineB">1、</span><span>请选择需要上传的文件</span></div>
+        <div class="mt10"><span class="w50 text_r inlineB">2、</span><span>提交</span></div>
+        <div class="mt10"><span class="w50 text_r inlineB">&nbsp;</span><input type='file' name='file' id='fileName'/></div>
+    </div>
+    <div class="mt10 mb10"><a href="gnqx.html" class="mr10 bt_blue hand bt_back btn_href" ><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue bt_ensure" onclick="show('cover','bccg')"><span>确定导入</span></a></div>
+</div>
+</form>
+<iframe id="success" name="success" style="display:none;width:0px;height:0px;"></iframe>
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="gnqx.html" class="close fr btn_href" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="gnqx.html" class="mr10 bt_blue btn_href" onclick="hide('cover','bccg')"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+<script type="text/javascript">
+	$(function(){
+		$(".checkBtn").click(function(){
+			$(this).next("div").show();
+		});
+		$(".addSure").click(function(){
+			$(this).parent().parent().parent().hide();							 
+		});	
+		$(".xzClose").click(function(){
+			$(this).parent().hide();								 
+		});
+	})
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123123"/>
+<script src="../../js/title.js?v=123123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123123" type="text/javascript"></script>
+<script src="../../js/WdatePicker.js?v=123123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123123" type="text/javascript"></script>
+<script src="../../js/skin/WdatePicker.css?v=123123" type="text/javascript" charset="GBK"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>日志查询</span></div>
+<form id = "search" method="get">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class=" mt20 bord_gray">
+    
+      <tr>
+        <td align="right">用户名：&nbsp;</td>
+        <td><input class="input_normal w70" name="userName"/></td>
+        <td align="right">URL：&nbsp;</td>
+        <td><input class="input_normal w140" name="url"/></td>
+        <td align="right">IP：&nbsp;</td>
+        <td><input class="input_normal w140" name="clientIp"/></td>
+        <td align="right">时间：&nbsp;</td>
+        <td>
+        <input id="d4311" name="startTime" class="Wdate" type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d H:mm:ss', maxDate: '#F{$dp.$D(\'d4312\')||\'%y-%M-%d %H:%m:%s\'}' })"/> 
+        	至
+        <input id="d4312" name="endTime" class="Wdate" type="text" onFocus="WdatePicker({dateFmt:'yyyy-M-d H:mm:ss',minDate: '#F{$dp.$D(\'d4311\')}' ,maxDate:'%y-%M-%d %H:%m:%s' })"/></td>
+        </td>
+        <td colspan="2" align="right"><p class="mr20"><a href="javascript:;" class="bt_blue cancel_href" id="btnsearch"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a></p></td>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt15 tb_content1">
+     
+      <tr>
+        <th width="10%">用户名</th>
+        <th width="40%">URL</th>
+        <th>菜单名称</th>
+        <th>IP</th>
+        <th>时间</th>
+        <th>操作类型</th>
+        <th>操作内容</th>
+      </tr>
+      <tbody id="auditlog_tbody">
+      <tr id="auditlog"  clazz='odd$'>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userName}">{userName}</td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{url}">{url}</td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{funcAddress}">{funcAddress}</td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{clientIp}">{clientIp}</td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{operateDate}">{operateDate}</td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{operateName}">{operateName}</td>
+        <td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{operateEntry}">{operateEntry}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="page middle tb_searchbox">
+		<div class="fl" id="search_f"><label>找到</label><label id="totalNum">3</label><label>条记录, 显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label></div>
+		<div class="fr" id="search_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="goPage" onkeyup="value=value.replace(/[^\d]/g,'')" 
+				onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a></div>
+		<div class="clear"></div>
+	</div>
+</div>
+</body>
+</html>

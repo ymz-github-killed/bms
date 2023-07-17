@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* 登录页面样式 */
+*{padding:0; margin:0;}
+body{background:url(../images/body_bg_login.gif) center top no-repeat; overflow:hidden;}
+#page{background:url(../images/body_bg_login.gif) center top no-repeat; position:relative;width:1000px;margin:0 auto;overflow:hidden;height:600px; }
+#ap{position:absolute;z-index:10;left:460px;top: 253px;width:300px;height: 216px;font-size:14px;}
+.err{width:100%;height:30px;line-height:30px;margin-top:10px;padding-right:26px;text-align:right;color:#f00;}
+#inp_zh{position:absolute;left: 85px;top: 53px;}
+#inp_zh input{width:185px; height:23px; border:0;}
+#inp_mm{position:absolute;left: 85px;top: 87px;}
+#inp_yzm{position:absolute;left: 85px;top: 115px;_top:113px;*top:113px;}
+#inp_yzm img{margin-left:9px; margin-top:4px; vertical-align:middle}
+#inp_yzm input{width:113px; height:23px; border:0; vertical-align:middle; margin-top:6px;}
+#inp_mm input{width:185px; height:23px; border:0;}
+#inp_but{position:absolute;left: 83px;top: 160px;width: 205px;height: 38px;}
+#logo{position:absolute;top:185px;left:216px;}
+.inputbox{ width:180px; height:23px; border:1px solid #8fa1ad; padding-left:5px; vertical-align:middle}
+.w{ width:93px}
+table th{ font-family:"微软雅黑"; text-align:right; color:#333}
+table th,table td{ height:35px;}
+table td img{ vertical-align:middle}
+.hqyzm{height:23px; border:1px solid #8fa1ad; vertical-align:middle; width:80px}

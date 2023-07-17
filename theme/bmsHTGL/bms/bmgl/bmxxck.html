@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="bmBox">
+<div class="route"><span>部门管理</span></div>
+<div class="fl bmLeft">
+	<div class="lineh30 text_c"><span>部门定义</span></div>
+	<div id="locationTree">
+	 <div onclick="showInfo()"><img src="../../images/shu.png" /></div>
+	</div>
+</div>
+<!--右边 开始-->
+<div class="mainBox mainBox_2">
+	<!--部门管理首页 结束-->
+	<div class="bord_gray padd_10 pb30 mt20 showInfo_1">
+        <p class="lineh40 borb font16"><span>部门管理</span><img src="../../images/xl.gif" class="ml10" /></p>
+        <p class="lineh20 mt20">请点击部门树中的某个部门，查看部门详细信息。</p> 
+    </div>
+    <div class="bord_gray padd_10 pb30 mt20 showInfo_2 undis">
+    	<p class="lineh40 borb font16"><span>基本信息</span><img src="../../images/xl.gif" class="ml10" /></p>
+        <!--部门名称 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>部门名称：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="deptName_" style="_width:650px;">研发一部</div>
+            <div class="clear"></div>
+        </div>
+        <!--部门名称 结束-->
+        <!--部门描述 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>部门描述：</span></p>
+            <textarea class="fl rightInfo rightInfo_2 lineh20" rows="3" cols="70" id="remark_" style="_width:650px;">研发一部</textarea>
+            <div class="clear"></div>
+        </div>
+        <!--部门描述 结束-->
+        <!--层级结构 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>层级结构：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="stepInfo" style="_width:650px;">炎黄新星 >> 研发中心 >> 研发一部</div>
+            <div class="clear"></div>
+        </div>
+        <!--层级结构 结束-->
+        <!--部门外部ID 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span id="locationapplyname_">部门外部ID：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="applyid_" style="_width:650px;" >&nbsp;</div>
+            <div class="clear"></div>
+        </div>
+        <!--部门外部ID 结束-->
+        <!--部门Code 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>部门Code：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="locationCode_" style="_width:650px;">&nbsp;</div>
+            <div class="clear"></div>
+        </div>
+        <!--部门Code 结束-->
+        <!--部门负责人 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>部门负责人：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="principal_" style="_width:650px;word-break:break-all">&nbsp;</div>
+            <input type="hidden" id="hidePrincipal"/>
+            <div class="clear"></div>
+        </div>
+        <!--部门负责人 结束-->
+        <p id="canVisitButton" class="overflow text_r mt10"><a href="javascript:;" class="bt_blue ml10 cancel_href" id="edit" onclick="newbm()"><span>编辑</span></a><a href="javascript:;" class="bt_blue ml10 cancel_href" id="addChild" onclick="newbm()"><span>新增下级部门</span></a><a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="show('cover','delete')" id="deletebm"><span>删除</span></a></p>
+        <!--可以管理该部门的用户列表 开始-->
+        <form id="search">
+        <div id="position"></div>
+        </form>
+       <!--  <div id="canVisitUserList" class="bmTab1">
+            <p class="lineh40 borb font16"><span>可以管理该部门的用户列表</span><img src="../../images/xl.gif" class="ml10" /></p>
+            <p class="overflow text_r mt10"><a href="javascript:;" class="bt_blue ml10 bmNew cancel_href" id="addManager"><span>新增管理用户</span></a><a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="show('cover','delete')" id="deleteAll"><span>批量删除</span></a></p>
+            <form id="search">
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox mt20 bord_gray">
+                <tr>
+                    <td align="right">登录名：&nbsp;</td>
+                    <td><input class="input_normal w160" name="loginName"/></td>
+                    <td align="right">真实姓名：&nbsp;</td>
+                    <td colspan="2"><input class="input_normal w160" name="realName"/></td>
+                </tr>
+                <tr>
+                    <td align="right">状态：&nbsp;</td>
+                    <td>
+                      <dl class="selectbox" style="z-index: 1;">
+                        <dt id="userStatusSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+                        <dd id="userStatusSelect">
+                          <p class="sel">正常</p>
+                          <p>停用</p>
+                        </dd>
+                      </dl>
+                    </td>
+                     <td align="right">性别：&nbsp;</td>
+                    <td>
+                      <dl class="selectbox" style="z-index: 1;">
+                        <dt id="userSexSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+                        <dd id="userSexSelect">
+                          <p class="sel">男</p>
+                          <p>女</p>
+                        </dd>
+                      </dl>
+                    </td>
+                    <td><p class="mr20 text_r"><a href="javascript:;" class="bt_blue cancel_href" id="btnsearch"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a></p></td>
+                    
+                </tr>
+            </table>
+            </form>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt15 tb_content1">
+                <tr>
+                <th width="30"><input class="checkedAll" type="checkbox" name="items" id="users"/></th>
+                <th>登录名</th>
+                <th>真实姓名</th>
+                <th>性别</th>
+                <th>状态</th>
+                <th>操作</th>
+                </tr>
+                <tbody id="locationusers_tbody">
+                <tr id="locationusers" clazz ='odd_'>
+                <td><input type="checkbox" name="users" value="{userid}"/></td>
+                <td>{loginName}</td>
+                <td>{realName}</td>
+                <td>{userSex}</td>
+                <td>{userStatus}</td>
+                <td><a href="javascript:;" class="ml10 cancel_href" onclick="btn_click_delete('{userid}')">删除</a></td>
+                </tr>
+                <tr>
+                <td><input  type="checkbox"  name="items" /></td>
+                <td>superman</td>
+                <td>总经理</td>
+                <td>男</td>
+                <td>正常</td>
+                <td><a href="javascript:;" class="ml10 cancel_href" onclick="show('cover','delete')">删除</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="page middle">
+                <div class="fl" id="search_f"><label>找到</label><label id="totalNum">3</label><label>条记录, 显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label></div>
+                <div class="fr" id="search_r">
+                <label id="first">首页</label>
+                <label id="before">上一页</label>
+                <label id="next">下一页</label>
+                <label id="end">末页</label>
+                <label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+                <input type="text" class="text_8" id="gotoUsers" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+                <a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div> -->
+        <!--可以管理该部门的用户列表 结束-->
+        <!--请选择您需要授予管理部门的用户 开始-->
+        <div class="bmTab2 undis">
+            <p class="lineh40 borb font16"><span>请选择您需要授予管理部门的用户</span><img src="../../images/xl.gif" class="ml10" /></p>
+            <p class="overflow text_r mt10"><a href="javascript:;" class="bt_blue ml10 bnBack cancel_href"><span>返回</span></a><a href="javascript:;" class="bt_blue ml10 bnShouquan cancel_href"><span>提交授权</span></a></p>
+            <form id="add">
+            <div id="addlid"></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox mt20 bord_gray">
+                <tr>
+                    <td align="right">登录名：&nbsp;</td>
+                    <td><input class="input_normal w160" name="loginName"/></td>
+                    <td align="right">真实姓名：&nbsp;</td>
+                    <td colspan="2"><input class="input_normal w160" name="realName"/></td>
+                </tr>
+                <tr>
+                    <td align="right">状态：&nbsp;</td>
+                    <td>
+                      <dl class="selectbox" style="z-index: 1;">
+                        <dt id="userStatusSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+                        <dd id="userStatusSelect">
+                          <p class="sel">正常</p>
+                          <p>停用</p>
+                        </dd>
+                      </dl>
+                    </td>
+                      <td align="right">性别：&nbsp;</td>
+                    <td>
+                      <dl class="selectbox" style="z-index: 1;">
+                        <dt id="userSexSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+                        <dd id="userSexSelect">
+                          <p class="sel">男</p>
+                          <p>女</p>
+                        </dd>
+                      </dl>
+                    </td>
+                    <td><p class="text_r mr20"><a href="javascript:;" class="bt_blue cancel_href" id="btnsearch"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a></p></td>
+                </tr>
+            </table>
+            </form>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt15 tb_content1">
+                <tr>
+                <th width="30"><input class="checkedAll" type="checkbox"  name="items" id="adduseritem"/></th>
+                <th>登录名</th>
+                <th>真实姓名</th>
+                <th>性别</th>
+                <th>状态</th>
+                </tr>
+                <tbody id="addusers_tbody" style="visibility:hidden">
+                <tr id="addusers" clazz ='odd_'>
+                <td><input  type="checkbox"  name="adduseritem" value="{userid}"/></td>
+                <td>{loginName}</td>
+                <td>{realName}</td>
+                <td>{userSex}</td>
+                <td>{userStatus}</td>
+                </tr>
+                <tr>
+                <td><input  type="checkbox"  name="items" /></td>
+                <td>superman</td>
+                <td>总经理</td>
+                <td>男</td>
+                <td>正常</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="page middle">
+                <div class="fl" id="add_f"><label>找到</label><label id="totalNum">0</label><label>条记录, 显示</label><label id="beginNum">0</label><label>到</label><label id="endNum">0</label></div>
+                <div class="fr" id="add_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><input type="text" class="text_8" id="gotoAddUser" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue cancel_href" id="go"><span>GO</span></a></div>
+                <div class="clear"></div>
+            </div>
+        <div align="center"><img id="load_id_2" style="position:fixed;top:80%;left:50%;"  alt="加载中"/></div>
+        </div>
+        <!--请选择您需要授予管理部门的用户 结束-->
+    </div>
+    <!--部门管理首页 结束-->
+    <!--部门管理新增页面 开始-->
+    <form id="saveOrUpdate">
+    <div id="id_position"></div>
+    <div class="newBM undis">
+        <div class="mt10 mb10"><a href="javascript:;" class="mr10 bt_blue btnback cancel_href" onclick="backbm()"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue btnreset cancel_href"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue save cancel_href" onclick="show('cover','bccg')"><span>保存</span></a></div>
+        <div class="bord_gray padd_10 pb30">
+            <p class="lineh40 borb font16"><span>创建信息</span><img src="../../images/xl.gif" class="ml10" /></p>
+            <!--部门名称 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span class="red">*</span><span>部门名称：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="text" class="text_1" name="deptName" id="deptName" maxlength="50"/><span class="red ml10">不可以为空，最大长度为50字符！</span></div>
+                <div class="clear"></div>
+            </div>
+            <!--部门名称 结束-->
+            <!--部门外部ID 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span id="locationapplyname">部门外部ID：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="text" class="text_1" name="applyid" id="applyid" maxlength="32"/><span class="red ml10">可以为空，如果不为空，最大长度为32字符！</span></div>
+                <div class="clear"></div>
+            </div>
+            <!--部门外部ID 结束-->
+             <!--部门Code 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span>部门Code：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="text" class="text_1" name="locationCode" id="locationCode"  maxlength="32"/><span class="red ml10">可以为空，如果不为空，最大长度为32字符！</span></div>
+                <div class="clear"></div>
+            </div>
+            <!--部门Code 结束-->
+             <!--部门负责人 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span>部门负责人：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="text" readonly="readonly" class="text_1" name="principal" id="principal"/><a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="chosePrincipal();showTB('cover','yhpz');popTable('yhpz')"><span>选择</span></a></div>
+                <div class="clear"></div>
+            </div>
+            <!--部门负责人 结束-->
+            <!--部门描述 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span>部门描述：</span></p>
+                <div class="fl rightInfo rightInfo_2 midTop" style="_width:650px;"><textarea class="textarea_1" name="remark" id="remark" maxlength="200"></textarea><span class="red ml10">可以为空，如果不为空，最大长度为200字符！</span></div>
+                <div class="clear"></div>
+            </div>
+            <!--部门描述 结束-->
+        </div>
+        <div class="mt10 mb10"><a href="javascript:;" class="mr10 bt_blue btnback cancel_href" onclick="backbm()"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue btnreset cancel_href"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue save cancel_href" onclick="show('cover','bccg')"><span>保存</span></a></div>
+    </div>
+    </form>
+    <!--部门管理新增页面 结束-->
+</div>
+<!--右边 结束-->
+<div class="clear"></div>
+</div>
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--全部用户 开始-->
+<div class="pop" id="yhpz">
+	<!--弹出层 头部定位 开始-->
+	<div class="popPR">
+        <div class="popTitle"><span class="close fr" onclick="hide('cover','yhpz')"></span><strong class="font14 fl">选择部门负责人</strong><div class="clear"></div></div>
+        <div class="clear"></div>
+        <div class="popTOP bg_cff" style="top:35px;">
+            <form id="roleuserForm">
+            <div id="appLoc"></div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bord_gray">
+              <tr>
+                <td align="right">登录名：&nbsp;</td>
+                <td><input class="input_normal w160" name="loginName"/></td>
+                <td align="right">真实姓名：&nbsp;</td>
+                <td colspan="2"><input class="input_normal w160" name="realName"/></td>
+			  </tr>
+              <tr>
+              	<td></td><td></td><td></td><td></td>
+                <td align="right"><p class="mr20"><a href="javascript:;" class="bt_blue ml20 cancel_href" id="search"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a></p></td>
+              </tr>
+            </table>
+            </form>
+            <p class="overflow text_r mr10"><a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="hide('cover','yhpz');getPrincipal()"><span>确定</span></a></p>
+        </div>
+    </div>
+    <!--弹出层 头部定位 结束-->
+    <!--弹出层 表格 开始--> 
+	<div class="popInfoBox">
+    	<div class="glbmTable mb10 w271">
+            <!--最多发5条数据-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox tb_content1 bg_cff">
+                    <tr>
+                        <th width="5%"></th>
+                        <th width="20%">登录名</th>
+                        <th width="20%">真实姓名</th>
+                    </tr>
+                    <tbody id="userRole_tbody" style="visibility:hidden">
+                     <tr id="userRole" clazz ='odd$'>
+                        <td width="5%"><input type="checkbox" id="ckUsers" name="principals" value="{loginName}"/></td>
+                        <td width="20%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{loginName}">{loginName}</td>
+                        <td width="20%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{realName}">{realName}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="items" /></td>
+                        <td>yh_zym</td>
+                        <td>曾玉梅</td>
+                    </tr>
+                    </tbody>
+               
+			</table>
+        </div>
+	</div>
+    <!--弹出层 表格 结束-->
+	<div class="page middle mb10">
+		<div class="fl" id="roleuserForm_f"><label>找到</label><label id="totalNum">0</label><label>条记录, 显示</label><label id="beginNum">0</label><label>到</label><label id="endNum">0</label></div>
+		<div class="fr" id="roleuserForm_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="gotoUser" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a></div>
+		<div class="clear"></div>
+	</div>
+<div align="center"><img id="load_id" style="position:fixed;top:50%;left:50%;"  alt="加载中"/></div>
+</div>
+<!--全部用户 结束-->
+
+<!--确定要删除 开始-->
+<div class="pop" id="delete" style=" width:300px;">
+	<div class="popTitle"><span class="close fr" onclick="hide('cover','delete')"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="dialog_">确定要删除吗？</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href" id="qd" onclick="hide('cover','delete')"><span>确定</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','delete')"><span>取消</span></a></div>
+</div>
+<!--确定要删除 结束-->
+<!--删除成功 开始-->
+<div class="pop" id="deleteCg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr cancel_href" onclick="hide('cover','deleteCg')" id="close"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">删除成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" id="qd" class="mr10 bt_blue cancel_href" onclick="hide('cover','deleteCg')"><span>确定</span></a></div>
+</div>
+<!--删除成功 结束-->
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="gnqx.html" class="close fr cancel_href" onclick="hide('cover','bccg')" id="close"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" id="qd" class="mr10 bt_blue cancel_href" onclick="hide('cover','bccg');backbm()"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+
+<script type="text/javascript">
+	$(function(){
+		$(".bmNew").click(function(){
+			$(".bmTab1").hide();
+			$(".bmTab2").show();						
+		});
+		$(".bnBack").click(function(){
+			$(".bmTab1").show();
+			$(".bmTab2").hide();						
+		});
+		$(".bnShouquan").click(function(){
+			$(".bmTab1").show();
+			$(".bmTab2").hide();						
+		}); 
+		$(".checkBtn").click(function(){
+			$(this).next("div").show();
+		});
+		$(".addSure").click(function(){
+			$(this).parent().parent().parent().hide();							 
+		});	
+		$(".xzClose").click(function(){
+			$(this).parent().hide();								 
+		});
+		
+	});
+	function showInfo(){
+		$(".showInfo_1").hide();
+		$(".showInfo_2").show();
+	}
+	function newbm(){
+		$(".showInfo_2").hide();
+		$(".newBM").show();
+	}
+	function backbm(){
+		$(".showInfo_2").show();
+		$(".newBM").hide();
+	} 
+</script>
+</html>

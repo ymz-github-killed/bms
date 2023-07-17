@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.adm.model.dto.TBmsAuditlogDTO"  table="BMS_auditlog" >
+		<comment>审记日志表</comment>
+		<id name="id"  type="java.lang.String" >
+			<column  name="ID"  length="32"  />
+			<generator class="uuid.hex" />
+		</id>
+		<property  name="appCode"  type="java.lang.String" >
+			<column  name="app_code"  length="32" >
+				<comment>应用标识</comment>
+			</column>
+		</property>
+
+		<property  name="operateDesc"  type="java.lang.String" >
+			<column  name="operate_desc"  length="2000" >
+				<comment>操作描述</comment>
+			</column>
+		</property>
+
+		<property  name="url"  type="java.lang.String" >
+			<column  name="url"  length="256" >
+				<comment>操作URL</comment>
+			</column>
+		</property>
+
+		<property  name="operateEntry"  type="java.lang.String" >
+			<column  name="operate_entry"  length="256" >
+				<comment>操作实体</comment>
+			</column>
+		</property>
+
+		<property  name="userName"  type="java.lang.String" >
+			<column  name="user_name"  length="256" >
+				<comment>操作用户</comment>
+			</column>
+		</property>
+
+		<property  name="serviceIp"  type="java.lang.String" >
+			<column  name="service_ip"  length="32" >
+				<comment>服务器ip地址</comment>
+			</column>
+		</property>
+
+		<property  name="operateName"  type="java.lang.String" >
+			<column  name="operate_name"  length="256" >
+				<comment>操作名称</comment>
+			</column>
+		</property>
+
+		<property  name="operateDate"  type="java.util.Date" >
+			<column  name="operate_date" >
+				<comment>操作时间</comment>
+			</column>
+		</property>
+
+		<property  name="sucessful"  type="java.lang.Long" >
+			<column  name="sucessful"  length="2" >
+				<comment>是否成功</comment>
+			</column>
+		</property>
+
+		<property  name="clientIp"  type="java.lang.String" >
+			<column  name="client_ip"  length="32" >
+				<comment>操作者IP</comment>
+			</column>
+		</property>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span class="change1 hand tabHover">更改密码</span><span id="changePhoneNumButton" class="change2 ml30 hand" style="display: none">更改手机号</span></div>
+<!--更改密码 开始-->
+	<div id="change_1" class=""> 
+        <div class="mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href btn_reset"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href btn_save" onclick="show('cover','bccg')"><span>保存</span></a></div>
+    <form id="changePassword">   
+        <div class="bord_gray padd_10 pb30">
+            <!--原始密码 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span class="red">*</span><span>原始密码：</span></p>
+                <div class="fl rightInfo middle" style="_width:650px;"><input type="password" id="oldPassword" name="oldPassword" autocomplete="off" class="text_1"/></div>
+                <div class="clear"></div>
+            </div>
+            <!--原始密码 结束-->
+            <!--新密码 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span class="red">*</span><span>新密码：</span></p>
+                <div class="fl rightInfo middle" style="_width:650px;"><input type="password" id="newPassword" name="newPassword"  autocomplete="off" class="text_1"/><span class="red ml10">密码长度8—16位，且密码由大、小写字母、数字、特殊字符4种组合组成！</span></div>
+                <div class="clear"></div>
+            </div>
+            <!--新密码 结束-->
+            <!--请再次输入新密码 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span class="red">*</span><span>请再次输入新密码：</span></p>
+                <div class="fl rightInfo middle" style="_width:650px;"><input type="password" id="newPassword2" autocomplete="off" name="newPassword2" class="text_1"/></div>
+                <div class="clear"></div>
+            </div>
+            <!--请再次输入新密码 结束-->
+        </div>
+            <p><font color="red">*密码修改后需重新登录生效</font></p>
+        </form> 
+        <div class="mt10 mb10"><a href="javascript:;"  class="mr10 bt_blue cancel_href btn_reset"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href btn_save" onclick="show('cover','bccg')"><span>保存</span></a></div>
+    </div>
+<!--更改密码 结束-->
+<!--更改手机号 开始-->
+<form id="changePhoneNum">
+	<div id="change_2" class="undis"> 
+        <div class="mt10 mb10"><a href="javascript:;" class="mr10 bt_blue btn_reset2 cancel_href"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue btn_save2 cancel_href" onclick="show('cover','bccg')"><span>保存</span></a></div>
+        <div class="bord_gray padd_10 pb30">
+            <!--原手机号 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span class="red">*</span><span>原手机号：</span></p>
+                <div class="fl rightInfo middle"><input type="text" id="oldPhoneNum" name="oldPhoneNum" class="text_1" maxlength="11" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/></div>
+                <div class="clear"></div>
+            </div>
+            <!--原手机号 结束-->
+            <!--新手机号 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span class="red">*</span><span>新手机号：</span></p>
+                <div class="fl rightInfo middle"><input type="text" id="newPhoneNum" name="newPhoneNum" class="text_1" maxlength="11" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="ml10 mr10 cancel_href" id="get_">获取验证码</a><input type="text" class="text_4" id="phoneValidateNum" name="phoneValidateNum" value="请输入验证码" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/></div>
+                <div class="clear"></div>
+            </div>
+            <!--新手机号 结束-->
+        </div>
+        </form>
+        <div class="mt10 mb10"><a href="javascript:;" class="mr10 bt_blue btn_reset2 cancel_href"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue btn_save2 cancel_href" onclick="show('cover','bccg')"><span>保存</span></a></div>
+    </div>
+<!--更改手机号 结束-->
+</div>
+
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr cancel_href" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','bccg')" id="goUrl"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+<script type="text/javascript">
+	$(function(){
+		$(".change1").click(function(){
+			$("#change_1").show();
+			$("#change_2").hide();
+			$(this).parent().children().removeClass("tabHover");
+			$(this).addClass("tabHover");
+		});
+		$(".change2").click(function(){
+			$("#change_2").show();
+			$("#change_1").hide();	
+			$(this).parent().children().removeClass("tabHover");
+			$(this).addClass("tabHover");
+		});	
+	})
+</script>
+</html>

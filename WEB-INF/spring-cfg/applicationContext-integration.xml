@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="myAuditLogGenerator" class="com.sinovatech.bms.client.audit.ImpLogGenerator"></bean>
+
+	<bean id="myLoginOrOutListeners" class="java.util.ArrayList">
+		<!-- <constructor-arg> 请在此处加入监听器 </constructor-arg> -->
+	</bean>
+
+	<bean id="myClientConfig" class="com.sinovatech.bms.client.ClientConfig"
+		init-method="loadClsProperty">
+		<property name="resName" value="bmsClientCfg"></property>
+	</bean>
+
+	<bean id="myBmsService" class="com.sinovatech.bms.client.auth.BmsSelfService">
+		<property name="bmsAuditlogBPO" ref="myBmsAuditlogBPO"></property>
+		<property name="bmsAuditdefineBPO" ref="myBmsAuditdefineBPO"></property>
+	</bean>
+
+	<!-- 标签注入对象 -->
+	<bean class="com.sinovatech.bms.client.tld.HibernateSessionFactory"
+		factory-method="getInstance">
+		<property name="daoSupport" ref="myBmsUserRoleDAO"></property>
+	</bean>
+
+	<bean class="com.sinovatech.bms.client.tld.DataSourceFactory"
+		factory-method="getInstance">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+
+	
+	
+
+</beans>

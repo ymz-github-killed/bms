@@ -1,0 +1,241 @@
+<!--#include virtual="/include/header.html"-->
+
+
+<div class="content">
+     <div class="space-50"></div>
+     <div class="manageNav">
+          <ul class="manageNavLi">
+              <li><a href="/systemManage/index.html">用户管理</a></li>
+              <li class="on"><a href="/systemManage/roleManage.html">角色管理</a></li>
+              <li><a href="/systemManage/rightsManag.html">权限管理</a></li> 
+              <li><a href="/systemManage/outsideApplication.html">外部应用</a></li>
+              <li><a href="/systemManage/safeSet.html">安全设置</a></li>
+              <li><a href="/systemManage/luckUser.html">用户锁定</a></li>
+          	  <li><a href="/systemManage/mouldManage.html">模版管理</a></li>
+          </ul>
+     </div>
+     <div class="submitBtn">
+          <div class="space-30"></div>
+          <input type="button" value="新增角色" onclick="location.href='/systemManage/addRole.html'" />
+          <div class="space-25"></div>
+     </div>
+     <div class="mx_list">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tr>
+                    <th>序号</th>
+                    <th>角色名称</th>
+                    <th>所属地市</th>
+                    <th width="30%">操作</th>
+                </tr>
+                <tr>
+                	<td>1</td>
+                    <td>总部系统管理员</td>
+                    <td>北京</td>
+                   
+                    <td>
+                    	<a href="roleManage_view.html" class="blue_a">查看</a>
+                        <a href="roleManage_edit.html" class="blue_a">编辑</a>
+                        <a href="roleConfig.html" class="blue_a">权限配置</a>
+                        <a href="userConfig.html" class="blue_a">用户配置</a>
+                        <a href="javascript:void(0);" class="blue_a del_tr" >删除</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>2</td>
+                    <td>总部客服</td>
+                   
+                    <td>北京</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a">查看</a>
+                        <a href="javascript:void(0);" class="blue_a">编辑</a>
+                        <a href="javascript:void(0);" class="blue_a">权限配置</a>
+                        <a href="javascript:void(0);" class="blue_a">用户配置</a>
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>3</td>
+                    <td>省份系统管理员</td>
+                   
+                    <td>北京</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a">查看</a>
+                        <a href="javascript:void(0);" class="blue_a">编辑</a>
+                        <a href="javascript:void(0);" class="blue_a">权限配置</a>
+                        <a href="javascript:void(0);" class="blue_a">用户配置</a>
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                    <tr>
+                	<td>4</td>
+                    <td>地市客服</td>
+                   
+                    <td>北京</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a">查看</a>
+                        <a href="javascript:void(0);" class="blue_a">编辑</a>
+                        <a href="javascript:void(0);" class="blue_a">权限配置</a>
+                        <a href="javascript:void(0);" class="blue_a">用户配置</a>
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>5</td>
+                    <td>省份系统管理员</td>
+                   
+                    <td>北京</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a">查看</a>
+                        <a href="javascript:void(0);" class="blue_a">编辑</a>
+                        <a href="javascript:void(0);" class="blue_a">权限配置</a>
+                        <a href="javascript:void(0);" class="blue_a">用户配置</a>
+                        <a href="javascript:void(0);" class="blue_a  del_tr">删除</a>
+                    </td>
+                    <tr>
+                	<td>6</td>
+                    <td>地市客服</td>
+                    
+                    <td>北京</td>
+                   <td>
+                    	<a href="javascript:void(0);" class="blue_a">查看</a>
+                        <a href="javascript:void(0);" class="blue_a">编辑</a>
+                        <a href="javascript:void(0);" class="blue_a">权限配置</a>
+                        <a href="javascript:void(0);" class="blue_a">用户配置</a>
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>7</td>
+                    <td>地市普通客服</td>
+                   
+                    <td>北京</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a">查看</a>
+                        <a href="javascript:void(0);" class="blue_a">编辑</a>
+                        <a href="javascript:void(0);" class="blue_a">权限配置</a>
+                        <a href="javascript:void(0);" class="blue_a">用户配置</a>
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                </tr>
+            </table>
+     </div>
+     <div class="clr"></div>
+     <div class="space-40"></div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+
+
+<!--新增用户弹层-->
+<div class="transact_tc_box"  id="arry">
+     <div class="transact_tc_t">
+          <dl class="close_t">
+              <dt>新增角色</dt>
+              <dd><a href="javascript:;"  title="关闭" class="closeTransact"></a></dd>
+          </dl>
+     </div>
+     <div class="transact_tc_c">
+          <div class="space-30"></div>
+          <div class="newUserC">
+               <dl class="UserManageDl UserTcDl">
+                   <dt><i>*</i> 角色名称：</dt>
+                   <dd>
+                        <input class="ManageInput" type="text" value="总部系统管理员" />
+                   </dd>
+               </dl>
+                <dl class="UserManageDl UserTcDl">
+                   <dt><i>*</i> 功能权限：</dt>
+                   <dd class="inputR">
+                   		<label><input id="checkbox_all" type="checkbox" />&nbsp;全部</label>
+                        <label><input name="checkbox01" type="checkbox" />&nbsp;查看</label>
+                        <label><input name="checkbox01"  type="checkbox" />&nbsp;采编</label>
+                        <label><input name="checkbox01" type="checkbox" />&nbsp;审核</label>
+                        
+                   </dd>
+               </dl>
+               <dl class="UserManageDl UserTcDl">
+                   <dt><i>*</i> 菜单权限：</dt>
+                   <dd class="inputR">
+                 	    <label><input type="checkbox"  id="check_all1"/>&nbsp;全部</label>
+                        <label><input type="checkbox" name="checkbox02" />&nbsp;知识列表</label>
+                        <label><input type="checkbox" name="checkbox02" />&nbsp;内部采编</label>
+                        <label><input type="checkbox" name="checkbox02"/>&nbsp;外部采编</label>
+                        <label><input type="checkbox" name="checkbox02"/>&nbsp;系统管理</label>
+                       
+                   </dd>
+               </dl>
+          </div>
+          <div class="space-30"></div>
+          <div class="submit_btn">
+               <input class="btn_save closeTransact" type="button" value="提&nbsp;交"  />
+          </div>
+     </div>
+</div>
+
+<div class="transact_tc_box"  id="arry2">
+     <div class="transact_tc_t">
+          <dl class="close_t">
+              <dt>新增角色</dt>
+              <dd><a href="javascript:;"  title="关闭" class="closeTransact"></a></dd>
+          </dl>
+     </div>
+     <div class="transact_tc_c">
+          <div class="space-30"></div>
+          <div class="newUserC">
+               <dl class="UserManageDl UserTcDl">
+                   <dt><i>*</i> 角色名称：</dt>
+                   <dd>
+                        <input class="ManageInput" type="text" value="总部系统管理员" />
+                   </dd>
+               </dl>
+               <dl class="UserManageDl UserTcDl">
+                   <dt><i>*</i> 功能权限：</dt>
+                   <dd class="inputR">
+                   	    
+                        <label><input type="checkbox" />&nbsp;查看</label>
+                        <label><input type="checkbox" />&nbsp;采编</label>
+                        <label><input type="checkbox" />&nbsp;审核</label>
+                        
+                   </dd>
+               </dl>
+               <dl class="UserManageDl UserTcDl">
+                   <dt><i>*</i> 菜单权限：</dt>
+                   <dd class="inputR">
+                        <label><input type="checkbox" />&nbsp;知识列表</label>
+                        <label><input type="checkbox" />&nbsp;内部采编</label>
+                        <label><input type="checkbox" />&nbsp;外部采编</label>
+                        <label><input type="checkbox" />&nbsp;系统管理</label>
+                       
+                   </dd>
+               </dl>
+          </div>
+          <div class="space-30"></div>
+          <div class="submit_btn">
+               <input class="btn_save closeTransact" type="button" value="提&nbsp;交"  />
+          </div>
+     </div>
+</div>
+<script>
+$('.closeTransact,#layer').click(function(){
+	$(this).parents('.transact_tc_box').fadeOut();
+	$('div#layer').remove();
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

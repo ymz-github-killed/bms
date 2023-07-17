@@ -1,0 +1,17 @@
+.Wdate{
+	border: 1px solid #ccc;
+    border-radius: 4px;
+	width: 165px;
+	/* height:25px; */
+	background: url(datePicker.gif) no-repeat right;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.Wdate::-ms-clear{display:none;}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>公告管理</span>&nbsp;&gt;&nbsp;<span>新增/编辑公告</span></div>
+<form id="search">
+    <div class="mt10 mb10"><a href="gggl.html" class="mr10 bt_blue back cancel_href"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue reset cancel_href"><span>重置</span></a><a href="javascript:" class="mr10  bt_blue save  cancel_href" id="save"><span>保存</span></a></div>
+    <div class="bord_gray padd_10 pb30">
+    	<p class="lineh40 borb font16"><span>新增/编辑公告信息</span><img src="../../images/xl.gif" class="ml10" /></p>
+        <!--标题 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>标题：</span></p>
+            <div class="fl rightInfo middle"><input type="text" id="title_" name="noticeBean.title" class="text_1" maxlength="100"/><span class="red ml10">最大长度为100字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--标题 结束-->
+        <!--公告标记 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>公告标记：</span></p>
+            <div class="fl rightInfo middle"><input type="text" id="tab_" name="noticeBean.tab" class="text_1" value="" maxlength="10"/><span class="red ml10">最大长度为10字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--公告标记 结束-->
+        <!--公告内容 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>公告内容：</span></p>
+            <div class="fl rightInfo midTop"><textarea id="content_" name="noticeBean.content" class="textarea_1" maxlength="800"></textarea><span class="red ml10">可以为空，如果不为空，最大长度为800字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--公告内容 结束-->
+        <!--是否生效 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>是否生效：</span></p>
+            <div class="fl rightInfo middle"><label class="mr20"><input type="radio" id="status" name="noticeBean.status" value="1" checked="checked"/><span class="ml5">是</span></label><label class="mr20"><input type="radio" id ="status" name="noticeBean.status" value="0"/><span class="ml5">否</span></label></div>
+            <div class="clear"></div>
+        </div>
+        <!--是否生效 结束-->
+    </div>
+    <div class="mt10 mb10"><a href="gggl.html" class="mr10 back bt_blue cancel_href"><span>返回</span></a><a href="javascript:;" class="mr10 reset bt_blue cancel_href" ><span>重置</span></a><a href="javascript:" class="mr10 bt_blue save cancel_href" id="save" onclick="show('cover','bccg')"><span>保存</span></a></div>
+</form>
+</div>
+
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="gggl.html" class="close fr cancel_href" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="gggl.html" class="mr10 bt_blue cancel_href" onclick="hide('cover','bccg')" id="qd"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+<script type="text/javascript">
+	$(function(){
+		$(".checkBtn").click(function(){
+			$(this).next("div").show();
+		});
+		$(".addSure").click(function(){
+			$(this).parent().parent().parent().hide();							 
+		});	
+		$(".xzClose").click(function(){
+			$(this).parent().hide();								 
+		});
+	})
+</script>
+</html>

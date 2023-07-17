@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>智能知识库</title>
+<link type="text/css" rel="stylesheet" href="datePicker/css/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="css/reset.css">
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/base.css" >
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="datePicker/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="datePicker/js/dateTime.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/treeNav_tab.js"></script>
+<!--head
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>智能知识库</title>
+<link type="text/css" rel="stylesheet" href="../../datePicker/css/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="../../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../../css/layout.css">
+<link type="text/css" rel="stylesheet" href="../../css/base.css" >
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../datePicker/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../../datePicker/js/dateTime.js"></script>
+<script type="text/javascript" src="../../js/base.js"></script>
+<script type="text/javascript" src="../../js/treeNav_tab.js"></script>head-->
+
+</head>
+
+<body>
+<div class="header_top">
+	<div style="width:966px; margin:0 auto">
+    	<div class="head_menu">
+        	<div id="img_text"><img src="images/headImg2.png" width="22" height="21" id="headImg2"/>xxx,欢迎回来</div>
+        	<div class="head_menu_list">
+            	<ul>
+                  <li>待发起任务共<i onclick="location.href='/insideEditorial/toDoWork.html'">10</i>条</li>
+                  <li>待采编任务共<i onclick="location.href='/insideEditorial/toDoWork.html'">10</i>条</li>
+                  <li>待审核任务共<i onclick="location.href='/insideEditorial/toDoWork.html'">10</i>条</li>
+                  <li>待修改任务共<i onclick="location.href='/insideEditorial/toDoWork.html'">10</i>条</li>
+                </ul>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="headerBox">
+     <div class="header">
+         <div class="logoImg">
+              <a href="javascript:;"><img src="images/logoImg.png" id="logoImg"/></a>
+         </div>
+         <div class="headerContent">
+              <div class="searchHeader">
+                   <input type="text" value="请输入关键字" />
+                   <a href="javascript:;">&nbsp;</a>
+                   
+              </div>
+              <button onclick="location.href='http://124.192.56.213:197/insideEditorial/toDoWork.html'">搜索</button>
+              <p class="clr"></p>
+            <!--  <div class="headerText">
+                   <span>集团总部市场部最新发起XXXX任务</span>
+                   <span>2014-11-15</span>
+                   <span>12:25:30</span>
+                   <span>广东客服部...</span>
+              </div>-->
+         </div>
+         
+     </div>
+      <div class="clr"></div>
+</div>
+<div class="head_nav">
+	<div class="head_nav_main">
+        <ul id="nav_1">
+            <li name="knowledgeList/konwledgeList.html" class="hover">知识列表</li>
+            <li name="insideEditorial/manager.html">内部采编</li>
+            <li name="bms/user/jbxxgl.html">系统管理</li>
+            <li name="systemManage/mouldManage.html">模板管理</li>
+            <!--<li><a href="/operationLog/operat_index.html">操作日志</a></li>-->
+        </ul>
+    </div>
+    <div class="clr"></div>
+</div>
+ <div class="wapContent">
+
+<!-- 内容  begin-->
+<div id="wapContent">
+
+<div class="content">
+ <div class="space-30"></div>
+ <!--二级菜单 开始-->
+ 	<div id="treeBox">
+         <div class="manageNav">
+             <ul class="manageNavLi">
+                  <li class="on"><span name="knowledgeList/konwledgeList.html">知识列表</span></li>
+              </ul>
+         </div>
+         <div class="manageNav undis">
+             <ul class="manageNavLi">
+                  <li class="on"><span name="insideEditorial/manager.html">内部采编</span></li>
+              </ul>
+         </div>
+         <div class="manageNav undis">
+             <ul class="manageNavLi">
+                  <li class="on"><span name="bms/user/jbxxgl.html">用户管理</span></li>
+                  <li><span name="bms/jsgl/jsgl.html">角色管理</span></li>
+                  <li><span name="bms/gnqx/gnqx.html">权限管理</span></li> 
+                  <li><span name="bms/wbyy/wbyy.html">外部应用</span></li>
+                  <li><span name="bms/ggmm/ggmm.html">安全设置</span></li>
+                  <li><span name="bms/yhsdgl/yhsdgl.html">用户锁定</span></li>
+                  <!--<li><span name="">模版管理</span></li>-->
+              </ul>
+         </div>
+         <div class="manageNav undis">
+             <ul class="manageNavLi">
+                  <li class="on"><span name="systemManage/mouldManage.html">模板管理</span></li>
+              </ul>
+         </div>
+	</div>
+<!--二级菜单 结束-->
+<!--右侧引用 开始-->
+	<div id="iframeRight" class="bgFFF">    
+    <iframe frameborder="0" width="100%" height="100%" scrolling="no" onload="iframeHeight()" id="iframe" src="" class="knowledgeList/konwledgeList.html"></iframe>
+    </div>
+<!--右侧引用 结束--> 
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+//var wxTime;
+//function wxFlowFn(){
+    //注意：下面的代码是放在和iframe同一个页面调用,放在iframe下面
+   // $("#iframeRight>iframe").live('load',function () {
+//        var mainheight = $(this).contents().find("body").height() + 30;
+//        $(this).height(mainheight);
+//    });
+	//wxTime = setTimeout(wxFlowFn, 1000);
+	//alert(wxTime);
+//}
+//wxFlowFn();
+</script>
+</html>

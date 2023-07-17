@@ -1,0 +1,134 @@
+<!--#include virtual="/include/header.html"-->
+
+
+
+<div class="content">
+     <div class="space-50"></div>
+     <div class="manageNav">
+          <ul class="manageNavLi">
+              <li><a href="/systemManage/index.html">用户管理</a></li>
+              <li><a href="/systemManage/roleManage.html">角色管理</a></li>
+              <li class="on"><a href="/systemManage/rightsManag.html">权限管理</a></li> 
+              <li><a href="/systemManage/outsideApplication.html">外部应用</a></li>
+              <li><a href="/systemManage/safeSet.html">安全设置</a></li>
+              <li><a href="/systemManage/luckUser.html">用户锁定</a></li>
+              <li><a href="/systemManage/mouldManage.html">模版管理</a></li>
+          </ul>
+     </div>
+     
+     <div class="space-30"></div>
+     
+     <div class="UserManage">
+           <div class="UserManageLine">
+                <span>基本信息</span>
+           </div>
+           <div class="space-30"></div>
+           <div class="UserManageShow">
+               
+               <dl class="UserManageDl">
+                   <dt>功能名称：</dt>
+                   <dd style="line-height:30px;">
+                        <input class="ManageInput">
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt>用户id：</dt>
+                   <dd style="line-height:30px;">
+                        <input class="ManageInput" readonly="readonly" value="系统自动生成">
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt>所属应用：</dt>
+                   <dd style="line-height:30px;">
+                        <select style="color:#666;">
+                          <option>知识列表</option>
+                          <option>内部采编</option>
+                          <option>管理系统</option>
+                          <option>操作日志</option>
+                      	</select>
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt>外部链接：</dt>
+                   <dd style="line-height:30px;">
+                        <input class="ManageInput">
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt>是否菜单：</dt>
+                   <dd style="line-height:30px;">
+                        <select style="color:#666;">
+                          <option id="surecd_y">是</option>
+                          <option id="surecd_n">否</option>
+                      	</select>
+                   </dd>
+               </dl>
+               <dl class="UserManageDl">
+                   <dt>描述：</dt>
+                   <dd style="line-height:30px;">
+                        <textarea name="" cols="" rows=""></textarea>
+                   </dd>
+               </dl>
+              
+           </div>
+          
+            <div class="clr"></div>
+           <div class="space-40"></div>
+      </div>
+      
+      <div class="UserManage" id="rm_dyqx" style="display:none;">
+           <div class="UserManageLine">
+                <span>对应权限</span>
+           </div>
+           <div class="space-30"></div>
+           <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table" style="width:96%;margin:0 auto;">
+                <tr>
+                    <th>key</th>
+                    <th>名称</th>
+                    <th>url</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                	<td>sdfsdf</td>
+                    <td>admin</td>
+                    <td>&nbsp;</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>sdfsdf</td>
+                    <td>admin</td>
+                    <td>&nbsp;</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                </tr>
+            </table>
+           
+            <div class="clr"></div>
+           <div class="space-40"></div>
+      </div>
+      <div class="space-10"></div>
+        <div class="certainBtn">
+        <input class="marR15" type="button" value="确 定">
+        <input class="dfdfdf btnCertain" type="button" value="返 回" onclick="javascript:history.back(-1);" />
+        </div>
+      
+     <div class="space-30"></div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+<script>
+$("#surecd_y").click(function(){
+	$("#rm_dyqx").hide();
+})
+$("#surecd_n").click(function(){
+	$("#rm_dyqx").show();
+})
+</script>
+</body>
+</html>

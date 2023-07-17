@@ -1,0 +1,370 @@
+ @charset "utf-8";
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.all_box {
+    background: #f9f9f9;
+}
+.header_box {
+    background: url(../images/img3_bg.png);
+    width: 100%;
+    height: 80px;
+}
+.logo_box {
+    height: 45px;
+    /* background: green; */
+    padding-top: 15px;
+    margin-left: 60px;
+}
+.logo_box img {
+    vertical-align: middle;
+}
+.logo_box div {
+    display: inline-block;
+    font-size: 34px;
+    color: #fff;
+    /* background: blue; */
+    vertical-align: middle;
+}
+.content_box {
+    width: 852px;
+    height: 550px;
+    margin: 0 auto;
+}
+/*进度条*/
+.confirm_wrap {
+    /* border: 1px solid #f9f9f9;
+    background: blue;
+    height: 88.7%; */
+}
+
+.bg1 {
+    width: 41px;
+    height: 41px;
+    background: url("../images/gray_bg.png") no-repeat left center;
+    background-size: 100% 100%;
+}
+
+.bg2 {
+    width: 41px;
+    height: 41px;
+    background: url("../images/blue_bg.png") no-repeat left center;
+    background-size: 100% 100%;
+}
+
+.progress {
+    width: 852px;
+    height: 180px;
+    /* background: gray; */
+}
+
+.progress_wrap {
+    width: 822px;
+    height: 41px;
+    margin: 0 auto;
+    /* background: green; */
+    padding-top: 65px;
+}
+
+.progress_wrap>div {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    line-height: 41px;
+    margin: 0 5px;
+}
+
+.progress_wrap>span {
+    padding: 0 10px;
+    background: #0085d0;
+    display: inline-block;
+    height: 6px;
+    width: 325px;
+    margin-bottom: 7px;
+}
+
+/* 进度条变色 */
+.progress_wrap>.color1 {
+    background: #c4c3c3;
+}
+
+.confirm_count {
+    margin-left: 4%;
+}
+
+.confirm_count span{
+    position: absolute;
+    bottom: -107%;
+    left: -52%;
+    color: #9f9f9f;
+    font-size: 22px;
+    width: 92px;
+    font-weight: 550;
+}
+
+.security_verification span{
+    position: absolute;
+    bottom: -107%;
+    left: -52%;
+    color: #9f9f9f;
+    font-size: 22px;
+    width: 92px;
+    font-weight: 550;
+}
+.password_reset span {
+    position: absolute;
+    bottom: -107%;
+    left: -52%;
+    color: #9f9f9f;
+    font-size: 22px;
+    width: 92px;
+    font-weight: 550;
+}
+/*变色条*/
+
+/* 内容框 user_verification */
+.user_verification {
+    border: 1px solid #c4c3c3;
+    height: 350px;
+    width: 852px;
+    background: #fff;
+}
+
+.user_verification>div {
+    width: 48%;
+    margin-left: 26%;
+    margin-top: 68px;
+    height: 266px;
+}
+
+/* input */
+input::-webkit-input-placeholder {
+    /*WebKit browsers*/
+    color: #999;
+}
+
+input::-moz-input-placeholder {
+    /*Mozilla Firefox*/
+    color: #999;
+}
+
+input::-ms-input-placeholder {
+    /*Internet Explorer*/
+    color: #999;
+}
+
+.confirmCount_wrap>div {
+    width: 100%;
+    height: 58px;
+    line-height:58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+}
+
+.confirmCount_wrap>div:first-child+div {
+    border: none;
+}
+
+.confirmCount_wrap>div:first-child+div+div {
+    background: #0085d0;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    line-height: 58px;
+    cursor: pointer;
+}
+
+.confirmCount_wrap input {
+    border: none;
+    width: 92%;
+    height:55px;
+    line-height:55px;
+    margin-left: 5%;
+    font-size: 20px;
+    background:transparent;
+}
+
+.confirmCount_wrap>div>div>input {
+    margin-left: 9%;
+    width: 80%;
+}
+
+.confirmCount_wrap>div>div {
+    display: inline-block;
+    width: 60%;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+}
+
+.confirmCount_wrap>div>div+div {
+    vertical-align: top;
+    width: 35%;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+    margin-left: 4%;
+}
+/* verification */
+
+/* 2框 */
+.securityVerification_wrap>div {
+    width: 100%;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+}
+
+
+.securityVerification_wrap>div:first-child+div {
+    border: none;
+}
+
+.securityVerification_wrap>div:first-child+div+div {
+    background: #0085d0;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    line-height: 58px;
+    cursor: pointer;
+}
+
+.securityVerification_wrap input {
+    border: none;
+    width: 92%;
+    margin-left: 5%;
+    height: 55px;
+    line-height: 55px;
+    font-size: 20px;
+    background:transparent;
+}
+
+.securityVerification_wrap>div>div>input {
+    margin-left: 9%;
+    width: 80%;
+}
+
+
+
+.securityVerification_wrap>div>div {
+    display: inline-block;
+    width: 60%;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+}
+
+.securityVerification_wrap>div>div+div {
+    vertical-align: top;
+    width: 35%;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+    margin-left: 4%;
+}
+
+/* passwordReset_wrap */
+.passwordReset_wrap>div {
+    width: 100%;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+}
+
+
+.passwordReset_wrap>div:first-child+div {
+    /* border: none; */
+}
+
+.passwordReset_wrap>div:first-child+div+div {
+    background: #0085d0;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    line-height: 58px;
+    cursor: pointer;
+}
+
+.passwordReset_wrap input {
+    border: none;
+    width: 92%;
+    margin-left: 5%;
+    height: 55px;
+    line-height: 55px;
+    font-size: 20px;
+    background: transparent;
+}
+
+.passwordReset_wrap>div>div>input {
+    margin-left: 9%;
+    width: 80%;
+}
+
+
+
+.passwordReset_wrap>div>div {
+    display: inline-block;
+    width: 60%;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+}
+
+.passwordReset_wrap>div>div+div {
+    vertical-align: top;
+    width: 35%;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* behavior: url(./js/PIE.htc); */
+    margin-left: 4%;
+}
+/* 验证码 */
+.one_yzm {
+    height:100%;
+    width: 100%;
+}
+.tel_yzm {
+    margin-left: 0!important;
+    width: 100%!important;
+    background: transparent;
+}

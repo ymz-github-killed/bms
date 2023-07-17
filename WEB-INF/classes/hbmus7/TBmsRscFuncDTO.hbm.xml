@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.sinovatech.bms.adm.model.dto.TBmsRscFuncDTO"
+		table="BMS_RSC_FUNC_NEW">
+		<comment>权限</comment>
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="name" type="com.sinovatech.common.hibernate.type.Us7AsciiString">
+			<column name="NAME" length="60">
+				<comment>名称</comment>
+			</column>
+		</property>
+		<property name="parentid" type="java.lang.String">
+			<column name="PARENTID" length="32">
+				<comment>父节点名称</comment>
+			</column>
+		</property>
+
+		<property name="remark" type="com.sinovatech.common.hibernate.type.Us7AsciiString">
+			<column name="REMARK" length="1000">
+				<comment>描述</comment>
+			</column>
+		</property>
+		<property name="url" type="java.lang.String">
+			<column name="URL" length="1000">
+				<comment>描述</comment>
+			</column>
+		</property>
+
+		<property name="icon" type="java.lang.String">
+			<column name="ICON" length="100">
+				<comment>显示图标</comment>
+			</column>
+		</property>
+
+		<property name="outerAddr" type="java.lang.String">
+			<column name="OUTERADDR" length="100">
+				<comment>是否系统整合地址</comment>
+			</column>
+		</property>
+
+		<property name="httpMethod" type="java.lang.String">
+			<column name="HTTPMETHOD" length="100">
+				<comment>HTTP提交方式</comment>
+			</column>
+		</property>
+
+		<property name="adaptClass" type="java.lang.String">
+			<column name="ADAPTCLASS" length="100">
+				<comment>适配器类</comment>
+			</column>
+		</property>
+
+		<property name="sortid" type="java.lang.Long">
+			<column name="SORTID" length="15">
+				<comment>排序自动</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浙江移动电渠运营管理系统</title>
+    <link rel="stylesheet" href="../../css/base1.css?v=331">
+    <link rel="stylesheet" href="../../css/public1.css?v=331">
+    <link rel="stylesheet" href="../../css/alert_shoucang.css?v=123">
+    <script src="../../js/jquery-1.7.2.min.js?v=331" type="text/javascript"></script>
+    <script src="../../js/alert_shoucang.js?v=123" type="text/javascript"></script>
+    <style>
+   	*{
+		font-family: "Microsoft YaHei";
+	}
+        /* header 头部 */
+        .notice_detail_header {
+            padding: 0 3.125%;
+            min-width: 850px;
+            height: 70px;
+            width: 100%;
+            background: url("../../images/img1_bg.png") no-repeat left center;
+            background-size: 100% 100%;
+            min-width:1100px;
+        }
+
+        .notice_detail_left {
+            width: 25%;
+            min-width: 485px;
+            line-height:70px;
+        }
+
+        /* loge */
+        .notice_detail_left>div {
+            display: inline-block;
+    		vertical-align: middle;
+    		font-size: 28px;
+    		color:white;
+        }
+
+        .notice_detail_left>img {
+            vertical-align: middle;
+    		width: 40px;
+        }
+
+        /* user_name */
+        .notice_detail_right {
+            color: white;
+            font-size: 26px;
+            width: 52%;
+            min-width: 435px;
+            text-align: right;
+            margin-top:14px;
+        }
+
+        /* 通知 */
+        .icon {
+            display: inline-block;
+		    color: white;
+		    font-size: 23px;
+		    width: 64px;
+        }
+
+        .icon>img {
+            vertical-align: middle;
+		    margin-right: 20px;
+		    width: 20px;
+        }
+
+        .user_wrap {
+/*             text-align: right; */
+/* 		    display: inline-block; */
+		    margin-left: 10px;
+		    display: inline-block;
+    		margin-left: 4%;
+        }
+
+        .user_wrap>div {
+            display: inline-block;
+   			font-size: 20px;
+        }
+
+        .triangle {
+            line-height: 100%;
+        }
+
+        .triangle .content {
+    margin-bottom: 40%;
+    width: 11px;
+    height: 11px;
+}
+.content img {
+	width:17px;
+}
+.content1 img {
+	width:17px;
+}
+.triangle .content1 {
+    margin-bottom: 0%;
+    width: 11px;
+    height: 11px;
+}
+
+        .login_state {            
+            position: absolute;
+		    height: 176px;
+		    width: 7.5%;
+		    margin-top: 22px;
+		    z-index: 3;
+		    right: 1%;            
+        }
+
+        .content2 {
+            position: absolute;
+            left: 44%;
+            top: -10.5%;
+            width: 0px;
+            height: 11x;
+            border: 11px solid;
+            border-color: transparent transparent #f7f7f7 transparent;
+        }
+
+        .content3 {
+            background: #f7f7f7;
+		    color: #666;
+		    text-align: center;
+		    height: 45%;
+		    width: 100px;
+		    font-size: 16px
+        }
+
+        .content3>div {
+            padding-top: 10%;
+        }
+
+        /* header */
+        .notice_content_wrap{
+            background: #f4f4f4;
+            border: 1px solid #f4f4f4;
+            min-width: 1000px;
+        }
+        .notice_content{
+            height:71%;
+            /* width: 1326px; */
+            width: 69%;
+            background: #fff;
+            margin: 0 auto;
+            margin-top: 4%;
+            border: 1px solid #fff;
+            padding:  0 4%;
+        }
+        .notice_title{
+            color: #0085d0;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 4%;
+            font-weight: 550;
+        }
+        .publish_date_author{
+            margin: 1%;
+        }
+        .publish_date_author>div{
+            float: right;
+            color: #666;
+            font-size: 15px;
+        }
+        .notice_article{
+            font-size: 18px;
+            text-indent: 38px;
+        }
+        .notice_detail_right span {
+			font-size:17px;
+			opacity:0.3;
+		}
+	/* 收藏alert */
+	.alert_shoucang_box {
+   	margin-top:70px;
+   }
+    .big_li ul li:first-child img {
+    width: 17px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+    </style>
+</head>
+
+<body>
+	<!-- 蒙层 -->
+	<div class="all_box_mengceng"></div>
+    <div class="notice_detail_wrap">
+        <div class="notice_detail_header fn-clear">
+            <div class="notice_detail_left fn-left">
+                <img src="../../images/ydlogo.png" alt="中国移动logo">
+                <div id="ggglxqy_div" style="cursor:pointer">浙江移动电渠运营管理系统</div>
+            </div>
+            <div class="notice_detail_right fn-right">
+            	<div class=" icon"><img class="new_collect" style="cursor:pointer"  src="../../images/shoucang.png" alt=""><span>|</span></div>
+                <div class=" icon"><img onclick="notice_click(1)" style="cursor:pointer" src="../../images/news_icon.png" alt=""><span>|</span></div>
+                <div class=" icon"><img onclick="notice_click(2)" style="cursor:pointer" src="../../images/knowledge_icon.png" alt=""><span>|</span></div>
+                <div class=" icon"><img class="index_span" style="cursor:pointer" src="../../images/return_index.png"  alt=""><span>|</span></div>
+                <div class="user_wrap">
+                    <div class="noticeDetails_name"></div>
+                    <div class="triangle" style="cursor:pointer">
+                        <!-- <div class="content "></div>
+                        <div class="content1 fn-hide"></div> -->
+                        <div class="content"><img src="../../images/down_img.png"/></div>
+                            <div class="content1 fn-hide"><img src="../../images/up_img.png"/></div>
+                    </div>
+                </div>
+                <div class="login_state fn-hide">
+                    <div class="content2"></div>
+                    <div class="content3 ">
+                       <div id="xqy_grzx" style="cursor:pointer" style="cursor:pointer" onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">个人中心</div>
+                       <div id="xqy_tc" style="cursor:pointer" style="cursor:pointer" onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">退出</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notice_content_wrap">
+<!-- 收藏编辑页 -->
+			<div class="alert_shoucang_box">
+                <ul class="alert_title_box">
+                </ul>
+                <div class="content_box_alert">
+                    <ul class="yiji">
+                    </ul>
+                </div>
+                <div class="j-shouqi_img shouqi_img">
+					<img src="../../images/shouqi_btn.png" alt="">
+				</div>
+            </div>
+        </div>
+    </div>
+    <!-- 中间收藏页 -->
+    <div class="j-click_none all_per_mid" onclick="clickDiv()">
+        <div class="per_col_mid" onclick="clickP(event)">
+                <div class="hed_title">
+                    <span>个人收藏</span>
+                    <img class="j-setup" src="../../images/set_up.png" alt="">
+                </div>
+                <ul id='collected_list'>
+                </ul>
+            </div>
+      </div>
+    <script>
+        $(function () {
+            $(".user_wrap>div>div").on("click", function (e) {
+                e.stopPropagation();
+                $(this).addClass("fn-hide").siblings().removeClass("fn-hide");
+                if ($(this).hasClass("content")) {
+                    $(".login_state").removeClass("fn-hide");
+                } else {
+                    $(".login_state").addClass("fn-hide");
+                }
+
+            });
+            $("body").on("click", function (e) {
+                e.stopPropagation();
+                if ($(".user_wrap>div>div").hasClass("content")) {
+                    $(".login_state").addClass("fn-hide");
+                    $(".content").removeClass("fn-hide").siblings().addClass("fn-hide");
+                }
+
+            });
+            $(document).ready(function () {
+                $(".notice_detail_wrap").width($(window).width());
+                $(".notice_detail_wrap").height($(window).height());
+                $(window).resize(function () {
+                    $(".notice_detail_wrap").width($(window).width());
+                    $(".notice_detail_wrap").height($(window).height());
+                });
+            });
+        });
+       
+       
+
+
+    </script>
+</body>
+
+</html>

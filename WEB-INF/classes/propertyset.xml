@@ -1,0 +1,4 @@
+<propertysets>
+	<propertyset name="hibernate3"
+		class="com.opensymphony.module.propertyset.hibernate3.HibernatePropertySet" />
+</propertysets>

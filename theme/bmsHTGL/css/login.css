@@ -1,0 +1,227 @@
+.all_box {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 500px;
+}
+.gloginbg{
+	width:100%;
+	height:100%;
+	min-height:500px;
+	z-index:0;	
+    position: absolute;
+    left:0;
+    top:0;
+}
+.index_box {
+    /* background: url(../images/indexbg.png) left center no-repeat;
+    background-size: 100% 100%; */
+    width: 100%;
+    height: 100%;   
+    position: absolute;
+}
+.head_box {
+	-moz-background-color: rgba(8, 10, 28, 0.6);
+	-webkit-background-color: rgba(8, 10, 28, 0.6);
+	-o-background-color: rgba(8, 10, 28, 0.6);
+	-ms-background-color: rgba(8, 10, 28, 0.6);
+    background-color: rgba(8, 10, 28, 0.6);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#28080a1c,endColorstr=#28080a1c);
+/*     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000); */
+	/* filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19080A1C,endColorstr=#19080A1C); */
+    width: 100%;
+    height: 70px;
+    color: #fff;
+    padding-top: 10px;
+    padding-left: 40px;
+    position:absolute;
+    z-index:9999;
+}
+.head_box img {
+    vertical-align: middle;
+    width: 40px;   
+}
+.head_box span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 36px;
+}
+.head_box div{
+    display: inline-block;
+    float: right;
+    width: 142px;
+    height: 31px;
+    font-size: 15px;
+    background: #01a8d5;
+    border-radius: 26px;
+/*     behavior: url(../js/PIE.htc); */
+    margin-top: 14px;
+    margin-right: 50px;
+    text-align: center;
+    line-height: 31px;
+    cursor:pointer;
+}
+/* ��ҳindex */
+/* ��ͨ�û���¼ */
+.ordinary_login {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:rgba(8, 10, 28, 0.4);
+}
+.login_box {
+    width: 351px;
+    height: 392px;
+    background: #fff;
+    /* margin-top: 150px; */
+    border-radius: 10px;  
+    border: 5px solid rgba(106, 118, 141, 0.6);
+    border: 5px solid #a6adbb\9;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -150px 0 0 -175px;
+}
+.title_text {
+    width: 100%;
+    height: 61px;
+    background: #f3f3f3;
+    font-size: 23px;
+    color: #2c6795;
+    text-align: center;
+    line-height: 61px;
+    border-radius: 10px 10px 0px 0px;
+}
+.input_text {
+    width: 100%;
+    height: 282px;
+    padding-top: 20px;
+}
+.input_text div {
+    width: 280px;
+    height: 36px;
+    margin: 0 auto;
+    /* margin-top: 13px; */
+    background-color: #fbfbfb;
+    border: solid 1px #cbcbcb;    
+    position:relative;
+    
+}
+.input_text .logon {
+    margin-top: 20px;
+    background: linear-gradient(0deg, #0181b2 0%, #01a9d6 100%);
+    background: -o-linear-gradient(0deg, #0181b2 0%, #01a9d6 100%);
+    background: -moz-linear-gradient(0deg, #0181b2 0%, #01a9d6 100%);
+    background: -webkit-linear-gradient(0deg, #0181b2 0%, #01a9d6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#0181b2, endColorstr=#01a9d6);/*IE<9>*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#0181b2, endColorstr=#01a9d6)";/*IE8+*/
+    border: none;
+    color: #fff;
+    font-size: 18px;    
+    line-height: 36px;
+    text-align: center;
+}
+.input_text img {
+    width: 16px;
+    margin: 0 14px;
+}
+.input_text .img11,.input_text .yzm_input .width_img{
+    width: 16px;
+    margin: 0 14px;
+    position: absolute;
+    left: 0px;
+    top: 8px;
+}
+.input_text input,.pswstyle{
+    border: none;
+    color: black;
+    font-size: 12px;
+    background: transparent;
+    width: 190px;
+    font-family: "Microsoft YaHei";
+    position:absolute;
+    left:42px;   
+    top:0;
+    height:33px;	
+    line-height: 33px; 
+    font-style:normal;
+}
+.input_text .input1,.input_text .yzm_input {
+	height:33px;	
+    line-height: 33px;
+}
+.input_text input.inputzindex{
+	z-index:3;
+	opacity: 0;
+}
+.input_text .yzm_div {
+    border: none;
+    background: none;
+}
+.pswstyle{
+	z-index:2;
+}
+.input_text .yzm_input {
+    width: 180px;
+    background-color: #fbfbfb;
+    border: solid 1px #cbcbcb;
+    color:black;
+    float: left;    
+    position:relative;
+} 
+.input_text .yzm_img {
+    margin-left: 15px;
+    width: 80px;
+    background-color: #cccccc;
+    border: solid 1px #cbcbcb;
+    float: right;
+}
+.input_text span {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 36px;
+}
+.change_login{
+    margin: 0 auto;
+    width: 280px;
+    height: 30px;
+}
+.change_login .change_btn {
+    display: inline-block;
+    color: #2c6795;
+    text-decoration: underline;
+}
+.change_login .forget_psw {
+	float:right;
+    display: inline-block;
+    color: #999;
+}
+/* 4A�û���¼ */
+.foura_login {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:rgba(8, 10, 28, 0.4);
+}
+/* ��֤�� */
+.yzm_img_img {
+    width: 80px!important;
+    height: 36px;
+    margin: 0px!important;
+}
+/* �ջ� */
+.juhua_box {
+    z-index: 1100;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.juhua_box img {
+    width: 30px;
+    height: 30px;
+    margin-left:48.8%;
+    margin-top:20%;
+}

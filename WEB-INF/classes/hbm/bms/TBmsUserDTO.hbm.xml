@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.sinovatech.bms.adm.model.dto.TBmsUserDTO"
+		table="BMS_USER">
+		<comment>用户</comment>
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+			<generator class="uuid.hex" />
+		</id>
+		<many-to-one name="tbTBmsLocationDTO"
+			class="com.sinovatech.bms.adm.model.dto.TBmsLocationDTO"
+			fetch="select">
+			<column name="LOCATIONID" length="32">
+				<comment>区域编号</comment>
+			</column>
+		</many-to-one>
+
+		<property name="userSex" type="java.lang.String">
+			<column name="USER_SEX" length="1">
+				<comment>性别</comment>
+			</column>
+		</property>
+
+		<property name="userRealName" type="java.lang.String">
+			<column name="USER_REAL_NAME" length="20">
+				<comment>真实姓名</comment>
+			</column>
+		</property>
+
+		<property name="userMobile" type="java.lang.String">
+			<column name="USER_MOBILE" length="50">
+				<comment>手机</comment>
+			</column>
+		</property>
+
+		<property name="userEmail" type="java.lang.String">
+			<column name="USER_EMAIL" length="100">
+				<comment>邮件</comment>
+			</column>
+		</property>
+
+		<property name="userFax" type="java.lang.String">
+			<column name="USER_FAX" length="50">
+				<comment>传真</comment>
+			</column>
+		</property>
+
+		<property name="userPhone" type="java.lang.String">
+			<column name="USER_PHONE" length="50">
+				<comment>电话</comment>
+			</column>
+		</property>
+
+		<property name="userPosition" type="java.lang.String">
+			<column name="USER_POSITION" length="200">
+				<comment>住址</comment>
+			</column>
+		</property>
+
+		<property name="userDate" type="java.util.Date">
+			<column name="USER_DATE">
+				<comment>登陆日期</comment>
+			</column>
+		</property>
+
+		<property name="userStatus" type="java.lang.String">
+			<column name="USER_STATUS" length="1">
+				<comment>状态：1正常，0停用</comment>
+			</column>
+		</property>
+		
+		<property name="bmsStatus" type="java.lang.String">
+			<column name="BMS_STATUS" length="1">
+				<comment>状态：1正常，0删除</comment>
+			</column>
+		</property>
+
+		<property name="userPassans" type="java.lang.String">
+			<column name="USER_PASSANS" length="100">
+				<comment>安全密码答案</comment>
+			</column>
+		</property>
+
+		<property name="userDesc" type="java.lang.String">
+			<column name="USER_DESC" length="200">
+				<comment>备注</comment>
+			</column>
+		</property>
+
+		<property name="userLoginPassword" type="java.lang.String">
+			<column name="USER_LOGIN_PASSWORD" length="50">
+				<comment>登陆密码</comment>
+			</column>
+		</property>
+
+		<property name="userPassque" type="java.lang.String">
+			<column name="USER_PASSQUE" length="100">
+				<comment>安全密码问题</comment>
+			</column>
+		</property>
+
+		<many-to-one name="tbTBmsDeptDTO"
+			class="com.sinovatech.bms.adm.model.dto.TBmsDeptDTO"
+			fetch="select">
+			<column name="DEPTID" length="32">
+				<comment>组织机构编号</comment>
+			</column>
+		</many-to-one>
+
+		<property name="userLoginName" type="java.lang.String">
+			<column name="USER_LOGIN_NAME" length="50">
+				<comment>登陆名</comment>
+			</column>
+		</property>
+	
+		<property name="code" type="java.lang.String">
+			<column name="LOGIN_IP_CODE" length="1000">
+				<comment>是否启用登录Ip限制</comment>
+			</column>
+		</property>
+		
+		<property name="flag" type="java.lang.String">
+			<column name="LOGIN_IP_FLAG" length="1">
+				<comment>是否启用登录Ip限制</comment>
+			</column>
+		</property>
+		
+		<property name="type" type="java.lang.String">
+			<column name="LOGIN_IP_TYPE" length="1">
+				<comment>是否启用登录Ip限制</comment>
+			</column>
+		</property>
+		
+		<property name="userStation" type="java.lang.String">
+			<column name="USER_STATION" length="50">
+				<comment>职位</comment>
+			</column>
+		</property>
+		
+		<property  name="applyid"  type="java.lang.String" >
+			<column  name="APPLYID"  length="32" >
+				<comment>外部应用专用ID</comment>
+			</column>
+		</property>
+		
+		<property name="webappId" type="java.lang.String">
+			<column name="WEBAPPID" length="32">
+				<comment>外部系统ID</comment>
+			</column>
+		</property>
+		
+		<property name="userType" type="java.lang.String">
+			<column name="USERTYPE" length="1">
+				<comment>用户类型：0内部用户，1外部用户</comment>
+			</column>
+		</property>
+		
+		<property name="editType" type="java.lang.String">
+			<column name="EDITTYPE" length="1">
+				<comment>编辑状态：0编辑后未同步，1已同步</comment>
+			</column>
+		</property>
+		
+		 <property name="isLocked" type="java.lang.String">
+            <column name="IS_LOCKED" length="1">
+                <comment>是否被锁定0：未锁定，1:系统锁定，2：管理员锁定</comment>
+            </column>
+        </property>
+        
+		<property name="changePwdDate" type="java.util.Date">
+            <column name="CHANGE_PWD_DATE">
+                <comment>密码修改日期</comment>
+            </column>
+        </property>
+	</class>
+</hibernate-mapping>

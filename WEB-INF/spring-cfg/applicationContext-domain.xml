@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="myBmsDomainvalueDAO" class="com.sinovatech.bms.domain.model.dao.BmsDomainvalueDAO" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="myBmsDomainvalueBPO" class="com.sinovatech.bms.domain.model.bpo.BmsDomainvalueBPO" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="myBmsDomainvalueDAO">
+			<ref local="myBmsDomainvalueDAO" />
+		</property>
+	</bean>
+	<bean id="myBmsDomainvalueFacade" class="com.sinovatech.bms.domain.model.facade.BmsDomainvalueFacade" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="myBmsDomainvalueBPO">
+			<ref local="myBmsDomainvalueBPO" />
+		</property>
+		<!--End -->
+		<!--===================================== -->
+	</bean>
+	<!--============================================= -->
+	<bean id="myBmsDomainDAO" class="com.sinovatech.bms.domain.model.dao.BmsDomainDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="myBmsDomainBPO" class="com.sinovatech.bms.domain.model.bpo.BmsDomainBPO">
+		<property name="myBmsDomainDAO">
+			<ref local="myBmsDomainDAO" />
+		</property>
+		<property name="myBmsDomainvalueDAO">
+			<ref local="myBmsDomainvalueDAO" />
+		</property>
+	</bean>
+
+	<bean id="myBmsDomainFacade" class="com.sinovatech.bms.domain.model.facade.BmsDomainFacade">
+		<property name="myBmsDomainBPO">
+			<ref local="myBmsDomainBPO" />
+		</property>
+		<property name="myDic">
+			<ref bean="myDicUtil" />
+		</property>
+		<property name="myBmsUserRoleFacade">
+			<ref bean="myBmsUserRoleFacade" />
+		</property>
+		<property name="myBmsRoleDomainrightFacade">
+			<ref bean="myBmsRoleDomainrightFacade" />
+		</property>
+	</bean>
+
+
+</beans>

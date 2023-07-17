@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.adm.model.dto.TBmsForbidUserdomainDTO"  table="BMS_FORBID_USERDOMAIN" >
+		<comment>用户数据权限否决表</comment>
+		<id name="id"  type="java.lang.String" >
+			<column  name="ID"  length="32"  />
+			<generator class="uuid.hex" />
+		</id>
+		<many-to-one  name="tbTBmsUserDTO"  class="com.sinovatech.bms.adm.model.dto.TBmsUserDTO"  fetch="select" >
+			<column  name="USERID"  length="50" >
+				<comment>用户ID</comment>
+			</column>
+		</many-to-one>
+
+		<property  name="domainvalueid"  type="java.lang.String" >
+			<column  name="DOMAINVALUEID"  length="50" >
+				<comment>字典值ID</comment>
+			</column>
+		</property>
+
+	</class>
+</hibernate-mapping>

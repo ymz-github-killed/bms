@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+	<u id="8a8a8a8119970f10011997131fd50001" rName="市场" lName="beijing"
+		locationID="8a8a8a811851bd46011851f038e2005d" locationName="北京" />
+
+	<u id="1" rName="superman2" lName="superman" locationID="1"
+		locationName="中国联通" />
+</users>

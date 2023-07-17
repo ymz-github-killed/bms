@@ -1,0 +1,196 @@
+<!--#include virtual="/include/header.html"-->
+
+
+
+<div class="content">
+     <div class="space-50"></div>
+     <div class="manageNav">
+          <ul class="manageNavLi">
+              <li class="on"><a href="/systemManage/index.html">用户管理</a></li>
+              <li><a href="/systemManage/roleManage.html">角色管理</a></li>
+              <li><a href="/systemManage/rightsManag.html">权限管理</a></li> 
+              <li><a href="/systemManage/outsideApplication.html">外部应用</a></li>
+              <li><a href="/systemManage/safeSet.html">安全设置</a></li>
+              <li><a href="/systemManage/luckUser.html">用户锁定</a></li>
+          	  <li><a href="/systemManage/mouldManage.html">模版管理</a></li>
+          </ul>
+     </div>
+     <div class="userManage" style="border-bottom:0">
+          <div class="space-30"></div>
+          <div class="userManageLeft">
+               <dl class="userManageDl">
+                   <dt>登&nbsp;&nbsp;录&nbsp;&nbsp;名：</dt>
+                   <dd>
+                     <input type="text" value="张三"  />
+                   </dd>
+               </dl>
+               <dl class="userManageDl">
+                   <dt>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：</dt>
+                   <dd>
+                      <select>
+                          <option>正常</option>
+                          <option>停用</option>
+                          <option>未启用</option>
+                      </select>
+                   </dd>
+               </dl>
+               <dl class="userManageDl">
+                   <dt>用户角色：</dt>
+                   <dd>
+                      <select>
+                          <option>总部系统管理员</option>
+                          <option>省份系统管理员</option>
+                          <option>总部客服</option>
+                          <option>省份客服</option>
+                          <option>地市客服</option>
+                          <option>省份普通客服</option>
+                          <option>地市普通客服</option>
+                      </select>
+                   </dd>
+               </dl>
+               <dl class="userManageDl">
+                   <dt>所属省份：</dt>
+                   <dd>
+                      <select>
+                          <option>总部</option>
+                          <option>湖南</option>
+                          <option>广东</option>
+                          <option>河南</option>
+                          <option>黑龙江</option>
+                      </select>
+                   </dd>
+               </dl>
+               <dl class="userManageDl">
+                   <dt>所属地市：</dt>
+                   <dd>
+                      <select>
+                          <option>长沙</option>
+                          <option>广州</option>
+                      </select>
+                   </dd>
+               </dl>
+          </div>
+          
+     </div>
+     <div class="space-10"></div>
+     <div class="certainBtn">
+         <input class="dfdfdf marR15" type="button" value="确 定" />
+         <input class="dfdfdf btnCertain" type="button" value="重 置" />
+          
+     </div>
+      <div class="space-30"></div>
+      <div class="certainBtn" style=" padding-top:10px;width:936px; border-top:1px dashed #ccc; margin:0 auto; text-align:right">
+      <input onclick="location.href='/systemManage/newUser.html'" style="float:right" class="marR15" type="button" value="添加用户" />
+      </div>
+  
+     <div class="space-10"></div>
+     <div class="mx_list">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tr>
+                    <th>序号</th>
+                    <th>用户ID</th>
+                    <th >登录名</th>
+                    <th>真实姓名</th>
+                    <th>用户角色</th>
+                    <th>状态</th>
+                    <th>所属省份</th>
+                    <th>所属地市</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                	<td>1</td>
+                    <td>54321</td>
+                    <td>wangjuan</td>
+                    <td>张三</td>
+                    <td>系统管理员</td>
+                    <td>正常</td>
+                    <td>总部</td>
+                    <td>--</td>
+                    <td>
+                    	<a href="/systemManage/newUser.html" class="blue_a">编辑</a>
+                        
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                        <a href="/systemManage/viewUser.html" class="blue_a">查看</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>2</td>
+                    <td>1234</td>
+                    <td>lijingjing</td>
+                    <td>李四</td>
+                    <td>省份管理员</td>
+                    <td>正常</td>
+                    <td>总部</td>
+                    <td>--</td>
+                    <td>
+                    	<a href="/systemManage/newUser.html" class="blue_a">编辑</a>
+                      
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                        <a href="/systemManage/viewUser.html" class="blue_a">查看</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>3</td>
+                    <td>54321</td>
+                    <td>wangjuan</td>
+                    <td>张三</td>
+                    <td>总部客服</td>
+                    <td>停用</td>
+                    <td>河北</td>
+                    <td>--</td>
+                    <td>
+                    	<a href="/systemManage/newUser.html" class="blue_a">编辑</a>
+                       
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                        <a href="javascript:void(0);" class="blue_a">查看</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>4</td>
+                    <td>1234</td>
+                    <td>lijingjing</td>
+                    <td>李四</td>
+                    <td>系统管理员</td>
+                    <td>停用</td>
+                    <td>河南</td>
+                    <td>济源</td>
+                    <td>
+                    	<a href="/systemManage/newUser.html" class="blue_a">编辑</a>
+                       
+                        <a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                        <a href="javascript:void(0);" class="blue_a">查看</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>5</td>
+                    <td>54321</td>
+                    <td>wangjuan</td>
+                    <td>张三</td>
+                    <td>省份管理员</td>
+                    <td>停用</td>
+                    <td>河南</td>
+                    <td>三门峡</td>
+                    <td>
+                    	<a href="/systemManage/newUser.html" class="blue_a">编辑</a>
+                      
+                        <a href="javascript:void(0);" class="blue_a">删除</a>
+                        <a href="javascript:void(0);" class="blue_a">查看</a>
+                    </td>
+                </tr>
+            </table>
+     </div>
+     <div class="space-25"></div>
+     <div class="Pages">
+    	<a href="javascript:;" class="prevPage">上一页<i></i></a><a href="javascript:;">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a><a href="javascript:;">5</a><a href="javascript:;">6</a><a href="javascript:;">7</a><a href="javascript:;">8</a><a href="javascript:;" class="mar0">9</a><em>&#8230;</em><a href="javascript:;" class="nextPage">下一页<i></i></a><span class="marL10 marR20">共100页</span><span>到</span><input  type="text" class="pageInput fl"/><span>页</span><input  type="button" class="btn" value="确 定"/>
+       	<p class="clr"></p>
+    </div>
+     <div class="clr"></div>
+     <div class="space-30"></div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+</body>
+</html>

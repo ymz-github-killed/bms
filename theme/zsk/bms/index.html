@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<title>智能知识库</title>
+<link type="text/css" rel="stylesheet" href="../datePicker/css/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<link type="text/css" rel="stylesheet" href="../css/base.css" >
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../datePicker/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../datePicker/js/dateTime.js"></script>
+<script type="text/javascript" src="../js/base.js"></script>
+<!--head
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache"/>
+<title>智能知识库</title>
+<link type="text/css" rel="stylesheet" href="../../datePicker/css/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="../../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../../css/layout.css">
+<link type="text/css" rel="stylesheet" href="../../css/base.css" >
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../../datePicker/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../../datePicker/js/dateTime.js"></script>
+<script type="text/javascript" src="../../js/base.js"></script>
+<script type="text/javascript" src="../../js/treeNav_tab.js"></script>head-->
+</head>
+
+<body>
+<div class="header_top">
+	<div style="width:966px; margin:0 auto">
+    	<div class="" style="float:right; font-size:12px;  text-align:right; width:50px;">
+    		<a style="text-decoration:underline;color:#ff0000;" href="###" onclick="logOut()">退出</a>
+        </div>
+    	<div class="head_menu">
+        	<div id="img_text"><img src="../images/headImg2.png" width="22" height="21" id="headImg2"/>xxx,欢迎回来</div>
+        	<div class="head_menu_list">
+            	<ul>
+                  <!--<li>待发起任务共<i onclick="location.href='/insideEditorial/toDoWork.html'">10</i>条</li>-->
+                  <li onclick="doingDutyCount('cot')">待采编任务共<i id="doingDutyCount">0</i>条</li>
+                  <li  onclick="doingDutyCount('cet')">待审核任务共<i id="checkDutyCount">0</i>条</li>
+                <!--  <li>待修改任务共<i onclick="location.href='/insideEditorial/toDoWork.html'">10</i>条</li>-->
+                </ul>
+                <div class="clr"></div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+<div class="headerBox">
+     <div class="header">
+         <div class="logoImg">
+              <a href="javascript:;"><img src="../images/logoImg.png" id="logoImg"/></a>
+         </div>
+         <div class="headerContent">
+              <div class="searchHeader">
+                   <input type="text" value="请输入关键字" />
+                   <a href="javascript:;">&nbsp;</a>
+                   
+              </div>
+              <button onclick="searchN()">搜索</button>
+              <p class="clr"></p>
+            <!--  <div class="headerText">
+                   <span>集团总部市场部最新发起XXXX任务</span>
+                   <span>2014-11-15</span>
+                   <span>12:25:30</span>
+                   <span>广东客服部...</span>
+              </div>-->
+         </div>
+         
+     </div>
+      <div class="clr"></div>
+</div>
+<div class="head_nav">
+	<div class="head_nav_main">
+        <ul id="nav_1">
+            <!--<li><a  href="/knowledgeList/konwledgeList.html">知识列表</a></li>
+            <li><a  href="/insideEditorial/manager.html">内部采编</a></li>
+            <li class="hover"><a href="/bms/index.html">系统管理</a></li>
+            <li><a href="/systemManage/mouldManage.html">模板管理</a></li>
+            <li><a href="/operationLog/operat_index.html">操作日志</a></li>-->
+        </ul>
+    </div>
+    <div class="clr"></div>
+</div>
+ <div class="wapContent">
+
+<!-- 内容  begin-->
+<div id="wapContent">         
+<script type="text/javascript" src="../js/treeNav_tab.js"></script>
+<div class="content">
+<div id="treebox">
+ <div class="space-30"></div>
+ <!--二级菜单 开始-->
+ 	<div id="treeBox">
+        <!--  <div class="manageNav">
+             <ul class="manageNavLi">
+                  <li class="on"><span name="user/jbxxgl.html">用户管理</span></li>
+                  <li><span name="user/yhqxgl.html">用户权限管理</span></li>
+                  <li><span name="jsgl/jsgl.html">角色管理</span></li>
+                  <li><span name="gnqx/gnqx.html">权限管理</span></li> 
+                  <li><span name="wbyy/wbyy.html">外部应用</span></li>
+                  <li><span name="ggmm/ggmm.html">安全设置</span></li>
+                  <li><span name="yhsdgl/yhsdgl.html">用户锁定</span></li>
+                  <li><span name="">模版管理</span></li>
+              </ul>
+         </div> -->
+	</div>
+</div>
+<!--二级菜单 结束-->
+<!--右侧引用 开始-->
+	<div id="iframeRight" >    
+    <iframe frameborder="0" width="100%" height="100%" scrolling="no" onload="iframeHeight()" id="iframe" src="" class="user/jbxxgl.html"></iframe>
+    </div>
+<!--右侧引用 结束--> 
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+function logOut(){
+	if(confirm("是否确定退出？"))
+	{
+		window.location.href=basePath+"login/loginOut.controller";
+	}
+	else
+	{
+		return false;
+	}
+}
+
+function searchN(){
+
+	var inobj = null;
+
+	var nowobj = null;
+
+	$(".head_nav_main").find("li").each(function(i){
+		if("hover"==$(this).attr("class")){
+			nowobj=this;
+		}
+		if("内部采编"==$(this).html()){
+			inobj=this;
+		}
+	});
+	var iframe=$("#iframe")[0].contentWindow;
+
+	var v =$(".searchHeader").find("input").val();
+	if("知识列表"==$(nowobj).html()||"内部采编"==$(nowobj).html()){
+	    iframe.seachName(v);
+	}
+}
+
+function doingDutyCount(act){
+	
+	var inobj=null;
+	var nowobj=null;
+	$(".head_nav_main").find("li").each(function(i){
+		if("hover"==$(this).attr("class")){
+			nowobj=this;
+		}
+		if("内部采编"==$(this).html()){
+			inobj=this;
+		}
+	});
+	if("内部采编"!=$(nowobj).html()){
+		$(inobj).addClass("hover").siblings().removeClass("hover");
+	}
+	
+	var iframe=$("#iframe")[0].contentWindow;
+	
+	iframe.doingDutyCount(act);
+}
+//var wxTime;
+//function wxFlowFn(){
+    //注意：下面的代码是放在和iframe同一个页面调用,放在iframe下面
+   // $("#iframeRight>iframe").live('load',function () {
+//        var mainheight = $(this).contents().find("body").height() + 30;
+//        $(this).height(mainheight);
+//    });
+	//wxTime = setTimeout(wxFlowFn, 1000);
+	//alert(wxTime);
+//}
+//wxFlowFn();
+</script>
+</html>

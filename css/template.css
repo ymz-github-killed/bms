@@ -1,0 +1,14 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-size: 12px;
+	line-height: 150%;
+}
+
+#toolbar{
+	border: 1px solid #efefef; 
+	background:#f0f0f0; 
+	text-align: right;
+}
+

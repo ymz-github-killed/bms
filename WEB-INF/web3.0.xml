@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- if u want to use EL, The version with high then 2.4 must be specialize -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.4">
+
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+
+	<!-- 浙江接入4A sso登录过滤器开始 -->
+	 <filter>
+		<filter-name>portalfirstfilter</filter-name>
+		<filter-class>com.asiainfo.portal.framework.busiclient.BusiSSOFilter</filter-class>
+		
+			<init-param>
+				<param-name>impl-classname</param-name>
+				<param-value>com.sinovatech.mvcbms.login.controller.PopedomImpl</param-value>
+			</init-param>
+			<init-param>
+				<param-name>ALLOWPATH</param-name>
+				<param-value>/;/login/ssoLogin.controller;/login/ssoMain.controller;/login/exitPage.controller;/phone/getValiNum.controller;/phone/getResetValiNum.controller;/phone/createPhoneValidateCode.controller;/index/loadapp.controller;/index/home.controller;/systemNotice/appNotice.controller;/index/leftTree.controller;/login/exitBms.controller;/login/index.controller;/login/loginOut.controller;/login/main.controller;/login.jsp;/authCheckFailed.jsp;/common/yzm.jsp;/logout.jsp;/login4a/loginNameAndPwdCheck.controller;/login4a/yzmCheck.controller;/login4a/logon4a.controller;/loginZj/loginUsername.controller;/phone/getValidateNum.controller;/login/mobileLogin.controller;/4aUser/updateFouraIntfAppAcctServices;/login/getSystemMsg.controller</param-value>
+			</init-param>
+			<init-param>
+				<param-name>ISLOG</param-name>
+				<param-value>false</param-value>
+			</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>portalfirstfilter</filter-name>
+		<url-pattern>/homePage/list.controller</url-pattern>
+	</filter-mapping>
+     	 <!--  浙江接入4A sso登录过滤器结束 -->
+	
+	
+  <servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/spring-cfg/springmvc-servlet.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
+    <url-pattern>*.controller</url-pattern>
+  </servlet-mapping>
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.html</url-pattern>
+      <el-ignored>true</el-ignored>
+      <page-encoding>UTF-8</page-encoding>
+      <scripting-invalid>false</scripting-invalid>
+      <include-prelude></include-prelude>
+      <include-coda></include-coda>
+    </jsp-property-group>
+  </jsp-config>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>fortune</web-resource-name>
+      <url-pattern>/*</url-pattern>
+      <http-method>PUT</http-method>
+      <http-method>DELETE</http-method>
+      <http-method>HEAD</http-method>
+      <http-method>OPTIONS</http-method>
+      <http-method>TRACE</http-method>
+    </web-resource-collection>
+    <auth-constraint/>
+  </security-constraint>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+  </login-config>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+			/WEB-INF/spring-cfg/applicationContext*.xml
+		</param-value>
+  </context-param>
+  <listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+  <listener>
+    <listener-class>com.sinovatech.common.web.listener.SessionListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.sinovatech.bms.util.UserEvent</listener-class>
+  </listener>
+
+  <filter>
+    <filter-name>openSessionInView</filter-name>
+    <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+    <init-param>
+      <param-name>flushMode</param-name>
+      <param-value>AUTO </param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>openSessionInView</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+<!--
+  <filter>
+    <filter-name>csrfFilter</filter-name>
+    <filter-class>com.sinovatech.bms.filter.csrfFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>csrfFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  -->
+  
+		
+  <filter>
+    <filter-name>integrateFilter</filter-name>
+    <filter-class>com.sinovatech.bms.client.filter.IntegrateFilter</filter-class>
+    <init-param>
+      <param-name>configName</param-name>
+      <param-value>bmsClientCfg</param-value>
+    </init-param>
+    <init-param>
+      <param-name>componentLoader</param-name>
+      <param-value>spring</param-value>
+    </init-param>
+  </filter>
+<filter-mapping>
+		<filter-name>integrateFilter</filter-name>
+		<url-pattern>*.controller</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>xssFilter</filter-name>
+		<filter-class>com.sinovatech.filter.XssFilter</filter-class>
+		<init-param>
+			<param-name>must</param-name>
+			<param-value><![CDATA[%28,%29,%2528,%3C,%253C,%3c,%253c,<,>,%2b,\,*,../,./,select,select ,insert ,update ,delete , and , or , join , union ,truncate ,drop ,alter ,alert,confirm,script,prompt,expression ,onclick, iframe ]]></param-value>
+		</init-param>
+		<init-param>
+			<param-name>notfilter</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>enableUrlSession</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>urlCode</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>xssFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>xssCsrfFilter</filter-name>
+		<filter-class>com.sinovatech.xsscsrf.filters.XssCsrfFilter</filter-class>
+		<init-param>
+			<param-name>trust</param-name>
+			<param-value>10.73.150,211.140.15,20.26.17,20.26.28.134,192.168.1.,localhost,127.0.0.1,google.,baidu.,10086.cn,chinamobile.com,mail.sinovatech.com,192.168.0.,172.16.,20.26.28.132</param-value>
+		</init-param>
+		<init-param>
+			<param-name>redirect_url</param-name>
+			<param-value>/404.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>notfilter</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>isStartFilter</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	                      
+
+	<filter-mapping>
+		<filter-name>xssCsrfFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- <filter>
+		<filter-name>csrfFilter</filter-name>
+		<filter-class>com.sinovatech.bms.filter.csrfFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>csrfFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+
+	<!-- captcha -->
+
+  <servlet>
+    <servlet-name>sinoDefaultCaptcha</servlet-name>
+    <servlet-class>com.sinovatech.captcha.web.SinoCaptchaServlet</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>DEFAULT</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sinoDefaultCaptcha</servlet-name>
+    <url-pattern>/common/sinoaptcha1.jpg</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>eXtremeExport</filter-name>
+    <filter-class>org.extremecomponents.table.filter.ExportFilter</filter-class>
+    <init-param>
+      <param-name>responseHeadersSetBeforeDoFilter</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter>
+    <filter-name>EncodFilter</filter-name>
+    <filter-class>com.sinovatech.common.web.filter.EncodeFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>Spring character encoding filter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>Spring character encoding filter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>integrateFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+ 
+  <filter-mapping>
+    <filter-name>eXtremeExport</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>eXtremeExport</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+
+  <!--
+  <filter>
+    <filter-name>ajaxFilter</filter-name>
+    <filter-class>com.sinovatech.mvcbms.filter.AjaxFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ajaxFilter</filter-name>
+    <url-pattern>*.controller</url-pattern>
+  </filter-mapping>
+  
+  
+  <filter>
+	<filter-name>parseParamFilter</filter-name>
+	<filter-class>
+		com.sinovatech.parse.filter.ParseParamFilter
+	</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>utf-8</param-value>
+	</init-param>
+</filter>
+<filter-mapping>
+	<filter-name>parseParamFilter</filter-name>
+	<url-pattern>/login/logon.controller</url-pattern>
+</filter-mapping>
+
+ 增加修改密码时的参数过滤 start 
+<filter-mapping>
+	<filter-name>parseParamFilter</filter-name>
+	<url-pattern>/changePassword/change.controller</url-pattern>
+</filter-mapping>
+ 增加修改密码时的参数过滤 end -->
+
+  <servlet>
+    <servlet-name>initOnStartupServlet</servlet-name>
+    <servlet-class>com.sinovatech.common.web.init.AppInitServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>
+				/WEB-INF/struts-cfg/struts-config.xml
+			</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/bms/domain</param-name>
+      <param-value>
+				/WEB-INF/struts-cfg/struts-config-domain.xml
+			</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/bms/adm</param-name>
+      <param-value>
+				/WEB-INF/struts-cfg/struts-config-bms.xml
+			</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/workflow</param-name>
+      <param-value>
+				/WEB-INF/struts-cfg/struts-config-workflow.xml
+			</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/example</param-name>
+      <param-value>
+				/WEB-INF/struts-cfg/struts-config-document.xml
+			</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>BmsIntergrationServlet</servlet-name>
+    <servlet-class>com.sinovatech.bms.integration.BmsIntergrationServlet</servlet-class>
+  </servlet>
+<servlet-mapping>
+		<servlet-name>BmsIntergrationServlet</servlet-name>
+		<url-pattern>/integration/*</url-pattern>
+	</servlet-mapping>
+  <servlet>
+    <servlet-name>IntegrationService</servlet-name>
+    <servlet-class>com.sinovatech.bms.service.servlet.IntoServlet</servlet-class>
+  </servlet>
+	<servlet-mapping>
+		<servlet-name>IntegrationService</servlet-name>
+		<url-pattern>/interface/service/*</url-pattern>
+	</servlet-mapping>
+  <servlet>
+    <servlet-name>UpdaPwdService</servlet-name>
+    <servlet-class>com.sinovatech.bms.service.servlet.UpdaPwdServlet</servlet-class>
+  </servlet>
+  	<servlet-mapping>
+		<servlet-name>UpdaPwdService</servlet-name>
+		<url-pattern>/interface/servlet/updatePwd</url-pattern>
+	</servlet-mapping>
+  <!-- <servlet> -->
+    <!-- <description>This is the description of my J2EE component</description> -->
+    <!-- <display-name>This is the display name of my J2EE component</display-name> -->
+    <!-- <servlet-name>AjaxFilter</servlet-name> -->
+    <!-- <servlet-class>com.sinovatech.mvcbms.filter.AjaxFilter</servlet-class> -->
+  <!-- </servlet> -->
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ResourceManagerServlet</servlet-name>
+    <servlet-class>com.sinovatech.readconfig.servlet.ResourceManagerServlet</servlet-class>
+  </servlet>
+<servlet-mapping>
+		<servlet-name>ResourceManagerServlet</servlet-name>
+		<url-pattern>/ResourceManagerServlet</url-pattern>
+	</servlet-mapping>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>RebuildHtmlServlet</display-name>
+  	<servlet-name>RebuildHtmlServlet</servlet-name>
+  	<servlet-class>com.sinovatech.mvcbms.pub.servlet.RebuildHtmlServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+  
+
+  <!-- <servlet-mapping> -->
+    <!-- <servlet-name>AjaxFilter</servlet-name> -->
+    <!-- <url-pattern>/AjaxFilter</url-pattern> -->
+  <!-- </servlet-mapping> -->
+
+  <servlet-mapping>
+  	<servlet-name>RebuildHtmlServlet</servlet-name>
+  	<url-pattern>/RebuildHtmlServlet</url-pattern>
+  </servlet-mapping>
+	<!-- start ssoLogin <filter> <filter-name>ssoFilter</filter-name> <filter-class>com.sinovatech.sso2.client.SSOAgentFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>ssoFilter</filter-name> <url-pattern>*.do</url-pattern> 
+		</filter-mapping> <filter-mapping> <filter-name>ssoFilter</filter-name> <url-pattern>*.jsp</url-pattern> 
+		</filter-mapping> <filter-mapping> <filter-name>ssoFilter</filter-name> <url-pattern>*.controller</url-pattern> 
+		</filter-mapping> <servlet> <servlet-name>assertion</servlet-name> <servlet-class>com.sinovatech.sso2.client.SSOAssertionServlet</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>assertion</servlet-name> <url-pattern>/servlet/assertion</url-pattern> 
+		<load-on-startup>3</load-on-startup> </servlet-mapping> <servlet> <servlet-name>logout</servlet-name> 
+		<servlet-class>com.sinovatech.sso2.client.LogOutServlet</servlet-class> </servlet> 
+		<servlet-mapping> <servlet-name>logout</servlet-name> <url-pattern>/servlet/logout</url-pattern> 
+		</servlet-mapping> -->
+	<!-- end ssoLogin -->
+  <welcome-file-list>
+    
+    	<welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

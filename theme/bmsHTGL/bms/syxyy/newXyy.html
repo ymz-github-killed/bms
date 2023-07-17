@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<form id="addForm">
+	<div id="position">
+	</div>
+	<div class="route"><span>首页小应用</span>&nbsp;&gt;&nbsp;<span>新增/编辑应用</span></div>
+    <div class="mt10 mb10"><a href="syxyy.html" class="mr10 bt_blue cancel_href back"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href reset"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href save" onclick="show('cover','bccg')"><span>保存</span></a></div>
+    <div class="bord_gray padd_10 pb30">
+    	<p class="lineh40 borb font16"><span>新增/编辑应用</span><img src="../../images/xl.gif" class="ml10" /></p>
+        <!--应用名称 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>应用名称：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value="" id="appName_" name="appAddBean.appName" maxlength="20"/><span class="red ml10">最大长度为20字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--应用名称 结束-->
+        <!--URL链接 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>URL链接：</span></p>
+            <div class="fl rightInfo middle"><input type="text" class="text_1" value="" id="url_" name="appAddBean.url" maxlength="200"/><span class="red ml10">最大长度为200字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--URL链接 结束-->
+        <!--宽*高 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>宽*高：</span></p>
+            <div class="fl rightInfo middle">
+            	<p class="mb5"><input type="radio" name="appAddBean.width" class='width_' value="300_200"/><span class="ml5">300&nbsp;*&nbsp;200</span></p>
+                <p class="mb5"><input type="radio" name="appAddBean.width" class='width_'  value="600_200"/><span class="ml5">600&nbsp;*&nbsp;200</span></p>
+                <p><input type="radio" name="appAddBean.width" id='width_9' value="900"/><span class="ml5">900&nbsp;*&nbsp;</span><input type="text" class="text_8" id="height" name="appAddBean.height" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--宽*高 结束-->
+        <!--是否置顶 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle">是否置顶：</span></p>
+            <div class="fl rightInfo middle"><label class="mr20"><input type="radio" name="appAddBean.isTop" value="1"/><span class="ml5">是</span></label><label class="mr20"><input type="radio" name="appAddBean.isTop" checked="checked" value="0"/><span class="ml5">否</span></label></div>
+            <div class="clear"></div>
+        </div>
+        <!--是否置顶 结束-->
+        <!--标题行按钮 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>标题行按钮：</span></p>
+            <div class="fl rightInfo middle"><label class="mr20"><input type="radio" name="appAddBean.hasTitleBtn" id="bthButton_1" value="1"/><span class="ml5">有</span></label><label class="mr20"><input type="radio" name="appAddBean.hasTitleBtn" id="bthButton_2" checked="checked" value="0"/><span class="ml5">无</span></label>
+                <div class="mt10 undis" id="bthButtonBox">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_content1">
+                      <tr>
+                        <th><span class="red">*</span>按钮名称</th>
+                        <th><span class="red">*</span>URL</th>
+                        <th>优先级(默认为0)</th>
+                        <th>操作</th>
+                      </tr>
+                      <tbody id="add_position">
+                      <tr>
+                        <td><input type="text" class="text_3" name="btnNameArr"/></td>
+                        <td><input type="text" class="text_3" name="btnUrlArr"/></td>
+                        <td><input type="text" class="text_3" name="btnSequenceArr" value="0"onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/></td>
+                        <td><a href="javascript:;" class="ml10 add_Button">添加</a><a href="javascript:;" class="ml10 del_Button">删除</a></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--标题行按钮 结束-->
+    </div>
+    <div class="mt10 mb10"><a href="syxyy.html" class="mr10 bt_blue cancel_href back"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href reset"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href save" onclick="show('cover','bccg')"><span>保存</span></a></div>
+</form>
+</div>
+<div  class="bord_gray pb30" style="margin:10px">
+<p><font size="2px" color="red" >&nbsp;&nbsp;&nbsp;&nbsp;URL规则</font></p>
+<p><font size="2px" color="red" style="margin:2px">※URL连接为全路径：如：http://ip[:port]/objectName/...</font></p>
+<p><font size="2px" color="red" style="margin:2px">※URL链接建议使用权限菜单的菜单连接，且角色拥有对应权限。</font></p>
+<p><font size="2px" color="red" style="margin:2px">※URL连接如需要传递参数，请带上对应参数。</font></p>
+</div>
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="syxyy.html" class="close fr cancel_href" id="close" onclick="hide('cover','bccg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a id="qd" href="syxyy.html" class="mr10 bt_blue cancel_href" onclick="hide('cover','bccg')"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+<script type="text/javascript">
+
+/* $(function(){
+	$("#bthButton_1").live("click",function(){
+		$("#bthButtonBox").show();									
+	});
+	$("#bthButton_2").live("click",function(){
+		$("#bthButtonBox").hide();									
+	});
+	$(".add_Button").live("click",function(){
+		$(this).parent().parent().after("<tr><td><input type='text' class='text_3' /></td><td><input type='text' class='text_3' /></td><td><a href='javascript:;' class='ml10 add_Button'>添加</a><a href='javascript:;' class='ml10 del_Button'>删除</a></td></tr>")	;
+		$(".tb_content1 tr:even").removeClass("odd");  
+		$(".tb_content1 tr:odd").addClass("odd");  
+	});
+	$(".del_Button").live("click",function(){
+		$(this).parent().parent().remove();	
+		$(".tb_content1 tr:even").removeClass("odd");  
+		$(".tb_content1 tr:odd").addClass("odd");  
+	});
+}) */
+</script>
+</html>

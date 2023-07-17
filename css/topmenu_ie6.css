@@ -1,0 +1,39 @@
+UL.dropdown {
+	FONT-SIZE: 14px; LIST-STYLE-TYPE: none; POSITION: absolute
+}
+UL.dropdown LI {
+	FONT-WEIGHT: bold; FLOAT: left; TEXT-ALIGN: left
+}
+UL.dropdown A:hover {
+	COLOR: #303648
+}
+UL.dropdown LI A {
+	PADDING-RIGHT: 8px; DISPLAY: block; PADDING-LEFT: 8px; PADDING-BOTTOM: 4px; COLOR: #333; PADDING-TOP: 4px; TEXT-DECORATION: none
+}
+UL.dropdown LI:unknown A {
+	BORDER-RIGHT-STYLE: none
+}
+UL.dropdown LI.hover {
+	BACKGROUND: url(../cms_images/menu_on.gif) repeat-x; COLOR: black; POSITION: relative
+}
+UL.dropdown LI:hover {
+	BACKGROUND: url(../cms_images/menu_on.gif) repeat-x; COLOR: black; POSITION: relative
+}
+UL.dropdown LI.hover A {
+	COLOR: black
+}
+UL.dropdown UL {
+	BORDER-RIGHT: #7991a6 1px solid; BORDER-TOP: #7991a6 1px solid; LEFT: 0px; VISIBILITY: hidden; OVERFLOW: visible; BORDER-LEFT: #7991a6 1px solid; WIDTH: 120px; BORDER-BOTTOM: #7991a6 1px solid; LIST-STYLE-TYPE: none; POSITION: absolute; TOP: 100%; BACKGROUND-COLOR: #f3f4f4
+}
+UL.dropdown UL LI {
+	DISPLAY: inline; FONT-WEIGHT: normal; BACKGROUND: #f3f4f4; FLOAT: left; WIDTH: 100%; COLOR: #000; BORDER-BOTTOM: #7991a6 1px solid
+}
+UL.dropdown UL LI A {
+	DISPLAY: inline-block; WIDTH: 100%; BORDER-RIGHT-STYLE: none
+}
+UL.dropdown UL UL {
+	LEFT: 100%; TOP: 0px
+}
+UNKNOWN {
+	FLOAT: left; VISIBILITY: visible
+}

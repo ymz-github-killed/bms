@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浙江移动电渠运营管理系统</title>
+    <link rel="stylesheet" href="../../css/base.css">
+<!-- <link rel="stylesheet" type="text/css" href="../../css/mianBox.css"/>  -->
+    <script src="../../js/jquery-1.7.2.min.js"></script>  
+   <!--  <script src="../../js/title.js" type="text/javascript"></script>
+    <script src="../../js/public.js" type="text/javascript"></script> -->
+	 <script src="../../js/treeNav_tab.js" type="text/javascript"></script>  
+    <!-- <link rel="stylesheet" href="css/public.css"> -->
+  
+    <!-- 兼容  ie8 -->
+    <!--[if lte IE 8]>
+    <script src="./js/PIE.js"></script>
+    <![endif]-->
+    
+    <style>
+    	
+.management_header {
+    /* overflow: hidden; */
+    padding: 0 3.125%;
+    /* max-width: 1920px; */
+    height: 80px;
+    width: 100%;
+    background: url("../../images/img1_bg.png") no-repeat left center;
+    background-size: 100% 100%;
+}
+
+.box_header {
+    position: relative;
+    height: 14.8%;
+    min-height: 100px;
+}
+
+.management_left {
+    width: 25%;
+    min-width: 485px;
+}
+
+/* loge */
+.management_left>div {
+
+    margin-top: 14px;
+    display: inline-block;
+    color: white;
+    font-size: 32px;
+
+}
+
+.management_left>img {
+    vertical-align: bottom;
+    margin-right: 5px;
+
+}
+
+/* user_name */
+.management_right {
+    margin-top: 23px;
+    /* margin-top: 2.3%; */
+    color: white;
+    font-size: 20px;
+    width: 27.5%;
+    min-width: 405px;
+    text-align: right;
+}
+
+/* 通知 */
+.icon {
+    display: inline-block;
+    /* margin-top: 29px; */
+    color: white;
+    font-size: 20px;
+    min-width: 50px;
+    width: 4.8%;
+}
+
+.icon>img {
+    vertical-align: middle;
+    margin-right: 15px;
+    width: 20px;
+}
+
+.user_wrap {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.user_wrap>div {
+    display: inline-block;
+
+}
+
+.triangle {
+    line-height: 100%;
+}
+
+.triangle .content {
+    margin-bottom: 80%;
+    width: 11px;
+    height: 11px;
+    border: white solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(135deg);
+}
+
+.triangle .content1 {
+    margin-bottom: 0%;
+    width: 11px;
+    height: 11px;
+    border: white solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(-48deg);
+
+}
+
+.login_state {
+    position: absolute;
+    height: 206px;
+    width: 10.5%;
+    min-width: 205px;
+    margin-top: 32px;
+    z-index: 3;
+    right: 1%;
+}
+
+.content2 {
+    position: absolute;
+    left: 44%;
+    top: -10.5%;
+    width: 0px;
+    height: 11x;
+    border: 11px solid;
+    border-color: transparent transparent #f7f7f7 transparent;
+}
+
+.content3 {
+    background: #f7f7f7;
+    color: #666;
+    text-align: center;
+    height: 100%;
+    font-size: 22px;
+}
+
+.content3>div {
+    padding-top: 10%;
+}
+
+/*  下半部分。 management_content_wrap */
+.management_content_wrap {
+    width: 100%;
+    /* height: 89.5%; */
+}
+
+.management_content_wrap>div {
+    float: left;
+}
+
+.menu_list_wrap {
+    /* padding-left: 10%; */
+    /* height: 60%; */
+}
+
+.menu_list_wrap>div {
+    padding-left: 10%;
+}
+
+.drop_down_wrap {
+    height: 100%;
+    width: 15%;
+    background: #4a5060;
+}
+
+.drop_down_menu {
+    background: #383d50;
+}
+
+.display_btn {
+    text-align: center;
+    height: 40px;
+    border: 1px solid #383d50;
+}
+
+.display_btn>img {
+    /* width: 29px;
+    height: 25px; */
+    margin-top: 6px;
+}
+
+.personal_collection_wrap {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    color: #fff;
+    border: 1px solid transparent;
+    font-size: 18px;
+}
+.personal_collection_wrap img {
+    height: 20px;
+}
+
+.personal_collection_wrap:hover:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background: rgba(56, 61, 80, .3);
+    top: 0;
+    left: 0;
+    border-left: #3a85f4;
+    border-left-width: 2%;
+    border-left-style: solid;
+}
+
+/* .second_level_wrap1::after {
+    
+} */
+
+.bg_color {
+    background: #383d50;
+}
+
+.personal_collection_wrap img {
+    vertical-align: middle;
+    margin-right: 10%;
+}
+
+.menu_triangle .content45 {
+    /* margin-bottom: 80%; */
+    width: 10px;
+    height: 10px;
+    border: white solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(45deg);
+}
+
+.menu_triangle .content135 {
+    width: 10px;
+    height: 10px;
+    border: white solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(135deg);
+}
+
+.first_level>li {
+    min-height: 40px;
+    /* border: 1px solid red; */
+    color: #fff;
+}
+
+.menu_content1 {
+    height: 40px;
+}
+
+.color_blue {
+    color: #3a85f4;
+}
+
+.menu_content1>div {
+    display: inline-block;
+    /* color: #fff; */
+    font-size: 18px;
+    /* margin-top: 16px; */
+    margin-right: 14%;
+    line-height: 40px;
+}
+
+.second_level1 {
+    position: relative;
+    height: auto;
+    line-height: 40PX;
+}
+
+.second_level1:hover:after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    background: rgba(56, 61, 80, .6);
+    top: 0;
+    left: -11%;
+    border-left: #3a85f4;
+    border-left-width: 2%;
+    border-left-style: solid;
+}
+
+.second_level_wrap::after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    background: rgba(56, 61, 80, .6);
+    top: 0;
+    left: -11%;
+    border-left: #3a85f4;
+    border-left-width: 2%;
+    border-left-style: solid;
+}
+
+/* blur——search */
+.blur_search {
+    border: 1px solid transparent;
+    width: 90%;
+    height: 40px;
+    margin-left: 5%;
+    /* margin-top: 8%; */
+    /* margin-top: 150%; */
+}
+
+.blur_search>input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: #535968;
+    font-size: 18px;
+    padding: 0 5%;
+    color: #f7f7f7;
+}
+
+.blur_search>img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10%;
+}
+
+input::-webkit-input-placeholder {
+    /*WebKit browsers*/
+
+    color: #b4b6bb;
+
+}
+
+input::-moz-input-placeholder {
+    /*Mozilla Firefox*/
+
+    color: #b4b6bb;
+
+}
+
+input::-ms-input-placeholder {
+    /*Internet Explorer*/
+
+    color: #b4b6bb;
+
+}
+
+/* 右边的图表 */
+.management_business_warp {
+    position: relative;
+    width: 85%;
+}
+
+.chart_warp {
+    margin-top: 28px;
+    margin-left: 38px;
+    width: 95%;
+    height: 80%;
+}
+
+
+.chart_header>span {
+    float: left;
+    font-size: 18px;
+    color: #333;
+}
+
+.chart_header>img {
+    float: right;
+}
+
+.chart_contetn_wrap {
+    margin-top: 28px;
+    height: 80%;
+}
+
+.chart>table {
+    border-collapse: separate;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    color: #333;
+
+}
+
+.chart>table tr {
+    height: 100%;
+
+}
+
+.chart>table td {
+    padding-left: 10px;
+    border: 1px solid #cacbcb;
+}
+
+/* 个人收藏 */
+.personal_collection {
+    position: absolute;
+    top: -126%;
+    left: 100%;
+    width: 650px;
+    height: 440px;
+    background: #4a5060;
+    color: #fff;
+    padding: 0 12%;
+    z-index: 3;
+    border-left: 3px solid #383d50;
+}
+
+.personal_collection_top {
+    height: 60px;
+    color: #fff;
+    line-height: 60px;
+}
+
+.personal_collection_top>div {
+    font-size: 22px;
+
+}
+
+.personal_collection_top>div+div {
+    font-size: 18px;
+    color: #9497a1;
+}
+
+.personal_collection_top>div>img {
+    vertical-align: text-top;
+}
+
+.personal_collection_content {
+    width: 100%;
+    text-align: center;
+}
+
+.personal_collection_content>div {
+    float: left;
+    height: 60px;
+    width: 25%;
+    line-height: 60px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.personal_collection_content>div>img {
+    vertical-align: text-top;
+    width: 16px;
+    height: 16px;
+    margin-left: 1px;
+}
+/* 弹出框样式 */
+.confirm_message_wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    z-index: 8;
+}
+.confirm_message_content_outer{
+    width: 37.5%;
+    height: 40%;
+    margin: 10% auto;
+    min-height: 440px;
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+}
+.confirm_message_title{
+    height: 16%;
+    background: #4a5060;
+    padding: 0 3%;
+    /* border: 1px solid #f2f2f2; */
+    -moz-border-top-left-radius: 10px;
+    /* Firefox */
+    -webkit-border-top-left-radius: 10px;
+    /* Safari and Chrome */
+    border-top-left-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    -moz-border-top-right-radius: 10px;
+    /* Firefox */
+    -webkit-border-top-right-radius: 10px;
+    /* Safari and Chrome */
+    border-top-right-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    behavior: url(./js/PIE.htc);
+}
+.confirm_message_title>div{
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    height: 100%;
+    margin-top: 2%;
+}
+.confirm_message_content{
+    height: 84%;    border: 1px solid #f2f2f2;
+    
+    -moz-border-bottom-right-radius: 10px;
+    /* Firefox */
+    -webkit-border-bottom-right-radius: 10px;
+    /* Safari and Chrome */
+    border-bottom-right-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    -moz-border-bottom-left-radius: 10px;
+    /* Firefox */
+    -webkit-border-bottom-left-radius: 10px;
+    /* Safari and Chrome */
+    border-bottom-left-radius: 10px;
+    /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+    behavior: url(./js/PIE.htc);
+    background: #fff;
+}
+.confirm_message_text{
+    padding: 0 12%;
+    margin-top: 10%;
+    font-size: 26px;
+    font-weight: 550;
+}
+.confirm_message_text>p{
+    font-size: 22px;font-weight: 500;
+}
+.confirm_message_btn{
+    /* border: 1px solid red; */
+    margin-top: 10%;
+    /* padding-left: 15%; */
+}
+.confirm_message_btn>div{
+    display: inline-block;
+    width: 25%;
+    border: 1px solid #d6d6d6;
+    text-align: center;
+    font-size: 24px;
+    height: 16.2%;
+    background: #0085d0;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 21.5%;
+}
+.confirm_message_btn>div+div{
+    background: #ddd;
+    color: #333;
+    margin-left: 10%;
+}
+/* 弹出框样式 */
+    	
+    </style>
+
+</head>
+
+<body>
+     <input type="hidden" id="siCode" value="" />  <!-- 切记不可删除 -->
+    <div class="management_header fn-clear">
+        <div class="management_left fn-left">
+            <img src="../../images/ydlogo.png" alt="中国移动logo">
+            <div>浙江移动电渠运营管理系统</div>
+        </div>
+        <div class="management_right fn-right">
+            <div class=" icon"><img src="../../images/news_icon.png" alt=""><span>|</span></div>
+            <div class=" icon"><img src="../../images/knowledge_icon.png" alt=""><span>|</span></div>
+            <div class="user_wrap">
+                <div class="user_name"id="userRealName">你好，佩奇</div>
+                <div class="triangle">
+                    <div class="content "></div>
+                    <div class="content1 fn-hide"></div>
+                </div>
+            </div>
+            <div class="login_state fn-hide">
+                <div class="content2"></div>
+                <div class="content3 ">
+                    <div id="index_grzx">个人中心</div>
+                    <div id="index_tc">退出</div>	
+                </div>
+            </div>
+        </div>
+ 			<ul class="pcs_tab_ul fn-hide " id="pcs_tab_ul" style=" position:absolute; padding-left:15px; padding-top:9px; left:0px; bottom:-32px;"> 
+               <li class="cur" id="myli1"><label  name="home.html" title="首页"> <span id="iispan1"><p class="myspan" idnum="1"><b>首页</b></p></span></label></li> 
+             </ul>
+    </div>
+<!--     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="topHeader" style="margin-top: -10px;"> -->
+<!--       <tr> -->
+<!--         <td> -->
+<!--             <div id="navBOX" class="navBOX"> -->
+             
+<!--             <img src="images/yqClose.gif" title="关闭全部" class="hand" id="closeAll" style=" position:absolute; right:5px; top:51px;" /> -->
+<!--              这个div用来存放系统名称的标签【右侧的下拉框】 -->
+<!--             <div class="nav" id="nav_2"><span title="首页" name="home.html">首页</span><span title="BMS" name="bms/user/jbxxgl.html">BMSBMSBMSBMS</span></div> -->
+<!--             </div> -->
+<!--         </td> -->
+<!--       </tr> -->
+<!--     </table> -->
+    
+    <div class="management_content_wrap">
+        <div class="drop_down_wrap fn-clear">
+            <div class="drop_down_menu">
+                <div class="display_btn "><img src="../../images/heshang.png" alt=""></div>
+                <div class="display_btn fn-hide"><img src="../../images/zhangkai.png" alt=""></div>
+            </div>
+            <div class="menu_list_wrap">
+                <div class="personal_collection_wrap">
+                    <div>
+                        <img src="images/collect2.png" alt=""><span>个人收藏</span>
+                    </div>
+                    <div class="personal_collection fn-hide">
+                        <div class="personal_collection_top">
+                            <div class="fn-left">个人收藏</div>
+                            <div class="fn-right">
+                                <span class="fn-hide">保存</span> <img class="" src="../../images/set_up.png" alt="">
+                            </div>
+                        </div>
+                        <div class="personal_collection_content fn-clear ">
+                           <!--  <div class="active"><span>后台管理系统</span><img class="fn-hide" src="images/delete_btn.png"
+                                    alt=""></div>
+                            <div><span>接入密钥管理</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>后台管理系统</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>接入密钥管理</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>后台管理系统</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>接入密钥管理</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>后台管理系统</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>接入密钥管理</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>后台管理系统</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>接入密钥管理</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>后台管理系统</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>
+                            <div><span>接入密钥管理</span><img class="fn-hide" src="images/delete_btn.png" alt=""></div>-->
+                        </div> 
+                    </div>
+                </div>
+                <div id="tree" class="drop_down_list">
+                    <ul class="first_level">
+                        <!-- <li class="kaile">
+                            <div class="menu_content1">
+                                <div class="menu_triangle">
+                                    <div class="content45 fn-hide"></div>
+                                    <div class="content135 "></div>
+                                </div>
+                                <div>一级菜单</div>
+                            </div>
+                            <div class="second_level">
+                                <div class="menu_content1">
+                                    <div class="menu_triangle fn-hidden">
+                                        <div class="content45 "></div>
+                                        <div class="content135 fn-hide"></div>
+                                    </div>
+                                    <div>二级菜单</div>
+                                </div>
+                            </div>
+                            <div class="second_level">
+                                <div class="menu_content1">
+                                    <div class="menu_triangle fn-hidden">
+                                        <div class="content45 "></div>
+                                        <div class="content135 fn-hide"></div>
+                                    </div>
+                                    <div>二级菜单</div>
+                                </div>
+                            </div>
+                            <div class="second_level">
+                                <div class="menu_content1">
+                                    <div class="menu_triangle fn-hidden">
+                                        <div class="content45 "></div>
+                                        <div class="content135 fn-hide"></div>
+                                    </div>
+                                    <div>二级菜单</div>
+                                </div>
+                            </div>
+                            <ul class="second_level">
+                                        <li>
+                                            <div class="menu_content1">
+                                                <div class="menu_triangle fn-hidden">
+                                                    <div class="content45 "></div>
+                                                    <div class="content135 fn-hide"></div>
+                                                </div>
+                                                <div>二级菜单</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                        </li>
+                        <li class="">
+                            <div class="menu_content1">
+                                <div class="menu_triangle">
+                                    <div class="content45 fn-hide"></div>
+                                    <div class="content135 "></div>
+                                </div>
+                                <div>一级菜单</div>
+                            </div>
+                            <div class="second_level">
+                                <div class="menu_content1">
+                                    <div class="menu_triangle fn-hidden">
+                                        <div class="content45 "></div>
+                                        <div class="content135 fn-hide"></div>
+                                    </div>
+                                    <div>二级菜单</div>
+                                </div>
+                            </div>
+                            <div class="second_level">
+                                <div class="menu_content1">
+                                    <div class="menu_triangle fn-hidden">
+                                        <div class="content45 "></div>
+                                        <div class="content135 fn-hide"></div>
+                                    </div>
+                                    <div>二级菜单</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="">
+                            <div class="menu_content1">
+                                <div class="menu_triangle">
+                                    <div class="content45 fn-hide"></div>
+                                    <div class="content135 "></div>
+                                </div>
+                                <div>一级菜单</div>
+                            </div>
+                            <div class="second_level">
+                                <div class="menu_content1">
+                                    <div class="menu_triangle fn-hidden">
+                                        <div class="content45 "></div>
+                                        <div class="content135 fn-hide"></div>
+                                    </div>
+                                    <div>二级菜单</div>
+                                </div>
+                            </div>
+                            <div class="second_level">
+                                <div class="menu_content1">
+                                    <div class="menu_triangle fn-hidden">
+                                        <div class="content45 "></div>
+                                        <div class="content135 fn-hide"></div>
+                                    </div>
+                                    <div>二级菜单</div>
+                                </div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+
+            </div>
+            <div class="blur_search">
+                <input type="text"  id="searchInp" onkeyup="searchNode(this)" onpropertychange="searchNode(this)" oninput="searchNode(this)">
+                <img class="fn-hide" src="./images/search_icon.png" alt="">
+            </div>
+
+
+        </div>
+        <div class="management_business_warp">
+         
+              <div style="height:32px; _width:100px;width:100%">&nbsp;</div>
+	<div id="iframeRight" class=" bgFFF" style='position:relative; height:500px' >  <!-- style=" padding-top:32px;" -->
+	<!-- <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:46%;left:0px;background-color: #0069ff;;color:white;display:none;"><img src="../theme/bmsHTGL/images/navigate_r.png" /></a> -->
+    <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:8%;left:0px;;color:white;display:none;position:absolute;"><!-- <img src="../theme/bmsHTGL/images/nav_right.png" style="width:15px;"/> --></a>
+    <a class="toggle_switch toggle_td" onclick='toggleMenuBar();'  style="z-index: 2000;top:8%;left:0px;;color:white;position:absolute;"><!-- <img src="../theme/bmsHTGL/images/nav_left.png"  style="width: 15px;"/> --></a>
+    <iframe id="myiframe" frameborder="0" width="100%" height="100%" scrolling="auto" src="" class=""></iframe>
+    </div>
+        </div>
+    </div>
+</body>
+<script src="../../js1/common.js"></script>
+ <!-- <script>
+    //弹出框js
+    // function Alertmessage() {
+    //     var msgele = $(
+    //         '<div class="confirm_message_wrap"><div class="confirm_message_content_outer"><div class="confirm_message_title"><div class="fn-left">提示信息</div><div class="fn-right close_btn"><img src="images/alert_close.png" alt=""></div></div><div class="confirm_message_content"><div class="confirm_message_text"><div>网络连接超时</div><p>别紧张，试试刷新页面~</p></div><div class="confirm_message_btn"><div class="confirm_btn">确定</div><div class="cancel_btn">取消</div></div></div></div></div>'
+    //         );
+    //     $('body').before(msgele);
+    //     console.log(333);
+    // }
+
+    function Confirm_colse() {
+        $(".confirm_message_wrap").remove();
+    }
+    $(function () {
+        var content_height = $(document).height() - 80;
+        console.log(content_height);
+        $(".management_content_wrap").height(content_height);
+        $(".drop_down_wrap").height(content_height);
+    })
+
+    $(function () {
+
+        Alertmessage();
+        // 点击个人中心
+        $(".user_wrap>div>div").on("click", function (e) {
+            e.stopPropagation();
+            //阻止事件冒泡
+            $(this).addClass("fn-hide").siblings().removeClass("fn-hide");
+            if ($(this).hasClass("content")) {
+                $(".login_state").removeClass("fn-hide");
+            } else {
+                $(".login_state").addClass("fn-hide");
+            }
+
+        })
+        $("body").on("click", function (e) {
+            console.log("111")
+            e.stopPropagation();
+            if ($(".user_wrap>div>div").hasClass("content")) {
+                $(".login_state").addClass("fn-hide");
+                $(".content").removeClass("fn-hide").siblings().addClass("fn-hide");
+            }
+
+        })
+        //弹出框js
+        $(document).on("click", ".close_btn", function () {
+            Confirm_colse();
+            console.log("关闭");
+        })
+        $(document).on("click", ".cancel_btn", function () {
+            Confirm_colse();
+            console.log("取消");
+        })
+        $(document).on("click", ".confirm_btn", function () {
+            Confirm_colse();
+            console.log("确定");
+        })
+        // 个人收藏
+
+        $('.personal_collection_wrap').hover(function () {
+            $(".drop_down_wrap ").css({
+                "overflow": "visible"
+            })
+            $(".personal_collection").removeClass("fn-hide");
+        }, function () {
+            $(".personal_collection").addClass("fn-hide");
+        })
+        $(".personal_collection_content>div").on("click", function (e) {
+            e.stopPropagation;
+            $(this).addClass("color_blue active").siblings().removeClass("color_blue active");
+        })
+        $(".personal_collection_top>div").on("click", function () {
+            if ($(this).children("img").hasClass("fn-hide")) {
+                //点击了保存
+                Alertmessage();
+
+                $(this).children("span").toggleClass("fn-hide");
+                $(this).children("img").toggleClass("fn-hide");
+                console.log("点击了保存")
+            } else {
+                //点击了设置
+                $(this).children("span").toggleClass("fn-hide");
+                $(this).children("img").toggleClass("fn-hide");
+                console.log("点击了设置")
+            }
+
+
+            $(".personal_collection_content>div>img").toggleClass("fn-hide");
+
+
+        })
+        $(".personal_collection_content>div>img").on("click", function (e) {
+            var num = $(this).parent().remove();
+            console.log(num);
+            e.stopPropagation;
+            //调整样式。
+            $(".personal_collection_content>div").css({
+                "text-align": "center"
+            })
+            $(".personal_collection_content>div:nth-child(4n+1)").css({
+                "text-align": "left"
+            })
+            $(".personal_collection_content>div:nth-child(4n+4)").css({
+                "text-align": "right"
+            })
+        })
+
+        //点击展开收缩菜单
+        $(".display_btn>img").on("click", function () {
+            var num = $(this).parent().index();
+            $(this).parent().addClass("fn-hide").siblings().removeClass("fn-hide");
+            if (num == 0) {
+                $(".chart1").removeClass("fn-hide").siblings().addClass("fn-hide");
+                $(".drop_down_wrap").animate({
+                    "width": '3%'
+                }, function () {
+                    $(".chart_warp").css({
+                        "width": '106%'
+                    });
+                });
+                // $(".chart_warp").css({
+                //     "width": '104%'
+                // });
+                $(".menu_list_wrap").animate({
+                    "opacity": '0'
+                });
+                $(".blur_search>input").addClass("fn-hide");
+                $(".blur_search>img").removeClass("fn-hide");
+
+            } else if (num == 1) {
+                $(".chart_warp").css({
+                    "width": '95%'
+                });
+                $(".chart1").addClass("fn-hide").siblings().removeClass("fn-hide");
+                $(".drop_down_wrap").animate({
+                    "width": '13%'
+                });
+                $(".management_business_warp").css({
+                    "width": '86%'
+                });
+                $(".menu_list_wrap").animate({
+                    "opacity": '1'
+                });
+                $(".blur_search>input").removeClass("fn-hide");
+                $(".blur_search>img").addClass("fn-hide");
+
+            }
+        })
+        // 这里是下拉菜单。
+
+        $(".menu_content1").on("click", function () {
+            var num = $(this).parent().index();
+            // console.log(num);
+            $(this).children(".menu_triangle").children("div").toggleClass("fn-hide");
+            $(".first_level>li").eq(num).hasClass("kaile");
+            if ($(".first_level>li").eq(num).hasClass("kaile")) {
+                $(this).siblings().toggleClass("fn-hide");
+            } else {
+                $(this).siblings().toggleClass("fn-hide");
+                $(".first_level>li").eq(num).addClass("kaile").siblings().removeClass("kaile");
+            }
+        })
+        // 二级菜单点击  添加悬浮框
+        $(".second_level1").on("click", function () {
+            var num = $(this).index();
+            $(this).parent().children(".second_level1").eq(num);
+            $(this).children(".menu_content1").addClass("color_blue");
+            $(this).siblings().children(".menu_content1").removeClass("color_blue");
+            // $(this).addClass("second_level_wrap").siblings().removeClass("second_level_wrap ");
+            // $(this).parent().siblings().children(".second_level").removeClass('second_level_wrap ');
+            $(this).parent().siblings().children(".second_level1").children(".menu_content1")
+                .removeClass('color_blue');
+        })
+        //
+
+        // 表格样式
+        $(".chart>table").children("thead").css({
+            "text-align": "center",
+            'background': "#ddd",
+            "color": "#5c5e65",
+            "font-weight": "550",
+            "font-size": "18px"
+        })
+        $(".chart>table").children("thead").children("tr").css({
+            "height": "45px"
+        })
+        $(".chart>table").children("tbody").children("tr").css({
+            "height": "40px"
+        })
+        $(".chart>table").children("tfoot").children("tr").css({
+            "height": "16px"
+        })
+        $(".chart>table").children("tbody").children("tr:nth-child(odd)").css({
+
+            "background": "#eff8ff"
+        })
+        $(".chart>table").children("tfoot").css({
+            'background': "#dce5eb"
+        })
+        $(".chart>table").children("thead").children("tr").children("td:first-child").css({
+            "border-top-left-radius": "10px"
+        })
+        $(".chart>table").children("thead").children("tr").children("td:last-child").css({
+            "border-top-right-radius": "10px"
+        })
+        // 表格1样式
+        $(".chart1>table").children("tbody").children("tr").children("td:last-child").css({
+            "padding-left": "0",
+            "text-align": "center",
+            "color": "#105ee0",
+            "text-decoration": "underline",
+            "cursor": "pointer"
+        })
+        // 收藏列表
+        $(".personal_collection_content>div:nth-child(4n+1)").css({
+            "text-align": "left"
+        })
+        $(".personal_collection_content>div:nth-child(4n+4)").css({
+            "text-align": "right"
+        })
+    })
+    $(document).ready(function () {
+        //初始化宽度、高度  
+        $(".management_wrap").width($(window).width());
+        $(".management_wrap").height($(window).height());
+        //当文档窗口发生改变时 触发  
+        $(window).resize(function () {
+            $(".management_wrap").width($(window).width());
+            $(".management_wrap").height($(window).height());
+        })
+    })
+    // 弹框提示
+</script>  -->
+   
+</html>

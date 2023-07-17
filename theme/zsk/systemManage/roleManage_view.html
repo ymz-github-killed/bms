@@ -1,0 +1,207 @@
+<!--#include virtual="/include/header.html"-->
+
+
+<div class="content">
+     <div class="space-50"></div>
+     <div class="manageNav">
+          <ul class="manageNavLi">
+              <li><a href="/systemManage/index.html">用户管理</a></li>
+              <li class="on"><a href="/systemManage/roleManage.html">角色管理</a></li>
+              <li><a href="/systemManage/rightsManag.html">权限管理</a></li> 
+              <li><a href="/systemManage/outsideApplication.html">外部应用</a></li>
+              <li><a href="/systemManage/safeSet.html">安全设置</a></li>
+              <li><a href="/systemManage/luckUser.html">用户锁定</a></li>
+          	  <li><a href="/systemManage/mouldManage.html">模版管理</a></li>
+          </ul>
+     </div>
+    
+    		<div class="clr"></div>
+			<div class="space-40"></div>
+    		<div class="UserManageLine">
+            <span>角色信息</span>
+            </div>
+            <dl class="UserManageDl roleMang">
+               <dt>角色名称：</dt>
+               <dd style="line-height:30px;">
+                    系统管理员
+               </dd>
+           </dl>
+         
+           
+           <dl class="UserManageDl roleMang">
+               <dt>用户ID：</dt>
+               <dd style="line-height:30px;">
+                   1
+               </dd>
+           </dl>
+            
+             <div class="space-20"></div>
+           <div class="UserManageLine">
+            <span>权限信息</span>
+            </div>
+            <dl class="UserManageDl roleMang">
+               <dt>知识列表：</dt>
+               <dd style="line-height:30px;">
+                    采编　发布
+               </dd>
+           </dl>
+         
+           
+           <dl class="UserManageDl roleMang">
+               <dt>内容采编：</dt>
+               <dd style="line-height:30px;">
+                   发布
+               </dd>
+           </dl>
+           
+            <dl class="UserManageDl roleMang">
+               <dt>系统管理：</dt>
+               <dd style="line-height:30px;">
+                   发布
+               </dd>
+           </dl>
+           
+            <dl class="UserManageDl roleMang">
+               <dt>操作日志：</dt>
+               <dd style="line-height:30px;">
+                   发布
+               </dd>
+           </dl>
+           
+            
+             <div class="space-20"></div>
+             <div class="UserManageLine">
+            <span>角色及用户查询</span>
+            </div>
+            <div style="overflow:hidden">
+               <dl class="userManageDl outsideApp" style="margin-left:30px;">
+                   <dt>登录名：</dt>
+                   <dd>
+                     <input type="text">
+                   </dd>
+               </dl>
+               
+               <dl class="userManageDl outsideApp">
+                   <dt>手机号：</dt>
+                   <dd>
+                     <input type="text">
+                   </dd>
+               </dl>
+               
+                <dl class="userManageDl outsideApp">
+                   <dt>用户ID：</dt>
+                   <dd>
+                     <input type="text">
+                   </dd>
+               </dl>
+               
+               <dl class="userManageDl outsideApp" style="margin-left:30px;">
+                   <dt>状态：</dt>
+                   <dd>
+                     <input type="text">
+                   </dd>
+               </dl>
+               
+               <dl class="userManageDl outsideApp" style="margin-left:30px;">
+                   <dt>当前角色：</dt>
+                   <dd style="line-height:30px;">
+                    系统管理员
+                   </dd>
+               </dl>
+                <div class="clr"></div>
+          </div>
+           <div class="certainBtn">
+         <input class="marR15" value="查 询" type="button">
+         <input value="添 加" type="button">
+     		</div>
+           
+			<div class="space-40"></div>
+             <div class="space-20"></div>
+             <div class="UserManageLine">
+            <span>角色用户信息</span>
+            </div>
+     <div class="mx_list">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tr>
+                    <th>用户ID</th>
+                    <th>手机号</th>
+                    <th>登录名</th>
+                    <th>所属省份</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                	<td>1</td>
+                    <td>13912313213</td>
+                    <td>张三</td>
+                    <td>河北</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a" onclick="location.href='/systemManage/viewUser.html'">查看</a>
+                        
+                       
+                        <a href="javascript:void(0);" class="blue_a  del_tr">删除</a>
+                    </td>
+                </tr>
+                 <tr>
+                	<td>1</td>
+                    <td>13912313213</td>
+                    <td>张三</td>
+                    <td>河北</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a" onclick="location.href='/systemManage/viewUser.html'">查看</a>
+                        <a href="javascript:void(0);" class="blue_a  del_tr">删除</a>
+                    </td>
+                </tr>
+                 <tr>
+                	<td>1</td>
+                    <td>13912313213</td>
+                    <td>张三</td>
+                    <td>河北</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a" onclick="location.href='/systemManage/viewUser.html'">查看</a>
+                       <a href="javascript:void(0);" class="blue_a  del_tr">删除</a>
+                    </td>
+                </tr>
+            </table>
+     </div>
+     <div class="space-25"></div>
+     <div class="Pages">
+    	<a href="javascript:;" class="prevPage">上一页<i></i></a><a href="javascript:;">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a><a href="javascript:;">5</a><a href="javascript:;">6</a><a href="javascript:;">7</a><a href="javascript:;">8</a><a href="javascript:;" class="mar0">9</a><em>&#8230;</em><a href="javascript:;" class="nextPage">下一页<i></i></a><span class="marL10 marR20">共100页</span><span>到</span><input  type="text" class="pageInput fl"/><span>页</span><input  type="button" class="btn" value="确 定"/>
+       	<p class="clr"></p>
+    </div>
+     <div class="clr"></div>
+     <div class="space-30"></div>
+     <div class="certainBtn" style="width:113px;">
+         <input  value="返 回" type="button">
+      </div>
+       <div class="space-30"></div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+
+
+
+<script>
+$('.closeTransact,#layer').click(function(){
+	$(this).parents('.transact_tc_box').fadeOut();
+	$('div#layer').remove();
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

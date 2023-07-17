@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.adm.model.dto.TBmsRscFuncDTO"  table="BMS_RSC_FUNC_NEW" >
+		<comment>权限</comment>
+		<id name="id"  type="java.lang.String" >
+			<column  name="ID"  length="32"  />
+			<generator class="uuid.hex" />
+		</id>
+		<property  name="name"  type="java.lang.String" >
+			<column  name="NAME"  length="60" >
+				<comment>名称</comment>
+			</column>
+		</property>
+		
+		<property name="bmsStatus" type="java.lang.String">
+			<column name="BMS_STATUS" length="1">
+				<comment>状态：1正常，0删除</comment>
+			</column>
+		</property>
+		
+		<property  name="parentid"  type="java.lang.String" >
+			<column  name="PARENTID"  length="32" >
+				<comment>父节点名称</comment>
+			</column>
+		</property>
+		
+		<property  name="remark"  type="java.lang.String" >
+			<column  name="REMARK"  length="1000" >
+				<comment>描述</comment>
+			</column>
+		</property>
+		<property  name="url"  type="java.lang.String" >
+			<column  name="URL"  length="300" >
+				<comment>描述</comment>
+			</column>
+		</property>
+
+		<property  name="icon"  type="java.lang.String" >
+			<column  name="ICON"  length="100" >
+				<comment>显示图标</comment>
+			</column>
+		</property>
+		
+		<property  name="outerAddr"  type="java.lang.String" >
+			<column  name="OUTERADDR"  length="100" >
+				<comment>是否系统整合地址</comment>
+			</column>
+		</property>
+		
+		<property  name="httpMethod"  type="java.lang.String" >
+			<column  name="HTTPMETHOD"  length="100" >
+				<comment>HTTP提交方式</comment>
+			</column>
+		</property>
+		
+		<property  name="adaptClass"  type="java.lang.String" >
+			<column  name="ADAPTCLASS"  length="100" >
+				<comment>适配器类</comment>
+			</column>
+		</property>
+		
+		<property  name="sortid"  type="java.lang.Long" >
+			<column  name="SORTID"  length="15" >
+				<comment>排序自动</comment>
+			</column>
+		</property>
+		
+		<property  name="appCode"  type="java.lang.String" >
+			<column  name="appCode"  length="100" >
+				<comment>所属应用</comment>
+			</column>
+		</property>
+		
+		<property  name="sortNum"  type="java.lang.Long" >
+			<column  name="sortNum"  length="15" >
+				<comment>顺序值</comment>
+			</column>
+		</property>
+		
+		<property  name="subTime"  type="java.util.Date" >
+			<column  name="subTime" >
+				<comment>提交时间</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

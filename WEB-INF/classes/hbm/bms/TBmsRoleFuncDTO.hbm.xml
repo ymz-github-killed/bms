@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.adm.model.dto.TBmsRoleFuncDTO"  table="BMS_ROLE_FUNC" >
+		<comment>角色权限对应关系</comment>
+		<id name="id"  type="java.lang.String" >
+			<column  name="ID"  length="32"  />
+			<generator class="uuid.hex" />
+		</id>
+		
+		<property name="bmsStatus" type="java.lang.String">
+			<column name="BMS_STATUS" length="1">
+				<comment>状态：1正常，0删除</comment>
+			</column>
+		</property>
+		
+		<many-to-one  name="tbTBmsRoleDTO"  class="com.sinovatech.bms.adm.model.dto.TBmsRoleDTO"  fetch="select" >
+			<column  name="ROLEID"  length="32" >
+				<comment>角色编号</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one  name="tbTBmsRscFuncDTO"  class="com.sinovatech.bms.adm.model.dto.TBmsRscFuncDTO"  fetch="select" >
+			<column  name="FUNCID"  length="32" >
+				<comment>权限编号</comment>
+			</column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

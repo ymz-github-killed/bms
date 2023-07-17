@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.sinovatech.bms.adm.model.dto.TBmsRoleDTO"
+		table="BMS_ROLE">
+		<comment>角色</comment>
+		<id name="id" type="java.lang.String">
+			<column name="ID" length="32" />
+			<generator class="uuid.hex" />
+		</id>
+		<property name="name" type="com.sinovatech.common.hibernate.type.Us7AsciiString">
+			<column name="NAME" length="60">
+				<comment>名称</comment>
+			</column>
+		</property>
+		<property name="remark" type="com.sinovatech.common.hibernate.type.Us7AsciiString">
+			<column name="REMARK" length="1000">
+				<comment>备注</comment>
+			</column>
+		</property>
+		<many-to-one name="tbTBmsLocationDTO"
+			class="com.sinovatech.bms.adm.model.dto.TBmsLocationDTO"
+			fetch="select">
+			<column name="LOCATIONID" length="32">
+				<comment>区域编号</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

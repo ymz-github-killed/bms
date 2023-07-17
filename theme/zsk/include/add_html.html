@@ -1,0 +1,90 @@
+<script>
+	$(function(){
+		$("input.date").live("focus", function () {
+	 　　	 $(this).datetimepicker(); 
+
+     });
+
+   })
+</script>
+<div class="space-40"></div>
+<div class="UserManage">
+               <div class="UserManageLine">
+                    <span class="add_title" style="width:auto">结构化知识</span>
+                    <p>收起/打开</p>
+               </div>
+               <div class="space-20"></div>
+               <div class="UserManageShow">
+                   
+                 <dl class="UserManageDl">
+                   <dt><i>*</i> 知识名称：</dt>
+                   <dd>
+                        <input class="ManageInput ManageInputW" type="text" value="填写该知识库的知识名称" />
+                        <a href="javascript:;">可见</a>
+                   </dd>
+                 </dl>
+                 
+               
+               <dl class="UserManageDl">
+                   <dt><i>*</i>上传附件：</dt>
+                   <dd class="textareaW">
+                        <input class="ManageInput ManageInputW" type="file" style="margin-right:0px;" />
+
+                       <div class="btn_check">上传</div>
+                       
+                   </dd>
+                   
+                   <dd class="file_up_dd">
+                   		<ul>
+                            <li>1.流量包业务采编模版.xls <span>删除</span></li>
+                            <li>2.流量包业务采编模版.xls <span>删除</span></li>
+                            <li>3.流量包业务采编模版.xls <span>删除</span></li>
+                       </ul>
+                   </dd>
+               </dl>  
+               
+                <dl class="UserManageDl">
+                       <dt><i>*</i> 有效期限：</dt>
+                       <dd >
+                       		
+                            <input class="ManageInput startDate date" type="text" value="2014-12-10 10:35" />
+                            
+                            <em>至</em>
+                            <input class="ManageInput endDate date" type="text" value="2014-12-10 10:35" />
+                       </dd>
+                   </dl>
+               
+               <dl class="UserManageDl">
+                   <dt><i>*</i>关联知识：</dt>
+                   <dd >
+                        <div class="search_zone">
+                        	<input value="输入知识，关键字" type="text" >
+                            
+                        </div>
+                       <div class="btn_check">搜索</div>
+                   </dd>
+                   
+                   <dd class="file_up_dd">
+                   		<ul>
+                            <li>1.流量包业务采编模版.xls <span>删除</span></li>
+                            <li>2.流量包业务采编模版.xls <span>删除</span></li>
+                            <li>3.流量包业务采编模版.xls <span>删除</span></li>
+                       </ul>
+                   </dd>
+               </dl>  
+                    <div class="certainBtn_user">
+                  <input class="marR35  btn_pass" type="button" value="保存">
+                  <input class="dfdfdf del_UserManage" type="button" value="删除">
+                  <div class="space-40"></div>
+                  <div class="clr"></div>
+                  <div class="space-40"></div>
+     		  </div>
+                   
+               </div>
+               <div class="clr"></div>
+               <div class="space-20"></div>
+               
+              
+              <p class="noPass" style="display:none; margin-left:50px;" >已保存！</p>
+          </div>
+           

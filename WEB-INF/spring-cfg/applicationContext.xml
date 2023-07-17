@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=" 
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+ <context:annotation-config />   
+	<context:component-scan base-package="com.sinovatech.mvcbms"/>   
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource"
+		class="com.sinovatech.hd.tools.uitl.db.DbcpPool"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>${jdbc.driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc.url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.password}</value>
+		</property>
+		<property name="maxActive">
+			<value>${jdbc.maxActive}</value>
+		</property>
+		<property name="maxIdle">
+			<value>${jdbc.maxIdle}</value>
+		</property>
+		<property name="maxWait">
+			<value>60000</value>
+		</property>
+		<property name="defaultAutoCommit">
+			<value>false</value>
+		</property>
+		<property name="initialSize" value="${jdbc.initialSize}" />
+		<property name="minIdle" value="${jdbc.minIdle}" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="validationQuery" value="select 1 from dual" />
+		<property name="validationQueryTimeout" value="3" />
+		<property name="timeBetweenEvictionRunsMillis" value="40000" />
+		<property name="minEvictableIdleTimeMillis" value="30000" />
+		<property name="numTestsPerEvictionRun" value="${jdbc.maxActive}" />
+		<property name="logAbandoned" value="true" />
+	</bean>
+	
+	<!-- 
+	<bean id="baseTransactionProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*RTX">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="*TX">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	 -->
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	 
+	<aop:config proxy-target-class="true">
+		<aop:advisor
+			pointcut="execution(* com.opensymphony.workflow.spi.*.*(..))"
+			advice-ref="txAdvice" />
+		<aop:advisor
+			pointcut="execution(* com.opensymphony.module.propertyset.hibernate3.*.*(..))"
+			advice-ref="txAdvice" />
+		<aop:advisor
+			pointcut="execution(* com.sinovatech.bms.adm.model.bpo.*.*(..))"
+			advice-ref="txAdvice" />
+		<aop:advisor
+			pointcut="execution(* com.sinovatech.workflow.bpo.*.*(..))"
+			advice-ref="txAdvice" />
+		<aop:advisor
+			pointcut="execution(* com.sinovatech.bms.domain.model.bpo.*.*(..))"
+			advice-ref="txAdvice" />	
+		<aop:advisor advice-ref="txAdvice"  pointcut="execution(* com.sinovatech.mvcbms.*.service.*.*(..))"/>
+	</aop:config>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="load*" read-only="true" />
+			<tx:method name="search*" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+
+	<bean id="nativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"
+		lazy-init="true" />
+	<bean id="oracleLobHandler"
+		class="org.springframework.jdbc.support.lob.OracleLobHandler"
+		lazy-init="true">
+		<property name="nativeJdbcExtractor">
+			<ref local="nativeJdbcExtractor" />
+		</property>
+	</bean>
+
+	<bean id="sessionFactory" lazy-init="false"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="lobHandler">
+			<ref bean="oracleLobHandler" />
+		</property>
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:hbm/bms</value>
+				<value>classpath:com/sinovatech/mvcbms/db/hbm</value>
+			</list>
+		</property>
+	<!--  property name="mappingResources"> 
+      <list> 
+        <value>hbm/bms/TBmsAuditdefineDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsAuditlogDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsDeptDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsDomainDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsDomainFuncDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsDomainvalueDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsForbidUserdomainDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsLocationDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsRoleDomainrightDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsRoleDTO.hbm.xml</value> 
+        <value>hbm/bms/TBmsRoleFuncDTO.hbm.xml</value> 
+         <value>hbm/bms/TBmsRscFuncDTO.hbm.xml</value> 
+         <value>hbm/bms/TBmsRscResourceDTO.hbm.xml</value> 
+         <value>hbm/bms/TBmsUserDTO.hbm.xml</value> 
+         <value>hbm/bms/TBmsUserFuncDTO.hbm.xml</value> 
+         <value>hbm/bms/TBmsUserLocationsDTO.hbm.xml</value> 
+         <value>hbm/bms/TBmsUserRoleDTO.hbm.xml</value> 
+         <value>hbm/bms/TBmsWebappDTO.hbm.xml</value> 
+      </list> 
+    </property --> 
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle9iDialect
+					<!-- org.hibernate.dialect.MySQLMyISAMDialect -->
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.jdbc.batch_size">0</prop>
+				<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop> 
+				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+			</props>
+		</property>
+		
+		<property name="eventListeners">
+			<map>
+				<!-- DTO 缓存更新类 -->
+			<!-- 	<entry key="post-insert" value-ref="dtoSynchListener" />
+				<entry key="post-update" value-ref="dtoSynchListener" />
+				<entry key="post-delete" value-ref="dtoSynchListener" />  -->
+			</map>
+		</property>
+
+	</bean>
+
+	<bean id="msgBean"
+		class="com.sinovatech.common.message.FileStoreMessage">
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 系统启动时加载的初始化类 <ref bean="myBmsDomainFacade" /><ref bean="myBmsRscResourceFacade" />-->
+	<bean id="appStartFacade"
+		class="com.sinovatech.common.web.init.InitAppFacade">
+		<property name="jobList">
+			<list>
+				<ref bean="myBmsDomainFacade" />
+				<ref bean="myBmsRscResourceFacade" />
+				<ref bean="myBmsWebappFacade" />
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- session 监听器 -->
+	<bean id="sessionListenerFacade"
+		class="com.sinovatech.common.web.listener.SessionListenerFacade">
+		<property name="listeners">
+			<list>
+				<!-- <ref bean="test" /> -->
+				<ref bean="mySessionUserRegister" />
+			</list>
+		</property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/> 
+	<!-- 
+		<bean id="test" class="com.sinovatech.common.web.listener.SessionLiTest"></bean>
+	-->
+</beans>

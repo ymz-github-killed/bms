@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" contect="no-cache">
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=331666"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=331666"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=331666"/>
+<script src="../../js/title.js?v=331666" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=331666" type="text/javascript"></script>
+<script src="../../js/public.js?v=331666" type="text/javascript"></script> 
+</head>
+<body class="bg_cff">
+<div class="bmBox">
+<div class="route"><span>功能权限</span></div>
+<!--左边 开始-->
+<div class="fl bmLeft">
+	<div class="lineh30 text_c"><span>全部功能权限树</span></div>
+    <!-- <div class="lineh30 text_c mb10" style="white-space:nowrap;"><a href="gnqxDr.html"  class="mr10 bt_blue bt_import cancel_href"><span>导入功能</span></a><a href="javascript:;" class="mr10 bt_blue bt_export cancel_href" id="exportFunc"><span>导出功能</span></a></div> -->
+	<div>
+	<!-- 功能权限菜单  开始  <img src="../../images/shu.png" />-->
+	<div id="tree">
+	<!-- <div onclick="showInfo()"><img src="../../images/shu.png" /></div> -->
+	</div>
+	<!-- 功能权限菜单 结束 -->
+	</div>
+</div>
+<form id="export" method="post" name="exportForm"></form>
+<!--左边 结束-->
+<!--右边 开始-->
+<div class="mainBox mainBox_2">
+	<!--功能权限首页 开始-->
+	<div class="bord_gray padd_10 pb30 mt20 showInfo_1">
+        <p class="lineh40 borb font16"><span>功能权限</span><img src="../../images/xl.gif" class="ml10" /></p>
+        <p class="lineh20 mt20"><font color="red">*新增功能权限后需赋予角色权限，并重新登录系统后生效！</font></p>
+        <p class="lineh20 mt20">请点击权限树中的某个权限，查看权限详细信息。</p> 
+        <!-- <p class="lineh20 mt20">导入权限时，请点击菜单树选择导入节点。</p>
+        <p class="lineh20 mt20">复选框为导出功能使用，无法做批量删除使用，如要使用删除，请点击具体权限名称！</p> -->
+    </div>
+    <div class="showInfo_2 undis" id="showInfo">
+	<div class="lineh30"><span>功能权限</span>&nbsp;&gt;&nbsp;<span>详细信息</span></div>
+    <div class="lineh30"><a href="javascript:;" class="mr10 bt_blue bt_beforeAdd cancel_href" onclick="newpg()"><span>新增下级功能模块</span></a><a href="javascript:;" class="mr10 bt_blue bt_edit cancel_href" onclick="newpg()"><span>编辑</span></a><a href="javascript:;" class="bt_blue ml10 bt_del cancel_href" onclick="show('cover','delete')"><span>删除</span></a></div>
+    <div class="bord_gray padd_10 pb30 mt20">
+    <div id="pfuncid_"></div>
+    	<p class="lineh40 borb font16"><span>基本信息</span>
+    	<img src="../../images/xl.gif" class="ml10" />
+    	<input id="qnqx_id_hidden" type="hidden"/> <!-- 切记不可删除 -->
+    	</p>
+        <!--功能名称 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>功能名称：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="name_" style="_width:650px;">研发超级管理员<span class="red ml10">最大长度为20字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--功能名称 结束-->
+        <!--显示图标 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>显示图标：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="icon_" style="_width:650px;">/images/2j21.gif </div>
+            <div class="clear"></div>
+        </div>
+        <!--显示图标 结束-->
+        <!--是否菜单 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>是否菜单：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="menus_" style="_width:650px;">是</div>
+            <div class="clear"></div>
+        </div>
+        <!--是否菜单 结束-->
+        <!--顺序值 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>顺序值：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="sortnum_" style="_width:650px;">1</div>
+            <div class="clear"></div>
+        </div>
+        <!--顺序值 结束-->
+        <!--所属应用 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>所属应用：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="appName_" style="_width:650px;">payment3_1_1</div>
+            <div class="clear"></div>
+        </div>
+        <!--所属应用 结束-->
+        <!--描述 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>描述：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="remark_" style="_width:650px;">无</div>
+            <div class="clear"></div>
+        </div>
+        <!--描述 结束-->
+        <!--资源类型 开始-->
+        <div class="mt10" id = "zylx">
+        	<p class="fl leftName middle"><span>资源类型：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="resourcetype_" style="_width:650px;">无</div>
+            <div class="clear"></div>
+        </div>
+        <!--资源类型 结束-->
+        
+        <!--菜单地址 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>菜单地址：</span></p>
+            <div class="fl rightInfo rightInfo_2 lineh20" id="url_" style="_width:650px;">admin/app!main.do</div>
+            <div class="clear"></div>
+        </div>
+        <!--菜单地址 结束-->
+        <!--对应权限资源 开始-->
+        <div class="bmTab1" id="show_resources">
+            <p class="lineh40 borb font16"><span>对应权限资源</span><img src="../../images/xl.gif" class="ml10" /></p>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt15 tb_content1">
+                <tr>
+                <th width="30%">key值</th>
+                <th width="30%">名称</th>
+                <th width="40%">URL</th>
+                </tr>
+                <tbody id="resourcesdata_tbody" >
+                <tr id="resourcesdata" clazz ='odd$'>
+                <td width="30%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{value}">{value}</td>
+                <td width="30%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{name}">{name}</td>
+                <td width="40%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{url}">{url}</td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+        <!--可以管理该部门的用户列表 结束-->
+    </div>
+    </div>
+    <!--功能权限首页 结束-->
+    
+    <!--功能权限新增页面 开始-->
+    <!--<iframe frameborder="0" width="100%" height="100%" scrolling="auto" src="New.html" class="New.html undis" id="New"></iframe>-->
+    <div id="funcid_"></div>
+    <div class="newGN undis">   
+    <form id="addFunc">
+    <!-- 权限父id 编辑时为自身id -->
+    	<div id="funcid"></div>
+        <div class="lineh30"><span>功能权限</span>&nbsp;&gt;&nbsp;<span>增加功能模块</span></div>
+         <div class="mt10 mb10"><a href="javascript:;" class="mr10 bt_blue bt_back cancel_href" onclick="backpg()"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue bt_reset cancel_href"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue bt_add cancel_href" onclick="show('cover','bccg')"><span>保存</span></a></div>
+        <div class="bord_gray padd_10 pb30 mt20">
+            <!--功能名称 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span class="red">*</span><span>功能名称：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="text" class="text_1" id="name_" maxlength="20" name="rscFuncBean.name" value="" /><span class="red ml10">最大长度为20字符！</span></div>
+                <div class="clear"></div>
+            </div>
+            <!--功能名称 结束-->
+            <!--显示图标 开始-->
+            <div class="mt10 xstb_state">
+                <p class="fl leftName middle"><span class="red">*</span><span>显示图标：</span></p>
+                <div  class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="file" class="text_1"  name="file" id="file" value="" /></div><!-- readOnly='readOnly' -->
+                <div id="div_id_img"><img id="img_id" src=''/><a href='javascript:;' onclick='img_a_click()'>删除</a></div>
+                <div class="clear"></div>
+            </div>
+            <!--显示图标 结束-->
+            <!--顺序值 开始-->
+            <div class="mt10 gnSXYC">
+                <p class="fl leftName middle"><span class="red">*</span><span>顺序值：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="text" class="text_1" id="sortnum_" name="rscFuncBean.sortnum" value="" maxlength="2" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/></div>
+                <div class="clear"></div>
+            </div>
+            <!--顺序值 结束-->
+            <!--是否菜单 所属应用 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span>是否菜单：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;">
+                    <dl class="selectbox fl" style="z-index: 1;">
+                        <dt  id="menusSelected"><span class="fleft">请选择</span><span class="fright"  >&nbsp;</span></dt>
+                        <dd id="menusSelect">
+                            <p class="sel" id="cdYes">是</p>
+                            <p id="cdNo">否</p>
+                        </dd>
+                    </dl>
+                    
+                    <p class="fl leftName leftName_2 middle"><span class="red">*</span><span>所属应用：</span></p>
+                    <dl class="selectbox fl" style="z-index: 1;">
+                        <dt id="webappSelected"><span class="fleft"  style="overflow: hidden;">请选择</span><span class="fright">&nbsp;</span></dt>
+                        <dd id="webappSelect">
+                            <p class="sel">payment3_2_1</p>
+                            <p>payment2_2_1</p>
+                        </dd>
+                    </dl>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            <!--是否菜单 所属应用 结束-->
+            
+            <!--资源类型 开始-->
+            <div class="mt10 gnZYLX" style="display: none";>
+                <p class="fl leftName middle"><span>资源类型：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;">
+                    <dl class="selectbox fl" style="z-index: 1;">
+                        <dt  id="resourcetypeSelected"><span class="fleft">请选择</span><span class="fright"  >&nbsp;</span></dt>
+                        <dd id="resourcetypeSelect">
+                            <p class="sel" id="ButUrl">按钮链接</p>
+                            <p id="DataColumn">数据列</p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!--资源类型 结束-->
+            
+            <!--菜单地址 开始-->
+            <div class="mt10 gnSXYC">
+                <p class="fl leftName middle"><span>菜单地址：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;"><input type="text" class="text_1" id="url_" name="rscFuncBean.url" value="" /></div>
+                <div class="clear"></div>
+            </div>
+            <!--菜单地址 结束-->
+            <!--描述 开始-->
+            <div class="mt10">
+                <p class="fl leftName middle"><span>描述：</span></p>
+                <div class="fl rightInfo rightInfo_2 midTop" style="_width:650px;"><textarea class="textarea_1" id="remark_" name="rscFuncBean.remark" maxlength="200"></textarea><span class="red ml10">可以为空，如果不为空，最大长度为200字符！</span></div>
+                
+                <div class="clear"></div>
+            </div>
+            <!--描述 结束-->
+            <!--是否外部地址 提交方式 开始-->
+            <div class="mt10 gnSXYC">
+                <p class="fl leftName middle"><span>是否外部地址：</span></p>
+                <div class="fl rightInfo rightInfo_2 middle" style="_width:650px;">
+                    <dl class="selectbox fl" style="z-index: 1;">
+                        <dt id="outeraddSelected"><span class="fleft" >请选择</span><span class="fright" >&nbsp;</span></dt>
+                        <dd id="outeraddSelect">
+                            <p class="sel">是</p>
+                            <p>否</p>
+                        </dd>
+                    </dl>
+                    <p class="fl leftName leftName_2 middle"><span>提交方式：</span></p>
+                    <dl class="selectbox fl" style="z-index: 1;">
+                        <dt id="httpmethodSelected"><span class="fleft" >请选择</span><span class="fright">&nbsp;</span></dt>
+                        <dd id="httpmethodSelect">
+                            <p class="sel">GET</p>
+                            <p>GRTRE</p>
+                        </dd>
+                    </dl>
+                    <p class="fl leftName leftName_2 middle"><span>适配器编号：</span></p>
+                    <p class="fl"><input type="text" class="text_4"  value="SSOLogin"  readOnly='readOnly'  id="adaptclass_" name="rscFuncBean.adaptclass" style="_width:60px;"/></p>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            <!--是否外部地址 提交方式 结束-->
+            <div class="gnTab undis" id="show_resources2">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt15 tb_content1">
+                    <tr>
+                    <th><span class="red">*</span>key值</th>
+                    <th><span class="red">*</span>名称</th>
+                    <th><span class="red">*</span>URL</th>
+                    <th>操作</th>
+                    </tr>
+                    <tbody id="resourcesdata2_tbody" >
+	                <tr id="resourcesdata2" clazz ='odd$'>
+	                <input type="hidden" name="resourcesid" value="{id}"/>
+	                <td><input type="text" class="text_4" name="value" id="resourcevalue_" value="{value}" /></td>
+	                <td><input type="text" class="text_4" name="name" id="resourcename_" value="{name}" /></td>
+	                <td><input type="text" class="text_4" name="url" id="resourceurl_" value="{url}" /></td>
+	                <td><a href="javascript:;" class="ml10 delTR" onClick="delTR(this)">删除</a></td>
+	                </tr>
+	                </tbody>
+	                <tr>
+                    <td colspan="5"><p class="text_r"><a href="javascript:;" onClick="addTR(this)" class="mr10 bt_blue addTR cancel_href" style=" text-decoration:none"><span>添加行</span></a></p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+         <div class="mt10 mb10"><a href="javascript:;" class="mr10 bt_blue bt_back cancel_href" onclick="backpg()"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue bt_reset cancel_href"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue bt_add cancel_href" onclick="show('cover','bccg')"><span>保存</span></a></div>
+       </form>
+    </div>
+    <!--功能权限新增页面 结束-->
+    
+</div>
+<!--右边 结束-->
+<div class="clear"></div>
+</div>
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--确定要删除 开始-->
+<div class="pop" id="delete" style=" width:300px;">
+	<div class="popTitle"><span class="close fr btn_close"  onclick="hide('cover','delete')"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c"  id="message">确定要删除吗？</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue  btn_ensure" onclick="hide('cover','delete');show('cover','deleteCg')"><span>确定</span></a><a href="javascript:;" class="mr10 bt_blue" onclick="hide('cover','delete')"><span>取消</span></a></div>
+</div>
+<!--确定要删除 结束-->
+<!--保存成功 开始-->
+<div class="pop" id="bccg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr" onclick="hide('cover','bccg')" id="goUrl"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="message_">保存成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue" onclick="hide('cover','bccg')" id="goUrl_"><span>确定</span></a></div>
+</div>
+<!--保存成功 结束-->
+</body>
+<script type="text/javascript">
+	function showInfo(){
+		$(".showInfo_1").hide();
+		$(".showInfo_2").show();
+		$(".newGN").hide();
+	}
+	function newpg(){
+		$(".showInfo_2").hide();
+		$(".newGN").show();
+	}
+	function backpg(){
+		$(".showInfo_2").show();
+		$(".newGN").hide();
+	}
+jQuery(function(){
+	$("body").on('click',"#cdYes",function(){
+		$(".gnSXYC").show();
+		$(".gnZYLX").hide();
+		$(".gnTab").hide();				   
+	});
+	$("body").on('click',"#cdNo",function(){
+		jQuery("#addFunc [id='sortnum_']").val("");
+		jQuery("#addFunc [id='url_']").val("");
+		$(".gnSXYC").hide();
+		$(".gnZYLX").show();
+		$(".gnTab").show();				   
+	});
+	
+});
+</script>
+
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/mianBox.css"/>
+    <script src="../../js/title.js" type="text/javascript"></script>
+    <script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="../../js/public.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function tab1_click(){
+            $("#tab_1").show();
+            $("#tab_2").hide();
+            $("#tab_3").hide();
+            $("#tab1").addClass("hover");
+            $("#tab2").removeClass("hover");
+            $("#tab3").removeClass("hover");
+        }
+        function tab2_click(){
+            $("#tab_2").show();
+            $("#tab_1").hide();
+            $("#tab_3").hide();
+            $("#tab1").removeClass("hover");
+            $("#tab2").addClass("hover");
+            $("#tab3").removeClass("hover");
+        }
+        function tab3_click(){
+            $("#tab_3").show();
+            $("#tab_1").hide();
+            $("#tab_2").hide();
+            $("#tab1").removeClass("hover");
+            $("#tab2").removeClass("hover");
+            $("#tab3").addClass("hover");
+        }
+
+    </script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+    <div class="route"><span>数据权限管理</span></div>
+    <form id="searchForm">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt20 bord_gray">
+            <tr>
+                <td align="right">数据权限名称：&nbsp;</td>
+                <td><input class="input_normal w160" name="dataPermiName" id="dataPermiName"/></td>
+                <td align="right">数据权限编码：&nbsp;</td>
+                <td><input class="input_normal w160" name="dataPermiCode" id="dataPermiCode"/></td>
+                <td colspan="2" align="right"><p class="mr20"><a href="javascript:;" class="bt_blue cancel_href" id="search"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a></p></td>
+            </tr>
+        </table>
+    </form>
+    <p class="overflow text_r mt10"><a href="newJs.html" class="bt_blue ml10 cancel_href" id="add"><span>新增</span></a>
+        <!--<a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="show('cover','pl_delete')" id="deleteAllRole"><span>批量删除</span></a>-->
+    </p>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox mt15 tb_content1">
+        <tr>
+            <th width="2%"><input class="checkedAll" type="checkbox"  name="items" id="roles"/></th>
+            <th width="21%">数据权限名称</th>
+            <th width="21%">数据权限编码</th>
+            <!--<th width="21%">备注</th>-->
+            <th width="35%">操作</th>
+        </tr>
+        <tbody id="role_tbody">
+        <tr id="role" clazz ='odd$'>
+            <td width="2%"><input type="checkbox" name="roles" value="{id}"/></td>
+            <td width="21%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{dataPermiName}">{dataPermiName}</td>
+            <td width="21%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{dataPermiCode}">{dataPermiCode}</td>
+            <!--<td width="21%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{remark}">{remark}</td>-->
+            <td width="35%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">
+                <!--<a href="###" onclick="show_role('{roleid}')" class="m110">查看</a>-->
+                <a href="###" onclick="edit_role('{id}','{dataPermiName}','{dataPermiCode}')" class="m110">编辑</a>
+                <a href="###" class="m110" onclick="delete_sure('{id}')">删除</a>
+                <a href="###" class="ml10" onclick="showFunc('{id}','{dataPermiName}');show('cover','qxpz')">关联菜单</a>
+                <a href="###" class="ml10" onclick="showUser('{id}');showTB('cover','yhpz');popTable('yhpz')">数据权限值</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="page middle">
+        <div class="fl" id="searchForm_f"><label>找到</label><label id="totalNum">3</label><label>条记录, 显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label></div>
+        <div class="fr" id="searchForm_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="gotoRole" onkeyup="value=value.replace(/[^\d]/g,'')"
+                                                                                                                                                                                                                                                                                                       onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a></div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+
+<!--用户配置 开始-->
+<div class="pop" id="yhpz">
+    <!--弹出层 头部定位 开始-->
+    <div class="popPR">
+        <div class="popTitle"><span class="close fr" onclick="hide('cover','yhpz');window.location.reload();"></span><strong class="font14 fl">数据权限值配置</strong><div class="clear"></div></div>
+        <div class="clear"></div>
+        <div class="popTOP bg_cff">
+            <div class="bg_ea mt10 mb10">
+                <p class="blue lineh30 pl10">数据权限值配置列表：</p>
+            </div>
+            <form id="roleuserForm">
+                <div id="roleuser"></div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bord_gray">
+                    <tr>
+                        <td align="right">数据权限值：&nbsp;</td>
+                        <td><input class="input_normal w160" name="dataPermiValue"/></td>
+                        <!--<td align="right">真实姓名：&nbsp;</td>-->
+                        <!--<td colspan="2"><input class="input_normal w160" name="realName"/></td>-->
+                        <td align="right"><p class="mr20"><a href="javascript:;" class="bt_blue ml20 cancel_href" id="search"><span>查询</span></a><a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a></p></td>
+                    </tr>
+                </table>
+            </form>
+            <p class="overflow text_r mt10"><a href="javascript:;" class="bt_blue ml10 cancel_href" id="btnadd" onclick="hide('cover','yhpz');showTB('cover','addJsUser');popTable('addJsUser')"><span>添加权限值</span></a></p>
+        </div>
+    </div>
+    <!--弹出层 头部定位 结束-->
+    <!--弹出层 表格 开始-->
+    <div class="popInfoBox mt10">
+        <div class="glbmTable mb10 w271">
+            <!--最多发5条数据-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox tb_content1 bg_cff">
+                <tr>
+                    <th width="5%"><input class="checkedAll" type="checkbox"  name="items" id="users"/></th>
+                    <th width="20%">数据权限值</th>
+                    <!--<th width="20%">真实姓名</th>-->
+                    <!--<th width="15%">性别</th>-->
+                    <!--<th width="20%">状态</th>-->
+                    <th width="20%">操作</th>
+                </tr>
+                <tbody id="userRole_tbody">
+                <tr id="userRole" clazz ='odd$'>
+                    <td width="5%"><input type="checkbox" name="users" value="{id}"/></td>
+                    <td width="20%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{dataPermiValue}">{dataPermiValue}</td>
+                    <!--<td width="20%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="realName">{realName}</td>-->
+                    <!--<td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userSexTxt}">{userSexTxt}</td>-->
+                    <!--<td width="20%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userStatusTxt}">{userStatusTxt}</td>-->
+                    <td width="20%">
+                        <a href="###" class="ml10" onclick="edit_value('{id}','{dataPermiValue}');">编辑</a>
+                        <a href="###" class="ml10" onclick="deleteValue_sure('{id}');">删除</a>
+                        <a href="###" class="ml10" onclick="showRelateUser('{id}');hide('cover','yhpz');show('cover','addReleateUser');">关联用户</a>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <!--弹出层 表格 结束-->
+    <div class="page middle mb10">
+        <div class="fl" id="roleuserForm_f"><label>找到</label><label id="totalNum">3</label><label>条记录, 显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label></div>
+        <div class="fr" id="roleuserForm_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="gotoUserRole" onkeyup="value=value.replace(/[^\d]/g,'')"
+                                                                                                                                                                                                                                                                                                         onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="text_c mt10 mb10"><a onclick="hide('cover','yhpz');window.location.reload()" class="bt_blue cancel_href" href="javascript:;"><span>返回</span></a></div>
+</div>
+<!--用户配置 结束-->
+
+
+<!--增加权限配置 开始-->
+<div class="pop" id="sjqx">
+    <div class="popTitle"><span class="close fr" onclick="hide('cover','sjqx');window.location.reload()"></span><strong class="font14 fl">新增数据权限</strong><div class="clear"></div></div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+    <div class="" style=" padding:0 10px; height:300px;">
+        <div style=" margin:10px auto">
+            <!--tab 开始-->
+            <div class="clear"></div>
+            <!--添加编辑字典字段开始-->
+            <form name="addForm" id="addForm">
+                <div  style="padding-top: 0px; overflow-x:hidden; padding:10px; width:860px;">
+                    <p class="lineh40 borb font16">
+                        <span>新增数据权限基本信息</span><img src="../../images/xl.gif" class="ml10" />
+                    </p>
+                    <!-- 数据键开始 -->
+                    <div class="mt10" style="padding-top:15px;">
+                        <p class="fl leftName_2 middle" style="width: 120px;">
+                            <span class="red ml10">*</span><span>数据权限名称：</span>
+                        </p>
+                        <div class="fl rightInfo_700 middle">
+                            <input type="text" class="input_normal w160 required" id="sjqx_dataPermiName"
+                                   name="dataPermiName" maxlength="50"/> <span class="red ml10"
+                                                                             id="dataPermiName_span"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <!-- 数据键结束 -->
+                    <!-- 数据值开始 -->
+                    <div class="mt10">
+                        <p class="fl leftName_2 middle" style="width: 120px;">
+                            <span class="red ml10">*</span><span>数据权限编码：</span>
+                        </p>
+                        <div class="fl rightInfo_700 middle">
+                            <input type="text" class="input_normal w160 required"
+                                   id="sjqx_dataPermiCode" name="dataPermiCode" maxlength="50"/> <span class="red ml10"
+                                                                                          id="dataPermiCode_span"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <!-- 数据值结束 -->
+
+
+                </div>
+            </form>
+            <!--添加编辑字典字段 结束-->
+
+
+            <div class="text_c mt10 mb10" style="padding-top: 80px;">
+                <a href="javascript:;" class="mr10 bt_blue" id="addForm_save"
+                   onclick=""><span>保存</span>
+                </a> <a href="javascript:;" class="mr10 bt_blue"
+                        onclick="hide('cover','sjqx');window.location.reload()"><span>取消</span> </a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--权限配置 结束-->
+<!--编辑数据权限  开始-->
+<div class="pop" id="bjqx">
+<div class="popTitle"><span class="close fr" onclick="hide('cover','bjqx');location.reload()"></span><strong class="font14 fl">编辑数据权限</strong><div class="clear"></div></div>
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="" style=" padding:0 10px; height:300px;">
+<div style=" margin:10px auto">
+    <!--tab 开始-->
+    <div class="clear"></div>
+    <!--添加编辑字典字段开始-->
+    <form name="editForm" id="editForm">
+        <div  style="padding-top: 0px; overflow-x:hidden; padding:10px; width:860px;">
+            <p class="lineh40 borb font16">
+                <span>编辑数据权限基本信息</span><img src="../../images/xl.gif" class="ml10" />
+            </p>
+            <!-- 数据键开始 -->
+            <div class="mt10" style="padding-top:15px;">
+                <p class="fl leftName_2 middle" style="width: 120px;">
+                    <span class="red ml10">*</span><span>数据权限名称：</span>
+                </p>
+                <div class="fl rightInfo_700 middle">
+                    <input type="text" class="input_normal w160 required" id="bjqx_dataPermiName"
+                           name="dataPermiName" maxlength="50"/> <span class="red ml10"
+                                                                       id="bjqx_dataPermiName_span"></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- 数据键结束 -->
+            <!-- 数据值开始 -->
+            <div class="mt10">
+                <p class="fl leftName_2 middle" style="width: 120px;">
+                    <span class="red ml10">*</span><span>数据权限编码：</span>
+                </p>
+                <div class="fl rightInfo_700 middle">
+                    <input type="text" class="input_normal w160 required"
+                           id="bjqx_dataPermiCode" name="dataPermiCode" maxlength="50"/> <span class="red ml10"
+                                                                                               id="bjqx_dataPermiCode_span"></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- 数据值结束 -->
+            <input type="hidden" name="id" id="permis_id"/>
+
+        </div>
+    </form>
+    <!--添加编辑字典字段 结束-->
+
+
+    <div class="text_c mt10 mb10" style="padding-top: 80px;">
+        <a href="javascript:;" class="mr10 bt_blue" id="editForm_save"
+           onclick=""><span>保存</span>
+        </a> <a href="javascript:;" class="mr10 bt_blue"
+                onclick="hide('cover','bjqx');location.reload()"><span>取消</span> </a>
+
+    </div>
+
+</div>
+    <!--编辑数据权限  开始-->
+
+
+<div class="pop" id="addJsUser">
+    <div class="popTitle"><span class="close fr" onclick="showUser('');hide('cover','addJsUser');showTB('cover','yhpz');popTable('yhpz')"></span><strong class="font14 fl">数据权限值配置</strong><div class="clear"></div></div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+    <div class="" style=" padding:0 10px; height:300px;">
+            <div class="" style=" padding:0 10px; height:300px;">
+                <div style=" margin:10px auto">
+                    <!--tab 开始-->
+                    <div class="clear"></div>
+                    <!--添加编辑字典字段开始-->
+                    <form name="addPermiValue" id="addPermiValue">
+                        <div  style="padding-top: 0px;overflow-y:scroll; overflow-x:hidden; padding:10px; width:820px;">
+                            <p class="lineh40 borb font16">
+                                <span>添加数据权限值</span><img src="../../images/xl.gif" class="ml10" />
+                            </p>
+                            <!-- 数据键开始 -->
+                            <div class="mt10" style="padding-top:15px;">
+                                <p class="fl leftName_2 middle" style="width: 120px;">
+                                    <span class="red ml10">*</span><span>数据权限值：</span>
+                                </p>
+                                <div class="fl rightInfo_700 middle">
+                                    <input type="text" class="input_normal w160 required" id="addJsUser_dataPermiName"
+                                           name="dataPermiValue" maxlength="50"/> <span class="red ml10"
+                                                                                       id="addJsUser_dataPermiName_span"></span>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <!-- 数据键结束 -->
+                            <input type="hidden" name="dataPermiId" id="dataPermiId"/>
+                        </div>
+                    </form>
+                    <!--添加编辑字典字段 结束-->
+                    <div class="text_c mt10 mb10" style="padding-top: 120px;">
+                        <a href="javascript:;" class="mr10 bt_blue" id="addJsUser_save" onclick=""><span>保存</span></a>
+                        <a href="javascript:;" class="mr10 bt_blue" onclick="showUser('');hide('cover','addJsUser');showTB('cover','yhpz');popTable('yhpz')"><span>取消</span> </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!--用户配置 添加用户 结束-->
+
+<!---编辑权限值开始-->
+<div class="pop" id="editValue">
+    <div class="popTitle"><span class="close fr" onclick="showUser('');hide('cover','editValue');showTB('cover','yhpz');popTable('yhpz')"></span><strong class="font14 fl">数据权限值配置</strong><div class="clear"></div></div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+    <div class="" style=" padding:0 10px; height:300px;">
+        <div class="" style=" padding:0 10px; height:300px;">
+            <div style=" margin:10px auto">
+                <!--tab 开始-->
+                <div class="clear"></div>
+                <!--添加编辑字典字段开始-->
+                <form name="editPermiValue" id="editPermiValue">
+                    <div  style="padding-top: 0px;overflow-y:scroll; overflow-x:hidden; padding:10px; width:820px;">
+                        <p class="lineh40 borb font16">
+                            <span>编辑数据权限值</span><img src="../../images/xl.gif" class="ml10" />
+                        </p>
+                        <!-- 数据键开始 -->
+                        <div class="mt10" style="padding-top:15px;">
+                            <p class="fl leftName_2 middle" style="width: 120px;">
+                                <span class="red ml10">*</span><span>数据权限值：</span>
+                            </p>
+                            <div class="fl rightInfo_700 middle">
+                                <input type="text" class="input_normal w160 required" id="editValue_dataPermiValue"
+                                       name="dataPermiValue" maxlength="50"/> <span class="red ml10"
+                                                                                    id="editValue_dataPermiName_span"></span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <!-- 数据键结束 -->
+                        <input type="hidden" name="id" id="editDataPermiValueId"/>
+                    </div>
+                </form>
+                <!--添加编辑字典字段 结束-->
+                <div class="text_c mt10 mb10" style="padding-top: 120px;">
+                    <a href="javascript:;" class="mr10 bt_blue" id="editValue_save" onclick="editPermiValue();"><span>保存</span></a>
+                    <a href="javascript:;" class="mr10 bt_blue" onclick="showUser('');hide('cover','editValue');showTB('cover','yhpz');popTable('yhpz')"><span>取消</span> </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑权限值 结束-->
+
+<!--权限配置 开始-->
+<!--<div class="pop" id="qxpz">-->
+    <!--<div class="popTitle"><span class="close fr" onclick="hide('cover','qxpz')"></span><strong class="font14 fl">数据权限配置</strong><div class="clear"></div></div>-->
+    <!--<div class="clear"></div>-->
+    <!--<div class="clear"></div>-->
+    <!--<div class="" style=" padding:0 10px; height:300px;">-->
+        <!--<div style=" margin:10px auto">-->
+            <!--&lt;!&ndash;tab 开始&ndash;&gt;-->
+            <!--&lt;!&ndash;<div style=" overflow:hidden; height:36px;">&ndash;&gt;-->
+                <!--&lt;!&ndash;<p id="tab1" class="fl" onclick="tab1_click()"><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">首页小应用</span><span class="titleRight fl"></span></p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p id="tab2" class="fl hover" onclick="tab2_click()"><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">功能权限</span><span class="titleRight fl"></span></p>&ndash;&gt;-->
+                <!--&lt;!&ndash; <p id="tab3" class="fl" onclick="tab3_click()"><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">数据权限</span><span class="titleRight fl"></span></p> &ndash;&gt;-->
+                <!--<p class="lineh40 borb font16">-->
+                    <!--<span>功能权限数</span><img src="../../images/xl.gif" class="ml10" />-->
+                <!--</p>-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--<div class="clear"></div>-->
+            <!--<div class="borblr pl10 pr10 pb10" style=" width:830px;">-->
+                <!--&lt;!&ndash;<div id="tab_1" class="undis">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="middle borb_xu mb10 pt5 pb5"><span>请勾选下列小应用名称，对</span><strong class="blue roleName_">研发经理超级管理</strong><span>角色进行授权：</span></p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="lineh20"><strong>小应用列表：</strong></p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="shuBox bord_gray" style=" height:160px;">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<form id="formApp">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<p id="parApp"></p>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<ul id="appList">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li class="middle"><input type="checkbox" name="shxz" /><span>应用1</span></li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li class="middle"><input type="checkbox" name="shxz" /><span>应用2</span></li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li class="middle"><input type="checkbox" name="shxz" /><span>应用3</span></li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li class="middle"><input type="checkbox" name="shxz" /><span>应用4</span></li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li class="middle"><input type="checkbox" name="shxz" /><span>应用5</span></li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</form>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--<div id="tab_2">-->
+                    <!--<p class="middle borb_xu mb10 pt5 pb5"><span>请勾选下列权限名称，对</span><strong class="blue roleName_">研发经理超级管理</strong><span>进行授权：</span></p>-->
+                    <!--&lt;!&ndash;<p class="lineh20"><strong>功能树：</strong></p>&ndash;&gt;-->
+                    <!--<form id="form1">-->
+                        <!--<p id="par"></p>-->
+                        <!--<div>-->
+                            <!--<div class="shuBox bord_gray" style=" height:160px;" id="func">-->
+                                <!--<img src="../../images/shu.png">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash;tab 开始&ndash;&gt;-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="text_c mt10 mb10">-->
+        <!--<a href="javascript:;" class="bt_blue ml10 cancel_href" id="submit"><span>提交授权</span></a>-->
+        <!--&lt;!&ndash;<a href="javascript:;" class="bt_blue ml10 cancel_href" id="selectAll"><span>全部选择</span></a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="javascript:;" class="bt_blue ml10 cancel_href" id="deSelectAll"><span>全部取消</span></a>&ndash;&gt;-->
+        <!--<a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="hide('cover','qxpz')"><span>返回</span></a>-->
+    <!--</div>-->
+<!--</div>-->
+<!--权限配置 结束-->
+
+<!---编辑权限值开始-->
+<div class="pop" id="editValue">
+    <div class="popTitle"><span class="close fr" onclick="showUser('');hide('cover','editValue');showTB('cover','yhpz');popTable('yhpz')"></span><strong class="font14 fl">数据权限值配置</strong><div class="clear"></div></div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+    <div class="" style=" padding:0 10px; height:300px;">
+        <div class="" style=" padding:0 10px; height:300px;">
+            <div style=" margin:10px auto">
+                <!--tab 开始-->
+                <div class="clear"></div>
+                <!--添加编辑字典字段开始-->
+                <form name="editPermiValue" id="editPermiValue">
+                    <div  style="padding-top: 0px;overflow-y:scroll; overflow-x:hidden; padding:10px; width:820px;">
+                        <p class="lineh40 borb font16">
+                            <span>编辑数据权限值</span><img src="../../images/xl.gif" class="ml10" />
+                        </p>
+                        <!-- 数据键开始 -->
+                        <div class="mt10" style="padding-top:15px;">
+                            <p class="fl leftName_2 middle" style="width: 120px;">
+                                <span class="red ml10">*</span><span>数据权限值：</span>
+                            </p>
+                            <div class="fl rightInfo_700 middle">
+                                <input type="text" class="input_normal w160 required" id="editValue_dataPermiValue"
+                                       name="dataPermiValue" maxlength="50"/> <span class="red ml10"
+                                                                                    id="editValue_dataPermiName_span"></span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <!-- 数据键结束 -->
+                        <input type="hidden" name="id" id="editDataPermiValueId"/>
+                    </div>
+                </form>
+                <!--添加编辑字典字段 结束-->
+                <div class="text_c mt10 mb10" style="padding-top: 120px;">
+                    <a href="javascript:;" class="mr10 bt_blue" id="editValue_save" onclick="editPermiValue();"><span>保存</span></a>
+                    <a href="javascript:;" class="mr10 bt_blue" onclick="showUser('');hide('cover','editValue');showTB('cover','yhpz');popTable('yhpz')"><span>取消</span> </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑权限值 结束-->
+
+    <!--权限配置 开始-->
+    <div class="pop" id="qxpz">
+        <div class="popTitle"><span class="close fr" onclick="hide('cover','qxpz')"></span><strong class="font14 fl">数据权限配置</strong><div class="clear"></div></div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+        <div class="" style=" padding:0 10px; height:300px;">
+            <div style=" margin:10px auto">
+                <!--tab 开始-->
+                <!--<div style=" overflow:hidden; height:36px;">-->
+                <!--<p id="tab1" class="fl" onclick="tab1_click()"><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">首页小应用</span><span class="titleRight fl"></span></p>-->
+                <!--<p id="tab2" class="fl hover" onclick="tab2_click()"><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">功能权限</span><span class="titleRight fl"></span></p>-->
+                <!-- <p id="tab3" class="fl" onclick="tab3_click()"><span class="titleLeft fl"></span><span class="titleCent text_c fl w403">数据权限</span><span class="titleRight fl"></span></p> -->
+                <p class="lineh40 borb font16">
+                    <span>功能权限树</span><img src="../../images/xl.gif" class="ml10" />
+                </p>
+                <!--</div>-->
+                <div class="clear"></div>
+                <div class="borblr pl10 pr10 pb10" style=" width:830px;">
+                    <!--<div id="tab_1" class="undis">-->
+                    <!--<p class="middle borb_xu mb10 pt5 pb5"><span>请勾选下列小应用名称，对</span><strong class="blue roleName_">研发经理超级管理</strong><span>角色进行授权：</span></p>-->
+                    <!--<p class="lineh20"><strong>小应用列表：</strong></p>-->
+                    <!--<div class="shuBox bord_gray" style=" height:160px;">-->
+                    <!--<form id="formApp">-->
+                    <!--<p id="parApp"></p>-->
+                    <!--<ul id="appList">-->
+                    <!--<li class="middle"><input type="checkbox" name="shxz" /><span>应用1</span></li>-->
+                    <!--<li class="middle"><input type="checkbox" name="shxz" /><span>应用2</span></li>-->
+                    <!--<li class="middle"><input type="checkbox" name="shxz" /><span>应用3</span></li>-->
+                    <!--<li class="middle"><input type="checkbox" name="shxz" /><span>应用4</span></li>-->
+                    <!--<li class="middle"><input type="checkbox" name="shxz" /><span>应用5</span></li>-->
+                    <!--</ul>-->
+                    <!--</form>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div id="tab_2">
+                        <p class="middle borb_xu mb10 pt5 pb5"><span>请勾选下列权限名称，对</span><strong class="blue roleName_">研发经理超级管理</strong><span>进行授权：</span></p>
+                        <!--<p class="lineh20"><strong>功能树：</strong></p>-->
+                        <form id="form1">
+                            <p id="par"></p>
+                            <div>
+                                <div class="shuBox bord_gray" style=" height:160px;" id="func">
+                                    <img src="../../images/shu.png">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <!--tab 开始-->
+            </div>
+        </div>
+        <div class="text_c mt10 mb10">
+            <a href="javascript:;" class="bt_blue ml10 cancel_href" id="submit"><span>提交授权</span></a>
+            <!--<a href="javascript:;" class="bt_blue ml10 cancel_href" id="selectAll"><span>全部选择</span></a>-->
+            <!--<a href="javascript:;" class="bt_blue ml10 cancel_href" id="deSelectAll"><span>全部取消</span></a>-->
+            <a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="hide('cover','qxpz')"><span>返回</span></a>
+        </div>
+    </div>
+    <!--权限配置 结束-->
+
+
+<!--用户配置 添加用户 开始-->
+<div class="pop" id="addReleateUser">
+    <!--弹出层 头部定位 开始-->
+    <div class="popPR">
+        <div class="popTitle"><span class="close fr" onclick="hide('cover','addReleateUser')"></span><strong class="font14 fl">关联用户</font></strong><div class="clear"></div></div>
+        <div class="clear"></div>
+        <div class="popTOP bg_cff">
+            <div class="bg_ea mt10 mb10">
+                <p class="blue lineh30 pl10">已关联用户列表：</p>
+            </div>
+            <form id="addUserForm">
+                <div id="addUser"></div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt10 bord_gray">
+                    <tr>
+                        <td align="right">登录名：&nbsp;</td>
+                        <td><input class="input_normal w160" name="userLoginName"/></td>
+                        <td align="right">真实姓名：&nbsp;</td>
+                        <td><input class="input_normal w160" name="userRealName"/></td>
+                        <td align="right"><p class="rm20">
+                            <a href="javascript:;" class="bt_blue ml20 cancel_href" id="search"><span>查询</span></a>
+                            <a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a>
+                        </p>
+                        </td>
+                    </tr>
+                    <!--<tr>-->
+                        <!--&lt;!&ndash;<td align="right">状态：&nbsp;</td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<dl class="selectbox" style="z-index: 100003;">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<dt id="userStatusSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<dd id="userStatusSelect">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<p class="sel">正常</p>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<p>停用</p>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</dd>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</dl>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td align="right">性别：&nbsp;</td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<dl class="selectbox" style="z-index: 1;">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<dt id="userSexSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<dd id="userSexSelect">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<p class="sel">男</p>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<p>女</p>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</dd>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</dl>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                        <!--<td align="right"><p class="rm20">-->
+                            <!--<a href="javascript:;" class="bt_blue ml20 cancel_href" id="search"><span>查询</span></a>-->
+                            <!--<a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a>-->
+                        <!--</p>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                </table>
+                <p class="overflow text_r mt10"><a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="addingUser();hide('cover','addReleateUser');show('cover','addingUser')" id="grantFunc"><span>增加关联用户</span></a></p>
+            </form>
+
+        </div>
+    </div>
+    <!--弹出层 头部定位 结束-->
+    <!--弹出层 表格 开始-->
+    <div class="popInfoBox">
+        <div class="glbmTable mb10" >
+            <!--最多发5条数据-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox tb_content1 bg_cff">
+                <tbody>
+                <tr>
+                    <th width="5%"><input class="checkedAll" type="checkbox"  name="items" id="addusers"/></th>
+                    <th width="35%" >登录名</th>
+                    <th width="30%">真实姓名</th>
+                    <th width="15%">性别</th>
+                    <th width="25%">状态</th>
+                    <th width="20%">操作</th>
+                </tr>
+                <tbody id="useradd_tbody" >
+                <tr id="useradd" clazz ='odd$'>
+                    <td width="5%"><input type="checkbox" name="addusers" value="{id}"/></td>
+                    <td width="35%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userLoginName}">{userLoginName}</td>
+                    <td width="30%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userRealName}">{userRealName}</td>
+                    <td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userSexTxt}">{userSexTxt}</td>
+                    <td width="25%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userStatusTxt}">{userStatusTxt}</td>
+                    <td width="20%">
+                        <!--<a href="###" class="ml10" onclick="edit_value('{id}','{dataPermiValue}');">编辑</a>-->
+                        <a href="###" class="ml10" onclick="deleteValueUser_sure('{id}');">删除</a>
+                        <!--<a href="###" class="ml10" onclick="showRelateUser('{id}');hide('cover','yhpz');show('cover','addReleateUser');">关联用户</a>-->
+                    </td>
+                </tr>
+
+                </tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--弹出层 表格 结束-->
+    <div class="page middle">
+        <div class="fl" id="addUserForm_f"><label>找到</label><label id="totalNum">0</label><label>条记录, 显示</label><label id="beginNum">0</label><label>到</label><label id="endNum">0</label></div>
+        <div class="fr" id="addUserForm_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="gotoUser" onkeyup="value=value.replace(/[^\d]/g,'')"
+                                                                                                                                                                                                                                                                                                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="text_c mt10 mb10"><a href="javascript:;" class="bt_blue cancel_href" onclick="hide('cover','addReleateUser');show('cover','yhpz')" id="back1"><span>返回</span></a></div>
+    <!--<div align="center"><img id="load_id" style="position:fixed;top:65%;left:50%;"  alt="加载中"/></div>-->
+</div>
+<!--用户配置 添加用户 结束-->
+
+<!--用户配置 添加用户 开始-->
+<div class="pop" id="addingUser">
+    <!--弹出层 头部定位 开始-->
+    <div class="popPR">
+        <div class="popTitle"><span class="close fr" onclick="hide('cover','addingUser')"></span><strong class="font14 fl">增加关联用户</font></strong><div class="clear"></div></div>
+        <div class="clear"></div>
+        <div class="popTOP bg_cff">
+            <div class="bg_ea mt10 mb10">
+                <p class="blue lineh30 pl10">未关联用户列表：</p>
+            </div>
+            <form id="addiingUserForm">
+                <div id="addingUsers">
+                </div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt10 bord_gray">
+                    <tr>
+                        <td align="right">登录名：&nbsp;</td>
+                        <td><input class="input_normal w160" name="userLoginName"/></td>
+                        <td align="right">真实姓名：&nbsp;</td>
+                        <td><input class="input_normal w160" name="userRealName"/></td>
+                        <td align="right"><p class="rm20">
+                            <a href="javascript:;" class="bt_blue ml20 cancel_href" id="search"><span>查询</span></a>
+                            <a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a>
+                        </p>
+                        </td>
+                    </tr>
+                    <!--<tr>-->
+                    <!--&lt;!&ndash;<td align="right">状态：&nbsp;</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<dl class="selectbox" style="z-index: 100003;">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<dt id="userStatusSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<dd id="userStatusSelect">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="sel">正常</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p>停用</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</dd>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</dl>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td align="right">性别：&nbsp;</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<dl class="selectbox" style="z-index: 1;">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<dt id="userSexSelected"><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<dd id="userSexSelect">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="sel">男</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p>女</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</dd>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</dl>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                    <!--<td align="right"><p class="rm20">-->
+                    <!--<a href="javascript:;" class="bt_blue ml20 cancel_href" id="search"><span>查询</span></a>-->
+                    <!--<a href="javascript:;" class="bt_blue ml20 cancel_href" id="reset"><span>重置</span></a>-->
+                    <!--</p>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+                </table>
+                <!--<p class="overflow text_r mt10"><a href="javascript:;" class="bt_blue ml10 cancel_href" onclick="hide('cover','addReleateUser');show('cover','yhpz')" id="grantFunc"><span>增加关联用户</span></a></p>-->
+            </form>
+
+        </div>
+    </div>
+    <!--弹出层 头部定位 结束-->
+    <!--弹出层 表格 开始-->
+    <div class="popInfoBox">
+        <div class="glbmTable mb10" >
+            <!--最多发5条数据-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_searchbox tb_content1 bg_cff">
+                <tbody>
+                <tr>
+                    <th width="5%"><input class="checkedAll" type="checkbox"  name="items" id="addusers"/></th>
+                    <th width="35%" >登录名</th>
+                    <th width="30%">真实姓名</th>
+                    <th width="15%">性别</th>
+                    <th width="25%">状态</th>
+                    <th width="20%">操作</th>
+                </tr>
+                <tbody id="useradding_tbody" >
+                <tr id="useradding" clazz ='odd$'>
+                    <td width="5%"><input type="checkbox" name="addusers" value="{userid}"/></td>
+                    <td width="35%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userLoginName}">{userLoginName}</td>
+                    <td width="30%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userRealName}">{userRealName}</td>
+                    <td width="15%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userSexTxt}">{userSexTxt}</td>
+                    <td width="25%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{userStatusTxt}">{userStatusTxt}</td>
+                    <td width="20%">
+                        <!--<a href="###" class="ml10" onclick="edit_value('{id}','{dataPermiValue}');">编辑</a>-->
+                        <!--<a href="###" class="ml10" onclick="deleteValue('{id}');">删除</a>-->
+                        <a href="###" class="ml10" onclick="toRelateUser('{id}');">关联用户</a>
+                    </td>
+                </tr>
+
+                </tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--弹出层 表格 结束-->
+    <div class="page middle">
+        <div class="fl" id="addiingUserForm_f"><label>找到</label><label id="totalNum">0</label><label>条记录, 显示</label><label id="beginNum">0</label><label>到</label><label id="endNum">0</label></div>
+        <div class="fr" id="addiingUserForm_r"><label id="first">首页</label><label id="before">上一页</label><label id="next">下一页</label><label id="end">末页</label><label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="gotoUsers" onkeyup="value=value.replace(/[^\d]/g,'')"
+                                                                                                                                                                                                                                                                                                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="text_c mt10 mb10"><a href="javascript:;" class="bt_blue cancel_href" onclick="hide('cover','addingUser');show('cover','yhpz')" id="back2"><span>返回</span></a></div>
+    <!--<div align="center"><img id="load_id" style="position:fixed;top:65%;left:50%;"  alt="加载中"/></div>-->
+</div>
+<!--用户配置 添加用户 结束-->
+
+
+
+<!--确定要删除 开始-->
+<div class="pop" id="delete" style=" width:300px;">
+    <div class="popTitle"><span class="close fr" onclick="hide('cover','delete');show('cover','yhpz')"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+    <div class="mt25 mb25">
+        <p class="text_c" id="users_dialog">确定要删除吗？</p>
+    </div>
+    <div class="text_c mt10 mb10"><a id="users_qd" href="javascript:;" class="mr10 bt_blue cancel_href" onclick=""><span>确定</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','delete');show('cover','yhpz')"><span>取消</span></a></div>
+</div>
+<!--确定要删除 结束-->
+<!--删除成功 开始-->
+<div class="pop" id="pop_deleteCg" style=" width:300px;">
+    <div class="popTitle"><a href="javascript:;" class="close fr" onclick="hide('cover','pop_deleteCg');show('cover','yhpz')" id="close"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+    <div class="mt25 mb25">
+        <p class="text_c" id="users_msg">删除成功！</p>
+    </div>
+    <div class="text_c mt10 mb10"><a href="javascript:;" id="qd" class="mr10 bt_blue cancel_href"  onclick="hide('cover','pop_deleteCg');show('cover','yhpz')"><span>确定</span></a></div>
+</div>
+<!--删除成功 结束-->
+<!--确定要删除 开始-->
+<div class="pop" id="pl_delete" style=" width:300px;">
+    <div class="popTitle"><span class="close fr" onclick="hide('cover','pl_delete')"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+    <div class="mt25 mb25">
+        <p class="text_c" id="roles_dialog">确定要删除吗？</p>
+    </div>
+    <div class="text_c mt10 mb10"><a id="roles_qd" href="javascript:;" class="mr10 bt_blue cancel_href" onclick=""><span>确定</span></a><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','pl_delete')"><span>取消</span></a></div>
+</div>
+<!--确定要删除 结束-->
+<!--删除成功 开始-->
+<div class="pop" id="deleteCg" style=" width:300px;">
+    <div class="popTitle"><a href="javascript:;" class="close fr cancel_href" onclick="hide('cover','deleteCg')" id="close"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+    <div class="mt25 mb25">
+        <p class="text_c" id="roles_msg">删除成功！</p>
+    </div>
+    <div class="text_c mt10 mb10"><a href="javascript:;" id="qd" class="mr10 bt_blue cancel_href" onclick="hide('cover','deleteCg')"><span>确定</span></a></div>
+</div>
+<!--删除成功 结束-->
+
+<!--删除成功 开始-->
+<div class="pop" id="saveCg" style="position:absolute; z-index:100002; width:880px;  border:2px solid #ccc; background:#fff; visibility:hidden;width:300px;">
+    <div class="popTitle"><a href="javascript:;" class="close fr cancel_href"  onclick="hide('cover','saveCg');window.location.reload();" ></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+    <div class="mt25 mb25">
+        <p class="text_c" id="saveCg_msg">删除成功！</p>
+    </div>
+    <div class="text_c mt10 mb10"><a href="javascript:;"  class="mr10 bt_blue cancel_href"  onclick="hide('cover','saveCg');window.location.reload();"><span>确定</span></a></div>
+</div>
+<!--删除成功 结束-->
+<!--删除成功 开始-->
+<div class="pop" id="saveValueCg" style="position:absolute; z-index:100002; width:880px;  border:2px solid #ccc; background:#fff; visibility:hidden;width:300px;">
+    <div class="popTitle"><a href="javascript:;" class="close fr cancel_href" id="saveCg_cancle_id" onclick="" ></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+    <div class="mt25 mb25">
+        <p class="text_c" id="saveValueCg_msg">删除成功！</p>
+    </div>
+    <div class="text_c mt10 mb10"><a href="javascript:;"  class="mr10 bt_blue cancel_href" id="saveCg_id" onclick=""><span>确定</span></a></div>
+</div>
+<!--删除成功 结束-->
+
+<!--确定要删除 开始-->
+<div class="pop" id="delete_sure" style=" width:300px;">
+    <div class="popTitle"><span class="close fr" id="delete_sure_span" onclick=""></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+    <div class="mt25 mb25">
+        <p class="text_c" id="delete_sure_dialog">确定要删除吗？</p>
+    </div>
+    <div class="text_c mt10 mb10"><a id="delete_sure_qd" href="javascript:;" class="mr10 bt_blue cancel_href" onclick=""><span>确定</span></a><a href="javascript:;" id="delete_sure_bqd" class="mr10 bt_blue cancel_href" onclick=""><span>取消</span></a></div>
+</div>
+<!--确定要删除 结束-->
+</body>
+
+
+</html>

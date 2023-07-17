@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>智能知识库</title>
+<link type="text/css" rel="stylesheet" href="../datePicker/css/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="../css/reset.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<link type="text/css" rel="stylesheet" href="../css/base.css" >
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../datePicker/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../datePicker/js/dateTime.js"></script>
+<script type="text/javascript" src="../js/base.js"></script>
+
+</head>
+
+<body>
+
+
+
+ <div class="wapContent">
+
+<!-- 内容  begin-->
+<div id="wapContent">
+    
+          
+
+
+<div class="content">
+     <div class="space-50">
+     	<!--<div class="return_btn"><a href="/insideEditorial/structEditing.html"><img src="../images/return.gif" height="40" width="75"></a></div>-->
+ 	 </div>
+     
+      <div class="space-10"></div>
+	<div class="UserManageLine">
+                    <span>搜索关联知识</span>
+                   
+               </div>
+     
+   <div class="transact_tc_c1">
+          <div class="space-30"></div>
+       <div class="newUserC1" style="text-align:center">
+             <div class="search_zone">
+                <input value="输入知识，关键字" type="text" >
+             </div>
+             <div class="btn_check" onclick="location.href='/insideEditorial/relateKnowledge.html'">搜索</div>
+       </div>
+          <div class="space-10"></div>
+          <div class="clr"></div>
+          <div class="space-30"></div>
+     <div class="mx_list">
+          <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table">
+                <tr>
+                    <th><input type="checkbox" id="check_all3" /></th>
+                    <th>序号</th>
+                    <th>名称</th>
+                   <!-- <th width="30%">操作</th>-->
+                   
+                </tr>
+                <tr>
+                	<td><input type="checkbox" name="checkbox04" /></td>
+                	<td>1111</td>
+                    <td>名称名称</td>
+                    
+                   <!-- <td>
+                    	
+                        <a href="javascript:;" class="blue_a add_konwledge">添加</a>
+                         <a class="blue_a del_tr1">删除</a>
+                    </td>-->
+                </tr>
+               <tr>
+                	<td><input type="checkbox" name="checkbox04" /></td>
+                    <td>1111</td>
+                    <td>名称名称</td>
+                    
+                   <!-- <td>
+                    	
+                        <a href="javascript:;" class="blue_a">添加</a>
+                        <a class="blue_a del_tr1">删除</a>
+                    </td>-->
+                </tr>
+               
+               
+            </table>
+     </div>
+     <div class="space-25"></div>
+     <div class="Pages">
+    	<a href="javascript:;" class="prevPage">上一页<i></i></a><a href="javascript:;">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a><a href="javascript:;">5</a><a href="javascript:;">6</a><a href="javascript:;">7</a><a href="javascript:;">8</a><a href="javascript:;" class="mar0">9</a><em>&#8230;</em><a href="javascript:;" class="nextPage">下一页<i></i></a><span class="marL10 marR20">共100页</span><span>到</span><input  type="text" class="pageInput fl"/><span>页</span><input  type="button" class="btn" value="确 定"/>
+       	<p class="clr"></p>
+    </div>
+    <div class="clr"></div>
+          <div class="space-30"></div>
+          <div class="certainBtn" style="margin-top:40px;">
+              <input class="marR35" value="确　定" type="button" onclick="window.close()">
+              <input class="dfdfdf" value="返 回" type="button" onclick="window.close()">
+              <div class="space-40"></div>
+              <div class="clr"></div>
+              <div class="space-40"></div>
+      </div>
+</div>
+
+
+</div>
+</div>
+</div>
+<script>
+	 //删除表格整行
+ $(".del_tr1").click(function(){
+	if(confirm("是否删除该条关联知识？"))
+	{
+		$(this).parents("tr").remove();
+	}
+	else
+	{
+		return false;
+	}
+})
+
+$(".add_konwledge").click(function(){
+	
+	$(this).text("已添加")
+})
+</script>
+</body>
+</html>

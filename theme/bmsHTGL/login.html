@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="all_box">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浙江移动电渠运营管理系统</title>
+    <script src="../../js/swiper.min.js?v=123123777111" type="text/javascript"></script>
+    <script src="../../js/jquery-1.7.2.min.js?v=123123123777111" type="text/javascript"></script>
+    <link rel="stylesheet" href="../../css/base3.css?v=123123123777111">
+    <link rel="stylesheet" href="../../css/base5.css?v=123123123777111">
+    <link rel="stylesheet" href="../../css/login.css?v=123123123777111">
+    <style>
+    *{
+    	font-family: "Microsoft YaHei";
+    }
+    .ordinary_login input:-webkit-autofill { box-shadow: 0 0 0px 1000px #fbfbfb inset;}
+    .lunbo_box {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            overflow: hidden;
+        }
+
+        #swiper1 {
+            width: 100%;
+            height: 100%;
+        }
+
+        #swiper1 .swiper-slide,
+        #swiper1 img {
+            width: 100%;
+            height: 100%;
+            z-index: 999999;
+        }
+		.swiper-pagination-bullet{
+			width: 16px!important;
+			height: 16px!important;
+			opacity: .7!important;
+		}
+
+        .footer_box {
+            height: 120px;
+            width: 100%;
+            background: #eeeeee;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+
+        .footer_box img {
+            width: 60px;
+        }
+
+        .footer_box p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .center_box {
+        	width:60%;
+        	height:120px;
+        	margin:0 auto;
+        	padding-top:20px;
+        }
+        .center_box div {
+        	float:left;
+        }
+        .center_box div:first-child+div+div {
+        	float:right;
+        	
+        }
+    </style>
+</head>
+
+<body>
+ 	<!--菊花-->
+    <div class="juhua_box" style="display:none">
+        <img src="../../images/juhuapng.gif" alt="" class="juhua j-juhua">
+    </div> 
+<!--     <img src="../../images/indexbg.png" class="gloginbg" /> -->
+    <!-- 主页index -->
+    <div class="index_box">
+        <div class="head_box">
+			<div class="j-login login_btn">点击登录</div>
+            <img src="../../images/ydlogo.png" alt="">
+            <span>浙江移动电渠运营管理系统</span>
+        </div>
+        <div class="lunbo_box">
+            <div class="swiper-container" id="swiper1">
+                <div class="swiper-wrapper swiper-no-swiping">
+                    <div class="swiper-slide color-red img_bg01">
+                        <img src="../../images/bg01.png">
+                    </div>
+                    <div class="swiper-slide color-blue img_bg02">
+                        <img src="../../images/bg02.png">
+                    </div>
+                    <div class="swiper-slide color-yellow img_bg03">
+                        <img src="../../images/bg03.png">
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+    			<div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="footer_box">
+        	<div class="center_box">
+        		<div class="oneicon">
+	                <img src="../../images/icon1.png" alt="">
+	                <p>精准运营</p>
+	            </div>
+	            <div class="twoicon">
+	                <img src="../../images/icon2.png" alt="">
+	                <p>海量数据</p>
+	            </div>
+	            <div class="threeicon">
+	                <img src="../../images/icon3.png" alt="">
+	                <p>智能分析</p>
+	            </div>
+        	</div>            
+        </div>
+    </div>
+    <!-- 主页index -->
+    <!-- 普通用户登录 -->
+    <div class="ordinary_login fn-hide">
+        <div class="login_box">
+            <div class="title_text">用户登录/User Login</div>
+            <div class="input_text">
+                <div>
+                    <img class="img11" src="../../images/user.png" alt="">
+                    <input  type="text" maxlength="18" value="请输入用户名" onfocus="javascript:if(this.value=='请输入用户名')this.value='';" onblur="javascript:if(this.value=='')this.value='请输入用户名';" class="j-name input1" name="userLoginName" autocomplete="off">
+                </div>
+                <div style="border-top:none;">
+                    <img class="img11" src="../../images/lock.png" alt="">
+                    <input  type="password" maxlength="18" value="" class="j-psw input1 inputzindex" name="userLoginPassword" autocomplete="off">
+                	<i class="pswstyle">请输入密码</i>
+                </div>
+                <div class="yzm_div" >
+                    <span class="yzm_input" style="border-top:none;">
+                        <img class="width_img" src="../../images/yzm.png" alt="" style ="height: 19px;">
+                        <input style="width:120px" type="text" maxlength="4" value="请输入验证码" onfocus="javascript:if(this.value=='请输入验证码')this.value='';" onblur="javascript:if(this.value=='')this.value='请输入验证码';" class="j-yzm" name="validCode" id="myInput">
+                    </span>
+                    <span class="yzm_img" style="cursor:pointer;">
+                        <img class="yzm_img_img" src="" alt="">
+                    </span>
+                </div>
+                <div class="j-logon logon" style="cursor:pointer;" id="myBtn">登录</div>
+            </div>
+            <div class="change_login">
+				<div class="forget_psw" id="w_j_m_m" style="cursor:pointer;"><span onclick="forget_MM()">忘记密码？</span></div>
+                <div class="change_btn j-change_foura  div_4adl" style="cursor:pointer;">使用4A账号登录</div> 
+                <div class="change_btn j-change_foura" style="cursor:pointer;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 普通用户登录 -->
+    <!-- 4A登录 -->
+    <div class="foura_login fn-hide">
+        <div class="login_box">
+            <div class="title_text">用户登录/User Login</div>
+            <div class="input_text">
+                <iframe
+                    src="http://4aportal.yw.zj.chinamobile.com/uac/web3/jsp/local/zhejiang/login.jsp?redirectUrl=http://bms-ec.yw.zj.chinamobile.com:9100/bms/homePage/list.controller&resKey=113"
+                    width="340" height="260" frameborder="0" scrolling="no" style="left: 150"
+                    allowTransparency="true"></iframe>
+            </div>
+            <div class="change_login">
+				 <div class="forget_psw">技术咨询群：362320633</div>
+                 <div class="change_btn j-change_ord  div_ptzhdl" style="cursor:pointer;">使用普通账号登录</div> 
+                 <div class="change_btn j-change_ord" style="cursor:pointer;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 4A登录 -->
+    <script src="../../js/des2.js?v=123"></script>
+</body>
+
+</html>

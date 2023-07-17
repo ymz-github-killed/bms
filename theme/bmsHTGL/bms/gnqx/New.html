@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+
+<body style=" background:#fff">
+
+
+
+
+	<div class="lineh30"><span>功能权限</span>&nbsp;&gt;&nbsp;<span>增加功能模块</span></div>
+     <div class="mt10 mb10"><a href="gnqx.html" class="mr10 bt_blue" target="_parent"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue" onclick="show('cover','bccg')"><span>保存</span></a></div>
+    <div class="bord_gray padd_10 pb30 mt20">
+        <!--功能名称 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>功能名称：</span></p>
+            <div class="fl rightInfo rightInfo_2 middle"><input type="text" class="text_1" value="13800001234" maxlength="20"/><span class="red ml10">最大长度为20字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--功能名称 结束-->
+        <!--显示图标 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span class="red">*</span><span>显示图标：</span></p>
+            <div class="fl rightInfo rightInfo_2 middle"><input type="text" class="text_1" value="/images/lp.png" /></div>
+            <div class="clear"></div>
+        </div>
+        <!--显示图标 结束-->
+        <!--顺序值 开始-->
+        <div class="mt10 gnSXYC">
+        	<p class="fl leftName middle"><span class="red">*</span><span>顺序值：</span></p>
+            <div class="fl rightInfo rightInfo_2 middle"><input type="text" class="text_1" value="" /></div>
+            <div class="clear"></div>
+        </div>
+        <!--顺序值 结束-->
+        <!--是否菜单 所属应用 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>是否菜单：</span></p>
+            <div class="fl rightInfo rightInfo_2 middle">
+            	<dl class="selectbox fl" style="z-index: 1;">
+					<dt><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+					<dd>
+						<p class="sel" id="cdYes">是</p>
+						<p id="cdNo">否</p>
+					</dd>
+				</dl>
+                <p class="fl leftName leftName_2 middle"><span>所属应用：</span></p>
+            	<dl class="selectbox fl" style="z-index: 1;">
+					<dt><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+					<dd>
+						<p class="sel">payment3_2_1</p>
+						<p>payment2_2_1</p>
+					</dd>
+				</dl>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <!--是否菜单 所属应用 结束-->
+        <!--菜单地址 开始-->
+        <div class="mt10 gnSXYC">
+        	<p class="fl leftName middle"><span>菜单地址：</span></p>
+            <div class="fl rightInfo rightInfo_2 middle"><input type="text" class="text_1" value="" /></div>
+            <div class="clear"></div>
+        </div>
+        <!--菜单地址 结束-->
+        <!--描述 开始-->
+        <div class="mt10">
+        	<p class="fl leftName middle"><span>描述：</span></p>
+            <div class="fl rightInfo rightInfo_2 midTop"><textarea class="textarea_1" maxlength="200"></textarea><span class="red ml10">可以为空，如果不为空，最大长度为200字符！</span></div>
+            <div class="clear"></div>
+        </div>
+        <!--描述 结束-->
+        <!--是否外部地址 提交方式 开始-->
+        <div class="mt10 gnSXYC">
+        	<p class="fl leftName middle"><span>是否外部地址：</span></p>
+            <div class="fl rightInfo rightInfo_2 middle">
+            	<dl class="selectbox fl" style="z-index: 1;">
+					<dt><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+					<dd>
+						<p class="sel">是</p>
+						<p>否</p>
+					</dd>
+				</dl>
+                <p class="fl leftName leftName_2 middle"><span>提交方式：</span></p>
+            	<dl class="selectbox fl" style="z-index: 1;">
+					<dt><span class="fleft">请选择</span><span class="fright">&nbsp;</span></dt>
+					<dd>
+						<p class="sel">GET</p>
+						<p>GRTRE</p>
+					</dd>
+				</dl>
+                <p class="fl leftName leftName_2 middle"><span>适配器编号：</span></p>
+            	<p class="fl"><input type="text" class="text_4" value="SSOLogin" /></p>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <!--是否外部地址 提交方式 结束-->
+        <div class="gnTab undis">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt15 tb_content1">
+                <tr>
+                <th>key值</th>
+                <th>名称</th>
+                <th>URL</th>
+                <th>审计点</th>
+                <th>操作</th>
+                </tr>
+                <tr>
+                <td><input type="text" class="text_4" value="" /></td>
+                <td><input type="text" class="text_4" value="" /></td>
+                <td><input type="text" class="text_4" value="" /></td>
+                <td><input type="text" class="text_4" value="" /></td>
+                <td><a href="javascript:;" class="ml10 delTR">删除</a></td>
+                </tr>
+                <tr>
+                <td colspan="5"><p class="text_r"><a href="javascript:;" class="mr10 bt_blue addTR" style=" text-decoration:none"><span>添加行</span></a></p></td>
+                </tr>
+            </table>
+            <div class="page middle">
+                <div class="fl"><label>找到</label><label>3</label><label>条记录, 显示</label><label>1</label><label>到</label><label>3</label></div>
+                <div class="fr"><label>首页</label><label>上一页</label><label>下一页</label><label>末页</label><input type="text" class="text_8" onkeyup="value=value.replace(/[^\d]/g,'')" 
+									    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue"><span>GO</span></a></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+     <div class="mt10 mb10"><a href="gnqx.html" class="mr10 bt_blue" target="_parent"><span>返回</span></a><a href="javascript:;" class="mr10 bt_blue"><span>重置</span></a><a href="javascript:;" class="mr10 bt_blue" onclick="show('cover','bccg')"><span>保存</span></a></div>
+
+
+
+</body>
+<script type="text/javascript">
+$(function(){
+	//添加行 按钮效果 开始
+	$(".addTR").click(function(){
+		var htmlText = "<tr><td><input type='text' class='text_4' value='' /></td><td><input type='text' class='text_4' value='' /></td><td><input type='text' class='text_4' value='' /></td><td><input type='text' class='text_4' value='' /></td><td><a href='javascript:;' class='ml10 delTR'>删除</a></td></tr>";
+		$(this).parent().parent().parent().before(htmlText);	
+		$(".tb_content1 tr:even").removeClass("odd");  
+	$(".tb_content1 tr:odd").addClass("odd");
+	});
+	//添加行 按钮效果 结束
+	//删除行 按钮效果 开始
+	$("body").on("click",".delTR",function(){
+		$(this).parent().parent().remove();
+		$(".tb_content1 tr:even").removeClass("odd");  
+	$(".tb_content1 tr:odd").addClass("odd");
+		 
+	})
+	//删除行 按钮效果 结束
+	//是否菜单 选值效果 切换 开始
+	$("#cdYes").click(function(){
+		$(".gnSXYC").show();
+		$(".gnTab").hide();				   
+	});
+	$("#cdNo").click(function(){
+		$(".gnSXYC").hide();
+		$(".gnTab").show();				   
+	})
+	//是否菜单 选值效果 切换 结束
+})
+</script>
+</html>

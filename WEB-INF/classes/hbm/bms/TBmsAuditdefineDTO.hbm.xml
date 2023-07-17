@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="com.sinovatech.bms.adm.model.dto.TBmsAuditdefineDTO"  table="BMS_AuditDefine" >
+		<comment>审计日志定义</comment>
+		<id name="id"  type="java.lang.String" >
+			<column  name="ID"  length="32"  />
+			<generator class="uuid.hex" />
+		</id>
+		<property  name="editTime"  type="java.util.Date" >
+			<column  name="edit_time" >
+				<comment>编辑时间</comment>
+			</column>
+		</property>
+
+		<property  name="auditOperate"  type="java.lang.String" >
+			<column  name="audit_Operate"  length="256" >
+				<comment>操作名称</comment>
+			</column>
+		</property>
+
+		<property  name="auditUrl"  type="java.lang.String" >
+			<column  name="audit_url"  length="256" >
+				<comment>URI地址</comment>
+			</column>
+		</property>
+
+		<property  name="appCode"  type="java.lang.String" >
+			<column  name="audit_App"  length="256" >
+				<comment>所属应用</comment>
+			</column>
+		</property>
+
+		<property  name="sucessfulTemplate"  type="java.lang.String" >
+			<column  name="sucessful_Template"  length="2000" >
+				<comment>是否成功判定</comment>
+			</column>
+		</property>
+
+		<property  name="auditEntry"  type="java.lang.String" >
+			<column  name="audit_Entry"  length="256" >
+				<comment>操作实体</comment>
+			</column>
+		</property>
+
+		<property  name="descTemplate"  type="java.lang.String" >
+			<column  name="desc_Template"  length="2000" >
+				<comment>操作描述模板</comment>
+			</column>
+		</property>
+		
+		<property  name="rscResourceId"  type="java.lang.String" >
+			<column  name="rsc_resourceId"  length="32" >
+				<comment>操作描述模板</comment>
+			</column>
+		</property>
+		
+		<property name="bmsStatus" type="java.lang.String">
+			<column name="BMS_STATUS" length="1">
+				<comment>状态：1正常，0删除</comment>
+			</column>
+		</property>
+
+	</class>
+</hibernate-mapping>

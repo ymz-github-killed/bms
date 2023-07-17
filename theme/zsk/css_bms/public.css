@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* CSS Document */
+/*面包屑*/
+
+body{ color:#000;}
+.route{border-bottom: 2px solid #cccccc;height:30px;line-height:30px; padding-left:20px;}
+.mainBox{min-width:696px;_width:696px; margin:0px 15px; padding:0px 0px 20px; margin-top:0px;}
+.mainBox_2{width:696px; margin-top:0px; float:left;min-height:500px;}
+textarea{overflow-y:scroll}
+
+/*搜索栏表格*/
+/*.tb_searchbox{ line-height:32px; }*/
+.tb_searchbox td{ padding:10px 0; font-size:12px;}
+.input_normal{ border:1px solid #dfdfdf; height:20px; line-height:20px;}
+.text_1{ width:375px; height:20px; border:1px solid #dfdfdf}
+.text_2{ width:300px; height:20px; border:1px solid #dfdfdf}
+.text_3{ width:180px; height:20px; border:1px solid #dfdfdf}
+.text_4{ width:100px; height:20px; border:1px solid #dfdfdf}
+.text_8{ width:30px; height:20px; border:1px solid #dfdfdf}
+.textarea_1{ width:375px; height:80px; border:1px solid #dfdfdf}
+
+/*下拉框*/
+.selectbox{ width:170px; position: relative; border:1px solid #dfdfdf; height:20px; line-height:20px; background:#fff;cursor:pointer}
+.selectbox dt{ padding-left:10px;height:20px }
+.selectbox dt span.fright{ display:inline-block; float:right; width:20px; border-left:1px solid #ccc; background:url(images/public.png) no-repeat -5px -6px}
+.selectbox dt span.fleft{ float:left;display:inline-block; height:20px; width:136px}
+.selectbox dd{ display:none; position:absolute; left:-1px; top:18px; background:#fff; border:1px solid #dfdfdf; line-height:20px; width:170px}
+.selectbox dd p{ padding-left:10px; _width:160px;overflow: hidden;}
+.selectbox dd p.sel{ background:#dc0000; color:#fff}
+
+/*共用按钮*/
+a.bt_blue{ background:#dc0000;  display: inline-block;  height: 25px; padding-right:11px; cursor:pointer;-moz-border-radius:3px; -webkit-border-radius:3px;border-radius:3px;}
+a.bt_blue span{ display: inline-block;  height: 25px; line-height:24px; padding-left: 11px; color:#fff}
+
+
+/*数据表格*/
+.tb_content1{border-left:1px solid #e3e3e3; border-top:1px solid #e3e3e3; }
+.tb_content1 th,.tb_content1 td{ border-right:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;text-align:center; font-size:12px;}
+.tb_content1 th{ font-variant:bold; padding:6px 0; font-size:12px;}
+.tb_content1 a{ color:#0085d0; text-decoration:underline;}
+.tb_content1 .odd td{ background:#f9f9f9}
+
+/*表格内按钮重写*/
+.tb_content1 span.bt_blue{ padding-right:7px;}
+.tb_content1 span.bt_blue span{padding-left:8px;}
+.tb_content1 span.bt_blue{ padding-right: 7px;}
+.tb_content1 span.bt_blue span{ padding-left:8px;}
+
+/*分页*/
+.page{ line-height:37px; color:#dc0000; text-align:center; margin-top:10px; padding:0 10px;}
+.page label,.page input{ margin:0 3px;}
+.page .fr label{ cursor:pointer}
+
+/*对齐方式*/
+.text_l{ text-align:left;}
+.text_r{ text-align:right;}
+.text_c{ text-align:center;}
+.middle a,.middle span,.middle label,.middle input,.middle img,.middle strong{ vertical-align:middle}
+.midTop a,.midTop span,.midTop label,.midTop input,.midTop img,.midTop strong,.midTop textarea{ vertical-align:top}
+
+/*弹出窗口*/
+#cover{ position:absolute; z-index:10000; background:#888; opacity:0.6;filter:alpha(opacity=60); visibility:hidden; top:0; left:0}
+#coverBox{position:absolute; z-index:10010; background:#000; opacity:0.3;filter:alpha(opacity=30);display:none; top:0; left:0}
+.pop{ position:absolute; z-index:100002; width:880px;  border:1px solid #dfdfdf; background:#fff; top:0; left:0; visibility:hidden;}
+.popPR{ position:relative;}
+.popTOP{ width:843px; position:absolute; left:10px; top:32px;}
+.popTitle{ height:32px; line-height:32px; background:#dc0000; padding:0 10px; color:#fff}
+.popInfoBox{ overflow-y:scroll; overflow-x:hidden; padding:10px; width:860px; }
+.popInfoBox table{ _width:843px; *width:843px;}
+.popTable{ overflow-y:auto; overflow-x:hidden;}
+.close{width:15px; height:10px; display:inline-block; margin-top:10px; cursor:pointer; background:url(images/close.gif) no-repeat left top}
+.glbmTable{ height:328px;}
+.w271{ height:271px;}
+.titleLeft,.titleRight{ display:inline-block; width:9px; height:36px; background:url(images/public.png) no-repeat;}
+.titleLeft{ background-position:-72px 0px;}
+.titleRight{ background-position:-87px 0px;}
+.titleCent{ width:292px; height:34px; line-height:34px; display:inline-block; background:#f9f9f9; border:1px solid #dfdfdf; border-left:none; border-right:none}
+
+/*背景颜色*/
+.bg_ea{ background:#eaeaea}
+.bg_cff{ background:#fff}
+.hand{ cursor:pointer}
+
+
+

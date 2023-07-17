@@ -1,0 +1,191 @@
+<!--#include virtual="/include/header.html"-->
+
+
+
+<div class="content">
+     <div class="space-50"></div>
+     <div class="manageNav">
+          <ul class="manageNavLi">
+              <li><a href="/systemManage/index.html">用户管理</a></li>
+              <li><a href="/systemManage/roleManage.html">角色管理</a></li>
+              <li class="on"><a href="/systemManage/rightsManag.html">权限管理</a></li> 
+              <li><a href="/systemManage/outsideApplication.html">外部应用</a></li>
+              <li><a href="/systemManage/safeSet.html">安全设置</a></li>
+              <li><a href="/systemManage/luckUser.html">用户锁定</a></li>
+              <li><a href="/systemManage/mouldManage.html">模版管理</a></li>
+          </ul>
+     </div>
+     
+     <div class="space-30"></div>
+     <div class="overflow">
+         <input class="rightsinput1" type="button" value="新增权限" onclick="window.location.href='rightsManagNew.html'" />
+         <input class="rightsinput2" type="button" value="导出" />
+         <input class="rightsinput2" type="button" value="导入" />
+     </div>
+     <div class="space-30"></div>
+     <div class="rightsBox">
+     
+     	<div class="rightsBox_navbox">
+        	<div class="rightsBox_nav">
+            	<div>知识列表</div>
+                <ul>
+                	<li><p>查看</p></li>
+                    <li><p>修改</p></li>
+                    <li><p>删除</p></li>
+                    <li><p>审核</p></li>
+                </ul>
+            </div>
+            <div class="rightsBox_nav">
+            	<div>外部采编</div>
+                <ul>
+                	<li><p>查看</p></li>
+                    <li><p>修改</p></li>
+                    <li><p>删除</p></li>
+                    <li><p>审核</p></li>
+                </ul>
+            </div>
+            <div class="rightsBox_nav">
+            	<div>操作日志</div>
+                <ul>
+                	<li><p>查看</p></li>
+                    <li><p>修改</p></li>
+                    <li><p>删除</p></li>
+                    <li><p>审核</p></li>
+                </ul>
+            </div>
+            <div class="rightsBox_nav">
+            	<div>系统管理</div>
+            	<ul>
+                	<li>
+                    	<p id="one1" onclick="setTab('one',1,2)">用户管理</p>
+                    	<p id="one2" onclick="setTab('one',2,2)" class="nextlevel">查看</p>
+                        <p class="nextlevel">修改</p>
+                        <p class="nextlevel">删除</p>
+                        <p class="nextlevel">审核</p>
+                    </li>
+                    <li>
+                    	<p>模版管理</p>
+                    	<p class="nextlevel">查看</p>
+                        <p class="nextlevel">修改</p>
+                        <p class="nextlevel">删除</p>
+                        <p class="nextlevel">审核</p>
+                    </li>
+                    <li>
+                    	<p>角色管理</p>
+                    	<p class="nextlevel">查看</p>
+                        <p class="nextlevel">修改</p>
+                        <p class="nextlevel">删除</p>
+                        <p class="nextlevel">审核</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <div class="rightsBox_cont" id="con_one_1">
+        	<div class="rightsBox_cont_tit">
+            	<span>基本信息</span>
+                <a href="rightsManagNew.html">修改</a>
+                <a href="rightsManagView.html">查看</a>
+            </div>
+            <div class="rightsBox_cont_nr">
+            	<dl>
+                	<dt>功能名称：</dt>
+                    <dd>用户管理</dd>
+                </dl>
+                <dl>
+                	<dt>是否菜单：</dt>
+                    <dd>是</dd>
+                </dl>
+                <dl>
+                	<dt>顺 序 值：</dt>
+                    <dd>1</dd>
+                </dl>
+                <dl>
+                	<dt>所属应用：</dt>
+                    <dd>用户管理</dd>
+                </dl>
+                <dl>
+                	<dt>描　　述：</dt>
+                    <dd>无</dd>
+                </dl>
+                <dl>
+                	<dt>url 值：</dt>
+                    <dd>admin/app!main.do</dd>
+                </dl>
+            </div>
+        </div>
+        
+        <div class="rightsBox_cont" style="display:none;" id="con_one_2">
+        	<div class="rightsBox_cont_tit">
+            	<span>基本信息</span>
+                <a href="rightsManagNew.html">修改</a>
+                <a href="rightsManagView2.html">查看</a>
+            </div>
+            <div class="rightsBox_cont_nr">
+            	<dl>
+                	<dt>功能名称：</dt>
+                    <dd>用户管理查看</dd>
+                </dl>
+                <dl>
+                	<dt>是否菜单：</dt>
+                    <dd>否</dd>
+                </dl>
+                <dl>
+                	<dt>顺 序 值：</dt>
+                    <dd>1</dd>
+                </dl>
+                <dl>
+                	<dt>所属应用：</dt>
+                    <dd>用户管理</dd>
+                </dl>
+                <dl>
+                	<dt>描　　述：</dt>
+                    <dd>无</dd>
+                </dl>
+                <dl>
+                	<dt>url 值：</dt>
+                    <dd>admin/app!main.do</dd>
+                </dl>
+            </div>
+            <div class="space-30"></div>
+            <div class="rightsBox_cont_tit">
+            	<span>对应权限</span>
+            </div>
+            <div class="space-10"></div>
+           <table cellpadding="0" cellspacing="0" border="0" class="mx_list_table" style="width:96%;margin:0 auto;">
+                <tr>
+                    <th>key</th>
+                    <th>名称</th>
+                    <th>url</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                	<td>sdfsdf</td>
+                    <td>admin</td>
+                    <td>&nbsp;</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td>sdfsdf</td>
+                    <td>admin</td>
+                    <td>&nbsp;</td>
+                    <td>
+                    	<a href="javascript:void(0);" class="blue_a del_tr">删除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+     </div>
+     <div class="space-30"></div>
+</div>
+
+<div class="clr"></div>
+<div class="space-40"></div>
+</div>
+</div>
+</body>
+</html>

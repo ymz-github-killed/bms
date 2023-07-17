@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <!-- Cms adapter implements com.sinovatech.bms.integration.ISystemLoginIntegration -->
+    <bean id="cmsLoginAdapter" class="com.sinovatech.bms.integration.CmsLoginAdapter">
+    </bean>
+
+
+    <!-- list user adapter -->
+    <bean id="listUsers" class="com.sinovatech.bms.integration.impl.UserListAdapterImpl">
+        <property name="myBmsUserFacade">
+            <ref bean="myBmsUserFacade"/>
+        </property>
+    </bean>
+
+    <!-- list locations adapter -->
+    <bean id="listLocations"
+          class="com.sinovatech.bms.integration.impl.LocationListAdapterImpl">
+        <property name="myBmsLocationFacade">
+            <ref bean="myBmsLocationFacade"/>
+        </property>
+    </bean>
+
+    <!-- select user info by userid -->
+    <bean id="getUserInfo"
+          class="com.sinovatech.bms.integration.impl.GetUserInfoAdapterImpl">
+        <property name="myBmsUserFacade">
+            <ref bean="myBmsUserFacade"/>
+        </property>
+    </bean>
+
+
+    <!-- list user by locationid adapter -->
+    <bean id="listUsersByLocationid"
+          class="com.sinovatech.bms.integration.impl.ListUserByLocationidAdapterImpl">
+        <property name="myBmsUserFacade">
+            <ref bean="myBmsUserFacade"/>
+        </property>
+    </bean>
+
+    <bean id="listUsersBydeptid"
+          class="com.sinovatech.bms.integration.impl.ListUserWithDeptidAdapterImpl">
+        <property name="myBmsUserFacade">
+            <ref bean="myBmsUserFacade"/>
+        </property>
+    </bean>
+
+    <!-- list all depts -->
+    <bean id="listAllDepts"
+          class="com.sinovatech.bms.integration.impl.ListAllDeptsAdapterImpl">
+        <property name="myBmsDeptFacade">
+            <ref bean="myBmsDeptFacade"/>
+        </property>
+    </bean>
+
+
+    <!-- list all depts -->
+    <bean id="SSOLogin" class="com.sinovatech.bms.integration.SSOLogin">
+    </bean>
+
+
+    <bean class="com.sinovatech.bms.service.impl.ImplAuditSendProcess"
+          scope="prototype" id="myImplAuditSendProcess">
+        <property name="bmsAuditlogFacade" ref="myBmsAuditlogFacade"></property>
+    </bean>
+
+    <bean class="com.sinovatech.bms.service.impl.ImplQueryAuditUriProcess"
+          scope="prototype" id="myImplQueryAuditUriProcess">
+        <property name="bmsAuditdefineDao" ref="myBmsAuditdefineDAO"></property>
+    </bean>
+
+    <bean id="myImplQueryAuthUriProcess" class="com.sinovatech.bms.service.impl.ImplQueryAuthUriProcess"
+          scope="prototype">
+        <property name="rscResourceDAO" ref="myBmsRscResourceDAO"></property>
+    </bean>
+
+
+    <bean id="myImplSSOAuthProcess" class="com.sinovatech.bms.service.impl.ImplSSOAuthProcess"
+          scope="prototype">
+        <property name="userRegister" ref="mySessionUserRegister"></property>
+        <property name="myBmsRoleDomainrightFacade">
+            <ref bean="myBmsRoleDomainrightFacade"/>
+        </property>
+    </bean>
+
+
+    <bean id="myImplUserFuncAuthProcess" class="com.sinovatech.bms.service.impl.ImplUserFuncAuthProcess"
+          scope="prototype">
+        <property name="userRegister" ref="mySessionUserRegister"></property>
+    </bean>
+
+    <bean id="myImplQueryDomianValueProcess"
+          class="com.sinovatech.bms.service.impl.ImplQueryDomianValueProcess"
+          scope="prototype">
+        <property name="myBmsDomainFacade" ref="myBmsDomainFacade"></property>
+    </bean>
+
+    <bean id="myImplQueryUserDFRigthProcess"
+          class="com.sinovatech.bms.service.impl.ImplQueryUserDFRigthProcess"
+          scope="prototype">
+        <property name="myBmsDomainFacade" ref="myBmsDomainFacade"></property>
+    </bean>
+
+    <bean id="myImplQueryRoleUsersProcess"
+          class="com.sinovatech.bms.service.impl.ImplQueryRoleUsersProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+    </bean>
+
+    <bean id="myImplQueryLocationRoleUsersProcess"
+          class="com.sinovatech.bms.service.impl.ImplQueryLocationRoleUsersProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+    </bean>
+
+    <bean id="myImplQueryLocationsProcess"
+          class="com.sinovatech.bms.service.impl.ImplQueryLocationsProcess"
+          scope="prototype">
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplUpdatePwdProcess"
+          class="com.sinovatech.bms.service.impl.ImplUpdatePwdProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+    </bean>
+    <bean id="myImplUpdatePwdProcessId"
+          class="com.sinovatech.bms.service.impl.ImplUpdateLoginPwdProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+    </bean>
+    <bean id="myImplQueryUserByMobileProcess"
+          class="com.sinovatech.bms.service.impl.ImplQueryUserByMobileProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+    </bean>
+    <bean id="myImplAddOrEditUserProcess"
+          class="com.sinovatech.bms.service.impl.ImplAddOrEditUserProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsWebappFacade" ref="myBmsWebappFacade"></property>
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplAddLocationProcess"
+          class="com.sinovatech.bms.service.impl.ImplAddLocationProcess"
+          scope="prototype">
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplDelLocationProcess"
+          class="com.sinovatech.bms.service.impl.ImplDelLocationProcess"
+          scope="prototype">
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplDeleUserProcess"
+          class="com.sinovatech.bms.service.impl.ImplDeleUserProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+    </bean>
+
+    <bean id="myImplQueryCanButtonProcess"
+          class="com.sinovatech.bms.service.impl.ImplQueryCanButtonProcess"
+          scope="prototype">
+        <property name="myBmsRscFuncFacade" ref="myBmsRscFuncFacade"></property>
+    </bean>
+
+    <bean id="myImplQueryUserUrlProcess"
+          class="com.sinovatech.bms.service.impl.ImplQueryUserUrlProcess"
+          scope="prototype">
+        <property name="myBmsRscFuncFacade" ref="myBmsRscFuncFacade"></property>
+    </bean>
+
+    <bean id="myImplAddDomainvalueProcess"
+          class="com.sinovatech.bms.service.impl.ImplAddDomainvalueProcess"
+          scope="prototype">
+        <property name="myBmsDomainFacade" ref="myBmsDomainFacade"></property>
+        <property name="myBmsDomainvalueFacade" ref="myBmsDomainvalueFacade"></property>
+    </bean>
+
+    <bean id="myImplRoleGrantDomainProcess"
+          class="com.sinovatech.bms.service.impl.ImplRoleGrantDomainProcess"
+          scope="prototype">
+        <property name="myBmsDomainvalueFacade" ref="myBmsDomainvalueFacade"></property>
+        <property name="myBmsDomainFuncFacade" ref="myBmsDomainFuncFacade"></property>
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+        <property name="myBmsRoleDomainrightFacade" ref="myBmsRoleDomainrightFacade"></property>
+    </bean>
+
+    <bean id="myImplAddUserListProcess" class="com.sinovatech.bms.service.impl.ImplAddUserListProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsWebappFacade" ref="myBmsWebappFacade"></property>
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplEditUserListProcess" class="com.sinovatech.bms.service.impl.ImplEditUserListProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsWebappFacade" ref="myBmsWebappFacade"></property>
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplDelUserListProcess" class="com.sinovatech.bms.service.impl.ImplDelUserListProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+    </bean>
+
+    <bean id="myImplAddRoleListProcess" class="com.sinovatech.bms.service.impl.ImplAddRoleListProcess"
+          scope="prototype">
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplEditRoleListProcess" class="com.sinovatech.bms.service.impl.ImplEditRoleListProcess"
+          scope="prototype">
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplFourAProcess" class="com.sinovatech.bms.service.impl.ImplFourAProcess" scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsWebappFacade" ref="myBmsWebappFacade"></property>
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+        <property name="myBmsUserRoleFacade" ref="myBmsUserRoleFacade"></property>
+    </bean>
+    
+   	<bean id="myImplQueryDeptByUserIdProcess" class="com.sinovatech.bms.service.impl.ImplQueryDeptByUserIdProcess" scope="prototype">
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+    
+    <bean id="myImplQueryDataColumnProcess" class="com.sinovatech.bms.service.impl.ImplQueryDataColumnProcess"
+    	  scope="prototype">
+    </bean>
+
+    <bean id="myImplQueryPermiValueProcess" class="com.sinovatech.bms.service.impl.ImplQueryPermiValueProcess"
+          scope="prototype">
+    </bean>
+
+    <!-- 商户中心接口 START-->
+
+    <bean id="myImplUpdateShopUserRoleProcess"
+          class="com.sinovatech.bms.service.impl.ImplUpdateUserRoleListForShopProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsUserRoleFacade" ref="myBmsUserRoleFacade"></property>
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+    </bean>
+
+    <bean id="myImplAddOrEditShopUserProcess" class="com.sinovatech.bms.service.impl.ImplAddOrEditShopUserProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsUserRoleFacade" ref="myBmsUserRoleFacade"></property>
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+    </bean>
+
+    <bean id="myImplDelShopUserProcess" class="com.sinovatech.bms.service.impl.ImplDelShopUserProcess"
+          scope="prototype">
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsUserRoleFacade" ref="myBmsUserRoleFacade"></property>
+    </bean>
+
+    <bean id="myImplUpdateUserRoleListForShopProcess" class="com.sinovatech.bms.service.impl.ImplUpdateUserRoleListForShopProcess"
+          scope="prototype">
+        <property name="myBmsUserRoleFacade" ref="myBmsUserRoleFacade"></property>
+        <property name="myBmsUserFacade" ref="myBmsUserFacade"></property>
+        <property name="myBmsLocationFacade" ref="myBmsLocationFacade"></property>
+        <property name="myBmsRoleFacade" ref="myBmsRoleFacade"></property>
+    </bean>
+
+    <!-- 商户中心接口 END-->
+
+    <!-- 新增处理 -->
+    <bean class="java.util.HashMap" id="processMap">
+        <constructor-arg>
+            <map>
+                <!--商户中心接口 START -->
+                <!-- 商户中心更新用户角色 -->
+                <entry key="UpdateRoleForShop" value-ref="myImplUpdateShopUserRoleProcess"/>
+                <!-- 商户中心新增或修改商户-->
+                <entry key="AddOrEditShopUser" value-ref="myImplAddOrEditShopUserProcess"></entry>
+                <!-- 商户中心删除商户-->
+                <entry key="DelUserForShop" value-ref="myImplDelShopUserProcess"></entry>
+                <entry key="BatchUpdateUserRoleForShop" value-ref="myImplUpdateUserRoleListForShopProcess"></entry>
+
+
+                <!--商户中心接口 END -->
+
+                <!-- 审计日志传送 -->
+                <entry key="AuditSend" value-ref="myImplAuditSendProcess"/>
+                <!-- 审计路径查询 -->
+                <entry key="QueryAuditUri" value-ref="myImplQueryAuditUriProcess"/>
+                <!-- 鉴权路径查询 -->
+                <entry key="QueryAuthUri" value-ref="myImplQueryAuthUriProcess"/>
+                <!-- SSO认证 -->
+                <entry key="SSOAuth" value-ref="myImplSSOAuthProcess"/>
+                <!-- 用户权限验证 -->
+                <entry key="UserFuncAuth" value-ref="myImplUserFuncAuthProcess"/>
+                <!-- 字典值查询 -->
+                <entry key="QueryDomianValue" value-ref="myImplQueryDomianValueProcess"/>
+                <!-- 数据权限查询 -->
+                <entry key="QueryUserDFRigth" value-ref="myImplQueryUserDFRigthProcess"/>
+                <!-- 角色下的管理用户查询 -->
+                <entry key="QueryRoleUsers" value-ref="myImplQueryRoleUsersProcess"/>
+                <!-- 查询部门或角色下的用户 -->
+                <entry key="QueryLocationRoleUsers" value-ref="myImplQueryLocationRoleUsersProcess"/>
+                <!-- 查询子部门 -->
+                <entry key="QueryLocations" value-ref="myImplQueryLocationsProcess"/>
+                <!-- add location -->
+                <entry key="AddLocation" value-ref="myImplAddLocationProcess"/>
+                <!--  del location by applyid -->
+                <entry key="DelLocation" value-ref="myImplDelLocationProcess"/>
+                <!-- 修改密码 -->
+                <entry key="UpdatePwd" value-ref="myImplUpdatePwdProcess"/>
+				<!-- 修改密码通过id -->
+                <entry key="UpdatePwdId" value-ref="myImplUpdatePwdProcessId"/>
+                <!-- 通过手机号查询 -->
+                <entry key="QueryUserMobile" value-ref="myImplQueryUserByMobileProcess"/>
+                <!-- 注册或修改用户 -->
+                <entry key="AddOrEditUser" value-ref="myImplAddOrEditUserProcess"/>
+                <!-- 删除用户信息 -->
+                <entry key="DeleUser" value-ref="myImplDeleUserProcess"></entry>
+                <!-- 查询可访问的按钮权限 -->
+                <entry key="QueryCanButton" value-ref="myImplQueryCanButtonProcess"></entry>
+                <!-- 查询用户所有权限 -->
+                <entry key="QueryUserUrl" value-ref="myImplQueryUserUrlProcess"></entry>
+                <!-- 新增数据字典，暂时只支持列表 -->
+                <entry key="AddDomainvalue" value-ref="myImplAddDomainvalueProcess"></entry>
+                <!-- 给角色授权数据权限 -->
+                <entry key="RoleGrantDomain" value-ref="myImplRoleGrantDomainProcess"></entry>
+
+                <!-- 批量添加角色 -->
+                <entry key="AddRoleList" value-ref="myImplAddRoleListProcess"></entry>
+                <!-- 批量修改角色 -->
+                <entry key="EditRoleList" value-ref="myImplEditRoleListProcess"></entry>
+
+                <!-- 批量添加账号 -->
+                <entry key="AddUserList" value-ref="myImplAddUserListProcess"></entry>
+                <!-- 批量修改账号 -->
+                <entry key="EditUserList" value-ref="myImplEditUserListProcess"></entry>
+                <!-- 批量删除账号 -->
+                <entry key="DelUserList" value-ref="myImplDelUserListProcess"></entry>
+                <!-- 4a接口 -->
+                <entry key="ImplFourAProcess" value-ref="myImplFourAProcess"></entry>
+                <!-- 根据用户查询部门接口 -->
+                <entry key="ImplQueryDeptByUserIdProcess" value-ref="myImplQueryDeptByUserIdProcess"></entry>
+				<!-- 数据列查询接口 -->
+				<entry key="ImplQueryDataColumnProcess" value-ref="myImplQueryDataColumnProcess"></entry>
+
+                <!--数据权限-->
+                <entry key="ImplQueryPermiValueProcess" value-ref="myImplQueryPermiValueProcess"></entry>
+
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="integrationService" class="com.sinovatech.bms.service.ImplIntegrationService">
+        <property name="map" ref="processMap"></property>
+    </bean>
+
+
+    <bean id="mySessionUserRegister" class="com.sinovatech.bms.adm.model.facade.SessionUserRegister"></bean>
+
+
+</beans>

@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../css/base.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/public.css?v=123"/>
+<link rel="stylesheet" type="text/css" href="../../css/mianBox.css?v=123"/>
+<script src="../../js/title.js?v=123" type="text/javascript"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=123" type="text/javascript"></script>
+<script src="../../js/public.js?v=123" type="text/javascript"></script>
+</head>
+<body class="bg_cff">
+<div class="mainBox">
+<div class="route"><span>样式维护</span></div>
+    <p class="overflow text_r mt10"><a href="javascript:;" id="download" class="bt_blue ml20  cancel_href"><span>下载模板</span></a><a href="javascript:;" class="bt_blue ml10  cancel_href" id="import" ><span>导入样式</span></a></p>
+   	<form id="search" method="get">
+   	<p><font color="red">*使用新增样式需重启系统生效！</font></p>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mt15 tb_content1">
+      <tr>
+      	<th>样式编码</th>
+        <th>样式名称</th>
+        <th>导入时间</th>
+        <th>操作者</th>
+        <th>操作</th>
+      </tr>
+      <tbody id="style_tbody">
+      <tr id="style" clazz="odd$">
+      	<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{siCode}">{siCode}</td>
+      	<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{siName}" >{siName}</td>
+      	<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{siUpdateTime}">{siUpdateTime}</td>
+      	<td width="10%" class="word" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title="{siOperator}">{siOperator}</td>
+      	<td>
+      	<a href="###"  class="ml10" onClick="import_a('{siName}','{siCode}')">导入</a>
+      	<a href="###" class="ml10" onClick="export_a('{id}')">导出</a>
+      	<a href="###" class="ml10" onclick="delete_a('{id}');">删除</a>
+      	<a href="###" class="ml10" onclick="showStyle('{siPic}')">查看</a></td>
+      </tr>
+      <!-- <tr>
+      <td>1</td>
+        <td>系统自带样式</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><a href="yswhDr.html" class="ml10">导入</a><a href="javascript:;" class="ml10">导出</a><a href="javascript:;" class="ml10" onclick="show('cover','delete')">删除</a><a href="javascript:;" class="ml10" onclick="show('cover','drysck')">查看</a></td>
+      </tr>
+      <tr>
+      <td>2</td>
+        <td>导入样式1</td>
+        <td>2014-10-10 15:10</td>
+        <td>系统管理员</td>
+        <td><a href="yswhDr.html" class="ml10">导入</a><a href="javascript:;" class="ml10">导出</a><a href="javascript:;" class="ml10" onclick="show('cover','delete')">删除</a><a href="javascript:;" class="ml10" onclick="show('cover','drysck')">查看</a></td>
+      </tr> -->
+      </tbody>
+    </table>
+        
+   		<div class="page middle">
+		<div class="fl" id="search_f"><label >找到</label><label id="totalNum">3</label><label>条记录, 显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label></div>
+		<div class="fr" id="search_r"><label id="first">首页</label>
+		<label id="before">上一页</label>
+		<label id="next">下一页</label>
+		<label id="end">末页</label>
+		<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label>
+		<input type="text" class="text_8" id="gotoStyle" onkeyup="value=value.replace(/[^\d]/g,'')" 
+				onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+		<a href="javascript:;" class="bt_blue" id="go"><span>GO</span></a></div>
+		<div class="clear"></div>
+		</div>
+	</div>
+	</form>
+</div>
+
+<!--弹出层 开始-->
+<div class="cover" id="cover"></div>
+<!--导入样式 开始-->
+<form id="importStyle"  name="importStyle" method="post" enctype="multipart/form-data"  target="success">
+<div class="pop" id="drys" style=" width:450px;">
+	<div class="popTitle"><span class="close fr" id="close" onclick="hide('cover','drys');"></span><strong class="font14 fl">导入样式</strong><div class="clear"></div></div>
+    <div class=" mt20 ml50" >
+    	<p class="mt10 middle"><span class="red">*</span><span>样式编码：</span><input id="siCode" name="siCode" readonly="readonly" maxlength="10" onkeyup="value=value.replace(/[^\a-\z\A-\Z]/g,'')" 
+    	onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-\z\A-\Z]/g,''))" class="input_normal w160" /><span class="red" style="font-size:11px">样式编码只能为10个以内字母</span></p>
+       	<p class="mt10 middle"><span class="red">*</span><span>样式名称：</span><input id="siName" name="siName" readonly="readonly" class="input_normal w160" /><span class="red" style="font-size:11px">名称不能为空</span></p> <p class="mt10 middle"><span class="red">*</span><span>文件路径：</span><input type="file" id="fileName" name="styleFile" class="text_3" />
+        <!--  <a href="javascript:;" class="bt_blue ml20" onclick=""><span>选择</span></a>--></p>
+		<p class="mt10 middle"><span class="red">*</span><span>上传图片：</span><input type="file" id="imageName" name="styleImage"class="text_3" />
+		<span class="red" style="font-size:11px">图片不能超过200KB</span>
+		<!--  <a href="javascript:;" class="bt_blue ml20" onclick=""><span>选择</span></a>--></p>
+	</div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue c" id="save" ><span>确定</span></a><a href="javascript:;" id="qx" class="mr10 bt_blue" onclick="hide('cover','drys');"><span>取消</span></a></div>
+</div>
+</form>
+<iframe  id="success" name="success" style="display:none;width:0px;height:0px;">
+</iframe>
+<!--导入样式 结束-->
+<!--查看导入样式 开始-->
+<div class="pop" id="drysck" style=" width:450px;">
+	<div class="popTitle"><span class="close fr" onclick="hide('cover','drysck')"></span><strong class="font14 fl">查看导入样式</strong><div class="clear"></div></div>
+    <div class=" mt20">
+    	<p class="mt10 text_c" ><img id="image" src="../../images/styleImg1.jpg" width="100" height="100" /></p>
+	</div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="bt_blue" onclick="hide('cover','drysck')"><span>关闭</span></a></div>
+</div>
+<!--查看导入样式 结束-->
+<!--确定要删除 开始-->
+<div class="pop" id="delete" style=" width:300px;">
+	<div class="popTitle"><span class="close fr" onclick="hide('cover','delete')"></span><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="delete_qd">确定要删除吗？</p>
+    </div>
+	<div class="text_c mt10 mb10">
+	<a href="javascript:;" id="qd" class="mr10 bt_blue" onclick="hide('cover','delete');show('cover','deleteCg')"><span>确定</span></a>
+	<a href="javascript:;" class="mr10 bt_blue" onclick="hide('cover','delete')"><span>取消</span></a></div>
+</div>
+<!--确定要删除 结束-->
+<!--删除成功 开始-->
+<div class="pop" id="deleteCg" style=" width:300px;">
+	<div class="popTitle"><a href="javascript:;" class="close fr" onclick="hide('cover','deleteCg')"></a><strong class="font14 fl">提示</strong><div class="clear"></div></div>
+	<div class="mt25 mb25">
+    	<p class="text_c" id="delete_cg">删除成功！</p>
+    </div>
+	<div class="text_c mt10 mb10"><a href="javascript:;" class="mr10 bt_blue cancel_href" onclick="hide('cover','deleteCg')" id="qd_"><span>确定</span></a></div>
+</div>
+<!--删除成功 结束-->
+
+</body>
+</html>

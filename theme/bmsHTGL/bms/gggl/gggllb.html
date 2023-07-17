@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../css/base1.css?v=331"/>
+<link rel="stylesheet" href="../../css/public1.css?v=331"/>
+<link rel="stylesheet" href="../../css/alert_shoucang.css?v=123">
+<script src="../../js/title.js?v=121" type="text/javascript"></script>
+<script src="../../My97DatePicker/WdatePicker.js?v=331"></script>
+<script src="../../js/jquery-1.7.2.min.js?v=331" type="text/javascript"></script>
+<script src="../../js/alert_shoucang.js?v=123" type="text/javascript"></script>
+<!-- <script src="../../js/public.js" type="text/javascript"></script> -->
+</head>
+<style>
+	*{
+    	font-family: "Microsoft YaHei";
+    }
+ /* header 头部 */
+.notice_header {
+    padding: 0 3.125%;
+    height: 70px;
+    width: 100%;
+    background: url("../../images/img1_bg.png") no-repeat left center;
+    background-size: 100% 100%;
+    min-width:1100px;
+}
+
+.notice_left {
+    width: 25%;
+    min-width: 485px;
+    line-height:70px;
+}
+
+/* loge */
+.notice_left>span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 28px;
+    color:white;
+}
+
+.notice_left>img {
+    vertical-align: middle;
+    width: 40px;
+}
+
+/* user_name */
+.notice_right {
+    margin-top: 16px;
+    /* margin-top: 2.3%; */
+    color: white;
+    font-size: 24px;
+    width: 52%;
+    min-width: 435px;
+    text-align: right;
+}
+
+/* 通知 */
+.icon {
+    display: inline-block;
+    /* margin-top: 29px; */
+    color: white;
+    font-size: 23px;
+    width: 64px;
+}
+.icon>span {
+	font-size: 17px;
+    opacity: 0.3;
+}
+
+.icon>img {
+    vertical-align: middle;
+    margin-right: 20px;
+    width:20px;
+}
+
+.user_wrap {
+    display: inline-block;
+    margin-left: 4%;
+}
+
+.user_wrap>div {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.triangle {
+    line-height: 100%;
+}
+
+.triangle .content {
+    margin-bottom: 40%;
+    width: 11px;
+    height: 11px;
+}
+.content img {
+	width:17px;
+}
+.content1 img {
+	width:17px;
+}
+.triangle .content1 {
+    margin-bottom: 0%;
+    width: 11px;
+    height: 11px;
+}
+
+.login_state {
+    position: absolute;
+    height: 176px;
+    width: 7.5%;
+    margin-top: 22px;
+    z-index: 3;
+    right: 1%;
+}
+
+.content2 {
+    position: absolute;
+    left: 44%;
+    top: -10.5%;
+    width: 0px;
+    height: 11x;
+    border: 11px solid;
+    border-color: transparent transparent #f7f7f7 transparent;
+}
+
+.content3 {
+    background: #f7f7f7;
+    color: #666;
+    text-align: center;
+    height: 45%;
+    width: 100px;
+    font-size: 16px;
+}
+
+.content3>div {
+    padding-top: 10%;
+}
+
+/* 公告 */
+.notice_middle_wrap {
+    padding: 0 3.5%;
+}
+
+.notice_title {
+    font-size: 32px;
+    text-align: center;
+    color: #0085d0;
+    font-weight: 550;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search_date {
+    font-size: 18px;
+}
+
+.search_date>div {
+    display: inline-block;
+}
+
+.search_date>div>input {
+    width: 137px;
+    height: 30px;
+    border: 1px solid #eee;
+
+}
+
+.date_content>input {
+    padding: 0 3%;
+    background: url("../../images/date_icon.png") no-repeat right;
+    background-position: 95% center;
+}
+
+.notice_content_wrap {
+    padding: 0 3.5%;
+    /* border: 1px solid red; */
+    width: 100%;
+    /* height: 700px; */
+    margin-top: 10px;
+}
+
+/*  */
+.notice_centent {
+    /* border: 1px solid red; */
+}
+
+.notice_centent table {
+    width: 100%;
+    font-size: 15px;
+}
+
+.notice_centent thead>tr {
+    height: 38px;
+    background: #f5f7fa;
+}
+
+.notice_centent tbody>tr {
+    height: 38px;
+}
+
+/* 线 */
+.border_div {
+    width: 100%;    
+    padding: 0 3.5%;
+    border-bottom: 2px solid #f4f4f4;
+    height: 2px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+.notice_centent tbody tr {
+	border-bottom:2px solid #f4f4f4;
+}
+.management_business_warp {
+	height: auto;
+}
+
+/* 分页 */
+.alert_shoucang_box {
+   	margin-top:70px;
+   }
+    .big_li ul li:first-child img {
+    width: 17px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+</style>
+
+<body>
+	<!-- 蒙层 -->
+	<div class="all_box_mengceng"></div>
+    <div class="notice_wrap">
+        <div class="notice_header fn-clear">
+            <div class="notice_left fn-left"> 
+                <img src="../../images/ydlogo.png" alt="中国移动logo" />
+                <span id="gggllb_span" style="cursor:pointer">浙江移动电渠运营管理系统</span>
+            </div>
+            <div class="notice_right fn-right">
+            	<div class=" icon"><img class="new_collect" style="cursor:pointer"  src="../../images/shoucang.png" alt=""><span>|</span></div>
+                <div class=" icon"><img onclick="notice_click(1)" style="cursor:pointer" src="../../images/news_icon.png" alt=""><span>|</span></div>
+                <div class=" icon"><img onclick="notice_click(2)" style="cursor:pointer" src="../../images/knowledge_icon.png" alt=""><span>|</span></div>  
+                <div class=" icon"><img class="index_span" style="cursor:pointer" src="../../images/return_index.png"  alt=""><span>|</span></div>
+                <div class="user_wrap">
+                    <div class="user_name" id="zjUserName"></div>
+                    <div class="triangle" style="cursor:pointer">
+                        <!-- <div class="content"></div>
+                        <div class="content1 fn-hide"></div> -->
+                        <div class="content"><img src="../../images/down_img.png"/></div>
+                        <div class="content1 fn-hide"><img src="../../images/up_img.png"/></div>
+                    </div>
+                </div>
+                <div class="login_state fn-hide">
+                    <div class="content2"></div>
+                    <div class="content3 ">
+                       <div id="div_grzx_gg" style="cursor:pointer"  onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">个人中心</div>
+                       <div id="div_tc_gg" style="cursor:pointer"  onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">退出</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+		<form id="search" method="get">
+        <div class="notice_middle_wrap fn-clear">
+<!-- 收藏编辑页 -->
+			<div class="alert_shoucang_box">
+                <ul class="alert_title_box">
+                </ul>
+                <div class="content_box_alert">
+                    <ul class="yiji">
+                    </ul>
+                </div>
+                <div class="j-shouqi_img shouqi_img">
+					<img src="../../images/shouqi_btn.png" alt="">
+				</div>
+            </div>
+            <div class="notice_title ">
+                <p>公&nbsp;&nbsp;告</p>
+            </div>
+            <div class="search_date fn-right">
+                <div><input  id="title" name="title" placeholder="请输入关键字"/></div>
+                <div class="date_content">
+                        <input type="text"  readonly="readonly"  id="txtBeginDay" name="beginday" onclick="WdatePicker({dateFmt:'yyyy-MM-dd ' });"/>
+                    至  <input type="text"  id="txtEndDay"   readonly="readonly" name="endday" onclick="WdatePicker({dateFmt:'yyyy-MM-dd' });" />
+                    <a href="javascript:;" id="btnsearch"><span>查询</span></a>   
+                    <a href="javascript:;" id="reset"><span >重置</span></a>
+                </div>
+            </div>
+            <div class="fn-hide hidden_value">
+                <input class="date_begin " type="text" />
+                <input class="date_ending" type="text" />
+            </div>
+        </div>
+        <div class="notice_content_wrap">
+            <div class="border_div"></div>
+            <div class="notice_centent">
+   <table>
+     <thead>
+        <tr>
+          <td >公告标题</td>
+          <td width="9.6%" style="text-align:center">发布人</td>
+          <td width="20.2%" style="text-align:center">发布时间</td>
+        </tr>
+      </thead>
+      <tbody id="noticelb_tbody">
+    	<tr id="noticelb" >
+        <td  title="{title}" onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">{title}</td>
+        <td  title="{createUser}" style="text-align:center" onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">{createUser}</td>
+        <td  title="{useTime}" style="text-align:center" onmouseover="this.style.color='#3a85f4';" onmouseout="this.style.color='black';">{useTime}</td>
+      	</tr> 
+       </tbody>
+    </table>
+  <div class="page">
+		<div class="fl" id="search_f"><label>找到</label><label id="totalNum">3</label><label>条记录, 显示</label><label id="beginNum">1</label><label>到</label><label id="endNum">3</label></div>
+		<div class="fr" id="search_r"><label id="first" style="cursor:default;">首页</label>&nbsp;
+			<label id="before" style="cursor:default;">上一页</label>&nbsp;
+			<label id="next" style="cursor:default;">下一页</label>&nbsp;
+			<label id="end" style="cursor:default;">末页</label>&nbsp;
+			<label style="cursor:default;">总共</label><label id="sumPage" style="cursor:default;">3</label><label style="cursor:default;">页</label><input type="text" class="text_8" id="goPage" onkeyup="value=value.replace(/[^\d]/g,'')" 
+				onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><a href="javascript:;" class="bt_blue cancel_href" id="go"><span style="cursor:default;">GO</span></a></div>
+		<div class="clear"></div>
+	</div>  
+	</form>
+	<!-- 收藏中间页 -->
+    <div class="j-click_none all_per_mid" onclick="clickDiv()">
+        <div class="per_col_mid" onclick="clickP(event)">
+                <div class="hed_title">
+                    <span>个人收藏</span>
+                    <img class="j-setup" src="../../images/set_up.png" alt="">
+                </div>
+                <ul id='collected_list'>
+                </ul>
+            </div>
+      </div>
+           </div>
+<!--         </div>    -->
+<!--     </div> -->
+	
+</body>
+<script src="../../js1/common.js"></script>
+<script src="../../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+</html>

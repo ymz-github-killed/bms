@@ -1,0 +1,1 @@
+ document.write("<title>炎黄新星后台管理系统1.7.6</title>"); 
